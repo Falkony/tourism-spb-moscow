@@ -3,7 +3,7 @@ import MainPage from '@/components/Index/MainPage.vue';
 </script>
 
 <template>
-    <div>
+    <div style="min-height: 100vh">
         <MainPage />
     </div>
 </template>
