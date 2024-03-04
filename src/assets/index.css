@@ -3,3 +3,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --app-min-width: 320px;
+    --bg-color: #fff;
+    --white-color: rgba(255,255,255, 0.6);
+    --black-color: #000;
+    --grey-color: #9c9999;
+    --primary-color: #a30049;
+    --secondary-color: #69b200;
+    --active-color: #a8d961;
+    --error-color: #b40d20;
+}

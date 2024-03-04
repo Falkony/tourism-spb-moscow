@@ -1,11 +1,21 @@
-module.exports = {
-    purge: ['@/public/index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-    darkMode: false, // or 'media' or 'class'
+const dirs = ['components', 'assets'];
+
+const tailwindConfig = {
+    content: dirs.map((dir) => `./${dir}/**/*.{vue,ts,css,scss}`),
+    important: '.tailwind-root',
     theme: {
+        screens: {
+            s: '320px',
+            m: '768px',
+            l: '1024px',
+            xl: '1280px',
+        },
         extend: {},
     },
-    variants: {
-        extend: {},
+    corePlugins: {
+        preflight: false,
     },
     plugins: [],
 };
+
+module.exports = tailwindConfig;

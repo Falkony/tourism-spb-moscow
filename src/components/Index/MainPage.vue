@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import LocalseSwitcher from '../common/LocaleSwitcher.vue';
+import LocaleSwitcher from '../common/LocaleSwitcher.vue';
 </script>
 
 <template>
-    <LocalseSwitcher />
+    <LocaleSwitcher />
 </template>
