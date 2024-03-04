@@ -6,8 +6,9 @@
 
 :root {
     --app-min-width: 320px;
+
     --bg-color: #fff;
-    --white-color: rgba(255,255,255, 0.6);
+    --white-color: rgba(255, 255, 255, 0.6);
     --black-color: #000;
     --grey-color: #9c9999;
     --primary-color: #a30049;

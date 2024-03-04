@@ -7,11 +7,12 @@ const changeLanguage = (lang: string) => (locale.value = lang);
 </script>
 
 <template>
-    <div>
+    <div class="flex flex-row gap-x-2">
         <button @click="changeLanguage('en')">English</button>
         <button @click="changeLanguage('ru')">Русский</button>
-        <p>{{ t('welcomeMsg') }}</p>
     </div>
+
+    <p>{{ t('welcomeMsg') }}</p>
 </template>
 
 <style scoped></style>

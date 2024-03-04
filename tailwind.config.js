@@ -1,8 +1,5 @@
-const dirs = ['components', 'assets'];
-
 const tailwindConfig = {
-    content: dirs.map((dir) => `./${dir}/**/*.{vue,ts,css,scss}`),
-    important: '.tailwind-root',
+    content: ['./src/**/*.{vue,js,ts,css, scss}'],
     theme: {
         screens: {
             s: '320px',
@@ -11,9 +8,6 @@ const tailwindConfig = {
             xl: '1280px',
         },
         extend: {},
-    },
-    corePlugins: {
-        preflight: false,
     },
     plugins: [],
 };
