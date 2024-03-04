@@ -1,11 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LocalseSwitcher from '../common/LocaleSwitcher.vue';
+</script>
 
 <template>
-    <div class="index">Index</div>
+    <LocalseSwitcher />
 </template>
-
-<style scoped>
-.index {
-    @apply flex flex-col items-center justify-center h-screen bg-black text-center text-orange-500;
-}
-</style>
