@@ -17,4 +17,26 @@
     --error-color: #b40d20;
 }
 
-/* ToDo: Стили для типографики */
+@font-face {
+    font-family: 'Ysabeau Office';
+    src: url('../assets/fonts/YsabeauOffice-Regular.woff2') format('woff2'),
+        url('../assets/fonts/YsabeauOffice-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ysabeau Office';
+    src: url('../assets/fonts/YsabeauOffice-SemiBold.woff2') format('woff2'),
+        url('../assets/fonts/YsabeauOffice-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ysabeau Office';
+    src: url('../assets/fonts/YsabeauOffice-Light.woff2') format('woff2'),
+        url('../assets/fonts/YsabeauOffice-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
