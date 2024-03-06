@@ -17,6 +17,11 @@
     --error-color: #b40d20;
 }
 
+html,
+body {
+    min-width: var(--app-min-width);
+}
+
 @font-face {
     font-family: 'Ysabeau Office';
     src: url('../assets/fonts/YsabeauOffice-Regular.woff2') format('woff2'),
