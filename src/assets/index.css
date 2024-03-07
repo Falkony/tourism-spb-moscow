@@ -20,6 +20,7 @@
 html,
 body {
     min-width: var(--app-min-width);
+    font-family: 'Ysabeau Office', sans-serif;
 }
 
 @font-face {
