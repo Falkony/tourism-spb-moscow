@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import BaseTypography from '../common/BaseTypography.vue';
+</script>
 
 <template>
     <section class="header-section">
@@ -11,7 +13,13 @@
         </div>
 
         <div class="title_wrapper">
-            <div class="text-white text-[40px]">Туроператор</div>
+            <div class="text-white text-[40px]">
+                <BaseTypography
+                    text="Туроператор"
+                    type="caption2"
+                    color="#fff"
+                />
+            </div>
             <div>
                 <div>
                     <span class="text-[var(--primary-color)] text-8xl font-bold">Р</span>
