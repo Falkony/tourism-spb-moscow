@@ -72,6 +72,14 @@
 
     --base-typography-caption2-font-size: 14px;
     --base-typography-caption2-line-height: 116%;
+
+    /* Кнопки */
+
+    --base-btn-border-default-color: transparent;
+
+    --base-btn-height: 70px;
+    --base-btn-radius: 100px;
+    --base-btn-padding: 64px;
 }
 
 html,

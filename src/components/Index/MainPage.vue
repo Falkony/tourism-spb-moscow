@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseTypography from '../common/BaseTypography.vue';
+import BaseButton from '../common/BaseButton.vue';
 </script>
 
 <template>
@@ -39,9 +40,10 @@ import BaseTypography from '../common/BaseTypography.vue';
         </div>
 
         <div class="absolute bottom-[287px] pl-28 pr-32 cursor-pointer">
-            <div class="h-20 px-16 bg-[var(--white-color)] rounded-full flex flex-col item-center justify-center">
-                <div class="text-white text-xl font-semibold font-['Ysabeau Office'] uppercase">оставить заявку</div>
-            </div>
+            <BaseButton
+                text="Оставить заявку"
+                type="subtitle4"
+            />
         </div>
     </section>
 </template>
