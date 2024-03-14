@@ -4,6 +4,9 @@ import About from '@/views/About.vue';
 import Tours from '@/views/Tours.vue';
 import Excursions from '@/views/Excursions.vue';
 import Contacts from '@/views/Contacts.vue';
+import How from '@/views/How.vue';
+import Policy from '@/views/Policy.vue';
+import Agents from '@/views/Agents.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -30,6 +33,21 @@ const routes: Array<RouteRecordRaw> = [
         path: '/contacts',
         name: 'contacts',
         component: Contacts,
+    },
+    {
+        path: '/how',
+        name: 'how',
+        component: How,
+    },
+    {
+        path: '/policy',
+        name: 'policy',
+        component: Policy,
+    },
+    {
+        path: '/agents',
+        name: 'agents',
+        component: Agents,
     },
 ];
 

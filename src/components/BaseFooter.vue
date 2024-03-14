@@ -3,6 +3,7 @@ import { computed } from 'vue';
 import BaseTypography from './common/BaseTypography.vue';
 import LocaleSwitcher from './common/LocaleSwitcher.vue';
 import { useI18n } from 'vue-i18n';
+import BaseButton from './common/BaseButton.vue';
 
 const { t } = useI18n();
 
@@ -14,23 +15,23 @@ const links = computed(() => [
         text: t('footer.links.about'),
     },
     {
-        url: '/about',
+        url: '/tours',
         text: t('footer.links.tours'),
     },
     {
-        url: '/about',
+        url: '/excursions',
         text: t('footer.links.excursions'),
     },
     {
-        url: '/about',
+        url: '/how',
         text: t('footer.links.how'),
     },
     {
-        url: '/about',
+        url: '/policy',
         text: t('footer.links.policy'),
     },
     {
-        url: '/about',
+        url: '/agents',
         text: t('footer.links.agents'),
     },
 ]);
@@ -39,12 +40,12 @@ const links = computed(() => [
 <template>
     <footer>
         <div class="contacts mb-[60px] px-[216px] justify-center">
-            <div class="py-[20px] px-[66px] border-[3px] border-[--primary-color] rounded-[100px]">
-                <BaseTypography
-                    :text="t('footer.contacts')"
-                    type="body2"
-                />
-            </div>
+            <BaseButton
+                :text="t('footer.contacts')"
+                type="body2"
+                color="var(--primary-color)"
+                ui="primary"
+            />
 
             <div class="flex flex-row items-center gap-x-3">
                 <a

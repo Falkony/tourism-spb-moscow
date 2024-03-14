@@ -55,6 +55,7 @@ const sizeClass = computed(() => `base-typography-${props.type}`);
     font-size: var(--base-typography-headline2-font-size);
     line-height: var(--base-typography-headline2-line-height);
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .base-typography-title {

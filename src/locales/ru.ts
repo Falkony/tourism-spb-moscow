@@ -17,4 +17,7 @@ export default {
             agents: 'Агентам',
         },
     },
+    'main-page': {
+        subtitle: 'Туроператор',
+    },
 };
