@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BaseTypography from '../common/BaseTypography.vue';
-import BaseButton from '../common/BaseButton.vue';
+// import BaseTypography from '../common/BaseTypography.vue';
+// import BaseButton from '../common/BaseButton.vue';
 </script>
 
 <template>
@@ -11,10 +11,11 @@ import BaseButton from '../common/BaseButton.vue';
 
 <style scoped>
 .header-section {
-    background-image: url('../../assets/images/bg-header.png');
-    background-repeat: no-repeat;
+    background-color: #ccc;
+    /* background-image: url('../../assets/images/bg-header.png'); */
+    /* background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; */
     width: 100%;
     height: 100vh;
 }
