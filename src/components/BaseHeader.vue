@@ -24,9 +24,6 @@ import NavMenu from './common/NavMenu.vue';
     @apply flex flex-row items-center gap-x-10 absolute top-0 left-0 w-full;
 }
 
-.logo {
-    width: ;
-}
 /* .header-navigation {
     background-color: var(--white-color);
     z-index: 20;

@@ -1,8 +1,18 @@
 <script setup lang="ts">
+import { defineProps, withDefaults } from 'vue';
 import { useI18n } from 'vue-i18n';
 import BaseTypography from './BaseTypography.vue';
 
-const { t, locale } = useI18n();
+withDefaults(
+    defineProps<{
+        color: string;
+    }>(),
+    {
+        color: 'var(--base-white)',
+    }
+);
+
+const { locale } = useI18n();
 
 const changeLanguage = (lang: string) => (locale.value = lang);
 </script>
@@ -13,7 +23,7 @@ const changeLanguage = (lang: string) => (locale.value = lang);
             <BaseTypography
                 text="РУ"
                 type="footnote"
-                color="var(--base-white)"
+                :color="color"
             />
         </button>
 
@@ -21,7 +31,7 @@ const changeLanguage = (lang: string) => (locale.value = lang);
             <BaseTypography
                 text="EN"
                 type="footnote"
-                color="var(--base-white)"
+                :color="color"
             />
         </button>
     </div>
