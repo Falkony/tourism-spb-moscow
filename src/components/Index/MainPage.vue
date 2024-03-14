@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseTypography from '../common/BaseTypography.vue';
+import BaseButton from '../common/BaseButton.vue';
 </script>
 
 <template>

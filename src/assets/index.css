@@ -8,6 +8,8 @@
     --app-min-width: 320px;
     --header-height: 149px;
 
+    /* Палитра */
+
     --bg-color: #fff;
     --white-color: rgba(255, 255, 255, 0.6);
     --black-color: #000;
@@ -16,6 +18,75 @@
     --secondary-color: #69b200;
     --active-color: #a8d961;
     --error-color: #b40d20;
+
+    /* Типографика */
+    --base-typography-headline-font-size: 96px;
+    --base-typography-headline-line-height: 116%;
+
+    --base-typography-headline2-font-size: 64px;
+    --base-typography-headline2-line-height: 116%;
+
+    --base-typography-title-font-size: 40px;
+    --base-typography-title-line-height: 116%;
+
+    --base-typography-title2-font-size: 32px;
+    --base-typography-title2-line-height: auto;
+
+    --base-typography-subtitle-font-size: 32px;
+    --base-typography-subtitle-line-height: auto;
+
+    --base-typography-subtitle2-font-size: 32px;
+    --base-typography-subtitle2-line-height: 116%;
+
+    --base-typography-subtitle3-font-size: 24px;
+    --base-typography-subtitle3-line-height: 210%;
+
+    --base-typography-subtitle4-font-size: 22px;
+    --base-typography-subtitle4-line-height: auto;
+
+    --base-typography-body-font-size: 22px;
+    --base-typography-body-line-height: 116%;
+
+    --base-typography-body2-font-size: 22px;
+    --base-typography-body2-line-height: 116%;
+
+    --base-typography-body3-font-size: 22px;
+    --base-typography-body3-line-height: 116%;
+
+    --base-typography-footnote-font-size: 22px;
+    --base-typography-footnote-line-height: 116%;
+
+    --base-typography-special-body-font-size: 20px;
+    --base-typography-special-body-line-height: 116%;
+
+    --base-typography-special-body2-font-size: 20px;
+    --base-typography-special-body2-line-height: 116%;
+
+    --base-typography-special-body3-font-size: 20px;
+    --base-typography-special-body3-line-height: 116%;
+
+    --base-typography-special-body4-font-size: 20px;
+    --base-typography-special-body4-line-height: 130%;
+
+    --base-typography-caption-font-size: 14px;
+    --base-typography-caption-body4-line-height: 116%;
+
+    --base-typography-caption2-font-size: 14px;
+    --base-typography-caption2-line-height: 116%;
+
+    /* Кнопки */
+
+    --base-btn-border-default-color: transparent;
+
+    --base-btn-height: 70px;
+    --base-btn-radius: 100px;
+    --base-btn-padding: 64px;
+}
+
+html,
+body {
+    min-width: var(--app-min-width);
+    font-family: 'Ysabeau Office', sans-serif;
 }
 
 @font-face {

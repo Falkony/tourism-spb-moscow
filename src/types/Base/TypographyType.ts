@@ -1,2 +1,19 @@
-// ToDo: привести к виду макета
-export type TypographyType = 'heading-xl' | 'heading-l' | 'heading-m' | 'heading-xs' | 'heading-s';
+export type TypographyType =
+    | 'headline'
+    | 'headline2'
+    | 'title'
+    | 'title2'
+    | 'subtitle'
+    | 'subtitle2'
+    | 'subtitle3'
+    | 'subtitle4'
+    | 'body'
+    | 'body2'
+    | 'body3'
+    | 'footnote'
+    | 'special-body'
+    | 'special-body2'
+    | 'special-body3'
+    | 'special-body4'
+    | 'caption'
+    | 'caption2';
