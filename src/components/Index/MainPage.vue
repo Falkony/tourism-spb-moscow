@@ -4,13 +4,12 @@ import BaseTypography from '../common/BaseTypography.vue';
 
 <template>
     <section class="header-section flex-1">
-        <div class="h-10 w-10 rounded-full bg-orange-100 z-20">
-            <div class="contacts">
-                <BaseTypography
-                    text="test"
-                    color="#fff"
-                />
-            </div>
+        <div class="contacts flex">
+            <BaseTypography
+                text="test"
+                color="#fff"
+            />
+            <p class="text-5xl text-white">12313123</p>
         </div>
     </section>
 </template>
@@ -20,11 +19,12 @@ import BaseTypography from '../common/BaseTypography.vue';
     background-image: url('../../assets/images/bg-header.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
 }
 
 .contacts {
-    position: absolute;
-    top: 170px;
-    right: 214px;
+    margin-top: calc(100vh - var(--header-height));
 }
 </style>
