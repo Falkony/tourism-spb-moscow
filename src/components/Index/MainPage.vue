@@ -5,13 +5,7 @@ import BaseButton from '../common/BaseButton.vue';
 
 <template>
     <section class="header-section flex-1">
-        <div class="contacts flex">
-            <BaseTypography
-                text="test"
-                color="#fff"
-            />
-            <p class="text-5xl text-white">12313123</p>
-        </div>
+        <div class="contacts flex"></div>
     </section>
 </template>
 
