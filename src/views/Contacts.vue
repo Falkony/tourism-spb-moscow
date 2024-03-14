@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MainPage from '@/components/Index/MainPage.vue';
+import Contacts from '@/components/Contacts/Contacts.vue';
 </script>
 
 <template>
-    <MainPage />
+    <Contacts />
 </template>
