@@ -1,4 +1,9 @@
 export default {
     locale: 'ru',
-    welcomeMsg: 'ru тест i18n',
+    header: {
+        about: 'О компании',
+        tours: 'Туры',
+        excursions: 'Экскурсии',
+        contacts: 'Контакты',
+    },
 };

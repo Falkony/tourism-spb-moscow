@@ -1,4 +1,9 @@
 export default {
     locale: 'en',
-    welcomeMsg: 'en test i18n',
+    header: {
+        about: 'About',
+        tours: 'Tours',
+        excursions: 'Excursions',
+        contacts: 'Contacts',
+    },
 };

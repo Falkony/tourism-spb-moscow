@@ -4,24 +4,30 @@ import NavMenu from './common/NavMenu.vue';
 </script>
 
 <template>
-    <header class="header-navigation container-fluid">
-        <router-link
-            to="/"
-            class="pl-[40px]"
-        >
+    <header class="header-navigation container-fluid py-[33px]">
+        <router-link to="/">
             <img
-                class="max-w-[190px]"
+                class="logo"
                 src="@/assets/images/logo.png"
-                alt="Logo"
             />
         </router-link>
-        <NavMenu class="flex-4" />
-        <LocaleSwitcher class="ml-auto pr-[40px]" />
+
+        <NavMenu />
+        <LocaleSwitcher class="ml-auto" />
     </header>
 </template>
 
 <style scoped>
 .header-navigation {
+    /* temp */
+    background-color: black;
+    @apply flex flex-row items-center gap-x-10 absolute top-0 left-0 w-full;
+}
+
+.logo {
+    width: ;
+}
+/* .header-navigation {
     background-color: var(--white-color);
     z-index: 20;
     display: flex;
@@ -32,5 +38,5 @@ import NavMenu from './common/NavMenu.vue';
 
 .header-navigation img {
     padding-bottom: calc(var(--header-height) - 124px);
-}
+} */
 </style>

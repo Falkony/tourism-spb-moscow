@@ -1,47 +1,67 @@
+<script setup lang="ts">
+import BaseTypography from './BaseTypography.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+</script>
+
 <template>
-    <nav class="horizontal-menu">
-        <ul>
-            <li><router-link to="/about">О компании</router-link></li>
-            <li><router-link to="/tours">Туры</router-link></li>
-            <li><router-link to="/excursions">Экскурсии</router-link></li>
-            <li><router-link to="/contacts">Контакты</router-link></li>
+    <nav>
+        <ul class="flex flex-row items-center gap-x-10">
+            <li>
+                <router-link to="/about">
+                    <BaseTypography
+                        :text="t('header.about')"
+                        type="footnote"
+                        color="var(--base-white)"
+                    />
+                </router-link>
+            </li>
+
+            <li>
+                <router-link to="/tours">
+                    <BaseTypography
+                        :text="t('header.tours')"
+                        type="footnote"
+                        color="var(--base-white)"
+                    />
+                </router-link>
+            </li>
+
+            <li>
+                <router-link to="/excursions">
+                    <BaseTypography
+                        :text="t('header.excursions')"
+                        type="footnote"
+                        color="var(--base-white)"
+                    />
+                </router-link>
+            </li>
+
+            <li>
+                <router-link to="/contacts">
+                    <BaseTypography
+                        :text="t('header.contacts')"
+                        type="footnote"
+                        color="var(--base-white)"
+                    />
+                </router-link>
+            </li>
         </ul>
     </nav>
 </template>
 
-<script setup lang="ts">
-import { useRouter } from 'vue-router';
-</script>
-
 <style scoped>
-.horizontal-menu {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-}
-
-.horizontal-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-.horizontal-menu li {
-    margin: 0 10px;
-}
-
-.horizontal-menu a {
+a {
     text-decoration: none;
     color: var(--bg-color);
 }
 
-.horizontal-menu a:hover {
+a:hover {
     color: var(--active-color);
 }
 
-.horizontal-menu a:active {
+a:active {
     color: var(--active-color);
 }
 </style>
