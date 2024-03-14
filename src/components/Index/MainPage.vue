@@ -101,10 +101,134 @@ const { t } = useI18n();
             />
         </div>
     </section>
+
+    <section class="flex flex-col items-center justify-center">
+        <div class="h-[860px] w-[1126px] mx-auto second-section relative my-[168px]">
+            <div class="overlay"></div>
+            <div class="horseman"></div>
+
+            <BaseButton
+                text="О компании"
+                type="subtitle"
+                color="var(--black-color)"
+                ui="primary"
+                class="mb-[108px]"
+            />
+
+            <div>
+                <div>
+                    <BaseTypography
+                        text="РВМ - "
+                        type="subtitle"
+                        tag="span"
+                    />
+
+                    <BaseTypography
+                        text="туроператор"
+                        type="subtitle2"
+                        tag="span"
+                    />
+                </div>
+
+                <BaseTypography
+                    text="по международному въездному и"
+                    type="subtitle2"
+                />
+
+                <BaseTypography
+                    text="внутреннему туризму"
+                    type="subtitle2"
+                />
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-y-16 mb-[168px]">
+            <div class="flex flex-row gap-x-16">
+                <div class="flex flex-col gap-y-10">
+                    <div class="flex flex-row items-center gap-x-12">
+                        <img
+                            src="@/assets/svg/account_balance.svg"
+                            class="h-[80px] w-[80px]"
+                        />
+
+                        <div class="flex flex-row gap-x-4">
+                            <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                            <BaseTypography
+                                text="Наш номер в Едином Федеральном Реестре Туроператоров – РТО 018270"
+                                type="body"
+                                class="max-w-[530px]"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row items-center gap-x-12">
+                        <img
+                            src="@/assets/svg/union.svg"
+                            class="h-[80px] w-[80px]"
+                        />
+
+                        <div class="flex flex-row gap-x-4">
+                            <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                            <BaseTypography
+                                text="Являемся членами Лиги туроператоров Санкт-Петербурга"
+                                type="body"
+                                class="max-w-[530px]"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row items-center gap-x-12">
+                        <img
+                            src="@/assets/svg/safety.svg"
+                            class="h-[80px] w-[80px]"
+                        />
+
+                        <div class="flex flex-row gap-x-4">
+                            <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                            <BaseTypography
+                                text="Имеем прямые договоры с музеями, транспортными компаниями и отелями самых разных категорий. Наши гиды профессиональны и надёжны"
+                                type="body"
+                                class="max-w-[530px]"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row items-center gap-x-12">
+                        <img
+                            src="@/assets/svg/credibility.svg"
+                            class="h-[80px] w-[80px]"
+                        />
+
+                        <div class="flex flex-row gap-x-4">
+                            <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                            <BaseTypography
+                                text="Соответствуем всем требованиям для участия в тендерах государственных и бюджетных организаций"
+                                type="body"
+                                class="max-w-[530px]"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-y-10">
+                    <img src="@/assets/images/tourism.png" />
+                    <img src="@/assets/images/league_second.png" />
+                </div>
+            </div>
+
+            <img
+                src="@/assets/svg/arrow.svg"
+                class="w-[400px] ml-auto mt-[-22px]"
+            />
+        </div>
+    </section>
 </template>
 
 <style scoped>
 .header-section {
+    background-image: url('@/assets/images/bg-header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #ccc;
     width: 100%;
     height: 100vh;
@@ -112,5 +236,27 @@ const { t } = useI18n();
 
 .contacts {
     margin-top: 170px;
+}
+
+.horseman {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-image: url('@/assets/images/bronze_horseman.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    z-index: 30;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 50%, var(--primary-color) 50%);
+    z-index: 20;
 }
 </style>
