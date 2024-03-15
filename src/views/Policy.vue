@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import MainPage from '@/components/Index/MainPage.vue';
+import PolicyConfidential from '@/components/Policy/PolicyConfidential.vue';
 </script>
 
 <template>
-    <MainPage />
+    <div class="mt-[149px]">
+        <PolicyConfidential />
+    </div>
 </template>
