@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import BaseTypography from './BaseTypography.vue';
+import BaseTypography from '@/components/common/BaseTypography.vue';
 import { useI18n } from 'vue-i18n';
+import { toRefs } from 'vue';
+import { useGlobalStore } from '@/stores/global';
 
 const { t } = useI18n();
+
+const globalStore = useGlobalStore();
+const { isMainPage } = toRefs(globalStore);
 </script>
 
 <template>
@@ -13,7 +18,7 @@ const { t } = useI18n();
                     <BaseTypography
                         :text="t('header.about')"
                         type="footnote"
-                        color="var(--base-white)"
+                        :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
                     />
                 </router-link>
             </li>
@@ -23,7 +28,7 @@ const { t } = useI18n();
                     <BaseTypography
                         :text="t('header.tours')"
                         type="footnote"
-                        color="var(--base-white)"
+                        :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
                     />
                 </router-link>
             </li>
@@ -33,7 +38,7 @@ const { t } = useI18n();
                     <BaseTypography
                         :text="t('header.excursions')"
                         type="footnote"
-                        color="var(--base-white)"
+                        :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
                     />
                 </router-link>
             </li>
@@ -43,7 +48,7 @@ const { t } = useI18n();
                     <BaseTypography
                         :text="t('header.contacts')"
                         type="footnote"
-                        color="var(--base-white)"
+                        :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
                     />
                 </router-link>
             </li>
