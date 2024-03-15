@@ -3,6 +3,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
 import { useI18n } from 'vue-i18n';
 import BaseButton from '../common/BaseButton.vue';
+import Slider from '../common/Slider.vue';
 
 const { t } = useI18n();
 </script>
@@ -151,7 +152,7 @@ const { t } = useI18n();
                             class="h-[80px] w-[80px]"
                         />
 
-                        <div class="flex flex-row gap-x-4">
+                        <div class="flex flex-row gap-x-4 items-center">
                             <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
                                 text="Наш номер в Едином Федеральном Реестре Туроператоров – РТО 018270"
@@ -167,7 +168,7 @@ const { t } = useI18n();
                             class="h-[80px] w-[80px]"
                         />
 
-                        <div class="flex flex-row gap-x-4">
+                        <div class="flex flex-row gap-x-4 items-center">
                             <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
                                 text="Являемся членами Лиги туроператоров Санкт-Петербурга"
@@ -183,7 +184,7 @@ const { t } = useI18n();
                             class="h-[80px] w-[80px]"
                         />
 
-                        <div class="flex flex-row gap-x-4">
+                        <div class="flex flex-row gap-x-4 items-center">
                             <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
                                 text="Имеем прямые договоры с музеями, транспортными компаниями и отелями самых разных категорий. Наши гиды профессиональны и надёжны"
@@ -199,7 +200,7 @@ const { t } = useI18n();
                             class="h-[80px] w-[80px]"
                         />
 
-                        <div class="flex flex-row gap-x-4">
+                        <div class="flex flex-row gap-x-4 items-center">
                             <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
                                 text="Соответствуем всем требованиям для участия в тендерах государственных и бюджетных организаций"
@@ -236,6 +237,181 @@ const { t } = useI18n();
             src="@/assets/images/veles.png"
             class="w-[250px]"
         />
+    </section>
+
+    <section class="mb-[168px]">
+        <div class="flex flex-col items-center justify-center w-full">
+            <div class="p-[10px]">
+                <BaseTypography
+                    text="Организуем"
+                    type="title"
+                />
+            </div>
+
+            <img src="@/assets/svg/line-small.svg" />
+
+            <div class="p-[10px]">
+                <BaseTypography
+                    text="туры и экскурсии"
+                    type="title"
+                />
+            </div>
+
+            <img src="@/assets/svg/line-middle.svg" />
+
+            <div class="p-[10px]">
+                <BaseTypography
+                    text="по Санкт-Петербургу и России"
+                    type="title"
+                />
+            </div>
+
+            <img src="@/assets/svg/line-big.svg" />
+        </div>
+    </section>
+
+    <section class="flex flex-col items-center justify-center">
+        <div class="h-[860px] w-[1126px] mx-auto second-section relative mb-[168px]">
+            <BaseButton
+                text="Туры"
+                type="subtitle"
+                color="var(--black-color)"
+                ui="primary"
+                class="mb-[104px]"
+            />
+
+            <div class="px-[100px]">
+                <div class="flex flex-row gap-x-16 mb-7">
+                    <div class="flex flex-col gap-y-[25px] items-center">
+                        <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
+                            <img src="@/assets/images/msk.png" />
+                        </div>
+
+                        <BaseTypography
+                            text="Москва"
+                            type="subtitle2"
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-y-[25px] items-center">
+                        <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
+                            <img src="@/assets/images/spb.png" />
+                        </div>
+
+                        <BaseTypography
+                            text="Санкт-Петербург"
+                            type="subtitle2"
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-y-[25px] items-center">
+                        <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
+                            <img src="@/assets/images/russia.png" />
+                        </div>
+
+                        <BaseTypography
+                            text="Россия"
+                            type="subtitle2"
+                        />
+                    </div>
+                </div>
+
+                <img
+                    src="@/assets/svg/line-big.svg"
+                    class="flex mb-7 mx-auto w-[899px]"
+                />
+
+                <div class="flex flex-row gap-x-16 mb-16">
+                    <div class="flex flex-col gap-y-[25px] items-center">
+                        <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
+                            <img src="@/assets/images/school.png" />
+                        </div>
+
+                        <BaseTypography
+                            text="Туры для школьников"
+                            type="subtitle2"
+                            class="text-center"
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-y-[25px] items-center">
+                        <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
+                            <img src="@/assets/images/medicine.png" />
+                        </div>
+
+                        <BaseTypography
+                            text="Оздоровительный отдых"
+                            type="subtitle2"
+                            class="text-center"
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-y-[25px] items-center">
+                        <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
+                            <img src="@/assets/images/active.png" />
+                        </div>
+
+                        <BaseTypography
+                            text="Активный отдых"
+                            type="subtitle2"
+                            class="text-center"
+                        />
+                    </div>
+                </div>
+
+                <img
+                    src="@/assets/svg/arrow.svg"
+                    class="w-[400px] ml-auto mt-[-22px]"
+                />
+            </div>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-3 gap-8 mb-[168px]">
+        <img
+            src="@/assets/images/admiral.png"
+            class="w-full object-cover"
+        />
+        <img
+            src="@/assets/images/smolniy.png"
+            class="w-full object-cover"
+        />
+        <img
+            src="@/assets/images/cremlin.png"
+            class="w-full object-cover"
+        />
+
+        <img
+            src="@/assets/images/pushka.png"
+            class="w-full object-cover"
+        />
+        <img
+            src="@/assets/images/murmansk.png"
+            class="w-full object-cover"
+        />
+        <img
+            src="@/assets/images/ledocol.png"
+            class="w-full object-cover"
+        />
+    </section>
+
+    <section class="mb-[168px]">
+        <div class="h-[713px] w-[1126px] mx-auto relative mb-[168px]">
+            <BaseButton
+                text="Экскурсии"
+                type="subtitle"
+                color="var(--black-color)"
+                ui="primary"
+                class="mb-[104px]"
+            />
+
+            <Slider class="mb-16" />
+
+            <img
+                src="@/assets/svg/arrow.svg"
+                class="w-[400px] ml-auto mt-[-22px]"
+            />
+        </div>
     </section>
 </template>
 
