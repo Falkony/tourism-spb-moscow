@@ -6,6 +6,29 @@ import BaseButton from '../common/BaseButton.vue';
 import Slider from '../common/Slider.vue';
 
 const { t } = useI18n();
+
+const slides = [
+    {
+        title: 'О чем молчат дворы Васильевского острова',
+        text: 'Пешеходная экскурсия',
+        price: '750',
+    },
+    {
+        title: 'Путешествие в эпоху Просвещения',
+        text: 'Экскурсия в Российскую Национальную Библиотеку',
+        price: '900',
+    },
+    {
+        title: 'Путешествие в эпоху Просвещения',
+        text: 'Экскурсия в Российскую Национальную Библиотеку',
+        price: '900',
+    },
+    {
+        title: 'Путешествие в эпоху Просвещения',
+        text: 'Экскурсия в Российскую Национальную Библиотеку',
+        price: '900',
+    },
+];
 </script>
 
 <template>
@@ -405,7 +428,10 @@ const { t } = useI18n();
                 class="mb-[104px]"
             />
 
-            <Slider class="mb-16" />
+            <Slider
+                :slides="slides"
+                class="mb-16"
+            />
 
             <img
                 src="@/assets/svg/arrow.svg"
