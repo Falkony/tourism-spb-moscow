@@ -222,6 +222,21 @@ const { t } = useI18n();
             />
         </div>
     </section>
+
+    <section class="flex flex-col gap-y-4 items-center mb-[168px]">
+        <div class="bridge-wrapper mb-[60px]">
+            <div class="bridge-layout"></div>
+            <img
+                src="@/assets/images/bridge.png"
+                class="bridge"
+            />
+        </div>
+
+        <img
+            src="@/assets/images/veles.png"
+            class="w-[250px]"
+        />
+    </section>
 </template>
 
 <style scoped>
@@ -258,5 +273,30 @@ const { t } = useI18n();
     height: 100%;
     background: linear-gradient(to right, transparent 50%, var(--primary-color) 50%);
     z-index: 20;
+}
+
+.bridge-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.bridge-layout {
+    display: block;
+    position: absolute;
+    bottom: -60px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50%, var(--primary-color) 50%);
+    z-index: -1;
+}
+
+.bridge {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 </style>
