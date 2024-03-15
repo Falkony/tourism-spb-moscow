@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import SliderItem from '@/components/Index/SliderItem.vue';
+import SliderItem from './SlideItem.vue';
 import 'swiper/css';
 
 const onSwiper = (swiper) => {
