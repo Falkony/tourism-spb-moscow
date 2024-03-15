@@ -396,7 +396,7 @@ const { t } = useI18n();
     </section>
 
     <section class="mb-[168px]">
-        <div class="h-[713px] w-[1126px] mx-auto relative mb-[168px]">
+        <div class="h-[713px] w-[1126px] mx-auto relative">
             <BaseButton
                 text="Экскурсии"
                 type="subtitle"
@@ -411,6 +411,133 @@ const { t } = useI18n();
                 src="@/assets/svg/arrow.svg"
                 class="w-[400px] ml-auto mt-[-22px]"
             />
+        </div>
+    </section>
+
+    <section class="mb-[168px]">
+        <div class="h-[632px] w-[1362px] mx-auto relative">
+            <div class="pl-[120px]">
+                <BaseButton
+                    text="Дополнительные услуги"
+                    type="subtitle"
+                    color="var(--black-color)"
+                    ui="primary"
+                    class="mb-[104px]"
+                />
+            </div>
+
+            <div class="flex flex-row gap-x-[84px]">
+                <div class="flex flex-col p-[20px] my-auto">
+                    <div class="flex flex-row gap-x-[92px] items-center mb-[112px]">
+                        <div class="h-[72px] w-[72px] bg-[var(--secondary-color)] rounded-full"></div>
+
+                        <BaseTypography
+                            text="Организация мероприятий"
+                            type="subtitle2"
+                        />
+                    </div>
+
+                    <div class="flex flex-row gap-x-[92px] pl-[124px] items-center">
+                        <div class="h-[72px] w-[72px] bg-[var(--secondary-color)] rounded-full"></div>
+
+                        <BaseTypography
+                            text="Бронирование отелей"
+                            type="subtitle2"
+                        />
+                    </div>
+                </div>
+
+                <div class="flex flex-col p-[20px] gap-y-3">
+                    <div class="flex flex-row gap-x-6 pl-[152px] p-[20px]">
+                        <div
+                            class="flex items-center justify-center h-[140px] w-[136.6px] border-[3px] border-[var(--primary-color)] rounded-full"
+                        >
+                            <img src="@/assets/svg/dop_1.svg" />
+                        </div>
+                        <div
+                            class="flex items-center justify-center h-[140px] w-[136.6px] border-[3px] border-[var(--primary-color)] rounded-full"
+                        >
+                            <img src="@/assets/svg/dop_2.svg" />
+                        </div>
+                        <div
+                            class="flex items-center justify-center h-[140px] w-[136.6px] border-[3px] border-[var(--primary-color)] rounded-full"
+                        >
+                            <img src="@/assets/svg/dop_3.svg" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row gap-x-6 p-[20px]">
+                        <div
+                            class="flex items-center justify-center h-[140px] w-[136.6px] border-[3px] border-[var(--primary-color)] rounded-full"
+                        >
+                            <img src="@/assets/svg/dop_4.svg" />
+                        </div>
+                        <div
+                            class="flex items-center justify-center h-[140px] w-[136.6px] border-[3px] border-[var(--primary-color)] rounded-full"
+                        >
+                            <img src="@/assets/svg/dop_5.svg" />
+                        </div>
+                        <div
+                            class="flex items-center justify-center h-[140px] w-[136.6px] border-[3px] border-[var(--primary-color)] rounded-full"
+                        >
+                            <img src="@/assets/svg/dop_6.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-[168px]">
+        <div class="flex flex-col w-[1126px] mx-auto">
+            <div class="flex flex-col items-center justify-center w-full mb-[64px] p-3">
+                <div class="p-[10px]">
+                    <BaseTypography
+                        text="индивидуальный подход"
+                        type="title"
+                    />
+                </div>
+
+                <img
+                    src="@/assets/svg/line-big.svg"
+                    class="w-[480px]"
+                />
+
+                <div class="p-[10px]">
+                    <BaseTypography
+                        text="профессионализм"
+                        type="title"
+                    />
+                </div>
+
+                <img
+                    src="@/assets/svg/line-big.svg"
+                    class="w-[377px]"
+                />
+
+                <div class="p-[10px]">
+                    <BaseTypography
+                        text="надежность"
+                        type="title"
+                    />
+                </div>
+
+                <img
+                    src="@/assets/svg/line-big.svg"
+                    class="w-[289px]"
+                />
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-y-12">
+                <img src="@/assets/images/logo_btm.png" />
+
+                <BaseButton
+                    text="Оставить заявку"
+                    type="subtitle4"
+                    color="var(--base-white)"
+                    ui="primary-with-back"
+                />
+            </div>
         </div>
     </section>
 </template>

@@ -63,4 +63,9 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
     background-color: var(--white-color);
     border: none;
 }
+
+.base-btn-ui-primary-with-back {
+    background-color: var(--primary-color);
+    border: none;
+}
 </style>
