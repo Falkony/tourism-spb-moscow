@@ -36,6 +36,7 @@ const onSlideChange = () => {
                 :text="slide.text"
                 :title="slide.title"
                 :price="slide.price"
+                :url="slide.url"
             />
         </swiper-slide>
     </swiper>

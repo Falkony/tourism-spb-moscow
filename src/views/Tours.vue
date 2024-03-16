@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import MainPage from '@/components/Index/MainPage.vue';
+import List from '@/components/Tours/List.vue';
 </script>
 
 <template>
-    <MainPage />
+    <div class="mt-[149px]">
+        <List />
+    </div>
 </template>

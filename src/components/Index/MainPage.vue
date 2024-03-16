@@ -1,31 +1,25 @@
 <script setup lang="ts">
 import BaseTypography from '@/components/common/BaseTypography.vue';
 
+import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import BaseButton from '../common/BaseButton.vue';
 import Slider from '../common/Slider.vue';
 
+const router = useRouter();
 const { t } = useI18n();
 
 const slides = [
     {
         title: 'О чем молчат дворы Васильевского острова',
         text: 'Пешеходная экскурсия',
+        url: 'index/slide_1.png',
         price: '750',
     },
     {
         title: 'Путешествие в эпоху Просвещения',
         text: 'Экскурсия в Российскую Национальную Библиотеку',
-        price: '900',
-    },
-    {
-        title: 'Путешествие в эпоху Просвещения',
-        text: 'Экскурсия в Российскую Национальную Библиотеку',
-        price: '900',
-    },
-    {
-        title: 'Путешествие в эпоху Просвещения',
-        text: 'Экскурсия в Российскую Национальную Библиотеку',
+        url: 'index/slide_2.png',
         price: '900',
     },
 ];
@@ -384,7 +378,8 @@ const slides = [
 
                 <img
                     src="@/assets/svg/arrow.svg"
-                    class="w-[400px] ml-auto mt-[-22px]"
+                    class="w-[400px] ml-auto mt-[-22px] cursor-pointer"
+                    @click="router.push('/tours')"
                 />
             </div>
         </div>
@@ -419,7 +414,7 @@ const slides = [
     </section>
 
     <section class="mb-[168px]">
-        <div class="h-[713px] w-[1126px] mx-auto relative">
+        <div class="w-[1126px] mx-auto relative">
             <BaseButton
                 text="Экскурсии"
                 type="subtitle"
