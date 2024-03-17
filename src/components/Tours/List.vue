@@ -26,7 +26,7 @@ const router = useRouter();
             />
         </div>
 
-        <div class="flex flex-wrap gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto">
+        <div class="flex flex-wrap justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto">
             <SlideItem
                 title="Туры в Санкт-Петербург"
                 text="Культурная столица: дворцы, мосты и каналы"

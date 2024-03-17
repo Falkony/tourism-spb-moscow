@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import MainPage from '@/components/Index/MainPage.vue';
+import Index from '@/components/About/Index.vue';
 </script>
 
 <template>
-    <MainPage />
+    <div class="mt-[149px]">
+        <Index />
+    </div>
 </template>

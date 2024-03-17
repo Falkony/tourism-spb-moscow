@@ -25,7 +25,7 @@ const router = useRouter();
             />
         </div>
 
-        <div class="flex flex-wrap gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto">
+        <div class="flex flex-wrap justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto">
             <SlideItem
                 title="Петербургский треугольник"
                 text="Пешеходная экскурсия"
@@ -59,6 +59,7 @@ const router = useRouter();
                 text="Экскурсия в Императорский фарфоровый завод и мастер класс"
                 url="excursions/excursion_5.png"
                 price="2000"
+                class="self-start"
             />
         </div>
     </div>
