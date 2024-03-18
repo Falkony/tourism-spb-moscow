@@ -8,6 +8,7 @@ import Contacts from '@/views/Contacts.vue';
 import How from '@/views/How.vue';
 import Policy from '@/views/Policy.vue';
 import Agents from '@/views/Agents.vue';
+import Consent from '@/views/Consent.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -49,6 +50,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/policy',
         name: 'policy',
         component: Policy,
+    },
+    {
+        path: '/consent',
+        name: 'consent',
+        component: Consent,
     },
     {
         path: '/agents',
