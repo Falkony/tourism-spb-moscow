@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import MainPage from '@/views/MainPage.vue';
 import About from '@/views/About.vue';
 import Tours from '@/views/Tours.vue';
+import Tour from '@/components/Tours/Tour.vue';
 import Excursions from '@/views/Excursions.vue';
 import Contacts from '@/views/Contacts.vue';
 import How from '@/views/How.vue';
@@ -23,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/tours',
         name: 'tours',
         component: Tours,
+    },
+    {
+        path: '/tours/:id',
+        name: 'tour',
+        component: Tour,
     },
     {
         path: '/excursions',

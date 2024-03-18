@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import BaseButton from '@/components/common/BaseButton.vue';
-import BaseTypography from '@/components/common/BaseTypography.vue';
 
 import { useRouter } from 'vue-router';
 import SlideItem from '../common/SlideItem.vue';
@@ -31,6 +30,14 @@ const router = useRouter();
                 title="Туры в Санкт-Петербург"
                 text="Культурная столица: дворцы, мосты и каналы"
                 url="tours/tour_1.png"
+                @click="
+                    router.push({
+                        name: 'tour',
+                        params: {
+                            id: '1',
+                        },
+                    })
+                "
             />
 
             <SlideItem
