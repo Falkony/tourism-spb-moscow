@@ -12,7 +12,8 @@
     "swiper": "^11.0.7",
     "vue": "^3.2.13",
     "vue-i18n": "^9.9.0",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue-yandex-maps": "^2.1.0"
   },
   "devDependencies": {
     "@types/vue": "^2.0.0",

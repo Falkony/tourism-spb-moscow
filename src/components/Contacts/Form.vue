@@ -3,7 +3,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 </script>
 
 <template>
-    <div class="bg-[var(--primary-color)] h-[600px] w-[800px] px-[72px] py-[85.5px] mt-[170px]">
+    <div class="bg-[var(--primary-color)] h-[600px] w-[800px] px-[72px] py-[85.5px]">
         <BaseTypography
             text="Форма обратной связи"
             type="subtitle"
