@@ -1,37 +1,3 @@
-<!-- <script setup lang="ts"></script>
-
-<template>
-    <div class="flex flex-1 mt-[149px]">
-        <div class="flex flex-wrap items-center mt-[40px] px-[20px] max-w-[1126px] mx-auto">
-            <div class="block"></div>
-            <div class="line" />
-            <div class="circle"></div>
-            <div class="line"></div>
-            <div class="circle"></div>
-            <div class="line"></div>
-            <div class="block"></div>
-            <div class="line"></div>
-            <div class="circle"></div>
-
-            <div class="circle self-end"></div>
-        </div>
-    </div>
-</template>
-
-<style scoped>
-.block {
-    @apply h-[300px] w-[300px] rounded-[50px] border-[3px] border-[var(--primary-color)];
-}
-
-.line {
-    @apply h-[3px] w-[40px] bg-[var(--primary-color)];
-}
-
-.circle {
-    @apply h-[148px] w-[148px] rounded-full bg-slate-200;
-}
-</style> -->
-
 <script setup lang="ts"></script>
 
 <template>

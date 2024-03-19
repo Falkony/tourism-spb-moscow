@@ -31,6 +31,14 @@ const router = useRouter();
                 text="Пешеходная экскурсия"
                 url="excursions/excursion_1.png"
                 price="1000"
+                @click="
+                    router.push({
+                        name: 'excursion',
+                        params: {
+                            id: '1',
+                        },
+                    })
+                "
             />
 
             <SlideItem
