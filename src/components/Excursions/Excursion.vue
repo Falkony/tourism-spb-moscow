@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
+import ReturnButton from '@/components/common/ReturnButton.vue';
 </script>
 
 <template>
-    <div class="relative flex flex-1 mt-[149px]">
+    <div class="flex flex-col flex-1 mt-[149px]">
+        <ReturnButton
+            text="О чем молчат дворы Васильевского острова"
+            class="mb-10"
+        />
+
         <BaseAccordion
             title="test title"
             class="max-w-[1126px] mx-auto"
