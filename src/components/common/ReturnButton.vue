@@ -1,13 +1,23 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { defineProps } from 'vue';
+import { defineProps, computed, withDefaults } from 'vue';
 import BaseTypography from './BaseTypography.vue';
 
-defineProps<{
-    text: string;
-}>();
+const props = withDefaults(
+    defineProps<{
+        text: string;
+        maxWidth?: number;
+    }>(),
+    {
+        maxWidth: 533,
+    }
+);
 
 const router = useRouter();
+
+const dynamicClass = computed(() => ({
+    [`max-w-[${props.maxWidth}px]`]: !!props.maxWidth,
+}));
 </script>
 
 <template>
@@ -19,7 +29,7 @@ const router = useRouter();
             <img src="@/assets/svg/arrow-left.svg" />
         </div>
 
-        <div class="max-w-[533px]">
+        <div :class="dynamicClass">
             <BaseTypography
                 :text="text"
                 type="subtitle"
