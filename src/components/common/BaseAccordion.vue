@@ -6,6 +6,7 @@ const props = withDefaults(
     defineProps<{
         title?: string;
         expanded?: boolean;
+        disabled?: boolean;
     }>(),
     {
         expanded: false,
@@ -13,13 +14,18 @@ const props = withDefaults(
 );
 
 const isExpanded = ref<boolean>(props.expanded);
-const changeExpanded = () => (isExpanded.value = !isExpanded.value);
+const changeExpanded = () => {
+    if (!props.disabled) {
+        isExpanded.value = !isExpanded.value;
+    }
+};
 </script>
 
 <template>
     <div class="flex flex-col w-full">
         <div
-            class="flex justify-between cursor-pointer w-full mb-3"
+            class="flex justify-between w-full mb-3"
+            :class="{ 'cursor-pointer': !disabled }"
             @click="changeExpanded"
         >
             <slot name="title">
@@ -34,13 +40,13 @@ const changeExpanded = () => (isExpanded.value = !isExpanded.value);
             </slot>
 
             <img
-                v-if="isExpanded"
+                v-if="isExpanded && !disabled"
                 src="@/assets/svg/shevron_2.svg"
                 class="w-[22px]"
             />
 
             <img
-                v-else
+                v-if="!isExpanded && !disabled"
                 src="@/assets/svg/shevron_1.svg"
                 class="w-[22px]"
             />

@@ -7,6 +7,7 @@ import BaseAccordion from '@/components/common/BaseAccordion.vue';
         <BaseAccordion
             title="test title"
             class="max-w-[1126px] mx-auto"
+            disabled
         >
             <template #default>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, laborum officia perspiciatis accusantium
