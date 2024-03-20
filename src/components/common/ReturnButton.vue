@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { defineProps, computed, withDefaults } from 'vue';
+import { defineProps, withDefaults } from 'vue';
 import BaseTypography from './BaseTypography.vue';
 
 withDefaults(

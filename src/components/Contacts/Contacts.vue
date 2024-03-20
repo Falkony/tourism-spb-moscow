@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import BaseButton from '@/components/common/BaseButton.vue';
-import { ref } from 'vue';
 import Form from './Form.vue';
 import Map from './Map.vue';
 
