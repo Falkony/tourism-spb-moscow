@@ -9,9 +9,11 @@ const props = withDefaults(
         type: TypographyType;
         color?: string;
         ui: string;
+        disabled?: boolean;
     }>(),
     {
         color: '#fff',
+        disabled: false,
     }
 );
 
@@ -22,6 +24,7 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
     <button
         class="base-btn"
         :class="[uiClass]"
+        :disabled="disabled"
     >
         <slot v-if="$slots.default || text">
             <BaseTypography
@@ -51,6 +54,16 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
 
     @apply relative select-none inline-flex items-center justify-center space-x-2 outline-none;
     @apply transition-colors duration-200 whitespace-nowrap;
+}
+
+.base-btn-ui-disabled {
+    background-color: var(--grey-color);
+    border: none;
+}
+
+.base-btn-ui-white {
+    background-color: var(--bg-color);
+    border: none;
 }
 
 .base-btn-ui-primary {

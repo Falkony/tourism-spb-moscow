@@ -134,9 +134,11 @@ const router = useRouter();
     </div>
 
     <div class="flex">
-        <Map class="!w-[50%]" />
+        <Map class="w-auto" />
 
-        <Form class="w-[50%]" />
+        <div class="w-[800px]">
+            <Form />
+        </div>
     </div>
 </template>
 
