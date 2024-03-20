@@ -52,6 +52,7 @@ const changeExpanded = () => {
             />
         </div>
 
+        <!-- ToDo: Убрать svg сделать бордюр! Удалить вообще эту свг линию :/ -->
         <img
             src="@/assets/svg/line-big.svg"
             class="w-full"

@@ -1,0 +1,117 @@
+<script setup lang="ts">
+import BaseButton from '@/components/common/BaseButton.vue';
+import BaseTypography from '@/components/common/BaseTypography.vue';
+</script>
+
+<template>
+    <div class="w-[390px] border-[3px] border-[var(--primary-color)] px-[36px] py-[76px] rounded-[100px]">
+        <div class="flex flex-col">
+            <div class="mx-auto mb-9">
+                <BaseTypography
+                    text="750 "
+                    type="subtitle"
+                    color="var(--secondary-color)"
+                    tag="span"
+                />
+
+                <BaseTypography
+                    text="₽/чел"
+                    type="body2"
+                    tag="span"
+                />
+
+                <BaseTypography
+                    text="группа (10-15 чел)"
+                    type="body"
+                />
+            </div>
+
+            <div class="mx-auto mb-9">
+                <BaseTypography
+                    text="5000 "
+                    type="subtitle"
+                    color="var(--secondary-color)"
+                    tag="span"
+                />
+
+                <BaseTypography
+                    text="₽/чел"
+                    type="body2"
+                    tag="span"
+                />
+
+                <BaseTypography
+                    text="индивидуальная"
+                    type="body"
+                />
+            </div>
+
+            <BaseButton
+                text="Забронировать"
+                type="subtitle4"
+                color="var(--base-white)"
+                ui="primary-with-back"
+                class="cursor-pointer mb-9"
+            />
+
+            <div class="flex gap-x-4 px-3 mb-9">
+                <img
+                    src="@/assets/svg/icon_time.svg"
+                    class="w-[27px]"
+                />
+
+                <div>
+                    <BaseTypography
+                        text="Продолжительность:"
+                        type="body2"
+                    />
+
+                    <BaseTypography
+                        text="4 часа"
+                        type="body"
+                    />
+                </div>
+            </div>
+
+            <div class="flex gap-x-4 px-3 mb-9">
+                <img
+                    src="@/assets/svg/icon_nearby.svg"
+                    class="w-[27px]"
+                />
+
+                <div>
+                    <BaseTypography
+                        text="Место встречи:"
+                        type="body2"
+                    />
+
+                    <BaseTypography
+                        text="ст. метро Спортивная, выход на Кадетскую линию 31"
+                        type="body"
+                    />
+                </div>
+            </div>
+
+            <div class="flex gap-x-4 px-3">
+                <img
+                    src="@/assets/svg/icon_location.svg"
+                    class="w-[27px]"
+                />
+
+                <div>
+                    <BaseTypography
+                        text="Место окончания:"
+                        type="body2"
+                    />
+
+                    <BaseTypography
+                        text="ст. метро Василеостровская"
+                        type="body"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style scoped></style>

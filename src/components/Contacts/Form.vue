@@ -131,7 +131,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
             </div>
 
             <BaseButton
-                text="Отправить "
+                text="Отправить"
                 type="subtitle4"
                 :color="!isDisabled ? 'var(--base-white)' : 'var(--primary-color)'"
                 :ui="!isDisabled ? 'disabled' : 'white'"

@@ -3,21 +3,17 @@ import { useRouter } from 'vue-router';
 import { defineProps, computed, withDefaults } from 'vue';
 import BaseTypography from './BaseTypography.vue';
 
-const props = withDefaults(
+withDefaults(
     defineProps<{
         text: string;
-        maxWidth?: number;
+        maxWidth?: string;
     }>(),
     {
-        maxWidth: 533,
+        maxWidth: 'small',
     }
 );
 
 const router = useRouter();
-
-const dynamicClass = computed(() => ({
-    [`max-w-[${props.maxWidth}px]`]: !!props.maxWidth,
-}));
 </script>
 
 <template>
@@ -25,11 +21,9 @@ const dynamicClass = computed(() => ({
         class="flex gap-x-[76px] cursor-pointer"
         @click="router.back()"
     >
-        <div>
-            <img src="@/assets/svg/arrow-left.svg" />
-        </div>
+        <img src="@/assets/svg/arrow-left.svg" />
 
-        <div :class="dynamicClass">
+        <div class="max-w-[533px]">
             <BaseTypography
                 :text="text"
                 type="subtitle"
