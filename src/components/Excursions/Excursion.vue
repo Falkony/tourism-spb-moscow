@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
 import ReturnButton from '@/components/common/ReturnButton.vue';
+import Photo from './Photo.vue';
 </script>
 
 <template>
@@ -9,6 +10,8 @@ import ReturnButton from '@/components/common/ReturnButton.vue';
             text="О чем молчат дворы Васильевского острова"
             class="mb-10"
         />
+
+        <Photo />
 
         <BaseAccordion
             title="test title"
