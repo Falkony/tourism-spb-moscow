@@ -11,16 +11,34 @@ const { t } = useI18n();
 
 const slides = [
     {
+        title: 'Петербургский треугольник',
+        text: 'Пешеходная экскурсия',
+        url: 'excursions/excursion_1.png',
+        price: '1000',
+    },
+    {
+        title: 'Крепость, хранимая ангелом',
+        text: 'Пешеходная экскурсия',
+        url: 'excursions/excursion_2.png',
+        price: '1300',
+    },
+    {
         title: 'О чем молчат дворы Васильевского острова',
         text: 'Пешеходная экскурсия',
-        url: 'index/slide_1.png',
+        url: 'excursions/excursion_3.png',
         price: '750',
     },
     {
         title: 'Путешествие в эпоху Просвещения',
         text: 'Экскурсия в Российскую Национальную Библиотеку',
-        url: 'index/slide_2.png',
+        url: 'excursions/excursion_4.png',
         price: '900',
+    },
+    {
+        title: 'Любимая чашка',
+        text: 'Экскурсия в Императорский фарфоровый завод и мастер класс',
+        url: 'excursions/excursion_5.png',
+        price: '2000',
     },
 ];
 </script>
