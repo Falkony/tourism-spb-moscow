@@ -428,10 +428,11 @@ const router = useRouter();
             </div>
         </div>
 
-        <img
+        <!-- ToDo: Возможно в будущем сделают переход -->
+        <!-- <img
             src="@/assets/svg/arrow.svg"
             class="w-[400px] ml-auto mt-[-22px]"
-        />
+        /> -->
     </div>
 
     <div class="relative flex flex-col max-w-[1126px] mx-auto mb-[104px]">
@@ -458,9 +459,10 @@ const router = useRouter();
             />
         </div>
 
-        <img
+        <!-- ToDo: Возможно в будущем сделают переход -->
+        <!-- <img
             src="@/assets/svg/arrow.svg"
             class="w-[400px] ml-auto mt-[-22px]"
-        />
+        /> -->
     </div>
 </template>
