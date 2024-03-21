@@ -4,6 +4,7 @@ import ReturnButton from '@/components/common/ReturnButton.vue';
 import Photo from './Photo.vue';
 import Reservation from './Reservation.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
+import Form from './Form.vue';
 </script>
 
 <template>
@@ -90,6 +91,8 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                     disabled
                 />
             </section>
+
+            <Form />
 
             <section class="mb-[104px]">
                 <div class="p-3 mb-[76px]">
