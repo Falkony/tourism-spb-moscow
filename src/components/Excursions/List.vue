@@ -25,7 +25,7 @@ const router = useRouter();
             />
         </div>
 
-        <div class="flex flex-wrap justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto">
+        <div class="grid grid-cols-[428px_428px] justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto">
             <SlideItem
                 title="Петербургский треугольник"
                 text="Пешеходная экскурсия"
@@ -46,6 +46,14 @@ const router = useRouter();
                 text="Пешеходная экскурсия"
                 url="excursions/excursion_2.png"
                 price="1300"
+                @click="
+                    router.push({
+                        name: 'excursion',
+                        params: {
+                            id: '2',
+                        },
+                    })
+                "
             />
 
             <SlideItem
@@ -53,6 +61,14 @@ const router = useRouter();
                 text="Пешеходная экскурсия"
                 url="excursions/excursion_3.png"
                 price="750"
+                @click="
+                    router.push({
+                        name: 'excursion',
+                        params: {
+                            id: '3',
+                        },
+                    })
+                "
             />
 
             <SlideItem
@@ -60,6 +76,14 @@ const router = useRouter();
                 text="Экскурсия в Российскую Национальную Библиотеку"
                 url="excursions/excursion_4.png"
                 price="900"
+                @click="
+                    router.push({
+                        name: 'excursion',
+                        params: {
+                            id: '4',
+                        },
+                    })
+                "
             />
 
             <SlideItem
@@ -67,7 +91,14 @@ const router = useRouter();
                 text="Экскурсия в Императорский фарфоровый завод и мастер класс"
                 url="excursions/excursion_5.png"
                 price="2000"
-                class="self-start"
+                @click="
+                    router.push({
+                        name: 'excursion',
+                        params: {
+                            id: '5',
+                        },
+                    })
+                "
             />
         </div>
     </div>

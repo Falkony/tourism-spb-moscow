@@ -19,24 +19,24 @@ defineProps<{
         <div
             class="px-[30px] pt-3 border-x-[3px] border-b-[3px] border-x-[var(--primary-color)] border-b-[var(--primary-color)] border-t-none rounded-b-[50px]"
         >
-            <BaseTypography
-                :text="title"
-                type="special-body"
-                color="var(--primary-color)"
-                class="mb-3"
-            />
+            <div>
+                <BaseTypography
+                    :text="title"
+                    type="special-body"
+                    color="var(--primary-color)"
+                    class="mb-3"
+                />
 
-            <img
-                src="@/assets/svg/line-small.svg"
-                class="w-[279px] mb-[20px]"
-            />
+                <div class="h-[6px] rounded w-full bg-[var(--secondary-color)]" />
+            </div>
 
-            <div class="flex">
-                <div class="mb-[35px] w-full">
+            <div class="flex py-6 items-end">
+                <div class="w-full">
                     <BaseTypography
                         :text="text"
                         type="special-body3"
                         color="var(--black-color)"
+                        class="pr-3"
                     />
 
                     <div
