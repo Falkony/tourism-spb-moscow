@@ -32,9 +32,12 @@ const router = useRouter();
                 url="tours/tour_1.png"
                 @click="
                     router.push({
-                        name: 'tour',
+                        name: 'general_tour',
                         params: {
-                            id: '1',
+                            slug: 'spb',
+                        },
+                        state: {
+                            title: 'Туры в Санкт-Петербург',
                         },
                     })
                 "

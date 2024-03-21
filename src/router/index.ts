@@ -10,6 +10,7 @@ import How from '@/views/How.vue';
 import Policy from '@/views/Policy.vue';
 import Agents from '@/views/Agents.vue';
 import Consent from '@/views/Consent.vue';
+import General from '@/components/Tours/General.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -26,6 +27,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/tours',
         name: 'tours',
         component: Tours,
+    },
+    {
+        path: '/tours/:slug',
+        name: 'general_tour',
+        component: General,
     },
     {
         path: '/tours/:id',
