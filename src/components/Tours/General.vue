@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import BaseButton from '@/components/common/BaseButton.vue';
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import BaseTypography from '../common/BaseTypography.vue';
 
 const router = useRouter();
+const route = useRoute();
 
 const title = computed(() => history.state?.title);
+
+const isSpb = computed(() => route.params.slug === 'spb');
 </script>
 
 <template>
@@ -54,7 +57,10 @@ const title = computed(() => history.state?.title);
                 />
             </div>
 
-            <div class="flex flex-col gap-y-[76px]">
+            <div
+                v-if="isSpb"
+                class="flex flex-col gap-y-[76px]"
+            >
                 <div class="flex gap-x-[98px]">
                     <div class="flex gap-x-8">
                         <div class="h-[72px] w-[72px] rounded-full bg-[--secondary-color]" />
@@ -133,8 +139,13 @@ const title = computed(() => history.state?.title);
                     </div>
                 </div>
             </div>
+
+            <div v-else>
+                <BaseTypography
+                    text="Страница в разработке"
+                    type="subtitle2"
+                />
+            </div>
         </div>
     </div>
 </template>
-
-<style scoped></style>
