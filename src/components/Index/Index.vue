@@ -50,9 +50,12 @@ import NinthSection from './Sections/NinthSection.vue';
 
 <style scoped>
 .header-section {
+    background: url('@/assets/images/bg-header.png');
     background-color: var(--black-color);
-    background-position: center;
+    background-position: right center;
+    background-position: 10%;
     background-size: cover;
+    object-fit: cover;
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
