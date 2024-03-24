@@ -36,13 +36,13 @@ const router = useRouter();
 
         <swiper
             effect="coverflow"
-            :slides-per-view="2"
+            :slides-per-view="3"
             :modules="[Pagination, EffectCoverflow]"
             :coverflowEffect="{
-                rotate: 75,
+                rotate: 0,
                 stretch: 0,
                 depth: 100,
-                modifier: 1,
+                modifier: 5,
                 slideShadows: false,
             }"
             centeredSlides
@@ -50,39 +50,42 @@ const router = useRouter();
             pagination
             class="mb-[56px]"
         >
-            <SwiperSlide>
+            <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
                         <img src="@/assets/images/msk.png" />
                     </div>
 
                     <BaseTypography
+                        v-if="isActive"
                         text="Москва"
                         type="subtitle2-m"
                     />
                 </div>
             </SwiperSlide>
 
-            <SwiperSlide>
+            <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
                         <img src="@/assets/images/spb.png" />
                     </div>
 
                     <BaseTypography
+                        v-if="isActive"
                         text="Санкт-Петербург"
                         type="subtitle2-m"
                     />
                 </div>
             </SwiperSlide>
 
-            <SwiperSlide>
+            <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
                         <img src="@/assets/images/russia.png" />
                     </div>
 
                     <BaseTypography
+                        v-if="isActive"
                         text="Россия"
                         type="subtitle2-m"
                     />
@@ -96,26 +99,27 @@ const router = useRouter();
 
         <swiper
             effect="coverflow"
-            :slides-per-view="2"
+            :slides-per-view="3"
             :modules="[Pagination, EffectCoverflow]"
             :coverflowEffect="{
-                rotate: 75,
+                rotate: 0,
                 stretch: 0,
                 depth: 100,
-                modifier: 1,
+                modifier: 5,
                 slideShadows: false,
             }"
             centeredSlides
             grab-cursor
             pagination
         >
-            <SwiperSlide>
+            <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
                         <img src="@/assets/images/school.png" />
                     </div>
 
                     <BaseTypography
+                        v-if="isActive"
                         text="Туры для школьников"
                         type="subtitle2-m"
                         class="whitespace-nowrap"
@@ -123,13 +127,14 @@ const router = useRouter();
                 </div>
             </SwiperSlide>
 
-            <SwiperSlide>
+            <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
                         <img src="@/assets/images/medicine.png" />
                     </div>
 
                     <BaseTypography
+                        v-if="isActive"
                         text="Оздоровительный отдых"
                         type="subtitle2-m"
                         class="text-center"
@@ -137,13 +142,14 @@ const router = useRouter();
                 </div>
             </SwiperSlide>
 
-            <SwiperSlide>
+            <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
                         <img src="@/assets/images/active.png" />
                     </div>
 
                     <BaseTypography
+                        v-if="isActive"
                         text="Активный отдых"
                         type="subtitle2-m"
                     />
@@ -158,7 +164,7 @@ const router = useRouter();
     border: 3px solid var(--primary-color);
     border-radius: 100%;
 
-    @apply flex items-center h-[150px] w-[150px] py-10 px-4;
+    @apply flex items-center bg-[var(--bg-color)] h-[150px] w-[150px] py-10 px-4;
 }
 
 .swiper {

@@ -34,8 +34,8 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
         :class="[
             uiClass,
             {
-                'base-btn-mobile': width < 768,
-                'base-btn': width > 768,
+                'base-btn-mobile': width < 1024,
+                'base-btn': width > 1024,
             },
         ]"
         :style="{ padding: `${paddingY}px ${paddingX}px` }"
