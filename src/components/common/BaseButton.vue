@@ -1,7 +1,11 @@
 <script lang="ts" setup>
-import BaseTypography from './BaseTypography.vue';
+import BaseTypography from '@/components/common/BaseTypography.vue';
 import { withDefaults, defineProps, computed } from 'vue';
-import type { TypographyType } from '../../types/Base/TypographyType';
+import type { TypographyType } from '@/types/Base/TypographyType';
+
+import { useWindowSize } from '@vueuse/core';
+
+const { width } = useWindowSize();
 
 const props = withDefaults(
     defineProps<{
@@ -22,8 +26,13 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
 
 <template>
     <button
-        class="base-btn"
-        :class="[uiClass]"
+        :class="[
+            uiClass,
+            {
+                'base-btn-mobile': width < 768,
+                'base-btn': width > 768,
+            },
+        ]"
         :disabled="disabled"
     >
         <slot v-if="$slots.default || text">
@@ -50,6 +59,18 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
     min-height: var(--base-btn-height);
     border-radius: var(--base-btn-radius);
     padding: 0 var(--base-btn-padding);
+    cursor: var(--base-btn-cursor);
+
+    @apply relative select-none inline-flex items-center justify-center space-x-2 outline-none;
+    @apply transition-colors duration-200;
+}
+
+.base-btn-mobile {
+    --base-btn-cursor: pointer;
+    --bg-color: #fff;
+    --border-color: transparent;
+    padding: 12px 36px;
+    border-radius: var(--base-btn-radius);
     cursor: var(--base-btn-cursor);
 
     @apply relative select-none inline-flex items-center justify-center space-x-2 outline-none;

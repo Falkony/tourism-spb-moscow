@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import BaseButton from '@/components/common/BaseButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
-import { useRouter } from 'vue-router';
+import BaseContainer from '@/components/common/BaseContainer.vue';
+import BaseReturn from '@/components/common/BaseReturn.vue';
+import { useWindowSize } from '@vueuse/core';
 
-const router = useRouter();
+const { width } = useWindowSize();
 
 const paragraphs = [
     {
@@ -64,24 +65,10 @@ const paragraphs = [
 </script>
 
 <template>
-    <div class="mt-[40px] mb-[104px]">
-        <div class="flex items-center w-full mb-[76px]">
-            <div
-                class="pl-[120px] pr-[76px] cursor-pointer"
-                @click="router.back()"
-            >
-                <img src="@/assets/svg/arrow-left.svg" />
-            </div>
+    <div class="mt-[40px] l:mb-[104px]">
+        <BaseReturn text="Политика обработки и защиты персональных данных в ООО «РВМ»" />
 
-            <BaseButton
-                text="Политика обработки и защиты персональных данных в ООО «РВМ»"
-                type="subtitle"
-                ui="primary"
-                color="var(--black-color)"
-            />
-        </div>
-
-        <div class="max-w-[1106px] mx-auto">
+        <BaseContainer>
             <div
                 v-for="(paragraph, i) in paragraphs"
                 :key="i"
@@ -91,14 +78,14 @@ const paragraphs = [
                     v-for="(text, i) in paragraph.items"
                     :key="i"
                     :text="text"
-                    type="body"
+                    :type="width > 768 ? 'body' : 'body-m'"
                     class="indent-8"
                 />
             </div>
 
             <BaseTypography
                 text="Действующая редакция Политики подлежит размещению в сети Интернет на официальном сайте Общества "
-                type="body"
+                :type="width > 768 ? 'body' : 'body-m'"
                 class="indent-8"
             />
 
@@ -108,11 +95,11 @@ const paragraphs = [
             >
                 <BaseTypography
                     text="http://www.rvm-spb.ru/"
-                    type="body"
+                    :type="width > 768 ? 'body' : 'body-m'"
                     tag="span"
                     class="underline"
                 />
             </a>
-        </div>
+        </BaseContainer>
     </div>
 </template>

@@ -21,7 +21,10 @@ const toggleMenu = () => (toggle.value = !toggle.value);
     <header class="root">
         <nav
             class="header_container"
-            :class="{ menu_active: toggle, '!bg-[var(--base-white)] border-b': !isMainPage }"
+            :class="{
+                menu_active: toggle,
+                '!bg-[var(--base-white)] border-b': !isMainPage,
+            }"
         >
             <router-link to="/">
                 <div v-if="isMainPage">
@@ -91,15 +94,22 @@ const toggleMenu = () => (toggle.value = !toggle.value);
         <menu
             v-if="toggle"
             class="menu"
+            :class="{ '!bg-[var(--base-white)]': toggle && !isMainPage }"
         >
             <NavMenu />
         </menu>
+
+        <div
+            v-if="toggle"
+            class="overlay"
+            @click="toggleMenu"
+        />
     </header>
 </template>
 
 <style scoped>
 .root {
-    @apply absolute top-0 left-0 z-20 w-full;
+    @apply absolute top-0 left-0 z-20 w-full z-20;
 }
 
 .header_container {
@@ -124,5 +134,9 @@ const toggleMenu = () => (toggle.value = !toggle.value);
     background-color: var(--white-color);
 
     @apply border-b;
+}
+
+.overlay {
+    @apply fixed inset-0 bg-black opacity-40 z-[-1];
 }
 </style>
