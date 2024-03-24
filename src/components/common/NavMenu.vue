@@ -12,7 +12,7 @@ const { isMainPage } = toRefs(globalStore);
 
 <template>
     <nav>
-        <ul class="flex flex-row items-center gap-x-10">
+        <ul class="flex flex-col gap-y-5 l:flex-row l:items-center l:gap-x-10">
             <li>
                 <router-link to="/about">
                     <BaseTypography

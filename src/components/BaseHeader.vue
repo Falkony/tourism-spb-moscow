@@ -1,41 +1,128 @@
 <script setup lang="ts">
-import { toRefs } from 'vue';
+import { useWindowSize } from '@vueuse/core';
+import { toRefs, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useGlobalStore } from '@/stores/global';
 import LocaleSwitcher from './common/LocaleSwitcher.vue';
 import NavMenu from './common/NavMenu.vue';
 
 const globalStore = useGlobalStore();
+const { width } = useWindowSize();
+
+const { t } = useI18n();
 const { isMainPage } = toRefs(globalStore);
+
+const toggle = ref<boolean>(false);
+
+const toggleMenu = () => (toggle.value = !toggle.value);
 </script>
 
 <template>
-    <header
-        class="header-navigation container-fluid py-[33px]"
-        :class="{ 'bg-[var(--bg-color)] border-b': !isMainPage }"
-    >
-        <router-link to="/">
-            <img
-                v-if="isMainPage"
-                src="@/assets/images/logo.png"
-            />
+    <header class="root">
+        <nav
+            class="header_container"
+            :class="{ menu_active: toggle }"
+        >
+            <router-link to="/">
+                <div v-if="isMainPage">
+                    <div
+                        v-if="width < 1024"
+                        class="logo_mobile"
+                    >
+                        <img src="@/assets/images/mobile/logo_white_mobile.png" />
+                    </div>
 
-            <img
+                    <div
+                        v-else
+                        class="logo_desktop"
+                    >
+                        <img src="@/assets/images/logo.png" />
+                    </div>
+                </div>
+
+                <div v-else>
+                    <div
+                        v-if="width < 1024"
+                        class="logo_mobile"
+                    >
+                        <img src="@/assets/images/mobile/logo_primary_mobile.png" />
+                    </div>
+
+                    <div
+                        v-else
+                        class="logo_desktop"
+                    >
+                        <img src="@/assets/images/logo_btm.png" />
+                    </div>
+                </div>
+            </router-link>
+
+            <div
+                v-if="width < 1024"
+                class="burger_menu"
+                @click="toggleMenu"
+            >
+                <img
+                    v-if="isMainPage"
+                    src="@/assets/svg/mobile/burger_menu.svg"
+                    class="w-6"
+                />
+
+                <img
+                    v-else
+                    src="@/assets/svg/mobile/burger_menu_black.svg"
+                    class="w-6"
+                />
+            </div>
+
+            <div
+                class="flex w-full pl-10"
                 v-else
-                src="@/assets/images/logo_btm.png"
-            />
-        </router-link>
+            >
+                <NavMenu />
 
-        <NavMenu />
+                <LocaleSwitcher
+                    class="ml-auto"
+                    :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                />
+            </div>
+        </nav>
 
-        <LocaleSwitcher
-            class="ml-auto"
-            :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
-        />
+        <menu
+            v-if="toggle"
+            class="menu"
+        >
+            <NavMenu />
+        </menu>
     </header>
 </template>
 
 <style scoped>
-.header-navigation {
-    @apply flex flex-row items-center gap-x-10 absolute top-0 left-0 w-full bg-[var(--white-color)] z-20;
+.root {
+    @apply absolute top-0 left-0 z-20 w-full;
+}
+
+.header_container {
+    background-color: var(--black-color);
+
+    @apply flex flex-row items-center px-4 py-[76px] l:py-[33px] l:px-[140px] l:bg-[var(--white-color)];
+}
+
+.burger_menu {
+    cursor: pointer;
+
+    @apply pr-7 ml-auto;
+}
+
+.menu {
+    background-color: var(--white-color);
+
+    @apply px-8 py-10;
+}
+
+.menu_active {
+    background-color: var(--white-color);
+
+    @apply border-b;
 }
 </style>

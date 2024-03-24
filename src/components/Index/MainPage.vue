@@ -49,7 +49,8 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 </script>
 
 <template>
-    <section class="header-section">
+    <div class="header-section"></div>
+    <!-- <section class="header-section">
         <div class="contacts flex justify-end gap-x-10 mr-[214px] mb-[140px]">
             <a href="tel:+79112660098">
                 <BaseTypography
@@ -604,7 +605,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 />
             </div>
         </div>
-    </section>
+    </section> -->
 </template>
 
 <style scoped>
