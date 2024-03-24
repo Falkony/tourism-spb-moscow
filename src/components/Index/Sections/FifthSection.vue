@@ -2,12 +2,15 @@
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
-
+import { useRouter } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, EffectCoverflow } from 'swiper/modules';
+// ToDo: оптимизировать...
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
+
+const router = useRouter();
 </script>
 
 <template>
@@ -23,7 +26,10 @@ import 'swiper/css/effect-coverflow';
             />
 
             <!-- Router to tours -->
-            <div class="absolute right-0 cursor-pointer">
+            <div
+                class="absolute right-0 cursor-pointer"
+                @click="router.push('/tours')"
+            >
                 <img src="@/assets/svg/mobile/shevron_right.svg" />
             </div>
         </div>

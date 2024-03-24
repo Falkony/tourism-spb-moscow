@@ -2,6 +2,12 @@
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
+import Form from '@/components/Index/Form.vue';
+import { ref } from 'vue';
+
+const toggle = ref<boolean>(false);
+
+const toggleForm = () => (toggle.value = !toggle.value);
 </script>
 
 <template>
@@ -49,9 +55,30 @@ import BaseLine from '@/components/common/BaseLine.vue';
                 type="subtitle4-m"
                 color="var(--base-white)"
                 ui="primary-with-back"
+                @click="toggleForm"
             />
         </div>
     </div>
+
+    <div
+        class="show fixed inset-0 overflow-hidden z-30"
+        v-if="toggle"
+    >
+        <Form @close="toggleForm" />
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.show {
+    animation: 0.3s show ease-in-out;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+</style>

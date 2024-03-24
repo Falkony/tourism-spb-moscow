@@ -109,7 +109,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
 
 <style scoped>
 .root {
-    /* @apply absolute top-0 left-0 z-20 w-full z-20; */
+    @apply absolute top-0 left-0 z-20 w-full z-20;
 }
 
 .header_container {
@@ -125,18 +125,18 @@ const toggleMenu = () => (toggle.value = !toggle.value);
 }
 
 .menu {
-    background-color: var(--white-color);
+    background-color: var(--grey-color);
 
     @apply px-8 py-10;
 }
 
 .menu_active {
-    background-color: var(--white-color);
+    background-color: var(--grey-color);
 
     @apply border-b;
 }
 
 .overlay {
-    @apply fixed inset-0 bg-black opacity-40 z-[-1];
+    @apply fixed inset-0 bg-black opacity-60 z-[-1];
 }
 </style>

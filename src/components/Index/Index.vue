@@ -43,7 +43,7 @@ import NinthSection from './Sections/NinthSection.vue';
         <EighthSection />
     </section>
 
-    <section class="mb-[92px]">
+    <section class="relative mb-[92px]">
         <NinthSection />
     </section>
 </template>
@@ -59,5 +59,6 @@ import NinthSection from './Sections/NinthSection.vue';
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
+    margin-top: 182px;
 }
 </style>

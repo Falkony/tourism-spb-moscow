@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import BaseButton from '@/components/common/BaseButton.vue';
 import Slider from '@/components/common/Slider.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const slides = [
     {
@@ -49,7 +52,10 @@ const slides = [
             />
 
             <!-- Router to tours -->
-            <div class="absolute right-0 cursor-pointer">
+            <div
+                class="absolute right-0 cursor-pointer"
+                @click="router.push('/excursions')"
+            >
                 <img src="@/assets/svg/mobile/shevron_right.svg" />
             </div>
         </div>

@@ -1,56 +1,67 @@
 <script setup lang="ts">
-import { reactive, ref, computed, defineEmits } from 'vue';
+import { useWindowSize } from '@vueuse/core';
+import { vMaska } from 'maska';
+import { ref, computed, defineEmits } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
-import BaseButton from '../common/BaseButton.vue';
+import BaseButton from '@/components/common/BaseButton.vue';
 
 const emits = defineEmits<{
     close: [];
 }>();
 
-const form = reactive({
-    name: '',
-    email: '',
-    text: '',
-    phone: '',
-});
+const { width } = useWindowSize();
 
-const agreement = ref(false);
-
-const sendForm = () => {
-    console.log(form);
+type FormDataType = {
+    name: string;
+    email?: string;
+    text?: string;
+    phone: string;
 };
 
-const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agreement.value);
+const options = { mask: '+7 (###) ###-##-##' };
+
+const form = ref<FormDataType>({} as FormDataType);
+const agreement = ref<boolean>(false);
+
+const sendForm = () => {
+    // ToDo: подключить PhPMailer.
+    return console.log('form:', form.value);
+};
+
+const isDisabled = computed(() => form.value.name !== '' && form.value.phone !== '' && agreement.value);
 </script>
 
 <template>
-    <div class="bg-[var(--base-white)] h-[600px] w-[800px] px-[72px] py-[85.5px] rounded-l-[100px]">
-        <div class="px-[48px] mb-[64px] relative">
+    <div class="h-screen bg-[var(--bg-color)]">
+        <div
+            class="absolute top-16 right-10 cursor-pointer"
+            @click="emits('close')"
+        >
+            <img src="@/assets/svg/close.svg" />
+        </div>
+
+        <div class="flex flex-col gap-y-5 px-[72px] py-16">
             <BaseTypography
                 text="Форма обратной связи"
-                type="subtitle"
-                class="mb-5"
+                :type="width > 768 ? 'subtitle' : 'title-m'"
+                color="var(--black-color)"
             />
 
             <BaseTypography
                 text="Напишите нам по любым вопросам и предложениям"
-                type="special-body3"
+                :type="width > 768 ? 'special-body3' : 'body3-m'"
+                color="var(--black-color)"
             />
-
-            <div
-                class="absolute right-0 top-0 cursor-pointer p-1"
-                @click="emits('close')"
-            >
-                <img src="@/assets/svg/close.svg" />
-            </div>
         </div>
 
-        <div class="flex flex-wrap gap-x-[130px] gap-y-9 mb-[64px] px-[48px]">
-            <div class="flex flex-col w-[204px]">
+        <div class="flex flex-col gap-y-10 px-10">
+            <!-- name -->
+            <div class="flex flex-col px-[45px]">
                 <label for="name">
                     <BaseTypography
                         text="Ваше Имя*"
-                        type="special-body2"
+                        :type="width > 768 ? 'special-body2' : 'body2-m'"
+                        color="var(--black-color)"
                     />
                 </label>
 
@@ -58,52 +69,62 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                     v-model="form.name"
                     id="name"
                     name="name"
+                    placeholder="Иван"
                     class="edit bk"
                     type="text"
                     required
                 />
             </div>
 
-            <div class="flex flex-col w-[213px]">
-                <label for="email">
-                    <BaseTypography
-                        text="Ваша электронная почта"
-                        type="special-body2"
-                    />
-                </label>
-
-                <input
-                    v-model="form.email"
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="edit bk"
-                />
-            </div>
-
-            <div class="flex flex-col w-[204px]">
+            <!-- phone -->
+            <div class="flex flex-col px-[45px]">
                 <label for="phone">
                     <BaseTypography
-                        text="Ваш номер телефона *"
-                        type="special-body2"
+                        text="Ваш номер телефона*"
+                        :type="width > 768 ? 'special-body2' : 'body2-m'"
+                        color="var(--black-color)"
                     />
                 </label>
 
                 <input
                     v-model="form.phone"
-                    type="tel"
+                    v-maska:[options]
+                    placeholder="+7(000)000-00-00"
                     id="phone"
                     name="phone"
                     class="edit bk"
+                    type="text"
                     required
                 />
             </div>
 
-            <div class="flex flex-col w-[213px]">
+            <!-- email -->
+            <div class="flex flex-col px-[45px]">
+                <label for="email">
+                    <BaseTypography
+                        text="Ваша электронная почта"
+                        :type="width > 768 ? 'special-body2' : 'body2-m'"
+                        color="var(--black-color)"
+                    />
+                </label>
+
+                <input
+                    v-model="form.email"
+                    placeholder="ivan.ivanov@mail.ru"
+                    id="email"
+                    name="email"
+                    class="edit bk"
+                    type="email"
+                />
+            </div>
+
+            <!-- text -->
+            <div class="flex flex-col px-[45px]">
                 <label for="text">
                     <BaseTypography
                         text="Ваше сообщение"
-                        type="special-body2"
+                        :type="width > 768 ? 'special-body2' : 'body2-m'"
+                        color="var(--black-color)"
                     />
                 </label>
 
@@ -111,35 +132,59 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                     v-model="form.text"
                     id="text"
                     name="text"
-                    type="text"
+                    placeholder="Ваше сообщение"
                     class="edit bk"
+                    type="text"
                 />
             </div>
-        </div>
 
-        <div class="flex gap-x-9 px-[28px]">
-            <div class="flex gap-x-6">
+            <div class="grid grid-cols-[24px_auto] gap-x-6 mb-16">
                 <div
-                    class="h-10 w-10 bg-[var(--base-white)] border-[4px] border-[var(--primary-color)] rounded-full cursor-pointer"
+                    class="h-6 w-6 border-[4px] border-[var(--primary-color)] rounded-full cursor-pointer"
                     :class="{ 'border-[var(--secondary-color)]': agreement }"
                     @click="() => (agreement = !agreement)"
-                ></div>
+                />
 
                 <div>
                     <BaseTypography
-                        text="Я согласен(а) на обработку персональных данных на условиях, изложенных в Согласии на обработку персональных данных и Политике."
-                        type="caption"
-                        class="max-w-[238px]"
+                        text="Я согласен(а) на обработку персональных данных на условиях, изложенных в "
+                        type="caption-m"
+                        tag="span"
                     />
+
+                    <router-link to="/consent">
+                        <BaseTypography
+                            text="Согласии на обработку персональных данных "
+                            type="caption-m"
+                            class="underline"
+                            tag="span"
+                        />
+                    </router-link>
+
+                    <BaseTypography
+                        text="и "
+                        type="caption-m"
+                        tag="span"
+                    />
+
+                    <router-link to="/policy">
+                        <BaseTypography
+                            text="Политике."
+                            type="caption-m"
+                            class="underline"
+                            tag="span"
+                        />
+                    </router-link>
                 </div>
             </div>
+        </div>
 
+        <div class="flex justify-center">
             <BaseButton
                 text="Отправить"
-                type="subtitle4"
+                :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
                 color="var(--base-white)"
                 :ui="!isDisabled ? 'disabled' : 'primary-with-back'"
-                class="cursor-pointer"
                 :disabled="!isDisabled"
                 @click="sendForm"
             />
@@ -152,7 +197,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
     border-bottom: 2px solid var(--black-color);
     color: var(--black-color);
     font-size: 20px;
-    background: #fff;
+    background: var(--bg-color);
 }
 .bk {
     background: transparent;
