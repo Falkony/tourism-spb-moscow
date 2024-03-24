@@ -4,8 +4,10 @@ import BaseButton from '@/components/common/BaseButton.vue';
 import Slider from '@/components/common/Slider.vue';
 import Form from '@/components/Index/Form.vue';
 import { ref } from 'vue';
+import { useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 
+const { width } = useWindowSize();
 const { t } = useI18n();
 
 const slides = [
@@ -150,12 +152,12 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         >
             <Form @close="openFormTop" />
         </div>
-    </section>
+    </section> -->
 
     <section class="flex flex-col items-center justify-center">
-        <div class="h-[860px] w-[1126px] mx-auto second-section relative my-[168px]">
-            <div class="overlay"></div>
-            <div class="horseman"></div>
+        <div class="l:h-[860px] l:w-[1126px] mx-auto second-section relative my-[168px]">
+            <!-- <div class="overlay"></div>
+            <div class="horseman"></div> -->
 
             <BaseButton
                 text="О компании"
@@ -192,82 +194,90 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             </div>
         </div>
 
-        <div class="flex flex-col gap-y-16 mb-[168px]">
-            <div class="flex flex-row gap-x-16">
+        <div class="flex flex-col gap-y-16 l:mb-[168px]">
+            <div class="flex flex-col gap-y-10 l:flex-row l:gap-x-16">
                 <div class="flex flex-col gap-y-10">
-                    <div class="flex flex-row items-center gap-x-12">
+                    <div class="flex flex-row items-center gap-x-3 l:gap-x-12">
                         <img
                             src="@/assets/svg/account_balance.svg"
-                            class="h-[80px] w-[80px]"
+                            class="w-9 h-9 l:h-[80px] l:w-[80px]"
                         />
 
                         <div class="flex flex-row gap-x-4 items-center">
-                            <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                            <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
                                 text="Наш номер в Едином Федеральном Реестре Туроператоров – РТО 018270"
-                                type="body"
-                                class="max-w-[530px]"
+                                :type="width > 768 ? 'body' : 'body-m'"
+                                class="max-w-[229px] l:max-w-[530px]"
                             />
                         </div>
                     </div>
 
-                    <div class="flex flex-row items-center gap-x-12">
+                    <div class="flex flex-row items-center gap-x-3 l:gap-x-12">
                         <img
                             src="@/assets/svg/union.svg"
-                            class="h-[80px] w-[80px]"
+                            class="w-9 h-9 l:h-[80px] l:w-[80px]"
                         />
 
                         <div class="flex flex-row gap-x-4 items-center">
-                            <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                            <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
                                 text="Являемся членами Лиги туроператоров Санкт-Петербурга"
-                                type="body"
-                                class="max-w-[530px]"
+                                :type="width > 768 ? 'body' : 'body-m'"
+                                class="max-w-[229px] l:max-w-[530px]"
                             />
                         </div>
                     </div>
 
-                    <div class="flex flex-row items-center gap-x-12">
+                    <div class="flex flex-row items-center gap-x-3 l:gap-x-12">
                         <img
                             src="@/assets/svg/safety.svg"
-                            class="h-[80px] w-[80px]"
+                            class="w-9 h-9 l:h-[80px] l:w-[80px]"
                         />
 
                         <div class="flex flex-row gap-x-4 items-center">
-                            <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                            <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
                                 text="Имеем прямые договоры с музеями, транспортными компаниями и отелями самых разных категорий. Наши гиды профессиональны и надёжны"
-                                type="body"
-                                class="max-w-[530px]"
+                                :type="width > 768 ? 'body' : 'body-m'"
+                                class="max-w-[229px] l:max-w-[530px]"
                             />
                         </div>
                     </div>
 
-                    <div class="flex flex-row items-center gap-x-12">
+                    <div class="flex flex-row items-center gap-x-3 l:gap-x-12">
                         <img
                             src="@/assets/svg/credibility.svg"
-                            class="h-[80px] w-[80px]"
+                            class="w-9 h-9 l:h-[80px] l:w-[80px]"
                         />
 
                         <div class="flex flex-row gap-x-4 items-center">
-                            <div class="h-[25px] w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                            <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
                                 text="Соответствуем всем требованиям для участия в тендерах государственных и бюджетных организаций"
-                                type="body"
-                                class="max-w-[530px]"
+                                :type="width > 768 ? 'body' : 'body-m'"
+                                class="max-w-[229px] l:max-w-[530px]"
                             />
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-y-10">
-                    <img src="@/assets/images/tourism.png" />
-                    <img src="@/assets/images/league_second.png" />
+                <div class="flex flex-row justify-center gap-x-2 l:flex-col gap-y-10">
+                    <img
+                        src="@/assets/images/tourism.png"
+                        class="w-[150px]"
+                    />
+
+                    <img
+                        src="@/assets/images/league_second.png"
+                        class="w-[150px]"
+                    />
                 </div>
             </div>
 
             <router-link to="/about">
                 <img
+                    v-if="width > 768"
                     src="@/assets/svg/arrow.svg"
                     class="w-[400px] ml-auto mt-[-22px] cursor-pointer"
                 />
@@ -275,7 +285,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         </div>
     </section>
 
-    <section class="flex flex-col gap-y-4 items-center mb-[168px]">
+    <!-- <section class="flex flex-col gap-y-4 items-center mb-[168px]">
         <div class="bridge-wrapper mb-[60px]">
             <div class="bridge-layout"></div>
             <img
