@@ -22,7 +22,7 @@ defineProps<{
             <div>
                 <BaseTypography
                     :text="title"
-                    type="special-body"
+                    type="body-m"
                     color="var(--primary-color)"
                     class="mb-3"
                 />
@@ -34,42 +34,41 @@ defineProps<{
                 <div class="w-full">
                     <BaseTypography
                         :text="text"
-                        type="special-body3"
+                        type="body3-m"
                         color="var(--black-color)"
-                        class="pr-3"
                     />
 
                     <div
                         v-if="price"
-                        class="mt-[40px]"
+                        class="mt-3"
                     >
                         <BaseTypography
                             text="от "
-                            type="special-body2"
+                            type="body2-m"
                             tag="span"
                         />
 
                         <BaseTypography
                             :text="price"
-                            type="special-body2"
+                            type="body2-m"
                             tag="span"
                             color="var(--secondary-color)"
                         />
 
                         <BaseTypography
                             text=" ₽/чел"
-                            type="special-body2"
+                            type="body2-m"
                             tag="span"
                         />
                     </div>
                 </div>
 
-                <div class="flex items-center justify-end w-[46px] h-[46px]">
+                <!-- <div class="flex items-center justify-end w-[46px] h-[46px]">
                     <img
                         src="@/assets/svg/arrow-right.svg"
                         class="cursor-pointer ml-auto"
                     />
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -80,6 +79,5 @@ defineProps<{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 428px;
 }
 </style>

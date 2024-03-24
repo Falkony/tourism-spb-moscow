@@ -76,16 +76,16 @@
     --base-typography-caption2-line-height: 116%;
 
     --base-typography-headline-m-font-size: 28px;
-    --base-typography-headline-m-line-height: 24%;
+    --base-typography-headline-m-line-height: 124%;
 
     --base-typography-headline2-m-font-size: 20px;
-    --base-typography-headline2-m-line-height: 24%;
+    --base-typography-headline2-m-line-height: 124%;
 
     --base-typography-title-m-font-size: 22px;
-    --base-typography-title-m-line-height: 116%;
+    --base-typography-title-m-line-height: 124%;
 
     --base-typography-title2-m-font-size: 18px;
-    --base-typography-title2-m-line-height: 24%;
+    --base-typography-title2-m-line-height: 124%;
 
     --base-typography-subtitle-m-font-size: 18px;
     --base-typography-subtitle-m-ine-height: auto;
@@ -156,10 +156,15 @@ body {
     font-style: normal;
 }
 
-.container-fluid {
-    max-width: 100%;
-    padding-left: 120px;
-    padding-right: 120px;
-    margin-left: auto;
-    margin-right: auto;
+.swiper-pagination-bullet {
+    height: 12px !important;
+    width: 12px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--active-color) !important;
+}
+
+.swiper-scrollbar-drag {
+    background: var(--active-color) !important;
 }

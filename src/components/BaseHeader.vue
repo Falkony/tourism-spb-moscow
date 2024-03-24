@@ -109,7 +109,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
 
 <style scoped>
 .root {
-    @apply absolute top-0 left-0 z-20 w-full z-20;
+    /* @apply absolute top-0 left-0 z-20 w-full z-20; */
 }
 
 .header_container {

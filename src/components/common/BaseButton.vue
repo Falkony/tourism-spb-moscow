@@ -12,12 +12,17 @@ const props = withDefaults(
         text: string;
         type: TypographyType;
         color?: string;
+        paddingX?: string;
+        paddingY?: string;
         ui: string;
         disabled?: boolean;
     }>(),
     {
         color: '#fff',
         disabled: false,
+        paddingX: 'auto',
+        paddingY: 'auto',
+        width: '100%',
     }
 );
 
@@ -33,6 +38,7 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
                 'base-btn': width > 768,
             },
         ]"
+        :style="{ padding: `${paddingY}px ${paddingX}px` }"
         :disabled="disabled"
     >
         <slot v-if="$slots.default || text">
@@ -72,6 +78,7 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
     padding: 12px 36px;
     border-radius: var(--base-btn-radius);
     cursor: var(--base-btn-cursor);
+    width: fit-content;
 
     @apply relative select-none inline-flex items-center justify-center space-x-2 outline-none;
     @apply transition-colors duration-200;
@@ -100,6 +107,11 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
 
 .base-btn-ui-primary-with-back {
     background-color: var(--primary-color);
+    border: none;
+}
+
+.base-btn-ui-green {
+    background-color: var(--secondary-color);
     border: none;
 }
 </style>
