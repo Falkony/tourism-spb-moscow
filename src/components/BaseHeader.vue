@@ -21,7 +21,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
     <header class="root">
         <nav
             class="header_container"
-            :class="{ menu_active: toggle }"
+            :class="{ menu_active: toggle, '!bg-[var(--base-white)] border-b': !isMainPage }"
         >
             <router-link to="/">
                 <div v-if="isMainPage">

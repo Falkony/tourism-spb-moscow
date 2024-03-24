@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useWindowSize } from '@vueuse/core';
 import BaseTypography from './common/BaseTypography.vue';
 import LocaleSwitcher from './common/LocaleSwitcher.vue';
 import { useI18n } from 'vue-i18n';
 import BaseButton from './common/BaseButton.vue';
 
+const { width } = useWindowSize();
 const { t } = useI18n();
 
 const currentYear = new Date().getFullYear();
@@ -39,28 +41,48 @@ const links = computed(() => [
 
 <template>
     <footer>
-        <div class="contacts mb-[60px] px-[216px] justify-center">
+        <div class="contacts mb-[60px] l:px-[216px] justify-center">
             <BaseButton
+                v-if="width > 768"
                 :text="t('footer.contacts')"
                 type="body2"
                 color="var(--primary-color)"
                 ui="primary"
             />
 
-            <div class="flex flex-row items-center gap-x-3">
+            <div
+                v-if="width < 768"
+                class="flex flex-row gap-x-4"
+            >
+                <a href="#">
+                    <img
+                        src="@/assets/svg/telegram.svg"
+                        class="w-7"
+                    />
+                </a>
+
+                <a href="#">
+                    <img
+                        src="@/assets/svg/vk.svg"
+                        class="w-7"
+                    />
+                </a>
+            </div>
+
+            <div class="flex flex-col l:flex-row items-center gap-x-3">
                 <a
                     href="tel:+78122070350"
                     class="flex flex-row items-center"
                 >
                     <img
                         src="@/assets/svg/icon_call.svg"
-                        class="svg"
+                        :class="{ 'order-2 w-7': width < 768, svg: width > 768 }"
                     />
 
                     <div class="px-[15px] py-[10px]">
                         <BaseTypography
                             text="+7 (812) 207-03-50"
-                            type="body"
+                            :type="width < 768 ? 'body-m' : 'body'"
                         />
                     </div>
                 </a>
@@ -71,22 +93,27 @@ const links = computed(() => [
                 >
                     <img
                         src="@/assets/svg/whatsapp.svg"
-                        class="svg"
+                        :class="{ 'order-2 w-7': width < 768, svg: width > 768 }"
                     />
 
                     <div class="px-[15px] py-[10px]">
                         <BaseTypography
                             text="+7 (911) 266-00-98"
-                            type="body"
+                            :type="width < 768 ? 'body-m' : 'body'"
                         />
                     </div>
                 </a>
             </div>
 
-            <LocaleSwitcher color="var(--black-color)" />
+            <LocaleSwitcher
+                v-if="width > 768"
+                color="var(--black-color)"
+            />
         </div>
 
-        <ul class="flex flex-row gap-x-9 px-[216px] py-[20px] mb-[20px] justify-center">
+        <ul
+            class="flex flex-col gap-y-5 px-10 mb-12 l:flex-row l:gap-x-9 l:px-[216px] l:py-[20px] l:mb-[20px] l:justify-center"
+        >
             <li
                 v-for="link in links"
                 :key="link.url"
@@ -94,13 +121,16 @@ const links = computed(() => [
                 <router-link :to="link.url">
                     <BaseTypography
                         :text="link.text"
-                        type="footnote"
+                        :type="width < 768 ? 'body-m' : 'footnote'"
                     />
                 </router-link>
             </li>
         </ul>
 
-        <div class="flex flex-row gap-x-6 px-[216px] mb-[60px]">
+        <div
+            v-if="width > 768"
+            class="flex flex-row gap-x-6 px-[216px] mb-[60px]"
+        >
             <a href="#">
                 <img
                     src="@/assets/svg/telegram.svg"
@@ -116,50 +146,79 @@ const links = computed(() => [
             </a>
         </div>
 
-        <div class="flex flex-row px-[216px] mb-[60px]">
-            <div class="flex flex-row gap-x-12">
-                <img src="@/assets/images/league.png" />
-                <img src="@/assets/images/touroperators.png" />
+        <div class="flex flex-col justify-center items-center l:flex-row l:px-[216px] l:mb-[60px]">
+            <div class="flex flex-row gap-x-10 mb-6 l:gap-x-12 l:mb-0">
+                <img
+                    src="@/assets/images/league.png"
+                    class="w-[121px] m:w-auto"
+                />
+                <img
+                    src="@/assets/images/touroperators.png"
+                    class="w-[121px] m:w-auto"
+                />
             </div>
 
-            <div class="ml-auto">
+            <div
+                v-if="width < 768"
+                class="flex flex-row gap-x-5 mb-10"
+            >
+                <img
+                    src="@/assets/images/mir.png"
+                    class="w-[46px] l:h-9 l:w-auto"
+                />
+
+                <img
+                    src="@/assets/images/visa.png"
+                    class="w-[46px] l:h-9 l:w-auto"
+                />
+
+                <img
+                    src="@/assets/images/mastercard.png"
+                    class="w-[46px] l:h-9 l:w-auto"
+                />
+            </div>
+
+            <div class="p-[10px] l:ml-auto l:p-0 l:mb-0">
                 <BaseTypography
                     text="ОГРН 1157847393373"
-                    type="footnote"
+                    :type="width < 768 ? 'body-m' : 'footnote'"
                     color="var(--grey-color)"
                 />
 
                 <BaseTypography
                     text="ИНН 7840042552"
-                    type="footnote"
+                    :type="width < 768 ? 'body-m' : 'footnote'"
                     color="var(--grey-color)"
                 />
             </div>
         </div>
 
-        <div class="flex flex-row px-[216px] mb-[60px]">
-            <div class="p-[10px]">
+        <div class="flex flex-col justify-center items-center mb-6 l:flex-row l:px-[216px] l:mb-[60px]">
+            <div class="p-[10px] order-2 m:-order-1">
                 <BaseTypography
                     :text="`Copyright © Туроператор “РВМ”, ${currentYear}`"
-                    type="footnote"
+                    :type="width < 768 ? 'body-m' : 'footnote'"
                     color="var(--grey-color)"
                 />
             </div>
 
-            <div class="flex flex-row gap-x-5 ml-auto">
+            <div
+                v-if="width > 768"
+                class="flex flex-row gap-x-5 l:ml-auto order-0 l:-order-none"
+            >
                 <img
                     src="@/assets/images/mir.png"
-                    class="h-9"
+                    class="w-[46px] l:h-9 l:w-auto"
                 />
 
                 <img
                     src="@/assets/images/visa.png"
-                    class="h-9"
+                    class="w-[46px] l:h-9 l:w-auto"
                 />
 
                 <img
                     src="@/assets/images/mastercard.png"
-                    class="h-9"
+                    class="w-[46px] l:h-9 l:w-auto"
                 />
             </div>
         </div>
@@ -170,7 +229,7 @@ const links = computed(() => [
 .contacts {
     border-top: 3px solid var(--primary-color);
     border-bottom: 3px solid var(--primary-color);
-    @apply flex flex-row gap-x-[152px] py-10;
+    @apply flex flex-row gap-x-10 py-4 mt-10 items-center l:gap-x-[152px] l:py-10 l:mt-0;
 }
 
 .svg {
