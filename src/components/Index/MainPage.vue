@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import BaseTypography from '@/components/common/BaseTypography.vue';
-
-import { useRouter } from 'vue-router';
+import BaseButton from '@/components/common/BaseButton.vue';
+import Slider from '@/components/common/Slider.vue';
+import Form from '@/components/Index/Form.vue';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import BaseButton from '../common/BaseButton.vue';
-import Slider from '../common/Slider.vue';
 
-const router = useRouter();
 const { t } = useI18n();
 
 const slides = [
@@ -41,6 +40,12 @@ const slides = [
         price: '2000',
     },
 ];
+
+const formToggleTop = ref(false);
+const formToggleBottom = ref(false);
+
+const openFormTop = () => (formToggleTop.value = !formToggleTop.value);
+const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 </script>
 
 <template>
@@ -134,7 +139,15 @@ const slides = [
                 type="subtitle4"
                 color="var(--base-white)"
                 ui="secondary"
+                @click="openFormTop"
             />
+        </div>
+
+        <div
+            v-if="formToggleTop"
+            class="form box"
+        >
+            <Form @close="openFormTop" />
         </div>
     </section>
 
@@ -252,10 +265,12 @@ const slides = [
                 </div>
             </div>
 
-            <img
-                src="@/assets/svg/arrow.svg"
-                class="w-[400px] ml-auto mt-[-22px]"
-            />
+            <router-link to="/about">
+                <img
+                    src="@/assets/svg/arrow.svg"
+                    class="w-[400px] ml-auto mt-[-22px] cursor-pointer"
+                />
+            </router-link>
         </div>
     </section>
 
@@ -394,11 +409,12 @@ const slides = [
                     </div>
                 </div>
 
-                <img
-                    src="@/assets/svg/arrow.svg"
-                    class="w-[400px] ml-auto mt-[-22px] cursor-pointer"
-                    @click="router.push('/tours')"
-                />
+                <router-link to="/tours">
+                    <img
+                        src="@/assets/svg/arrow.svg"
+                        class="w-[400px] ml-auto mt-[-22px] cursor-pointer"
+                    />
+                </router-link>
             </div>
         </div>
     </section>
@@ -446,10 +462,12 @@ const slides = [
                 class="mb-16"
             />
 
-            <img
-                src="@/assets/svg/arrow.svg"
-                class="w-[400px] ml-auto mt-[-22px]"
-            />
+            <router-link to="/excursions">
+                <img
+                    src="@/assets/svg/arrow.svg"
+                    class="w-[400px] ml-auto mt-[-22px]"
+                />
+            </router-link>
         </div>
     </section>
 
@@ -528,43 +546,50 @@ const slides = [
     </section>
 
     <section class="mb-[168px]">
-        <div class="flex flex-col w-[1126px] mx-auto">
+        <div
+            class="flex flex-col items-center justify-center w-[1126px] mx-auto bottom_form"
+            v-if="formToggleBottom"
+        >
+            <Form
+                class="!border-[3px] !border-[var(--secondary-color)] !rounded-[100px]"
+                @close="openFormBottom"
+            />
+        </div>
+
+        <div
+            v-else
+            class="flex flex-col w-[1126px] mx-auto"
+        >
             <div class="flex flex-col items-center justify-center w-full mb-[64px] p-3">
-                <div class="p-[10px]">
+                <div class="p-[10px] w-[480px] text-center">
                     <BaseTypography
                         text="индивидуальный подход"
                         type="title"
+                        class="mb-2"
                     />
+
+                    <div class="h-[6px] bg-[var(--secondary-color)] rounded"></div>
                 </div>
 
-                <img
-                    src="@/assets/svg/line-big.svg"
-                    class="w-[480px]"
-                />
-
-                <div class="p-[10px]">
+                <div class="p-[10px] w-[377px] text-center">
                     <BaseTypography
                         text="профессионализм"
                         type="title"
+                        class="mb-2"
                     />
+
+                    <div class="h-[6px] bg-[var(--secondary-color)] rounded"></div>
                 </div>
 
-                <img
-                    src="@/assets/svg/line-big.svg"
-                    class="w-[377px]"
-                />
-
-                <div class="p-[10px]">
+                <div class="p-[10px] w-[289px] text-center">
                     <BaseTypography
                         text="надежность"
                         type="title"
+                        class="mb-2"
                     />
-                </div>
 
-                <img
-                    src="@/assets/svg/line-big.svg"
-                    class="w-[289px]"
-                />
+                    <div class="h-[6px] bg-[var(--secondary-color)] rounded"></div>
+                </div>
             </div>
 
             <div class="flex flex-col items-center justify-center gap-y-12">
@@ -575,6 +600,7 @@ const slides = [
                     type="subtitle4"
                     color="var(--base-white)"
                     ui="primary-with-back"
+                    @click="openFormBottom"
                 />
             </div>
         </div>
@@ -589,6 +615,7 @@ const slides = [
     background-color: #ccc;
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 
 .contacts {
@@ -640,5 +667,37 @@ const slides = [
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.form {
+    @apply absolute right-0 top-[50%] translate-y-[-50%] rounded-l-[50%];
+}
+
+.bottom_form {
+    animation: 0.5s showform ease-in-out;
+}
+
+.box {
+    animation: 1s show ease-in-out;
+}
+
+@keyframes showform {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translateX(100%) translateY(-50%);
+    }
+    to {
+        transform: translateX(0) translateY(-50%);
+        opacity: 1;
+    }
 }
 </style>

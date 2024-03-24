@@ -53,7 +53,7 @@ const uiClass = computed(() => `base-btn-ui-${props.ui}`);
     cursor: var(--base-btn-cursor);
 
     @apply relative select-none inline-flex items-center justify-center space-x-2 outline-none;
-    @apply transition-colors duration-200 whitespace-nowrap;
+    @apply transition-colors duration-200;
 }
 
 .base-btn-ui-disabled {

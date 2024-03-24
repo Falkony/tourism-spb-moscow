@@ -2,9 +2,8 @@
 import { defineProps } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SliderItem from './SlideItem.vue';
-import { Navigation } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
 
 defineProps<{
     slides: any[];
@@ -24,8 +23,9 @@ const onSlideChange = () => {
         :slides-per-view="2"
         :space-between="104"
         @swiper="onSwiper"
-        navigation
-        :modules="[Navigation]"
+        pagination
+        :grabCursor="true"
+        :modules="[Pagination]"
         @slideChange="onSlideChange"
     >
         <swiper-slide

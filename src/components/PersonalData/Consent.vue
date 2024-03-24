@@ -1,30 +1,14 @@
 <script setup lang="ts">
-import BaseButton from '@/components/common/BaseButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
+import BaseContainer from '@/components/common/BaseContainer.vue';
+import BaseReturn from '@/components/common/BaseReturn.vue';
 </script>
 
 <template>
     <div class="mt-[40px] mb-[104px]">
-        <div class="flex items-center w-full mb-[76px]">
-            <div
-                class="pl-[120px] pr-[76px] cursor-pointer"
-                @click="router.back()"
-            >
-                <img src="@/assets/svg/arrow-left.svg" />
-            </div>
+        <BaseReturn text="Согласие на обработку персональных данных" />
 
-            <BaseButton
-                text="Согласие на обработку персональных данных"
-                type="subtitle"
-                ui="primary"
-                color="var(--black-color)"
-            />
-        </div>
-
-        <div class="max-w-[1106px] mx-auto">
+        <BaseContainer>
             <BaseTypography
                 text="Я, физическое лицо, сведения о котором указаны в заполненной мною формах:"
                 type="body"
@@ -213,6 +197,6 @@ const router = useRouter();
                 type="body"
                 class="indent-8"
             />
-        </div>
+        </BaseContainer>
     </div>
 </template>

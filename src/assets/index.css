@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-    --app-min-width: 320px;
+    --app-min-width: 375px;
     --header-height: 149px;
 
     /* Палитра */

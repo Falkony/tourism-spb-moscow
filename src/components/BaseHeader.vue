@@ -36,6 +36,6 @@ const { isMainPage } = toRefs(globalStore);
 
 <style scoped>
 .header-navigation {
-    @apply flex flex-row items-center gap-x-10 absolute top-0 left-0 w-full bg-[var(--white-color)];
+    @apply flex flex-row items-center gap-x-10 absolute top-0 left-0 w-full bg-[var(--white-color)] z-20;
 }
 </style>
