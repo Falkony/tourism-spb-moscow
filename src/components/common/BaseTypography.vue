@@ -171,4 +171,108 @@ const sizeClass = computed(() => `base-typography-${props.type}`);
     font-weight: 300;
     text-decoration: underline;
 }
+
+/* Адаптив */
+
+.base-typography-headline-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-headline-m-font-size);
+    line-height: var(--base-typography-headline-m-line-height);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.base-typography-headline2-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-headline2-m-font-size);
+    line-height: var(--base-typography-headline2-m-line-height);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.base-typography-title-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-title-mfont-size);
+    line-height: var(--base-typography-title-m-line-height);
+    font-weight: 600;
+}
+
+.base-typography-title2-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-title2-m-font-size);
+    line-height: var(--base-typography-title2-m-line-height);
+    font-weight: 400;
+}
+
+.base-typography-subtitle-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-subtitle-m-font-size);
+    line-height: var(--base-typography-subtitle-m-line-height);
+    font-weight: 600;
+}
+
+.base-typography-subtitle2-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-subtitle2-m-font-size);
+    line-height: var(--base-typography-subtitle2-m-line-height);
+    font-weight: 400;
+}
+
+.base-typography-subtitle3-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-subtitle3-m-font-size);
+    line-height: var(--base-typography-subtitle3-m-line-height);
+    font-weight: 400;
+}
+
+.base-typography-subtitle4-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-subtitle4-m-font-size);
+    line-height: var(--base-typography-subtitle4-m-line-height);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.base-typography-body-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-body-m-font-size);
+    line-height: var(--base-typography-body-m-line-height);
+    font-weight: 400;
+}
+
+.base-typography-body2-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-body2-m-font-size);
+    line-height: var(--base-typography-body2-m-line-height);
+    font-weight: 600;
+}
+
+.base-typography-body3-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-body3-m-font-size);
+    line-height: var(--base-typography-body3-m-line-height);
+    font-weight: 300;
+}
+
+.base-typography-body4-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-body4-m-font-size);
+    line-height: var(--base-typography-body4-m-line-height);
+    font-weight: 300;
+    text-decoration: underline;
+}
+
+.base-typography-special-body-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-special-body-m-font-size);
+    line-height: var(--base-typography-special-body-m-line-height);
+    font-weight: 300;
+}
+
+.base-typography-caption-m {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-caption-m-font-size);
+    line-height: var(--base-typography-caption-m-line-height);
+    font-weight: 300;
+}
 </style>

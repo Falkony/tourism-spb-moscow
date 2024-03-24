@@ -75,6 +75,50 @@
     --base-typography-caption2-font-size: 14px;
     --base-typography-caption2-line-height: 116%;
 
+    // -- Адаптив -- //
+
+    --base-typography-headline-m-font-size: 28px;
+    --base-typography-headline-m-line-height: 24%;
+
+    --base-typography-headline2-m-font-size: 20px;
+    --base-typography-headline2-m-line-height: 24%;
+
+    --base-typography-title-m-font-size: 22px;
+    --base-typography-title-m-line-height: 24%;
+
+    --base-typography-title2-m-font-size: 18px;
+    --base-typography-title2-m-line-height: 24%;
+
+    --base-typography-subtitle-m-font-size: 18px;
+    --base-typography-subtitle-m-ine-height: auto;
+
+    --base-typography-subtitle2-m-font-size: 18px;
+    --base-typography-subtitle2-m-line-height: 116%;
+
+    --base-typography-subtitle3-m-font-size: 16px;
+    --base-typography-subtitle3-m-line-height: 190%;
+
+    --base-typography-subtitle4-m-font-size: 14px;
+    --base-typography-subtitle4-m-line-height: auto;
+
+    --base-typography-body-m-font-size: 14px;
+    --base-typography-body-m-line-height: 116%;
+
+    --base-typography-body2-m-font-size: 14px;
+    --base-typography-body2-m-line-height: 116%;
+
+    --base-typography-body3-m-font-size: 14px;
+    --base-typography-body3-m-line-height: 116%;
+
+    --base-typography-body4-m-font-size: 14px;
+    --base-typography-body4-m-line-height: 116%;
+
+    --base-typography-special-body-m-font-size: 14px;
+    --base-typography-special-body-m-line-height: 130%;
+
+    --base-typography-caption-m-font-size: 12px;
+    --base-typography-caption-m-line-height: 116%;
+
     /* Кнопки */
 
     --base-btn-border-default-color: transparent;
