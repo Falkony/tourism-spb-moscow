@@ -96,7 +96,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
             class="menu"
             :class="{ '!bg-[var(--base-white)]': toggle && !isMainPage }"
         >
-            <NavMenu />
+            <NavMenu @close="toggleMenu" />
         </menu>
 
         <div

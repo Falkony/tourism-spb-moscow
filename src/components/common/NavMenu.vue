@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import { useI18n } from 'vue-i18n';
-import { toRefs } from 'vue';
+import { toRefs, defineEmits } from 'vue';
 import { useGlobalStore } from '@/stores/global';
+
+const emits = defineEmits<{
+    close: [];
+}>();
 
 const { t } = useI18n();
 
@@ -19,6 +23,7 @@ const { isMainPage } = toRefs(globalStore);
                         :text="t('header.about')"
                         type="footnote"
                         :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                        @click="emits('close')"
                     />
                 </router-link>
             </li>
@@ -29,6 +34,7 @@ const { isMainPage } = toRefs(globalStore);
                         :text="t('header.tours')"
                         type="footnote"
                         :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                        @click="emits('close')"
                     />
                 </router-link>
             </li>
@@ -39,6 +45,7 @@ const { isMainPage } = toRefs(globalStore);
                         :text="t('header.excursions')"
                         type="footnote"
                         :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                        @click="emits('close')"
                     />
                 </router-link>
             </li>
@@ -49,6 +56,7 @@ const { isMainPage } = toRefs(globalStore);
                         :text="t('header.contacts')"
                         type="footnote"
                         :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                        @click="emits('close')"
                     />
                 </router-link>
             </li>
