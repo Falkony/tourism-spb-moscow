@@ -12,7 +12,7 @@ defineProps<{
 
 <template>
     <div class="item">
-        <div class="h-[234px] w-full rounded-t-[50px] bg-slate-400">
+        <div class="w-full rounded-t-[50px] bg-slate-400 bg-cover">
             <img :src="require(`@/assets/images/${url}`)" />
         </div>
 

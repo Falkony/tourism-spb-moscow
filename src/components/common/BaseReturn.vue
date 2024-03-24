@@ -52,6 +52,6 @@ const router = useRouter();
 }
 
 .text {
-    @apply flex items-center justify-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-9 py-3 w-full;
+    @apply flex items-center justify-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-9 py-3 w-fit;
 }
 </style>

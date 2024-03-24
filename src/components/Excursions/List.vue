@@ -1,31 +1,18 @@
 <script setup lang="ts">
-import BaseButton from '@/components/common/BaseButton.vue';
-import SlideItem from '@/components/common/SlideItem.vue';
-
 import { useRouter } from 'vue-router';
+import SlideItem from '@/components/common/SlideItem.vue';
+import BaseReturn from '@/components/common/BaseReturn.vue';
 
 const router = useRouter();
 </script>
 
 <template>
-    <div class="mt-[40px] mb-[104px]">
-        <div class="flex items-center w-full mb-[76px]">
-            <div
-                class="pl-[120px] pr-[76px] cursor-pointer"
-                @click="router.back()"
-            >
-                <img src="@/assets/svg/arrow-left.svg" />
-            </div>
+    <div class="mt-[40px] px-10">
+        <BaseReturn text="Экскурсии" />
 
-            <BaseButton
-                text="Экскурсии"
-                type="subtitle"
-                ui="primary"
-                color="var(--black-color)"
-            />
-        </div>
-
-        <div class="grid grid-cols-[428px_428px] justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto">
+        <div
+            class="flex flex-wrap l:grid l:grid-cols-[428px_428px] justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto"
+        >
             <SlideItem
                 title="Петербургский треугольник"
                 text="Пешеходная экскурсия"
