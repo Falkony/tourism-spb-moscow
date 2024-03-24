@@ -3,7 +3,7 @@ import Contacts from '@/components/Contacts/Contacts.vue';
 </script>
 
 <template>
-    <div class="mt-[149px]">
+    <div class="mt-[183px] l:mt-[149px]">
         <Contacts />
     </div>
 </template>

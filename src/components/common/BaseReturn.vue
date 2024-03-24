@@ -20,7 +20,7 @@ const router = useRouter();
 
 <template>
     <div
-        class="grid grid-cols-[22px_auto] items-center gap-x-[10px] px-6 mb-[60px] cursor-pointer"
+        class="grid grid-cols-[22px_auto] items-center gap-x-[10px] mb-10 cursor-pointer"
         @click="router.back()"
     >
         <div class="arrow">

@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useWindowSize } from '@vueuse/core';
 import { reactive, ref, computed } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
-import BaseButton from '../common/BaseButton.vue';
+import BaseButton from '@/components/common/BaseButton.vue';
+
+const { width } = useWindowSize();
 
 const form = reactive({
     name: '',
@@ -20,28 +23,29 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
 </script>
 
 <template>
-    <div class="bg-[var(--primary-color)] h-[600px] w-[800px] px-[72px] py-[85.5px] mb-[104px]">
-        <div class="px-[48px] mb-[64px]">
+    <div class="bg-[var(--primary-color)] px-10 py-[60px]">
+        <div class="flex flex-col gap-y-5 mb-[64px] px-[53px]">
             <BaseTypography
                 text="Форма обратной связи"
-                type="subtitle"
+                :type="width > 768 ? 'subtitle' : 'title-m'"
                 color="var(--base-white)"
-                class="mb-5"
+                class="max-w-[200px]"
             />
 
             <BaseTypography
                 text="Напишите нам по любым вопросам и предложениям"
-                type="special-body3"
+                :type="width > 768 ? 'special-body3' : 'body3-m'"
                 color="var(--base-white)"
+                class="max-w-[200px]"
             />
         </div>
 
-        <div class="flex flex-wrap gap-x-[130px] gap-y-9 mb-[64px] px-[48px]">
+        <div class="flex flex-wrap justify-center gap-y-9 mb-[64px]">
             <div class="flex flex-col w-[204px]">
                 <label for="name">
                     <BaseTypography
                         text="Ваше Имя*"
-                        type="special-body2"
+                        :type="width > 768 ? 'special-body2' : 'body2-m'"
                         color="var(--base-white)"
                     />
                 </label>
@@ -60,7 +64,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                 <label for="email">
                     <BaseTypography
                         text="Ваша электронная почта"
-                        type="special-body2"
+                        :type="width > 768 ? 'special-body2' : 'body2-m'"
                         color="var(--base-white)"
                     />
                 </label>
@@ -78,7 +82,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                 <label for="phone">
                     <BaseTypography
                         text="Ваш номер телефона *"
-                        type="special-body2"
+                        :type="width > 768 ? 'special-body2' : 'body2-m'"
                         color="var(--base-white)"
                     />
                 </label>
@@ -97,7 +101,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                 <label for="text">
                     <BaseTypography
                         text="Ваше сообщение"
-                        type="special-body2"
+                        :type="width > 768 ? 'special-body2' : 'body2-m'"
                         color="var(--base-white)"
                     />
                 </label>
@@ -112,18 +116,18 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
             </div>
         </div>
 
-        <div class="flex gap-x-9 px-[28px]">
-            <div class="flex gap-x-6">
+        <div class="flex flex-col gap-y-16 gap-x-9">
+            <div class="grid grid-cols-[24px_auto] gap-x-6">
                 <div
-                    class="h-10 w-10 bg-[var(--base-white)] rounded-full cursor-pointer"
+                    class="h-6 w-6 l:h-10 l:w-10 bg-[var(--base-white)] rounded-full cursor-pointer"
                     :class="{ 'border-[4px] border-[--secondary-color]': agreement }"
                     @click="() => (agreement = !agreement)"
-                ></div>
+                />
 
                 <div>
                     <BaseTypography
                         text="Я согласен(а) на обработку персональных данных на условиях, изложенных в Согласии на обработку персональных данных и Политике."
-                        type="caption"
+                        :type="width > 768 ? 'caption' : 'caption-m'"
                         color="var(--base-white)"
                         class="max-w-[238px]"
                     />
@@ -132,7 +136,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
 
             <BaseButton
                 text="Отправить"
-                type="subtitle4"
+                :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
                 :color="!isDisabled ? 'var(--base-white)' : 'var(--primary-color)'"
                 :ui="!isDisabled ? 'disabled' : 'white'"
                 class="cursor-pointer"

@@ -1,73 +1,65 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
+import BaseReturn from '@/components/common/BaseReturn.vue';
 import Form from './Form.vue';
 import Map from './Map.vue';
+import { useWindowSize } from '@vueuse/core';
 
-import { useRouter } from 'vue-router';
-import BaseTypography from '../common/BaseTypography.vue';
+const { width } = useWindowSize();
 
-const router = useRouter();
+const mobile = computed(() => width.value < 768);
+const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
 </script>
 
 <template>
-    <div class="flex gap-x-[240px] justify-center mt-[40px] mb-[76px] max-w-[1362px] mx-auto">
+    <div
+        class="flex flex-col px-10 l:px-0 l:gap-x-[240px] justify-center mt-[40px] mb-[76px] l:max-w-[1362px] l:mx-auto"
+    >
         <div class="flex flex-col">
-            <div class="flex items-center w-full mb-[76px]">
-                <div
-                    class="pr-[76px] cursor-pointer"
-                    @click="router.back()"
-                >
-                    <img src="@/assets/svg/arrow-left.svg" />
-                </div>
+            <BaseReturn text="Адрес РВМ" />
 
-                <BaseButton
-                    text="Адрес РВМ"
-                    type="subtitle"
-                    ui="primary"
-                    color="var(--black-color)"
-                />
-            </div>
-
-            <div class="flex gap-x-[260px]">
-                <div class="flex flex-col gap-y-5">
+            <div class="flex">
+                <div class="flex flex-col gap-y-3 mb-[60px]">
                     <div class="flex items-center">
                         <img
                             src="@/assets/svg/icon_location.svg"
-                            class="w-[46px]"
+                            class="w-[27px] l:w-[46px]"
                         />
 
                         <div class="p-[10px]">
                             <BaseTypography
                                 text="г. Санкт-Петербург, бизнес центр “СИТИ”,"
-                                type="body"
+                                :type="typoMobile"
                             />
 
                             <BaseTypography
                                 text="Садовая улица 12, офис 3"
-                                type="body"
+                                :type="typoMobile"
                             />
 
                             <BaseTypography
                                 text="3 минуты от ст. метро «Гостиный двор»"
-                                type="body"
+                                :type="typoMobile"
                             />
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-x-3">
+                    <div class="flex flex-col gap-y-5 l:flex-row l:items-center gap-x-3">
                         <a
                             href="tel:+78122070350"
                             class="flex items-center"
                         >
                             <img
                                 src="@/assets/svg/icon_call.svg"
-                                class="svg"
+                                class="w-[27px] l:w-[46px]"
                             />
 
                             <div class="px-[15px] py-[10px]">
                                 <BaseTypography
                                     text="+7 (812) 207-03-50"
-                                    type="body"
+                                    :type="typoMobile"
                                 />
                             </div>
                         </a>
@@ -78,13 +70,13 @@ const router = useRouter();
                         >
                             <img
                                 src="@/assets/svg/whatsapp.svg"
-                                class="svg"
+                                class="w-[27px] l:w-[46px]"
                             />
 
                             <div class="px-[15px] py-[10px]">
                                 <BaseTypography
                                     text="+7 (911) 266-00-98"
-                                    type="body"
+                                    :type="typoMobile"
                                 />
                             </div>
                         </a>
@@ -93,14 +85,14 @@ const router = useRouter();
                     <div class="flex items-center">
                         <img
                             src="@/assets/svg/icon_mail.svg"
-                            class="w-[46px]"
+                            class="w-[27px] l:w-[46px]"
                         />
 
                         <div class="p-[10px]">
                             <a href="mailto:info@rvm-spb.ru">
                                 <BaseTypography
                                     text="info@rvm-spb.ru"
-                                    type="footnote"
+                                    :type="typoMobile"
                                 />
                             </a>
                         </div>
@@ -112,33 +104,39 @@ const router = useRouter();
         <div class="flex flex-col">
             <BaseButton
                 text="График работы офиса"
-                type="subtitle"
+                :type="mobile ? 'subtitle-m' : 'subtitle'"
                 ui="primary"
                 color="var(--black-color)"
-                class="mb-[76px]"
+                class="mb-12"
             />
 
             <div class="flex flex-col gap-y-4">
                 <BaseTypography
                     text="С понедельника по пятницу — с 10:00 до 18:00"
-                    type="body"
+                    :type="typoMobile"
                 />
 
                 <BaseTypography
                     text="В выходные — по предварительной записи"
-                    type="body"
+                    :type="typoMobile"
                 />
             </div>
         </div>
     </div>
 
-    <div class="flex">
+    <div class="flex flex-col gap-y-[60px]">
+        <Map />
+
+        <Form />
+    </div>
+
+    <!-- <div class="flex flex-col l:flex-row">
         <Map class="w-auto" />
 
-        <div class="w-[800px]">
+        <div class="l:w-[800px]">
             <Form />
         </div>
-    </div>
+    </div> -->
 </template>
 
 <style scoped></style>

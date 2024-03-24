@@ -192,7 +192,7 @@ const sizeClass = computed(() => `base-typography-${props.type}`);
 
 .base-typography-title-m {
     --base-typography-default-color: var(--color-text-heading);
-    font-size: var(--base-typography-title-mfont-size);
+    font-size: var(--base-typography-title-m-font-size);
     line-height: var(--base-typography-title-m-line-height);
     font-weight: 600;
 }
