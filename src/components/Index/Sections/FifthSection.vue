@@ -174,9 +174,13 @@ const router = useRouter();
 }
 
 .swiper-slide {
+    display: flex;
+    justify-content: center;
     background-position: center;
     background-size: cover;
     width: 150px;
     height: 270px;
+
+    @apply m:h-[350px];
 }
 </style>

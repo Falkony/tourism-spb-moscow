@@ -16,7 +16,8 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
             />
         </div>
 
-        <div class="flex">
+        <!-- ToDo: описать после 768 -->
+        <div class="flex w-full">
             <div class="flex flex-col px-1 py-3 my-auto">
                 <div class="grid grid-cols-[12px_auto] gap-x-2 items-center mb-12">
                     <div class="h-3 w-3 bg-[var(--secondary-color)] rounded-full" />

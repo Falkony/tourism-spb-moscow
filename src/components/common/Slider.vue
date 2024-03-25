@@ -3,8 +3,11 @@ import { defineProps } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SliderItem from './SlideItem.vue';
 import { Scrollbar } from 'swiper/modules';
+import { useWindowSize } from '@vueuse/core';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+
+const { width } = useWindowSize();
 
 defineProps<{
     slides: any[];
@@ -13,7 +16,7 @@ defineProps<{
 
 <template>
     <swiper
-        :slidesPerView="'auto'"
+        :slidesPerView="width >= 768 ? 2 : 'auto'"
         :spaceBetween="24"
         :modules="[Scrollbar]"
         centeredSlides

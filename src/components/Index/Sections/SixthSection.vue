@@ -64,6 +64,8 @@ import 'swiper/css/scrollbar';
     width: 100%;
     height: 250px;
     margin-bottom: 56px;
+
+    @apply h-max py-5;
 }
 
 .swiper-slide {
@@ -77,6 +79,8 @@ import 'swiper/css/scrollbar';
     background-size: cover;
     height: 215px;
     width: 80%;
+
+    @apply m:h-auto;
 }
 
 .swiper-slide img {

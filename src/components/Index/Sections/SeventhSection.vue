@@ -66,5 +66,3 @@ const slides = [
         />
     </div>
 </template>
-
-<style scoped></style>

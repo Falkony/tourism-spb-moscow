@@ -43,7 +43,7 @@ const links = computed(() => [
     <footer>
         <div class="contacts mb-[60px] l:px-[216px] justify-center">
             <BaseButton
-                v-if="width > 768"
+                v-if="width > 1024"
                 :text="t('footer.contacts')"
                 type="body2"
                 color="var(--primary-color)"
@@ -51,25 +51,25 @@ const links = computed(() => [
             />
 
             <div
-                v-if="width < 768"
+                v-if="width < 1024"
                 class="flex flex-row gap-x-4"
             >
                 <a href="#">
                     <img
                         src="@/assets/svg/telegram.svg"
-                        class="w-7"
+                        :class="{ svg: width >= 768, 'w-7': width < 768 }"
                     />
                 </a>
 
                 <a href="#">
                     <img
                         src="@/assets/svg/vk.svg"
-                        class="w-7"
+                        :class="{ svg: width >= 768, 'w-7': width < 768 }"
                     />
                 </a>
             </div>
 
-            <div class="flex flex-col l:flex-row items-center gap-x-3">
+            <div class="flex flex-col m:flex-row items-center gap-x-3">
                 <a
                     href="tel:+78122070350"
                     class="flex flex-row items-center"
@@ -106,7 +106,7 @@ const links = computed(() => [
             </div>
 
             <LocaleSwitcher
-                v-if="width > 768"
+                v-if="width > 1024"
                 color="var(--black-color)"
             />
         </div>
@@ -128,7 +128,7 @@ const links = computed(() => [
         </ul>
 
         <div
-            v-if="width > 768"
+            v-if="width > 1024"
             class="flex flex-row gap-x-6 px-[216px] mb-[60px]"
         >
             <a href="#">
@@ -159,35 +159,35 @@ const links = computed(() => [
             </div>
 
             <div
-                v-if="width < 768"
+                v-if="width < 1024"
                 class="flex flex-row gap-x-5 mb-10"
             >
                 <img
                     src="@/assets/images/mir.png"
-                    class="w-[46px] l:h-9 l:w-auto"
+                    class="w-[46px] m:h-9 m:w-auto"
                 />
 
                 <img
                     src="@/assets/images/visa.png"
-                    class="w-[46px] l:h-9 l:w-auto"
+                    class="w-[46px] m:h-9 m:w-auto"
                 />
 
                 <img
                     src="@/assets/images/mastercard.png"
-                    class="w-[46px] l:h-9 l:w-auto"
+                    class="w-[46px] m:h-9 m:w-auto"
                 />
             </div>
 
             <div class="p-[10px] l:ml-auto l:p-0 l:mb-0">
                 <BaseTypography
                     text="ОГРН 1157847393373"
-                    :type="width < 768 ? 'body-m' : 'footnote'"
+                    :type="width < 1024 ? 'body-m' : 'footnote'"
                     color="var(--grey-color)"
                 />
 
                 <BaseTypography
                     text="ИНН 7840042552"
-                    :type="width < 768 ? 'body-m' : 'footnote'"
+                    :type="width < 1024 ? 'body-m' : 'footnote'"
                     color="var(--grey-color)"
                 />
             </div>
@@ -197,13 +197,13 @@ const links = computed(() => [
             <div class="p-[10px] order-2 m:-order-1">
                 <BaseTypography
                     :text="`Copyright © Туроператор “РВМ”, ${currentYear}`"
-                    :type="width < 768 ? 'body-m' : 'footnote'"
+                    :type="width < 1024 ? 'body-m' : 'footnote'"
                     color="var(--grey-color)"
                 />
             </div>
 
             <div
-                v-if="width > 768"
+                v-if="width > 1024"
                 class="flex flex-row gap-x-5 l:ml-auto order-0 l:-order-none"
             >
                 <img
