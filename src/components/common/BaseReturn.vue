@@ -20,38 +20,38 @@ const router = useRouter();
 
 <template>
     <div
-        class="grid grid-cols-[22px_auto] items-center gap-x-[10px] mb-10 cursor-pointer"
+        class="relative flex justify-center items-center gap-x-[10px] mb-10 cursor-pointer w-full"
         @click="router.back()"
     >
-        <div class="arrow">
-            <img
-                v-if="width > 768"
-                src="@/assets/svg/arrow-left.svg"
-            />
-
-            <img
-                v-else
-                src="@/assets/svg/mobile/shevron-left.svg"
-                class="w-[22px] h-[22px]"
-            />
-        </div>
-
         <div class="text">
             <BaseTypography
                 :text="text"
                 :type="width > 768 ? 'subtitle' : 'subtitle-m'"
                 class="max-w-[191px] l:max-w-auto"
             />
+
+            <div class="arrow">
+                <img
+                    v-if="width > 768"
+                    src="@/assets/svg/arrow-left.svg"
+                />
+
+                <img
+                    v-else
+                    src="@/assets/svg/mobile/shevron-left.svg"
+                    class="w-[22px] h-[22px]"
+                />
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
 .arrow {
-    @apply h-[22px] w-[22px];
+    @apply h-[22px] w-[22px] absolute top-[50%] translate-y-[-50%] left-[-50px];
 }
 
 .text {
-    @apply flex items-center justify-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-9 py-3 w-fit;
+    @apply relative flex items-center justify-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-9 py-3 w-fit;
 }
 </style>
