@@ -3,5 +3,7 @@ import EmptyPage from '@/components/common/EmptyPage.vue';
 </script>
 
 <template>
-    <EmptyPage title="Агентам" />
+    <div class="mt-[183px]">
+        <EmptyPage title="Агентам" />
+    </div>
 </template>

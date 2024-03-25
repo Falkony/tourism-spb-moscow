@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import MainPage from '@/components/Index/MainPage.vue';
+import EmptyPage from '@/components/common/EmptyPage.vue';
 </script>
 
 <template>
-    <MainPage />
+    <div class="mt-[183px]">
+        <EmptyPage title="Как заказать и оплатить" />
+    </div>
 </template>
