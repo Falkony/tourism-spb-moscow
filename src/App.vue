@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import BaseHeader from './components/BaseHeader.vue';
-import BaseFooter from './components/BaseFooter.vue';
+import BaseHeader from '@/components/BaseHeader.vue';
+import BaseFooter from '@/components/BaseFooter.vue';
+import CookieAgreement from '@/components/common/CookieAgreement.vue';
 </script>
 
 <template>
@@ -9,8 +10,12 @@ import BaseFooter from './components/BaseFooter.vue';
         style="min-height: 100vh"
     >
         <BaseHeader />
+
         <router-view />
+
         <BaseFooter />
+
+        <CookieAgreement />
     </div>
 </template>
 
