@@ -64,23 +64,18 @@ const toggleMenu = () => (toggle.value = !toggle.value);
                 v-if="width < 1024"
                 class="burger_menu"
             >
-                <label class="hamburger-menu">
+                <label
+                    class="hamburger-menu"
+                    :class="{ 'after:bg-[var(--black-color)] before:bg-[var(--black-color)]': !isMainPage }"
+                >
                     <input
+                        :class="{
+                            'hamburger-menu-not-main': !isMainPage,
+                        }"
                         type="checkbox"
                         @click="toggleMenu"
                     />
                 </label>
-                <!-- <img
-                    v-if="isMainPage"
-                    src="@/assets/svg/mobile/burger_menu.svg"
-                    class="w-6"
-                />
-
-                <img
-                    v-else
-                    src="@/assets/svg/mobile/burger_menu_black.svg"
-                    class="w-6"
-                /> -->
             </div>
 
             <div

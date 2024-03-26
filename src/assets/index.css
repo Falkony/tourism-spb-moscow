@@ -214,6 +214,10 @@ body {
         translate var(--animation-timing), background-color var(--animation-timing);
 }
 
+.hamburger-menu-not-main {
+    background-color: var(--black-color) !important;
+}
+
 .hamburger-menu input {
     appearance: none;
     padding: 0;
