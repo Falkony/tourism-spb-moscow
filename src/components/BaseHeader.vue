@@ -63,9 +63,14 @@ const toggleMenu = () => (toggle.value = !toggle.value);
             <div
                 v-if="width < 1024"
                 class="burger_menu"
-                @click="toggleMenu"
             >
-                <img
+                <label class="hamburger-menu">
+                    <input
+                        type="checkbox"
+                        @click="toggleMenu"
+                    />
+                </label>
+                <!-- <img
                     v-if="isMainPage"
                     src="@/assets/svg/mobile/burger_menu.svg"
                     class="w-6"
@@ -75,7 +80,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
                     v-else
                     src="@/assets/svg/mobile/burger_menu_black.svg"
                     class="w-6"
-                />
+                /> -->
             </div>
 
             <div
@@ -92,9 +97,11 @@ const toggleMenu = () => (toggle.value = !toggle.value);
         </nav>
 
         <menu
-            v-if="toggle"
-            class="menu"
-            :class="{ '!bg-[var(--base-white)]': toggle && !isMainPage }"
+            class="menu sidebar"
+            :class="{
+                '!bg-[var(--base-white)]': toggle && !isMainPage,
+                active: toggle,
+            }"
         >
             <NavMenu @close="toggleMenu" />
         </menu>
@@ -109,7 +116,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
 
 <style scoped>
 .root {
-    @apply absolute top-0 left-0 z-20 w-full z-20;
+    @apply absolute top-0 left-0 z-20 w-full;
 }
 
 .header_container {
