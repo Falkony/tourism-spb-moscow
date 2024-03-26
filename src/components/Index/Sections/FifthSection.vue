@@ -48,7 +48,6 @@ const router = useRouter();
             centeredSlides
             grab-cursor
             pagination
-            class="mb-[56px]"
         >
             <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
@@ -93,7 +92,7 @@ const router = useRouter();
             </SwiperSlide>
         </swiper>
 
-        <div class="flex justify-center mb-[56px]">
+        <div class="flex justify-center">
             <BaseLine width="127" />
         </div>
 
@@ -179,7 +178,7 @@ const router = useRouter();
     background-position: center;
     background-size: cover;
     width: 150px;
-    height: 270px;
+    height: 350px;
 
     @apply m:h-[350px];
 }

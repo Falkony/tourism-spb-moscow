@@ -1,25 +1,30 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core';
-import { reactive, ref, computed } from 'vue';
+import { vMaska } from 'maska';
+import { ref, computed } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 
 const { width } = useWindowSize();
 
-const form = reactive({
-    name: '',
-    email: '',
-    text: '',
-    phone: '',
-});
-
-const agreement = ref(false);
-
-const sendForm = () => {
-    console.log(form);
+type FormDataType = {
+    name: string;
+    email?: string;
+    text?: string;
+    phone: string;
 };
 
-const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agreement.value);
+const options = { mask: '+7 (###) ###-##-##' };
+
+const form = ref<FormDataType>({} as FormDataType);
+const agreement = ref<boolean>(false);
+
+const sendForm = () => {
+    // ToDo: подключить PhPMailer.
+    return console.log('form:', form.value);
+};
+
+const isDisabled = computed(() => form.value.name !== '' && form.value.phone !== '' && agreement.value);
 </script>
 
 <template>
@@ -54,6 +59,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                     v-model="form.name"
                     id="name"
                     name="name"
+                    placeholder="Иван"
                     class="edit bk"
                     type="text"
                     required
@@ -73,6 +79,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                     v-model="form.email"
                     type="email"
                     id="email"
+                    placeholder="ivan.ivanov@mail.ru"
                     name="email"
                     class="edit bk"
                 />
@@ -89,6 +96,8 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
 
                 <input
                     v-model="form.phone"
+                    v-maska:[options]
+                    placeholder="+7(000)000-00-00"
                     type="tel"
                     id="phone"
                     name="phone"
@@ -110,6 +119,7 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                     v-model="form.text"
                     id="text"
                     name="text"
+                    placeholder="Ваше сообщение..."
                     type="text"
                     class="edit bk"
                 />
@@ -134,15 +144,19 @@ const isDisabled = computed(() => form.name !== '' && form.phone !== '' && agree
                 </div>
             </div>
 
-            <BaseButton
-                text="Отправить"
-                :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
-                :color="!isDisabled ? 'var(--base-white)' : 'var(--primary-color)'"
-                :ui="!isDisabled ? 'disabled' : 'white'"
-                class="cursor-pointer"
-                :disabled="!isDisabled"
-                @click="sendForm"
-            />
+            <div class="flex justify-center">
+                <BaseButton
+                    text="Отправить"
+                    :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
+                    :color="!isDisabled ? 'var(--base-white)' : 'var(--primary-color)'"
+                    :ui="!isDisabled ? 'disabled' : 'white'"
+                    padding-x="85"
+                    padding-y="18"
+                    class="cursor-pointer"
+                    :disabled="!isDisabled"
+                    @click="sendForm"
+                />
+            </div>
         </div>
     </div>
 </template>

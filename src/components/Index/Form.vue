@@ -132,7 +132,7 @@ const isDisabled = computed(() => form.value.name !== '' && form.value.phone !==
                     v-model="form.text"
                     id="text"
                     name="text"
-                    placeholder="Ваше сообщение"
+                    placeholder="Ваше сообщение..."
                     class="edit bk"
                     type="text"
                 />

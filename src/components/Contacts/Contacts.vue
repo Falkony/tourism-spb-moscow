@@ -101,11 +101,13 @@ const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
             </div>
         </div>
 
-        <div class="flex flex-col">
+        <div class="flex items-center justify-center flex-col">
             <BaseButton
                 text="График работы офиса"
                 :type="mobile ? 'subtitle-m' : 'subtitle'"
                 ui="primary"
+                padding-x="63.5"
+                padding-y="11.5"
                 color="var(--black-color)"
                 class="mb-12"
             />

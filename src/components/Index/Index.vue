@@ -27,7 +27,7 @@ import NinthSection from './Sections/NinthSection.vue';
         <FourthSection />
     </section>
 
-    <section class="mb-[92px]">
+    <section>
         <FifthSection />
     </section>
 

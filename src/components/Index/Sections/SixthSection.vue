@@ -13,7 +13,6 @@ import 'swiper/css/scrollbar';
         centeredSlides
         :scrollbar="{ draggable: true }"
         grab-cursor
-        class="mb-[56px]"
     >
         <SwiperSlide>
             <img
@@ -62,10 +61,9 @@ import 'swiper/css/scrollbar';
 <style scoped>
 .swiper {
     width: 100%;
-    height: 250px;
-    margin-bottom: 56px;
+    height: 300px;
 
-    @apply h-max py-5;
+    @apply h-max py-10;
 }
 
 .swiper-slide {
