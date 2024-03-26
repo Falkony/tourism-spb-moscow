@@ -63,12 +63,12 @@ defineProps<{
                     </div>
                 </div>
 
-                <!-- <div class="flex items-center justify-end w-[46px] h-[46px]">
+                <div class="absolute bottom-2 right-4 w-[46px] h-[46px]">
                     <img
-                        src="@/assets/svg/arrow-right.svg"
+                        src="@/assets/svg/mobile/shevron_right.svg"
                         class="cursor-pointer ml-auto"
                     />
-                </div> -->
+                </div>
             </div>
         </div>
     </div>

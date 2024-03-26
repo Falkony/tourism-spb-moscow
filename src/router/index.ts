@@ -34,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
         component: General,
     },
     {
-        path: '/tours/:id',
+        path: '/tours/:slug/:id',
         name: 'tour',
         component: Tour,
     },

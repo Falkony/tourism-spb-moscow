@@ -2,13 +2,13 @@
 import { defineProps } from 'vue';
 
 defineProps<{
-    width: string;
+    width?: string;
 }>();
 </script>
 
 <template>
     <div
         class="h-[6px] bg-[var(--secondary-color)] rounded"
-        :style="{ width: `${width}px` }"
+        :style="{ width: width ? `${width}px` : '100%' }"
     />
 </template>

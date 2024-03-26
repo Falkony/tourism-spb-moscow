@@ -116,7 +116,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
 
 <style scoped>
 .root {
-    @apply absolute top-0 left-0 z-20 w-full;
+    @apply absolute top-0 left-0 z-20 w-full h-[183px];
 }
 
 .header_container {

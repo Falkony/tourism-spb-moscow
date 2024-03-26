@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { withDefaults, defineProps, ref } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
+import BaseLine from '@/components/common/BaseLine.vue';
 
 const props = withDefaults(
     defineProps<{
@@ -33,7 +34,7 @@ const changeExpanded = () => {
                     <li>
                         <BaseTypography
                             :text="title"
-                            type="body"
+                            type="body-m"
                         />
                     </li>
                 </ul>
@@ -52,12 +53,7 @@ const changeExpanded = () => {
             />
         </div>
 
-        <!-- ToDo: Убрать svg сделать бордюр! Удалить вообще эту свг линию :/ -->
-        <img
-            src="@/assets/svg/line-big.svg"
-            class="w-full"
-            :class="{ 'mb-12': isExpanded }"
-        />
+        <BaseLine />
 
         <div v-show="isExpanded">
             <slot />
