@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import BaseButton from '@/components/common/BaseButton.vue';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseReturn from '@/components/common/BaseReturn.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
+import Form from './Form.vue';
 
 const router = useRouter();
 const route = useRoute();
 
-const title = computed(() => history.state?.title);
+const toggle = ref<boolean>(false);
 
+const toggleForm = () => (toggle.value = !toggle.value);
+
+const title = computed(() => history.state?.title);
 const isSpb = computed(() => route.params.slug === 'spb');
 </script>
 
@@ -34,7 +38,15 @@ const isSpb = computed(() => route.params.slug === 'spb');
                     padding-x="61"
                     padding-y="18"
                     color="var(--base-white)"
+                    @click="toggleForm"
                 />
+            </div>
+
+            <div
+                class="show fixed inset-0 z-30"
+                v-if="toggle"
+            >
+                <Form @close="toggleForm" />
             </div>
 
             <div

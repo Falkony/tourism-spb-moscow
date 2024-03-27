@@ -22,17 +22,25 @@ const options = { mask: '+7 (###) ###-##-##' };
 
 const form = ref<FormDataType>({} as FormDataType);
 const agreement = ref<boolean>(false);
+const sended = ref<boolean>(false);
 
 const sendForm = () => {
     // ToDo: подключить PhPMailer.
-    return console.log('form:', form.value);
+    console.log('form:', form.value);
+    sended.value = true;
 };
 
-const isDisabled = computed(() => form.value.name !== '' && form.value.phone !== '' && agreement.value);
+const isDisabled = computed(() => {
+    const phoneValid = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(form.value.phone);
+    return form.value.name !== '' && phoneValid && agreement.value;
+});
 </script>
 
 <template>
-    <div class="h-screen bg-[var(--bg-color)]">
+    <div
+        v-if="!sended"
+        class="h-screen bg-[var(--bg-color)]"
+    >
         <div
             class="absolute top-16 right-10 cursor-pointer"
             @click="emits('close')"
@@ -187,6 +195,30 @@ const isDisabled = computed(() => form.value.name !== '' && form.value.phone !==
                 :ui="!isDisabled ? 'disabled' : 'primary-with-back'"
                 :disabled="!isDisabled"
                 @click="sendForm"
+            />
+        </div>
+    </div>
+
+    <div
+        v-else
+        class="h-screen bg-[var(--bg-color)]"
+    >
+        <div
+            class="absolute top-16 right-10 cursor-pointer"
+            @click="emits('close')"
+        >
+            <img src="@/assets/svg/close.svg" />
+        </div>
+
+        <div class="flex flex-col items-center justify-center gap-y-5 h-full">
+            <BaseTypography
+                text="Благодарим за оставленную заявку!"
+                type="subtitle2-m"
+            />
+
+            <BaseTypography
+                text="Наш специалист вскоре свяжется с Вами."
+                type="subtitle2-m"
             />
         </div>
     </div>
