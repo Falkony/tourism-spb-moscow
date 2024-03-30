@@ -69,6 +69,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
                     :class="{ 'after:bg-[var(--black-color)] before:bg-[var(--black-color)]': !isMainPage }"
                 >
                     <input
+                        v-model="toggle"
                         :class="{
                             'hamburger-menu-not-main': !isMainPage,
                         }"
