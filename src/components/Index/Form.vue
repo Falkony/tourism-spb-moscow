@@ -5,7 +5,7 @@ import { ref, computed, defineEmits } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 
-const emits = defineEmits<{
+const emit = defineEmits<{
     close: [];
 }>();
 
@@ -43,7 +43,7 @@ const isDisabled = computed(() => {
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
-            @click="emits('close')"
+            @click="emit('close')"
         >
             <img src="@/assets/svg/close.svg" />
         </div>
@@ -205,7 +205,7 @@ const isDisabled = computed(() => {
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
-            @click="emits('close')"
+            @click="emit('close')"
         >
             <img src="@/assets/svg/close.svg" />
         </div>

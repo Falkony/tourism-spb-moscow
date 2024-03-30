@@ -82,7 +82,7 @@ const toggleMenu = () => (toggle.value = !toggle.value);
                 class="flex w-full pl-10"
                 v-else
             >
-                <NavMenu />
+                <NavMenu @close="toggleMenu" />
 
                 <LocaleSwitcher
                     class="ml-auto"

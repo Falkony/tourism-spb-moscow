@@ -12,6 +12,7 @@ const emit = defineEmits<{
 const { width } = useWindowSize();
 
 type FormDataType = {
+    tour: string;
     childrens?: number;
     adults: number;
     dateFrom: string;
@@ -60,14 +61,8 @@ const isDisabled = computed(() => {
 
         <div class="flex flex-col gap-y-5 px-[72px] py-16">
             <BaseTypography
-                text="Заявка на тур"
+                text="Бронирование"
                 :type="width > 768 ? 'subtitle' : 'title-m'"
-                color="var(--black-color)"
-            />
-
-            <BaseTypography
-                text="Наш специалист свяжется с Вами, чтобы предложить лучший вариант тура под Ваши запросы"
-                :type="width > 768 ? 'special-body3' : 'body3-m'"
                 color="var(--black-color)"
             />
         </div>
@@ -75,7 +70,6 @@ const isDisabled = computed(() => {
         <div class="flex flex-col gap-y-16">
             <!-- 1 -->
             <div class="flex flex-col gap-y-10 px-10">
-                <!-- range -->
                 <div class="flex flex-col px-[45px]">
                     <BaseTypography
                         text="Общая информация"
@@ -84,6 +78,27 @@ const isDisabled = computed(() => {
                         class="mb-10"
                     />
 
+                    <label for="tour">
+                        <BaseTypography
+                            text="Название тура*"
+                            :type="width > 768 ? 'special-body2' : 'body2-m'"
+                            color="var(--black-color)"
+                        />
+                    </label>
+
+                    <input
+                        v-model="form.tour"
+                        id="tour"
+                        name="tour"
+                        placeholder="Бессмертная классика"
+                        class="edit bk"
+                        type="string"
+                        required
+                    />
+                </div>
+
+                <!-- range -->
+                <div class="flex flex-col px-[45px]">
                     <label for="dateFrom">
                         <BaseTypography
                             text="Период*"

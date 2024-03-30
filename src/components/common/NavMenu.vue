@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n';
 import { toRefs, defineEmits } from 'vue';
 import { useGlobalStore } from '@/stores/global';
 
-const emits = defineEmits<{
+const emit = defineEmits<{
     close: [];
 }>();
 
@@ -22,7 +22,7 @@ const { isMainPage } = toRefs(globalStore);
                     :text="t('header.about')"
                     type="footnote"
                     :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
-                    @click="emits('close')"
+                    @click="emit('close')"
                 />
             </router-link>
         </li>
@@ -33,7 +33,7 @@ const { isMainPage } = toRefs(globalStore);
                     :text="t('header.tours')"
                     type="footnote"
                     :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
-                    @click="emits('close')"
+                    @click="emit('close')"
                 />
             </router-link>
         </li>
@@ -44,7 +44,7 @@ const { isMainPage } = toRefs(globalStore);
                     :text="t('header.excursions')"
                     type="footnote"
                     :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
-                    @click="emits('close')"
+                    @click="emit('close')"
                 />
             </router-link>
         </li>
@@ -55,7 +55,7 @@ const { isMainPage } = toRefs(globalStore);
                     :text="t('header.contacts')"
                     type="footnote"
                     :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
-                    @click="emits('close')"
+                    @click="emit('close')"
                 />
             </router-link>
         </li>

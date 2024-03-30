@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import BaseButton from '../common/BaseButton.vue';
 import BaseTypography from '../common/BaseTypography.vue';
-import ReturnButton from '../common/ReturnButton.vue';
-import Diagram from './Diagram.vue';
+import { ref } from 'vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
 import { useRouter } from 'vue-router';
 import Block from './Block.vue';
+import TourForm from './TourForm.vue';
 
 const router = useRouter();
+
+const toggle = ref<boolean>(false);
+
+const toggleForm = () => (toggle.value = !toggle.value);
 </script>
 
 <template>
@@ -81,7 +85,15 @@ const router = useRouter();
                     type="subtitle4-m"
                     color="var(--base-white)"
                     ui="green"
+                    @click="toggleForm"
                 />
+            </div>
+
+            <div
+                class="fixed inset-0 z-30"
+                v-if="toggle"
+            >
+                <TourForm @close="toggleForm" />
             </div>
         </div>
 
