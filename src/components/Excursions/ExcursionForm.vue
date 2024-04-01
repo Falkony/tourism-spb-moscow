@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createSharedComposable, useWindowSize } from '@vueuse/core';
+import { useWindowSize } from '@vueuse/core';
 import { vMaska } from 'maska';
 import { ref, computed, defineEmits } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
@@ -32,16 +32,6 @@ const sendForm = () => {
     // ToDo: подключить PhPMailer.
     console.log('form:', form.value);
     sended.value = true;
-};
-
-const isEmpty = (obj) => {
-    for (const prop in obj) {
-        if (Object.hasOwn(obj, prop)) {
-            return false;
-        }
-    }
-
-    return true;
 };
 
 const isDisabled = computed(() => {
