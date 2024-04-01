@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useWindowSize } from '@vueuse/core';
+import { createSharedComposable, useWindowSize } from '@vueuse/core';
 import { vMaska } from 'maska';
 import { ref, computed, defineEmits } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
@@ -12,11 +12,10 @@ const emit = defineEmits<{
 const { width } = useWindowSize();
 
 type FormDataType = {
-    tour: string;
+    excursion: string;
     childrens?: number;
     adults: number;
-    dateFrom: string;
-    dateTo: string;
+    date: string;
     name: string;
     email?: string;
     connect?: string;
@@ -35,15 +34,25 @@ const sendForm = () => {
     sended.value = true;
 };
 
-const isDisabled = computed(() => {
-    const phoneValid = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(form.value.phone);
-    const isNameEmpty = form.value.name === '';
-    const isAdultsZero = form.value.adults === 0;
-    const isDateFromEmpty = form.value.dateFrom === '';
-    const isDateToEmpty = form.value.dateTo === '';
-    const isAgreementFalse = !agreement.value;
+const isEmpty = (obj) => {
+    for (const prop in obj) {
+        if (Object.hasOwn(obj, prop)) {
+            return false;
+        }
+    }
 
-    return isNameEmpty || !phoneValid || isAdultsZero || isDateFromEmpty || isDateToEmpty || isAgreementFalse;
+    return true;
+};
+
+const isDisabled = computed(() => {
+    return !(
+        form.value.excursion &&
+        form.value.adults &&
+        form.value.date &&
+        form.value.name &&
+        /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(form.value.phone) &&
+        agreement.value
+    );
 });
 </script>
 
@@ -78,19 +87,19 @@ const isDisabled = computed(() => {
                         class="mb-10"
                     />
 
-                    <label for="tour">
+                    <label for="excursion">
                         <BaseTypography
-                            text="Название тура*"
+                            text="Название экскурсии*"
                             :type="width > 768 ? 'special-body2' : 'body2-m'"
                             color="var(--black-color)"
                         />
                     </label>
 
                     <input
-                        v-model="form.tour"
-                        id="tour"
-                        name="tour"
-                        placeholder="Бессмертная классика"
+                        v-model="form.excursion"
+                        id="excursion"
+                        name="excursion"
+                        placeholder="О чем молчат дворы Васильевского острова"
                         class="edit bk"
                         type="text"
                         required
@@ -99,36 +108,23 @@ const isDisabled = computed(() => {
 
                 <!-- range -->
                 <div class="flex flex-col px-[45px]">
-                    <label for="dateFrom">
+                    <label for="date">
                         <BaseTypography
-                            text="Период*"
+                            text="Дата экскурсии*"
                             :type="width > 768 ? 'special-body2' : 'body2-m'"
                             color="var(--black-color)"
                         />
                     </label>
 
-                    <div class="grid grid-cols-[7px_75px_15px_75px] gap-x-3">
-                        с
-                        <input
-                            v-model="form.dateFrom"
-                            id="dateFrom"
-                            name="dateFrom"
-                            placeholder="01.03.2024"
-                            class="edit bk"
-                            type="text"
-                            required
-                        />
-                        по
-                        <input
-                            v-model="form.dateTo"
-                            id="dateTo"
-                            name="dateTo"
-                            placeholder="06.03.2024"
-                            class="edit bk"
-                            type="text"
-                            required
-                        />
-                    </div>
+                    <input
+                        v-model="form.date"
+                        id="date"
+                        name="date"
+                        placeholder="01.03.2024"
+                        class="edit bk"
+                        type="text"
+                        required
+                    />
                 </div>
 
                 <!-- adults -->

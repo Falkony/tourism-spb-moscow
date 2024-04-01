@@ -300,7 +300,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
             </BaseAccordion>
 
             <BaseAccordion
-                title="Сроки оплаты экскурсии"
+                title="Сроки оплаты тура"
                 class="mb-[30px]"
             >
                 <template #default>
