@@ -51,9 +51,8 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 </script>
 
 <template>
-    <div class="header-section"></div>
-    <!-- <section class="header-section">
-        <div class="contacts flex justify-end gap-x-10 mr-[214px] mb-[140px]">
+    <section class="header-section">
+        <div class="contacts flex justify-end gap-x-10 mr-[214px] mb-[140px] relative z-20">
             <a href="tel:+79112660098">
                 <BaseTypography
                     text="+7 (911) 266-00-98"
@@ -79,7 +78,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             </a>
         </div>
 
-        <div class="px-[120px]">
+        <div class="relative z-10 px-[120px]">
             <BaseTypography
                 :text="t('main-page.subtitle')"
                 type="title2"
@@ -152,12 +151,12 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         >
             <Form @close="openFormTop" />
         </div>
-    </section> -->
+    </section>
 
     <section class="flex flex-col items-center justify-center">
         <div class="l:h-[860px] l:w-[1126px] mx-auto second-section relative my-[168px]">
-            <!-- <div class="overlay"></div>
-            <div class="horseman"></div> -->
+            <div class="overlay"></div>
+            <div class="horseman"></div>
 
             <BaseButton
                 text="О компании"
@@ -265,12 +264,12 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 <div class="flex flex-row justify-center gap-x-2 l:flex-col gap-y-10">
                     <img
                         src="@/assets/images/tourism.png"
-                        class="w-[150px]"
+                        class="w-[150px] l:w-auto"
                     />
 
                     <img
                         src="@/assets/images/league_second.png"
-                        class="w-[150px]"
+                        class="w-[150px] l:w-auto"
                     />
                 </div>
             </div>
@@ -285,7 +284,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         </div>
     </section>
 
-    <!-- <section class="flex flex-col gap-y-4 items-center mb-[168px]">
+    <section class="flex flex-col gap-y-4 items-center mb-[168px]">
         <div class="bridge-wrapper mb-[60px]">
             <div class="bridge-layout"></div>
             <img
@@ -615,18 +614,20 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 />
             </div>
         </div>
-    </section> -->
+    </section>
 </template>
 
 <style scoped>
 .header-section {
-    background-image: url('@/assets/images/bg-header.png');
+    background-image: url('@/assets/images/index/bg-header.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     background-color: black;
     width: 100%;
     height: 100vh;
     position: relative;
+    z-index: 3;
 }
 
 .contacts {

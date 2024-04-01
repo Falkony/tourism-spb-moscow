@@ -35,23 +35,23 @@ const isDisabled = computed(() => {
 <template>
     <div class="bg-[var(--primary-color)] px-10 py-[60px]">
         <div v-if="!sended">
-            <div class="flex flex-col gap-y-5 mb-[64px] px-[53px]">
+            <div class="flex flex-col gap-y-5 mb-[64px] px-[53px] s:px-12">
                 <BaseTypography
                     text="Форма обратной связи"
                     :type="width > 768 ? 'subtitle' : 'title-m'"
                     color="var(--base-white)"
-                    class="max-w-[200px]"
+                    class="max-w-[200px] s:max-w-max"
                 />
 
                 <BaseTypography
                     text="Напишите нам по любым вопросам и предложениям"
                     :type="width > 768 ? 'special-body3' : 'body3-m'"
                     color="var(--base-white)"
-                    class="max-w-[200px]"
+                    class="max-w-[200px] s:max-w-max"
                 />
             </div>
 
-            <div class="flex flex-wrap justify-center gap-y-9 mb-[64px]">
+            <div class="flex flex-wrap justify-center s:justify-start s:px-12 gap-y-9 s:gap-x-[130px] mb-[64px]">
                 <div class="flex flex-col w-[204px]">
                     <label for="name">
                         <BaseTypography
@@ -132,10 +132,10 @@ const isDisabled = computed(() => {
                 </div>
             </div>
 
-            <div class="flex flex-col gap-y-16 gap-x-9">
-                <div class="grid grid-cols-[24px_auto] gap-x-6">
+            <div class="flex flex-col s:flex-row gap-y-16 gap-x-9">
+                <div class="grid grid-cols-[24px_auto] s:grid-cols-[40px_auto] gap-x-6">
                     <div
-                        class="h-6 w-6 l:h-10 l:w-10 bg-[var(--base-white)] rounded-full cursor-pointer"
+                        class="h-6 w-6 s:h-10 s:w-10 bg-[var(--base-white)] rounded-full cursor-pointer"
                         :class="{ 'border-[4px] border-[--secondary-color]': agreement }"
                         @click="() => (agreement = !agreement)"
                     />

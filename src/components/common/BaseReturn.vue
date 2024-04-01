@@ -4,8 +4,6 @@ import { useRouter } from 'vue-router';
 import { useWindowSize } from '@vueuse/core';
 import BaseTypography from './BaseTypography.vue';
 
-const { width } = useWindowSize();
-
 withDefaults(
     defineProps<{
         text?: string;
@@ -15,19 +13,20 @@ withDefaults(
     }
 );
 
+const { width } = useWindowSize();
 const router = useRouter();
 </script>
 
 <template>
     <div
-        class="relative flex justify-center items-center gap-x-[10px] mb-10 cursor-pointer w-full"
+        class="return"
         @click="router.back()"
     >
         <div class="text">
             <BaseTypography
                 :text="text"
                 :type="width > 768 ? 'subtitle' : 'subtitle-m'"
-                class="max-w-[191px] l:max-w-auto"
+                class="max-w-[191px] l:max-w-max"
             />
 
             <div class="arrow">
@@ -39,7 +38,6 @@ const router = useRouter();
                 <img
                     v-else
                     src="@/assets/svg/mobile/shevron-left.svg"
-                    class="w-[22px] h-[22px]"
                 />
             </div>
         </div>
@@ -47,8 +45,12 @@ const router = useRouter();
 </template>
 
 <style scoped>
+.return {
+    @apply relative flex items-center l:items-start justify-center l:justify-start gap-x-[10px] mb-10 cursor-pointer w-full max-w-[1126px] mx-auto px-4 l:px-6;
+}
+
 .arrow {
-    @apply h-[22px] w-[22px] absolute top-[50%] translate-y-[-50%] left-[-50px];
+    @apply h-[22px] w-[22px] l:h-[43px] l:w-[43px] absolute top-[50%] translate-y-[-50%] left-[-50px] l:left-[-100px];
 }
 
 .text {

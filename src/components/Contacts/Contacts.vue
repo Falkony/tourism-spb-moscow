@@ -15,12 +15,12 @@ const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
 
 <template>
     <div
-        class="flex flex-col px-10 l:px-0 l:gap-x-[240px] justify-center mt-[40px] mb-[76px] l:max-w-[1362px] l:mx-auto"
+        class="flex flex-col l:flex-row px-10 l:px-0 l:gap-x-[240px] justify-center l:items-start mt-[40px] mb-[76px] l:max-w-[1362px] l:mx-auto"
     >
         <div class="flex flex-col">
             <BaseReturn text="Адрес РВМ" />
 
-            <div class="flex">
+            <div class="flex items-center justify-center">
                 <div class="flex flex-col gap-y-3 mb-[60px]">
                     <div class="flex items-center">
                         <img
@@ -126,19 +126,8 @@ const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
         </div>
     </div>
 
-    <div class="flex flex-col gap-y-[60px]">
-        <Map />
-
-        <Form />
+    <div class="flex flex-col l:grid l:grid-cols-[auto_800px] gap-y-[60px] l:mb-[104px]">
+        <Map class="m:h-[600px] w-full" />
+        <Form class="l:h-[600px] l:w-[800px]" />
     </div>
-
-    <!-- <div class="flex flex-col l:flex-row">
-        <Map class="w-auto" />
-
-        <div class="l:w-[800px]">
-            <Form />
-        </div>
-    </div> -->
 </template>
-
-<style scoped></style>

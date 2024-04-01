@@ -19,7 +19,6 @@ defineProps<{
         :slidesPerView="width >= 768 ? 2 : 'auto'"
         :spaceBetween="24"
         :modules="[Scrollbar]"
-        centeredSlides
         :scrollbar="{ draggable: true }"
         grab-cursor
     >

@@ -15,6 +15,7 @@ withDefaults(
 const { locale } = useI18n();
 
 const changeLanguage = (lang: string) => (locale.value = lang);
+// TODO: добавить куку
 </script>
 
 <template>
