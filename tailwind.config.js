@@ -6,6 +6,7 @@ const tailwindConfig = {
             m: '768px',
             l: '1024px',
             xl: '1280px',
+            xxl: '1450px',
         },
         extend: {},
     },

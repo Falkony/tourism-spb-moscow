@@ -10,9 +10,7 @@ const router = useRouter();
     <div class="mt-[40px] px-10">
         <BaseReturn text="Экскурсии" />
 
-        <div
-            class="flex flex-wrap l:grid l:grid-cols-[428px_428px] justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto"
-        >
+        <div class="list">
             <SlideItem
                 title="Петербургский треугольник"
                 text="Пешеходная экскурсия"
@@ -90,3 +88,9 @@ const router = useRouter();
         </div>
     </div>
 </template>
+
+<style scoped>
+.list {
+    @apply flex flex-wrap justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto l:grid l:grid-cols-[428px_428px] l:mb-[104px];
+}
+</style>

@@ -69,7 +69,7 @@ const links = computed(() => [
                 </a>
             </div>
 
-            <div class="flex flex-col m:flex-row items-center gap-x-3">
+            <div class="flex flex-col xxl:flex-row items-center gap-x-3">
                 <a
                     href="tel:+78122070350"
                     class="flex flex-row items-center"
@@ -112,7 +112,7 @@ const links = computed(() => [
         </div>
 
         <ul
-            class="flex flex-col gap-y-5 px-10 mb-12 l:flex-row l:gap-x-9 l:px-[216px] l:py-[20px] l:mb-[20px] l:justify-center"
+            class="flex flex-col gap-y-5 px-10 mb-12 l:flex-row l:flex-wrap l:gap-x-9 l:px-[216px] l:py-[20px] l:mb-[20px] l:justify-center"
         >
             <li
                 v-for="link in links"
