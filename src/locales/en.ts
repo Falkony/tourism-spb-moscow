@@ -18,6 +18,8 @@ export default {
         },
     },
     'empty-page': 'Page under construction',
+    agents: 'Agents',
+    how: 'How to pay and order',
     common: {
         from: 'from ',
         people: ' ₽/person',

@@ -21,6 +21,8 @@ export default {
         subtitle: 'Туроператор',
     },
     'empty-page': 'Страница в разработке',
+    agents: 'Агентам',
+    how: 'Как оплатить и заказать',
     common: {
         from: 'от ',
         people: ' ₽/чел',
