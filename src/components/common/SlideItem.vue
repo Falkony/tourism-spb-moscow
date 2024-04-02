@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
-import BaseTypography from './BaseTypography.vue';
+import { defineProps, toRefs } from 'vue';
+import BaseTypography from '@/components/common/BaseTypography.vue';
+import { useGlobalStore } from '@/stores/global';
 
 defineProps<{
     title: string;
@@ -8,6 +9,8 @@ defineProps<{
     url: string;
     price?: string;
 }>();
+
+const { isMobile } = toRefs(useGlobalStore());
 </script>
 
 <template>
@@ -22,7 +25,7 @@ defineProps<{
             <div>
                 <BaseTypography
                     :text="title"
-                    type="body-m"
+                    :type="isMobile ? 'body-m' : 'body'"
                     color="var(--primary-color)"
                     class="mb-3"
                 />
@@ -34,8 +37,9 @@ defineProps<{
                 <div class="w-full">
                     <BaseTypography
                         :text="text"
-                        type="body3-m"
+                        :type="isMobile ? 'body3-m' : 'body3'"
                         color="var(--black-color)"
+                        class="l:min-h-20"
                     />
 
                     <div
@@ -44,29 +48,36 @@ defineProps<{
                     >
                         <BaseTypography
                             text="от "
-                            type="body2-m"
+                            :type="isMobile ? 'body2-m' : 'body2'"
                             tag="span"
                         />
 
                         <BaseTypography
                             :text="price"
-                            type="body2-m"
+                            :type="isMobile ? 'body2-m' : 'body2'"
                             tag="span"
                             color="var(--secondary-color)"
                         />
 
                         <BaseTypography
                             text=" ₽/чел"
-                            type="body2-m"
+                            :type="isMobile ? 'body2-m' : 'body2'"
                             tag="span"
                         />
                     </div>
                 </div>
 
-                <div class="absolute bottom-2 right-4 w-[46px] h-[46px]">
+                <div class="absolute bottom-2 right-4 l:relative w-[46px] h-[46px] cursor-pointer">
                     <img
+                        v-if="isMobile"
                         src="@/assets/svg/mobile/shevron_right.svg"
-                        class="cursor-pointer ml-auto"
+                        class="ml-auto"
+                    />
+
+                    <img
+                        v-else
+                        src="@/assets/svg/arrow-right.svg"
+                        class="ml-auto"
                     />
                 </div>
             </div>
