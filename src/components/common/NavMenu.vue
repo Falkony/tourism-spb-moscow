@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseTypography from '@/components/common/BaseTypography.vue';
+import LocaleSwitcher from '@/components/common/LocaleSwitcher.vue';
 import { useI18n } from 'vue-i18n';
 import { toRefs, defineEmits } from 'vue';
 import { useGlobalStore } from '@/stores/global';
@@ -11,7 +12,7 @@ const emit = defineEmits<{
 const { t } = useI18n();
 
 const globalStore = useGlobalStore();
-const { isMainPage } = toRefs(globalStore);
+const { isMainPage, isMobile } = toRefs(globalStore);
 </script>
 
 <template>
@@ -60,4 +61,10 @@ const { isMainPage } = toRefs(globalStore);
             </router-link>
         </li>
     </ul>
+
+    <LocaleSwitcher
+        v-if="isMobile"
+        class="mt-[60px]"
+        :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+    />
 </template>

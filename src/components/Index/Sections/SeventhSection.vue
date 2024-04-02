@@ -60,9 +60,6 @@ const slides = [
             </div>
         </div>
 
-        <Slider
-            :slides="slides"
-            class="mb-16"
-        />
+        <Slider :slides="slides" />
     </div>
 </template>

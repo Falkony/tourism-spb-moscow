@@ -109,12 +109,6 @@ const toggleMenu = () => {
         >
             <NavMenu @close="toggleMenu" />
         </menu>
-
-        <div
-            v-if="toggle"
-            class="overlay"
-            @click="toggleMenu"
-        />
     </header>
 </template>
 

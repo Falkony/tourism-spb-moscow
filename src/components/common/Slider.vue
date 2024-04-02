@@ -40,6 +40,7 @@ defineProps<{
 .swiper {
     height: 100%;
     width: 100%;
+    padding: 50px 0;
 }
 
 .swiper-slide {
