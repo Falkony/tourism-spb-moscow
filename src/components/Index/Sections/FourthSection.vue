@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <template>
     <div class="flex flex-col items-center justify-center w-full">
         <div class="flex flex-col gap-y-[3px] p-[10px] text-center">
             <BaseTypography
-                text="Организуем"
+                :text="t('main-page.fourth-section.first')"
                 type="title-m"
             />
 
@@ -16,7 +19,7 @@ import BaseLine from '@/components/common/BaseLine.vue';
 
         <div class="flex flex-col gap-y-[3px] p-[10px] text-center">
             <BaseTypography
-                text="туры и экскурсии"
+                :text="t('main-page.fourth-section.second')"
                 type="title-m"
             />
 
@@ -25,7 +28,7 @@ import BaseLine from '@/components/common/BaseLine.vue';
 
         <div class="flex flex-col gap-y-[3px] p-[10px] text-center">
             <BaseTypography
-                text="по Санкт-Петербургу и России"
+                :text="t('main-page.fourth-section.third')"
                 type="title-m"
             />
 

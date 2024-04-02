@@ -3,6 +3,9 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import Form from '@/components/Index/Form.vue';
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const toggle = ref<boolean>(false);
 
@@ -14,7 +17,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
         <div class="pl-[39px] pr-[124px]">
             <div class="flex flex-col gap-y-6">
                 <BaseTypography
-                    text="Туроператор"
+                    :text="t('main-page.subtitle')"
                     type="title2-m"
                     color="var(--base-white)"
                 />
@@ -22,14 +25,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
                 <div class="flex flex-col gap-y-5">
                     <div>
                         <BaseTypography
-                            text="Р"
+                            :text="t('main-page.tagline.text-1.first')"
                             type="headline-m"
                             tag="span"
                             color="var(--primary-color)"
                         />
 
                         <BaseTypography
-                            text="еализуем"
+                            :text="t('main-page.tagline.text-1.second')"
                             type="headline2-m"
                             tag="span"
                             color="var(--base-white)"
@@ -38,14 +41,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
                     <div class="pl-4">
                         <BaseTypography
-                            text="В"
+                            :text="t('main-page.tagline.text-2.first')"
                             type="headline-m"
                             tag="span"
                             color="var(--primary-color)"
                         />
 
                         <BaseTypography
-                            text="аши"
+                            :text="t('main-page.tagline.text-2.second')"
                             type="headline2-m"
                             tag="span"
                             color="var(--base-white)"
@@ -54,14 +57,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
                     <div class="pl-8">
                         <BaseTypography
-                            text="М"
+                            :text="t('main-page.tagline.text-3.first')"
                             type="headline-m"
                             tag="span"
                             color="var(--primary-color)"
                         />
 
                         <BaseTypography
-                            text="ечты"
+                            :text="t('main-page.tagline.text-3.second')"
                             type="headline2-m"
                             tag="span"
                             color="var(--base-white)"
@@ -74,7 +77,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
     <div class="flex items-center justify-center mb-[84px]">
         <BaseButton
-            text="Оставить заявку"
+            :text="t('main-page.submit')"
             type="subtitle4-m"
             ui="secondary"
             color="var(--base-white)"

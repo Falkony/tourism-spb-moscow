@@ -17,6 +17,46 @@ export default {
             agents: 'Agents',
         },
     },
+    'main-page': {
+        subtitle: 'Tour Operator',
+        tagline: {
+            'text-1': {
+                first: 'W',
+                second: 'e',
+            },
+            'text-2': {
+                first: 'R',
+                second: 'ealize',
+            },
+            'text-3': {
+                first: 'D',
+                second: 'reams',
+            },
+        },
+        submit: 'Submit your application',
+        about: {
+            title: 'About the company',
+            subtext: {
+                'text-1': {
+                    first: 'RVM - ',
+                    second: 'tour operator',
+                },
+                'text-2': 'by international entry and',
+                'text-3': 'domestic tourism',
+            },
+            register: 'Our number in the Unified Federal Register of Tour Operators is RTO 018270',
+            league: 'We are members of the League of Tour Operators of St. Petersburg',
+            safety: 'We have direct contracts with museums, transport companies and hotels of various categories',
+            credibility:
+                'We meet all the requirements for participation in tenders of state and budgetary organizations',
+            more: 'More details',
+        },
+        'fourth-section': {
+            first: "Let's organize",
+            second: 'tours and excursions',
+            third: 'across St. Petersburg and Russia',
+        },
+    },
     'empty-page': 'Page under construction',
     agents: 'Agents',
     how: 'How to pay and order',

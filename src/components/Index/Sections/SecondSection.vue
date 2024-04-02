@@ -2,6 +2,9 @@
 import BaseButton from '@/components/common/BaseButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const router = useRouter();
 </script>
@@ -10,7 +13,7 @@ const router = useRouter();
     <div class="px-10 py-[92px]">
         <div class="flex flex-col items-center mb-12">
             <BaseButton
-                text="О компании"
+                :text="t('main-page.about.title')"
                 type="subtitle-m"
                 padding-x="24"
                 padding-y="12"
@@ -22,14 +25,14 @@ const router = useRouter();
         <div class="px-[22px] mb-4">
             <div>
                 <BaseTypography
-                    text="РВМ - "
+                    :text="t('main-page.about.subtext.text-1.first')"
                     type="subtitle-m"
                     color="var(--black-color)"
                     tag="span"
                 />
 
                 <BaseTypography
-                    text="туроператор"
+                    :text="t('main-page.about.subtext.text-1.second')"
                     type="subtitle2-m"
                     color="var(--black-color)"
                     tag="span"
@@ -37,13 +40,13 @@ const router = useRouter();
             </div>
 
             <BaseTypography
-                text="по международному въездному и"
+                :text="t('main-page.about.subtext.text-2')"
                 type="subtitle2-m"
                 color="var(--black-color)"
             />
 
             <BaseTypography
-                text="внутреннему туризму"
+                :text="t('main-page.about.subtext.text-3')"
                 type="subtitle2-m"
                 color="var(--black-color)"
             />
@@ -66,7 +69,7 @@ const router = useRouter();
                 <div class="h-3 w-3 bg-[var(--secondary-color)] rounded-full" />
 
                 <BaseTypography
-                    text="Наш номер в Едином Федеральном Реестре Туроператоров – РТО 018270"
+                    :text="t('main-page.about.register')"
                     type="body-m"
                 />
             </div>
@@ -83,7 +86,7 @@ const router = useRouter();
                 <div class="h-3 w-3 bg-[var(--secondary-color)] rounded-full" />
 
                 <BaseTypography
-                    text="Являемся членами Лиги туроператоров Санкт-Петербурга"
+                    :text="t('main-page.about.league')"
                     type="body-m"
                 />
             </div>
@@ -100,7 +103,7 @@ const router = useRouter();
                 <div class="h-3 w-3 bg-[var(--secondary-color)] rounded-full" />
 
                 <BaseTypography
-                    text="Имеем прямые договоры с музеями, транспортными компаниями и отелями самых разных категорий"
+                    :text="t('main-page.about.safety')"
                     type="body-m"
                 />
             </div>
@@ -117,7 +120,7 @@ const router = useRouter();
                 <div class="h-3 w-3 bg-[var(--secondary-color)] rounded-full" />
 
                 <BaseTypography
-                    text="Соответствуем всем требованиям для участия в тендерах государственных и бюджетных организаций"
+                    :text="t('main-page.about.credibility')"
                     type="body-m"
                 />
             </div>
@@ -139,7 +142,7 @@ const router = useRouter();
     <!-- Кнопка переход на /about -->
     <div class="flex items-center justify-center px-10">
         <BaseButton
-            text="Подробнее"
+            :text="t('main-page.about.more')"
             type="subtitle4-m"
             color="var(--base-white)"
             padding-x="84"
