@@ -251,7 +251,7 @@ const { isMobile } = toRefs(useGlobalStore());
                 </div>
             </div>
 
-            <div v-else>
+            <div v-if="!isSpb">
                 <BaseTypography
                     text="Страница в разработке"
                     :type="isMobile ? 'subtitle2-m' : 'subtitle2'"

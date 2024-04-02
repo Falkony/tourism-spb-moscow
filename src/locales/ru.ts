@@ -224,7 +224,7 @@ export default {
                 name: 'Мария Крицкая',
             },
         },
-        awords: {
+        awards: {
             title: 'Наши награды',
         },
     },

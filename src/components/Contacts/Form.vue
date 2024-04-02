@@ -128,7 +128,7 @@ const isDisabled = computed(() => {
                 </div>
             </div>
 
-            <div class="flex flex-col s:flex-row gap-y-16 gap-x-9">
+            <div class="flex flex-col m:flex-row gap-y-16 gap-x-9">
                 <div class="grid grid-cols-[24px_auto] s:grid-cols-[40px_auto] gap-x-6">
                     <div
                         class="h-6 w-6 s:h-10 s:w-10 bg-[var(--base-white)] rounded-full cursor-pointer"
