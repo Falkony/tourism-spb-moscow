@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import BaseReturn from '@/components/common/BaseReturn.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -12,16 +15,16 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
             />
         </div>
 
-        <BaseReturn text="О компании" />
+        <BaseReturn :text="t('about.title')" />
 
         <div class="flex flex-col gap-y-5 items-center justify-center py-3 max-w-[250px] mx-auto mb-12">
             <BaseTypography
-                text="Название нашей компании расшифровывается как: «Реализуем Ваши Мечты». Это и слоган компании, и отношение к нашим клиентам."
+                :text="t('about.text.first')"
                 type="body-m"
             />
 
             <BaseTypography
-                text="Кто-то мечтает о далеких путешествиях, а кто-то – о поездке на выходные недалеко от дома. Все ваши желания мы готовы воплотить в жизнь!"
+                :text="t('about.text.second')"
                 type="body-m"
             />
         </div>
@@ -29,14 +32,14 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
         <div class="flex flex-col gap-y-5 px-6 mb-[60px]">
             <div class="px-[29px]">
                 <BaseTypography
-                    text="Р"
+                    :text="t('about.tagline.text-1.first')"
                     type="headline-m"
                     tag="span"
                     color="var(--primary-color)"
                 />
 
                 <BaseTypography
-                    text="еализуем"
+                    :text="t('about.tagline.text-1.second')"
                     type="headline2-m"
                     tag="span"
                     color="var(--black-color)"
@@ -45,14 +48,14 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
             <div class="px-[52px]">
                 <BaseTypography
-                    text="В"
+                    :text="t('about.tagline.text-2.first')"
                     type="headline-m"
                     tag="span"
                     color="var(--primary-color)"
                 />
 
                 <BaseTypography
-                    text="аши"
+                    :text="t('about.tagline.text-2.second')"
                     type="headline2-m"
                     tag="span"
                     color="var(--black-color)"
@@ -61,14 +64,14 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
             <div class="px-[75px]">
                 <BaseTypography
-                    text="М"
+                    :text="t('about.tagline.text-3.first')"
                     type="headline-m"
                     tag="span"
                     color="var(--primary-color)"
                 />
 
                 <BaseTypography
-                    text="ечты"
+                    :text="t('about.tagline.text-3.second')"
                     type="headline2-m"
                     tag="span"
                     color="var(--black-color)"
@@ -94,7 +97,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
                 <div class="text-center">
                     <BaseTypography
-                        text="лет на рынке туризма"
+                        :text="t('about.labels.years')"
                         type="body3-m"
                     />
                 </div>
@@ -110,7 +113,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
                 <div class="text-center">
                     <BaseTypography
-                        text="основных  направления деятельности"
+                        :text="t('about.labels.direction')"
                         type="body3-m"
                     />
                 </div>
@@ -126,7 +129,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
                 <div class="text-center">
                     <BaseTypography
-                        text="успешно реализованных программ"
+                        :text="t('about.labels.success')"
                         type="body3-m"
                     />
                 </div>
@@ -139,19 +142,19 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
                 <div class="max-w-[250px]">
                     <BaseTypography
-                        text="В 2023 году компания отпраздновала "
+                        :text="t('about.list.text-1.first')"
                         type="body-m"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="8 лет "
+                        :text="t('about.list.text-1.second')"
                         type="body2-m"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="с начала основания"
+                        :text="t('about.list.text-1.third')"
                         type="body-m"
                         tag="span"
                     />
@@ -163,19 +166,19 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
                 <div class="max-w-[250px]">
                     <BaseTypography
-                        text="С тех пор сотрудники РВМ организовали "
+                        :text="t('about.list.text-2.first')"
                         type="body-m"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="более 100 "
+                        :text="t('about.list.text-2.second')"
                         type="body2-m"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="различных программ как для небольших групп, так и коллективов 100+ человек."
+                        :text="t('about.list.text-2.third')"
                         type="body-m"
                         tag="span"
                     />
@@ -187,13 +190,13 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 
                 <div class="max-w-[250px]">
                     <BaseTypography
-                        text="Туроператор РВМ выделяется персональной проработкой каждой программы по "
+                        :text="t('about.list.text-3.first')"
                         type="body-m"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="3 основным направлениям: "
+                        :text="t('about.list.text-3.second')"
                         type="body2-m"
                         tag="span"
                     />
@@ -234,7 +237,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
             <div class="flex flex-col">
                 <div class="p-3 mb-12">
                     <BaseTypography
-                        text="Мы гарантируем"
+                        :text="t('about.guarantee.title')"
                         type="subtitle-m"
                     />
                 </div>
@@ -242,7 +245,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                 <div class="border-[3px] border-[var(--primary-color)] rounded-[50px] py-[20px] mb-12">
                     <div class="flex items-center justify-center">
                         <BaseTypography
-                            text="Нашим клиентам"
+                            :text="t('about.guarantee.clients.title')"
                             type="body-m"
                             color="var(--primary-color)"
                         />
@@ -252,28 +255,28 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                         <ul class="list-disc">
                             <li>
                                 <BaseTypography
-                                    text="высокий уровень услуг"
+                                    :text="t('about.guarantee.clients.first')"
                                     type="body3-m"
                                 />
                             </li>
 
                             <li>
                                 <BaseTypography
-                                    text="безопасность и защищенность"
+                                    :text="t('about.guarantee.clients.second')"
                                     type="body3-m"
                                 />
                             </li>
 
                             <li>
                                 <BaseTypography
-                                    text="воплощение в реальность всех пожеланий"
+                                    :text="t('about.guarantee.clients.third')"
                                     type="body3-m"
                                 />
                             </li>
 
                             <li>
                                 <BaseTypography
-                                    text="положительные эмоции до, после и во время отдыха"
+                                    :text="t('about.guarantee.clients.fourth')"
                                     type="body3-m"
                                 />
                             </li>
@@ -284,7 +287,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                 <div class="border-[3px] border-[var(--primary-color)] rounded-[50px] py-[20px]">
                     <div class="flex items-center justify-center">
                         <BaseTypography
-                            text="Нашим партнерам"
+                            :text="t('about.guarantee.partners.title')"
                             type="body-m"
                             color="var(--primary-color)"
                         />
@@ -294,28 +297,28 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                         <ul class="list-disc">
                             <li>
                                 <BaseTypography
-                                    text="взаимовыгодное сотрудничество"
+                                    :text="t('about.guarantee.partners.first')"
                                     type="body3-m"
                                 />
                             </li>
 
                             <li>
                                 <BaseTypography
-                                    text="профессиональный подход к работе"
+                                    :text="t('about.guarantee.partners.second')"
                                     type="body3-m"
                                 />
                             </li>
 
                             <li>
                                 <BaseTypography
-                                    text="надежность всех этапов взаимодействия"
+                                    :text="t('about.guarantee.partners.third')"
                                     type="body3-m"
                                 />
                             </li>
 
                             <li>
                                 <BaseTypography
-                                    text="пунктуальность и организованность"
+                                    :text="t('about.guarantee.partners.fourth')"
                                     type="body3-m"
                                 />
                             </li>
@@ -329,7 +332,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
             <div class="flex flex-col px-6">
                 <div class="p-3 mb-12">
                     <BaseTypography
-                        text="Наша команда"
+                        :text="t('about.team.title')"
                         type="subtitle-m"
                     />
                 </div>
@@ -348,7 +351,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                     <div class="flex flex-col items-center gap-y-1">
                         <div class="p-[10px] text-center">
                             <BaseTypography
-                                text="Генеральный директор"
+                                :text="t('about.team.first.post')"
                                 type="body3-m"
                                 color="var(--base-white)"
                                 class="max-w-[236px]"
@@ -356,7 +359,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                         </div>
 
                         <BaseTypography
-                            text="Людмила Адамович"
+                            :text="t('about.team.first.name')"
                             type="title2-m"
                             color="var(--base-white)"
                         />
@@ -373,7 +376,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                     <div class="flex flex-col items-center gap-y-1">
                         <div class="p-[10px] text-center">
                             <BaseTypography
-                                text="Исполнительный директор"
+                                :text="t('about.team.second.post')"
                                 type="body3-m"
                                 color="var(--base-white)"
                                 class="max-w-[236px]"
@@ -381,7 +384,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                         </div>
 
                         <BaseTypography
-                            text="Уна Выговска"
+                            :text="t('about.team.second.name')"
                             type="title2-m"
                             color="var(--base-white)"
                         />
@@ -397,7 +400,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                     <div class="flex flex-col items-center gap-y-1">
                         <div class="p-[10px] text-center">
                             <BaseTypography
-                                text="Руководитель отдела продаж"
+                                :text="t('about.team.third.post')"
                                 type="body3-m"
                                 color="var(--base-white)"
                                 class="max-w-[236px]"
@@ -405,7 +408,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                         </div>
 
                         <BaseTypography
-                            text="Елизавета Швед"
+                            :text="t('about.team.third.name')"
                             type="title2-m"
                             color="var(--base-white)"
                         />
@@ -421,7 +424,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                     <div class="flex flex-col items-center gap-y-1">
                         <div class="p-[10px] text-center">
                             <BaseTypography
-                                text="Руководитель отдела въездного туризма"
+                                :text="t('about.team.fourth.post')"
                                 type="body3-m"
                                 color="var(--base-white)"
                                 class="max-w-[236px]"
@@ -429,7 +432,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                         </div>
 
                         <BaseTypography
-                            text="Мария Крицкая"
+                            :text="t('about.team.fourth.name')"
                             type="title2-m"
                             color="var(--base-white)"
                         />
@@ -441,7 +444,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
         <div class="flex flex-col px-6">
             <div class="p-3 mb-12">
                 <BaseTypography
-                    text="Наши награды"
+                    :text="t('about.awards.title')"
                     type="subtitle-m"
                 />
             </div>

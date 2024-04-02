@@ -84,4 +84,86 @@ export default {
             second: 'On weekends - by appointment',
         },
     },
+    about: {
+        title: 'About company',
+        text: {
+            first: "The name of our company stands for: “Let's make your dreams come true.” This is both the company's slogan and our attitude towards our clients.",
+            second: 'Some people dream of long journeys, while others dream of a weekend trip close to home. We are ready to make all your wishes come true!',
+        },
+        tagline: {
+            'text-1': {
+                first: 'W',
+                second: 'e',
+            },
+            'text-2': {
+                first: 'R',
+                second: 'ealize',
+            },
+            'text-3': {
+                first: 'D',
+                second: 'reams',
+            },
+        },
+        labels: {
+            years: 'years on the tourism market',
+            success: 'successfully implemented programs',
+            direction: 'main activities',
+        },
+        list: {
+            'text-1': {
+                first: 'In 2023, the company celebrated ',
+                second: '8 years ',
+                third: 'since the beginning',
+            },
+            'text-2': {
+                first: 'Since then, RVM employees have organized ',
+                second: 'more than 100 ',
+                third: 'various programs for both small groups and teams of 100+ people.',
+            },
+            'text-3': {
+                first: 'Tour operator RVM stands out for its personal elaboration of each program according to ',
+                second: '3 main areas:  ',
+                third: 'tours in St. Petersburg and Russia, excursions and events (conferences, weddings, etc.) in St. Petersburg.',
+            },
+        },
+        guarantee: {
+            title: 'We guarantee',
+            clients: {
+                title: 'To our clients',
+                first: 'high level of services',
+                second: 'safety and security',
+                third: 'making all your wishes come true',
+                fourth: 'positive emotions before, after and during relaxation',
+            },
+            partners: {
+                title: 'To our partners',
+                first: 'mutually beneficial cooperation',
+                second: 'professional approach to work',
+                third: 'reliability of all stages of interaction',
+                fourth: 'punctuality and organization',
+            },
+        },
+        team: {
+            title: 'Our team',
+            first: {
+                post: 'CEO',
+                name: 'Lyudmila Adamovich',
+            },
+            second: {
+                post: 'Executive Director',
+                name: 'Una Wygowska',
+            },
+            third: {
+                post: 'Head of Sales Department',
+                name: 'Elizaveta Shved',
+            },
+            fourth: {
+                post: 'Head of Inbound Tourism Department',
+                name: 'Maria Kritskaya',
+            },
+        },
+        awards: {
+            title: 'Our awards',
+        },
+    },
 };

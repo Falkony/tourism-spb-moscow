@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import BaseButton from '@/components/common/BaseButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 
 const router = useRouter();
+const { t } = useI18n();
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const router = useRouter();
         </div>
 
         <BaseButton
-            text="О компании"
+            :text="t('about.title')"
             type="subtitle"
             ui="primary"
             color="var(--black-color)"
@@ -27,12 +29,12 @@ const router = useRouter();
         <div class="flex flex-col gap-y-[76px]">
             <div class="flex flex-col gap-y-6 w-[523px]">
                 <BaseTypography
-                    text="Название нашей компании расшифровывается как: «Реализуем Ваши Мечты». Это и слоган компании, и отношение к нашим клиентам."
+                    :text="t('about.text.first')"
                     type="body"
                 />
 
                 <BaseTypography
-                    text="Кто-то мечтает о далеких путешествиях, а кто-то – о поездке на выходные недалеко от дома. Все ваши желания мы готовы воплотить в жизнь!"
+                    :text="t('about.text.second')"
                     type="body"
                 />
             </div>
@@ -40,14 +42,14 @@ const router = useRouter();
             <div>
                 <div class="mb-3">
                     <BaseTypography
-                        text="Р"
+                        :text="t('about.tagline.text-1.first')"
                         type="title"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
-                        text="еализуем"
+                        :text="t('about.tagline.text-1.second')"
                         type="title2"
                         tag="span"
                         color="var(--black-color)"
@@ -56,14 +58,14 @@ const router = useRouter();
 
                 <div class="pl-[56px] mb-3">
                     <BaseTypography
-                        text="В"
+                        :text="t('about.tagline.text-2.first')"
                         type="title"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
-                        text="аши"
+                        :text="t('about.tagline.text-2.second')"
                         type="title2"
                         tag="span"
                         color="var(--black-color)"
@@ -72,14 +74,14 @@ const router = useRouter();
 
                 <div class="pl-[112px]">
                     <BaseTypography
-                        text="М"
+                        :text="t('about.tagline.text-3.first')"
                         type="title"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
-                        text="ечты"
+                        :text="t('about.tagline.text-3.second')"
                         type="title2"
                         tag="span"
                         color="var(--black-color)"
@@ -103,29 +105,29 @@ const router = useRouter();
         <div
             class="flex flex-row items-center justify-center gap-x-[26px] px-[124px] border-[3px] border-[var(--primary-color)] h-[114px] w-full rounded-[100px] mb-[92px]"
         >
-            <div class="flex gap-x-[26px]">
+            <div class="flex items-center gap-x-[26px]">
                 <img src="@/assets/svg/about/8.svg" />
 
                 <BaseTypography
-                    text="лет на рынке туризма"
+                    :text="t('about.labels.years')"
                     type="body3"
                 />
             </div>
 
-            <div class="flex gap-x-[26px]">
+            <div class="flex items-center gap-x-[26px]">
                 <img src="@/assets/svg/about/100.svg" />
 
                 <BaseTypography
-                    text="успешно реализованных программ"
+                    :text="t('about.labels.success')"
                     type="body3"
                 />
             </div>
 
-            <div class="flex gap-x-[26px]">
+            <div class="flex items-center gap-x-[26px]">
                 <img src="@/assets/svg/about/3.svg" />
 
                 <BaseTypography
-                    text="основных  направления деятельности"
+                    :text="t('about.labels.direction')"
                     type="body3"
                 />
             </div>
@@ -139,21 +141,21 @@ const router = useRouter();
 
                 <div>
                     <BaseTypography
-                        text="В 2023 году компания отпраздновала "
+                        :text="t('about.list.text-1.first')"
                         type="body"
                         class="max-w-[777px]"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="8 лет "
+                        :text="t('about.list.text-1.second')"
                         type="body2"
                         class="max-w-[777px]"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="с начала основания"
+                        :text="t('about.list.text-1.third')"
                         type="body"
                         class="max-w-[777px]"
                         tag="span"
@@ -166,19 +168,19 @@ const router = useRouter();
 
                 <div class="max-w-[777px]">
                     <BaseTypography
-                        text="С тех пор сотрудники РВМ организовали "
+                        :text="t('about.list.text-2.first')"
                         type="body"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="более 100 "
+                        :text="t('about.list.text-2.second')"
                         type="body2"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="различных программ как для небольших групп, так и коллективов 100+ человек."
+                        :text="t('about.list.text-2.third')"
                         type="body"
                         tag="span"
                     />
@@ -190,19 +192,20 @@ const router = useRouter();
 
                 <div class="max-w-[777px]">
                     <BaseTypography
-                        text="Туроператор РВМ выделяется персональной проработкой каждой программы по "
+                        :text="t('about.list.text-3.first')"
                         type="body"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="3 основным направлениям: "
+                        :text="t('about.list.text-3.second')"
                         type="body2"
                         tag="span"
                     />
 
+                    <!-- TODO: добавить ссылки и разбить переводы -->
                     <BaseTypography
-                        text="туры по Санкт-Петербургу и России, экскурсии и мероприятия (конференции, свадьбы и др.) в Санкт-Петербурге."
+                        :text="t('about.list.text-3.third')"
                         type="body"
                         tag="span"
                         class="underline"
@@ -222,7 +225,7 @@ const router = useRouter();
     <div class="flex flex-col gap-y-[76px] max-w-[1126px] mx-auto">
         <div class="p-3">
             <BaseTypography
-                text="Мы гарантируем"
+                :text="t('about.guarantee.title')"
                 type="subtitle"
                 color="var(--black-color)"
             />
@@ -232,7 +235,7 @@ const router = useRouter();
             <div class="border-[3px] border-[var(--primary-color)] rounded-[50px] w-[428px] py-[20px]">
                 <div class="flex items-center justify-center">
                     <BaseTypography
-                        text="Нашим клиентам"
+                        :text="t('about.guarantee.clients.title')"
                         type="special-body"
                         color="var(--primary-color)"
                         class="h-[46px]"
@@ -243,28 +246,28 @@ const router = useRouter();
                     <ul class="list-disc">
                         <li>
                             <BaseTypography
-                                text="высокий уровень услуг"
+                                :text="t('about.guarantee.clients.first')"
                                 type="special-body4"
                             />
                         </li>
 
                         <li>
                             <BaseTypography
-                                text="безопасность и защищенность"
+                                :text="t('about.guarantee.clients.second')"
                                 type="special-body4"
                             />
                         </li>
 
                         <li>
                             <BaseTypography
-                                text="воплощение в реальность всех пожеланий"
+                                :text="t('about.guarantee.clients.third')"
                                 type="special-body4"
                             />
                         </li>
 
                         <li>
                             <BaseTypography
-                                text="положительные эмоции до, после и во время отдыха"
+                                :text="t('about.guarantee.clients.fourth')"
                                 type="special-body4"
                             />
                         </li>
@@ -275,7 +278,7 @@ const router = useRouter();
             <div class="border-[3px] border-[var(--primary-color)] rounded-[50px] w-[428px] py-[20px]">
                 <div class="flex items-center justify-center">
                     <BaseTypography
-                        text="Нашим партнерам"
+                        :text="t('about.guarantee.partners.title')"
                         type="special-body"
                         color="var(--primary-color)"
                         class="h-[46px]"
@@ -286,28 +289,28 @@ const router = useRouter();
                     <ul class="list-disc">
                         <li>
                             <BaseTypography
-                                text="взаимовыгодное сотрудничество"
+                                :text="t('about.guarantee.partners.first')"
                                 type="special-body4"
                             />
                         </li>
 
                         <li>
                             <BaseTypography
-                                text="профессиональный подход к работе"
+                                :text="t('about.guarantee.partners.second')"
                                 type="special-body4"
                             />
                         </li>
 
                         <li>
                             <BaseTypography
-                                text="надежность всех этапов взаимодействия"
+                                :text="t('about.guarantee.partners.third')"
                                 type="special-body4"
                             />
                         </li>
 
                         <li>
                             <BaseTypography
-                                text="пунктуальность и организованность"
+                                :text="t('about.guarantee.partners.fourth')"
                                 type="special-body4"
                             />
                         </li>
@@ -319,7 +322,7 @@ const router = useRouter();
 
     <div class="flex flex-col max-w-[1366px] mx-auto mb-[104px]">
         <BaseTypography
-            text="Наша команда"
+            :text="t('about.team.title')"
             type="subtitle"
             class="var(--black-color) mb-[76px]"
         />
@@ -336,7 +339,7 @@ const router = useRouter();
                 <div class="flex flex-col gap-y-1">
                     <div class="p-[10px]">
                         <BaseTypography
-                            text="Генеральный директор"
+                            :text="t('about.team.first.post')"
                             type="body"
                             color="var(--base-white)"
                             class="max-w-[236px]"
@@ -344,7 +347,7 @@ const router = useRouter();
                     </div>
 
                     <BaseTypography
-                        text="Людмила Адамович"
+                        :text="t('about.team.first.name')"
                         type="body3"
                         color="var(--base-white)"
                         class="pl-[10px]"
@@ -361,7 +364,7 @@ const router = useRouter();
                 <div class="flex flex-col gap-y-1">
                     <div class="p-[10px]">
                         <BaseTypography
-                            text="Исполнительный директор"
+                            :text="t('about.team.second.post')"
                             type="body"
                             color="var(--base-white)"
                             class="max-w-[236px]"
@@ -369,7 +372,7 @@ const router = useRouter();
                     </div>
 
                     <BaseTypography
-                        text="Уна Выговска"
+                        :text="t('about.team.second.name')"
                         type="body3"
                         color="var(--base-white)"
                         class="pl-[10px]"
@@ -386,7 +389,7 @@ const router = useRouter();
                 <div class="flex flex-col gap-y-1">
                     <div class="p-[10px]">
                         <BaseTypography
-                            text="Руководитель отдела продаж"
+                            :text="t('about.team.third.post')"
                             type="body"
                             color="var(--base-white)"
                             class="max-w-[236px]"
@@ -394,7 +397,7 @@ const router = useRouter();
                     </div>
 
                     <BaseTypography
-                        text="Елизавета Швед"
+                        :text="t('about.team.third.name')"
                         type="body3"
                         color="var(--base-white)"
                         class="pl-[10px]"
@@ -411,7 +414,7 @@ const router = useRouter();
                 <div class="flex flex-col gap-y-1">
                     <div class="p-[10px]">
                         <BaseTypography
-                            text="Руководитель отдела въездного туризма"
+                            :text="t('about.team.fourth.post')"
                             type="body"
                             color="var(--base-white)"
                             class="max-w-[236px]"
@@ -419,7 +422,7 @@ const router = useRouter();
                     </div>
 
                     <BaseTypography
-                        text="Мария Крицкая"
+                        :text="t('about.team.fourth.name')"
                         type="body3"
                         color="var(--base-white)"
                         class="pl-[10px]"
@@ -438,7 +441,7 @@ const router = useRouter();
     <div class="relative flex flex-col max-w-[1126px] mx-auto mb-[104px]">
         <div class="p-3 mb-[104px]">
             <BaseTypography
-                text="Наши награды"
+                :text="t('about.awards.title')"
                 type="subtitle"
                 color="var(--black-color)"
             />
