@@ -146,10 +146,16 @@ const links = computed(() => [
                     src="@/assets/images/league.png"
                     class="w-[121px] m:w-auto"
                 />
-                <img
-                    src="@/assets/images/touroperators.png"
-                    class="w-[121px] m:w-auto"
-                />
+
+                <a
+                    href="https://tourism.gov.ru/reestry/reestr-turoperatorov/show.php?id=101651"
+                    target="_blank"
+                >
+                    <img
+                        src="@/assets/images/touroperators.png"
+                        class="w-[121px] m:w-auto"
+                    />
+                </a>
             </div>
 
             <div
