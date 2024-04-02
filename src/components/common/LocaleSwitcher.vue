@@ -2,6 +2,7 @@
 import { defineProps, withDefaults } from 'vue';
 import { useI18n } from 'vue-i18n';
 import BaseTypography from './BaseTypography.vue';
+import { useCookies } from '@vueuse/integrations/useCookies';
 
 withDefaults(
     defineProps<{
@@ -13,9 +14,25 @@ withDefaults(
 );
 
 const { locale } = useI18n();
+const cookies = useCookies(['localeCookie']);
 
-const changeLanguage = (lang: string) => (locale.value = lang);
-// TODO: добавить куку
+const changeLanguage = (lang: string) => {
+    locale.value = lang;
+    cookies.set('localeCookie', lang);
+};
+
+const onLoad = () => {
+    const localeCookie = cookies.get('localeCookie');
+
+    if (!localeCookie) {
+        cookies.set('localeCookie', 'ru');
+        changeLanguage('ru');
+    }
+
+    changeLanguage(localeCookie);
+};
+
+onLoad();
 </script>
 
 <template>
