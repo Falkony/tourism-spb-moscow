@@ -34,16 +34,33 @@ const isDisabled = computed(() => {
     const phoneValid = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(form.value.phone);
     return form.value.name !== '' && phoneValid && agreement.value;
 });
+
+const onLoad = () => {
+    const body = document.querySelector('body');
+    if (body) {
+        body.style.overflow = 'hidden';
+    }
+};
+
+const onClose = () => {
+    const body = document.querySelector('body');
+    if (body) {
+        body.style.overflow = 'auto';
+    }
+    emit('close');
+};
+
+onLoad();
 </script>
 
 <template>
     <div
         v-if="!sended"
-        class="h-screen bg-[var(--bg-color)]"
+        class="h-screen bg-[var(--bg-color)] z-30"
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
-            @click="emit('close')"
+            @click="onClose"
         >
             <img src="@/assets/svg/close.svg" />
         </div>
@@ -205,7 +222,7 @@ const isDisabled = computed(() => {
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
-            @click="emit('close')"
+            @click="onClose"
         >
             <img src="@/assets/svg/close.svg" />
         </div>

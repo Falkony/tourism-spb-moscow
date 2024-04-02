@@ -12,7 +12,17 @@ const { isMainPage } = toRefs(globalStore);
 
 const toggle = ref<boolean>(false);
 
-const toggleMenu = () => (toggle.value = !toggle.value);
+const toggleMenu = () => {
+    toggle.value = !toggle.value;
+    const body = document.querySelector('body');
+    if (body) {
+        if (toggle.value) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = 'auto';
+        }
+    }
+};
 </script>
 
 <template>
