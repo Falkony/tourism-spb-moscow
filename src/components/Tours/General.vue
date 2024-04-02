@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import BaseButton from '@/components/common/BaseButton.vue';
-import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { computed, ref, toRefs } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { useGlobalStore } from '@/stores/global';
+import BaseButton from '@/components/common/BaseButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseReturn from '@/components/common/BaseReturn.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
@@ -9,6 +11,7 @@ import Form from './Form.vue';
 
 const router = useRouter();
 const route = useRoute();
+const { t } = useI18n();
 
 const toggle = ref<boolean>(false);
 
@@ -16,6 +19,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
 const title = computed(() => history.state?.title);
 const isSpb = computed(() => route.params.slug === 'spb');
+const { isMobile } = toRefs(useGlobalStore());
 </script>
 
 <template>
@@ -23,17 +27,17 @@ const isSpb = computed(() => route.params.slug === 'spb');
         <BaseReturn :text="title" />
 
         <div class="flex flex-col items-center justify-center">
-            <div class="flex flex-col justify-center items-center text-center mb-10 px-10">
+            <div class="flex flex-col justify-center items-center text-center mb-10 px-10 l:max-w-[1126px] l:mx-auto">
                 <BaseTypography
                     text="Вы можете выбрать уже готовую программу или отправить заявку на персональную программу, которую мы составим в соответствии с вашими желаниями."
-                    type="subtitle3-m"
+                    :type="isMobile ? 'subtitle3-m' : 'subtitle3'"
                 />
             </div>
 
             <div class="flex justify-center items-center p-[10px] mb-[60px]">
                 <BaseButton
                     text="Оставить заявку"
-                    type="subtitle4-m"
+                    :type="isMobile ? 'subtitle4-m' : 'subtitle4'"
                     ui="primary-with-back"
                     padding-x="61"
                     padding-y="18"
@@ -50,7 +54,7 @@ const isSpb = computed(() => route.params.slug === 'spb');
             </div>
 
             <div
-                v-if="isSpb"
+                v-if="isSpb && isMobile"
                 class="flex flex-col gap-y-[76px]"
             >
                 <div
@@ -63,7 +67,7 @@ const isSpb = computed(() => route.params.slug === 'spb');
                                 id: '1',
                             },
                             state: {
-                                title: 'Туры в Санкт-Петербург',
+                                title: t('tours.first.title'),
                             },
                         })
                     "
@@ -74,12 +78,12 @@ const isSpb = computed(() => route.params.slug === 'spb');
                         <div class="flex flex-col">
                             <BaseTypography
                                 text="Бессмертная классика"
-                                type="subtitle2-m"
+                                :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                                 color="var(--primary-color)"
                                 class="mb-3"
                             />
 
-                            <BaseLine width="299" />
+                            <BaseLine :width="isMobile ? '299' : '757'" />
                         </div>
                     </div>
 
@@ -89,7 +93,7 @@ const isSpb = computed(() => route.params.slug === 'spb');
                         >
                             <BaseTypography
                                 text="5 дней"
-                                type="subtitle2-m"
+                                :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                                 class="whitespace-nowrap"
                             />
                         </div>
@@ -98,7 +102,7 @@ const isSpb = computed(() => route.params.slug === 'spb');
                     <div class="pl-6 pr-8 relative">
                         <BaseTypography
                             text="Знакомство с Санкт-Петербургом: обзор знаковых музеев и дворцов, которые никого не оставят равнодушным."
-                            type="body3-m"
+                            :type="isMobile ? 'body3-m' : 'body3'"
                         />
 
                         <img
@@ -115,12 +119,12 @@ const isSpb = computed(() => route.params.slug === 'spb');
                         <div class="flex flex-col">
                             <BaseTypography
                                 text="Для опытных туристов"
-                                type="subtitle2-m"
+                                :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                                 color="var(--primary-color)"
                                 class="mb-3"
                             />
 
-                            <BaseLine width="299" />
+                            <BaseLine :width="isMobile ? '299' : '757'" />
                         </div>
                     </div>
 
@@ -130,7 +134,7 @@ const isSpb = computed(() => route.params.slug === 'spb');
                         >
                             <BaseTypography
                                 text="5 дней"
-                                type="subtitle2-m"
+                                :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                                 class="whitespace-nowrap"
                             />
                         </div>
@@ -139,7 +143,7 @@ const isSpb = computed(() => route.params.slug === 'spb');
                     <div class="pl-6 pr-8 relative">
                         <BaseTypography
                             text="В Санкт-Петербурге  всегда есть на что посмотреть! Даже завсегдатай города найдет для себя, что посмотреть."
-                            type="body3-m"
+                            :type="isMobile ? 'body3-m' : 'body3'"
                         />
 
                         <img
@@ -150,10 +154,107 @@ const isSpb = computed(() => route.params.slug === 'spb');
                 </div>
             </div>
 
+            <div
+                v-if="isSpb && !isMobile"
+                class="flex flex-col gap-y-[76px]"
+            >
+                <div
+                    class="flex gap-x-[98px]"
+                    @click="
+                        router.push({
+                            name: 'tour',
+                            params: {
+                                slug: 'spb',
+                                id: '1',
+                            },
+                            state: {
+                                title: t('tours.first.title'),
+                            },
+                        })
+                    "
+                >
+                    <div class="flex gap-x-8">
+                        <div class="h-[72px] w-[72px] rounded-full bg-[--secondary-color]" />
+
+                        <div class="w-full max-w-[757px]">
+                            <div class="border-b-[3px] border-b-[var(--secondary-color)] mb-10">
+                                <BaseTypography
+                                    text="Бессмертная классика"
+                                    type="subtitle2"
+                                    color="var(--primary-color)"
+                                    class="mb-3"
+                                />
+                            </div>
+
+                            <BaseTypography
+                                text="Знакомство с Санкт-Петербургом: обзор знаковых музеев и дворцов, которые никого не оставят равнодушным."
+                                type="body3"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-end">
+                        <div
+                            class="flex items-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-[35.5px] py-5 mb-10"
+                        >
+                            <BaseTypography
+                                text="5 дней"
+                                type="subtitle2"
+                                class="whitespace-nowrap"
+                            />
+                        </div>
+
+                        <img
+                            src="@/assets/svg/arrow-right.svg"
+                            class="w-[43px] cursor-pointer"
+                        />
+                    </div>
+                </div>
+
+                <div class="flex gap-x-[98px]">
+                    <div class="flex gap-x-8">
+                        <div class="h-[72px] w-[72px] rounded-full bg-[--secondary-color]" />
+
+                        <div class="w-full max-w-[757px]">
+                            <div class="border-b-[3px] border-b-[var(--secondary-color)] mb-10">
+                                <BaseTypography
+                                    text="Для опытных туристов"
+                                    type="subtitle2"
+                                    color="var(--primary-color)"
+                                    class="mb-3"
+                                />
+                            </div>
+
+                            <BaseTypography
+                                text="В Санкт-Петербурге  всегда есть на что посмотреть! Даже завсегдатай города найдет для себя, что посмотреть."
+                                type="body3"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-end">
+                        <div
+                            class="flex items-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-[35.5px] py-5 mb-10"
+                        >
+                            <BaseTypography
+                                text="5 дней"
+                                type="subtitle2"
+                                class="whitespace-nowrap"
+                            />
+                        </div>
+
+                        <img
+                            src="@/assets/svg/arrow-right.svg"
+                            class="w-[43px] cursor-pointer"
+                        />
+                    </div>
+                </div>
+            </div>
+
             <div v-else>
                 <BaseTypography
                     text="Страница в разработке"
-                    type="subtitle2-m"
+                    :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                 />
             </div>
         </div>
