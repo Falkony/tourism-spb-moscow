@@ -17,6 +17,7 @@ export default {
             agents: 'Agents',
         },
     },
+    'empty-page': 'Page under construction',
     common: {
         from: 'from ',
         people: ' ₽/person',

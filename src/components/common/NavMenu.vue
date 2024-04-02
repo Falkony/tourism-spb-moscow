@@ -61,18 +61,3 @@ const { isMainPage } = toRefs(globalStore);
         </li>
     </ul>
 </template>
-
-<style scoped>
-a {
-    text-decoration: none;
-    color: var(--bg-color);
-}
-
-a:hover {
-    color: var(--active-color);
-}
-
-a:active {
-    color: var(--active-color);
-}
-</style>

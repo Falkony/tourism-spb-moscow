@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { useWindowSize } from '@vueuse/core';
 import { computed, defineProps } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
@@ -7,6 +8,8 @@ import BaseReturn from '@/components/common/BaseReturn.vue';
 const props = defineProps<{
     title?: string;
 }>();
+
+const { t } = useI18n();
 
 const title = computed(() => props.title ?? history.state?.title);
 
@@ -22,7 +25,7 @@ const { width } = useWindowSize();
 
         <div class="max-w-[1126px] mx-auto px-6">
             <BaseTypography
-                text="Страница в разработке"
+                :text="t('empty-page')"
                 :type="width < 768 ? 'subtitle2-m' : 'subtitle'"
             />
         </div>

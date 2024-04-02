@@ -20,6 +20,7 @@ export default {
     'main-page': {
         subtitle: 'Туроператор',
     },
+    'empty-page': 'Страница в разработке',
     common: {
         from: 'от ',
         people: ' ₽/чел',
