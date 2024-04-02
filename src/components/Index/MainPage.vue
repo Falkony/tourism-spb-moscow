@@ -341,7 +341,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             />
 
             <div class="px-[100px]">
-                <div class="flex flex-row gap-x-16 mb-7">
+                <div class="grid grid-cols-3 gap-x-16 mb-7">
                     <div class="flex flex-col gap-y-[25px] items-center">
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/msk.png" />
@@ -381,7 +381,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                     class="flex mb-7 mx-auto w-[899px]"
                 />
 
-                <div class="flex flex-row gap-x-16 mb-16">
+                <div class="grid grid-cols-3 gap-x-16 mb-16">
                     <div class="flex flex-col gap-y-[25px] items-center">
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/school.png" />
