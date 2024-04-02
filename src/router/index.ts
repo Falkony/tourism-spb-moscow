@@ -4,7 +4,7 @@ import About from '@/views/About.vue';
 import Tours from '@/views/Tours.vue';
 import Tour from '@/components/Tours/Tour.vue';
 import Excursions from '@/views/Excursions.vue';
-import ExcursionMobile from '@/components/Excursions/ExcursionMobile.vue';
+import Excursion from '@/components/Excursions/Excursion.vue';
 import Contacts from '@/views/Contacts.vue';
 import How from '@/views/How.vue';
 import Policy from '@/views/Policy.vue';
@@ -46,7 +46,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/excursion/:id',
         name: 'excursion',
-        component: ExcursionMobile,
+        component: Excursion,
     },
     {
         path: '/contacts',

@@ -10,6 +10,19 @@ const agreement = ref(false);
 const form = reactive({
     phone: '',
 });
+
+const optionsSelect = [
+    { value: 'Моб. связь', text: 'Моб. связь' },
+    { value: 'Telegram', text: 'Telegram' },
+    { value: 'WhatsApp', text: 'WhatsApp' },
+    { value: 'Эл. почта', text: 'Эл. почта' },
+];
+
+const selectedOption = ref(optionsSelect[0].value);
+
+const handleChange = (event) => {
+    selectedOption.value = event.target.value;
+};
 </script>
 
 <template>
@@ -179,13 +192,16 @@ const form = reactive({
                             </label>
 
                             <select
-                                name="select"
-                                class="bk edit"
+                                v-model="selectedOption"
+                                class="edit bk"
                             >
-                                <!--Supplement an id here instead of using 'name'-->
-                                <option value="value1">Значение 1</option>
-                                <option value="value2">Значение 2</option>
-                                <option value="value3">Значение 3</option>
+                                <option
+                                    v-for="option in optionsSelect"
+                                    :key="option.value"
+                                    :value="option.value"
+                                >
+                                    {{ option.text }}
+                                </option>
                             </select>
                         </div>
                     </div>

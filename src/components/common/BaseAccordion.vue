@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { withDefaults, defineProps, ref } from 'vue';
+import { withDefaults, defineProps, ref, toRefs } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
+import { useGlobalStore } from '@/stores/global';
 
 const props = withDefaults(
     defineProps<{
@@ -14,6 +15,7 @@ const props = withDefaults(
     }
 );
 
+const { isMobile } = toRefs(useGlobalStore());
 const isExpanded = ref<boolean>(props.expanded);
 const changeExpanded = () => {
     if (!props.disabled) {
@@ -34,7 +36,7 @@ const changeExpanded = () => {
                     <li>
                         <BaseTypography
                             :text="title"
-                            type="body-m"
+                            :type="isMobile ? 'body-m' : 'body'"
                         />
                     </li>
                 </ul>
