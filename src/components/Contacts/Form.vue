@@ -1,22 +1,18 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core';
 import { vMaska } from 'maska';
+import { useI18n } from 'vue-i18n';
 import { ref, computed } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
+import type { ContactFormType } from '@/types/ContactFormType';
 
 const { width } = useWindowSize();
-
-type FormDataType = {
-    name: string;
-    email?: string;
-    text?: string;
-    phone: string;
-};
+const { t } = useI18n();
 
 const options = { mask: '+7 (###) ###-##-##' };
 
-const form = ref<FormDataType>({} as FormDataType);
+const form = ref<ContactFormType>({} as ContactFormType);
 const agreement = ref<boolean>(false);
 const sended = ref<boolean>(false);
 
@@ -37,14 +33,14 @@ const isDisabled = computed(() => {
         <div v-if="!sended">
             <div class="flex flex-col gap-y-5 mb-[64px] px-[53px] s:px-12">
                 <BaseTypography
-                    text="Форма обратной связи"
+                    :text="t('contacts.form.title')"
                     :type="width > 768 ? 'subtitle' : 'title-m'"
                     color="var(--base-white)"
                     class="max-w-[200px] s:max-w-max"
                 />
 
                 <BaseTypography
-                    text="Напишите нам по любым вопросам и предложениям"
+                    :text="t('contacts.form.subtitle')"
                     :type="width > 768 ? 'special-body3' : 'body3-m'"
                     color="var(--base-white)"
                     class="max-w-[200px] s:max-w-max"
@@ -55,7 +51,7 @@ const isDisabled = computed(() => {
                 <div class="flex flex-col w-[204px]">
                     <label for="name">
                         <BaseTypography
-                            text="Ваше Имя*"
+                            :text="t('contacts.form.name')"
                             :type="width > 768 ? 'special-body2' : 'body2-m'"
                             color="var(--base-white)"
                         />
@@ -75,7 +71,7 @@ const isDisabled = computed(() => {
                 <div class="flex flex-col w-[213px]">
                     <label for="email">
                         <BaseTypography
-                            text="Ваша электронная почта"
+                            :text="t('contacts.form.email')"
                             :type="width > 768 ? 'special-body2' : 'body2-m'"
                             color="var(--base-white)"
                         />
@@ -94,7 +90,7 @@ const isDisabled = computed(() => {
                 <div class="flex flex-col w-[204px]">
                     <label for="phone">
                         <BaseTypography
-                            text="Ваш номер телефона *"
+                            :text="t('contacts.form.phone')"
                             :type="width > 768 ? 'special-body2' : 'body2-m'"
                             color="var(--base-white)"
                         />
@@ -115,7 +111,7 @@ const isDisabled = computed(() => {
                 <div class="flex flex-col w-[213px]">
                     <label for="text">
                         <BaseTypography
-                            text="Ваше сообщение"
+                            :text="t('contacts.form.message')"
                             :type="width > 768 ? 'special-body2' : 'body2-m'"
                             color="var(--base-white)"
                         />
@@ -142,23 +138,49 @@ const isDisabled = computed(() => {
 
                     <div>
                         <BaseTypography
-                            text="Я согласен(а) на обработку персональных данных на условиях, изложенных в Согласии на обработку персональных данных и Политике."
+                            :text="t('contacts.form.policy.first')"
                             :type="width > 768 ? 'caption' : 'caption-m'"
                             color="var(--base-white)"
-                            class="max-w-[238px]"
+                            tag="span"
                         />
+
+                        <router-link to="/consent">
+                            <BaseTypography
+                                :text="t('contacts.form.policy.second')"
+                                :type="width > 768 ? 'caption' : 'caption-m'"
+                                class="underline"
+                                color="var(--base-white)"
+                                tag="span"
+                            />
+                        </router-link>
+
+                        <BaseTypography
+                            :text="t('contacts.form.policy.third')"
+                            :type="width > 768 ? 'caption' : 'caption-m'"
+                            color="var(--base-white)"
+                            tag="span"
+                        />
+
+                        <router-link to="/policy">
+                            <BaseTypography
+                                :text="t('contacts.form.policy.fourth')"
+                                :type="width > 768 ? 'caption' : 'caption-m'"
+                                class="underline"
+                                color="var(--base-white)"
+                                tag="span"
+                            />
+                        </router-link>
                     </div>
                 </div>
 
                 <div class="flex justify-center">
                     <BaseButton
-                        text="Отправить"
+                        :text="t('contacts.form.send')"
                         :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
                         :color="!isDisabled ? 'var(--base-white)' : 'var(--primary-color)'"
                         :ui="!isDisabled ? 'disabled' : 'white'"
                         padding-x="85"
                         padding-y="18"
-                        class="cursor-pointer"
                         :disabled="!isDisabled"
                         @click="sendForm"
                     />
@@ -166,21 +188,22 @@ const isDisabled = computed(() => {
             </div>
         </div>
 
-        <div v-else>
-            <div class="flex flex-col items-center justify-center gap-y-5 h-[862px]">
-                <BaseTypography
-                    text="Благодарим за оставленную заявку!"
-                    type="subtitle2-m"
-                    color="var(--base-white)"
-                />
+        <div
+            v-else
+            class="flex flex-col items-center justify-center gap-y-5 h-[862px] l:h-[480px]"
+        >
+            <BaseTypography
+                :text="t('contacts.form.thanks.first')"
+                type="subtitle2-m"
+                color="var(--base-white)"
+            />
 
-                <BaseTypography
-                    text="Наш специалист вскоре свяжется с Вами."
-                    type="subtitle2-m"
-                    color="var(--base-white)"
-                    class="text-center"
-                />
-            </div>
+            <BaseTypography
+                :text="t('contacts.form.thanks.second')"
+                type="subtitle2-m"
+                color="var(--base-white)"
+                class="text-center"
+            />
         </div>
     </div>
 </template>

@@ -84,6 +84,25 @@ export default {
             first: 'Monday to Friday - from 10:00 to 18:00',
             second: 'On weekends - by appointment',
         },
+        form: {
+            title: 'Feedback form',
+            subtitle: 'Write to us with any questions or suggestions',
+            name: 'Your name*',
+            email: 'Your email',
+            phone: 'Your phone number*',
+            message: 'Your message',
+            policy: {
+                first: 'I agree to the processing of personal data under the conditions set out in ',
+                second: 'Consent to the processing of personal data ',
+                third: 'and ',
+                fourth: 'Policy.',
+            },
+            send: 'Send',
+            thanks: {
+                first: 'Thank you for your application!',
+                second: 'Our specialist will contact you shortly.',
+            },
+        },
     },
     about: {
         title: 'About company',
