@@ -22,14 +22,10 @@ const changeLanguage = (lang: string) => {
 };
 
 const onLoad = () => {
-    const localeCookie = cookies.get('localeCookie');
+    const cookiesLocale = cookies.get('localeCookie');
 
-    if (!localeCookie) {
-        cookies.set('localeCookie', 'ru');
-        changeLanguage('ru');
-    }
-
-    changeLanguage(localeCookie);
+    if (!cookiesLocale) return;
+    changeLanguage(cookiesLocale);
 };
 
 onLoad();

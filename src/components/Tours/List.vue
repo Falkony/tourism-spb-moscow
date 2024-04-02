@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import SlideItem from '../common/SlideItem.vue';
+import { useI18n } from 'vue-i18n';
+import SlideItem from '@/components/common/SlideItem.vue';
 import BaseReturn from '@/components/common/BaseReturn.vue';
 
 const router = useRouter();
+const { t } = useI18n();
 </script>
 
 <template>
     <div class="mt-[40px] px-10">
-        <BaseReturn text="Туры" />
+        <BaseReturn :text="t('tours.title')" />
 
         <div class="list">
             <SlideItem
-                title="Туры в Санкт-Петербург"
-                text="Культурная столица: дворцы, мосты и каналы"
+                :title="t('tours.first.title')"
+                :text="t('tours.first.text')"
                 url="tours/tour_1.png"
                 @click="
                     router.push({
@@ -22,15 +24,15 @@ const router = useRouter();
                             slug: 'spb',
                         },
                         state: {
-                            title: 'Туры в Санкт-Петербург',
+                            title: t('tours.first.title'),
                         },
                     })
                 "
             />
 
             <SlideItem
-                title="Туры в Москву"
-                text="Сердце России: Кремлевская площадь, Собор Василия Блаженного и ВДНХ"
+                :title="t('tours.second.title')"
+                :text="t('tours.second.text')"
                 url="tours/tour_2.png"
                 @click="
                     router.push({
@@ -39,15 +41,15 @@ const router = useRouter();
                             slug: 'msk',
                         },
                         state: {
-                            title: 'Туры в Москву',
+                            title: t('tours.second.title'),
                         },
                     })
                 "
             />
 
             <SlideItem
-                title="Туры по России"
-                text="Мурманск и северное сияние, Казань и Казанский кремль"
+                :title="t('tours.third.title')"
+                :text="t('tours.third.text')"
                 url="tours/tour_3.png"
                 @click="
                     router.push({
@@ -56,15 +58,15 @@ const router = useRouter();
                             slug: 'russia',
                         },
                         state: {
-                            title: 'Туры по России',
+                            title: t('tours.third.title'),
                         },
                     })
                 "
             />
 
             <SlideItem
-                title="Туры для школьников"
-                text="Культурная программа для детей и подростков"
+                :title="t('tours.fourth.title')"
+                :text="t('tours.fourth.text')"
                 url="tours/tour_4.png"
                 @click="
                     router.push({
@@ -73,15 +75,15 @@ const router = useRouter();
                             slug: 'students',
                         },
                         state: {
-                            title: 'Туры для школьников',
+                            title: t('tours.fourth.title'),
                         },
                     })
                 "
             />
 
             <SlideItem
-                title="Оздоровительные туры"
-                text="Спа-комплексы и санатории: совмещение приятного с полезным"
+                :title="t('tours.fifth.title')"
+                :text="t('tours.fifth.text')"
                 url="tours/tour_5.png"
                 @click="
                     router.push({
@@ -90,15 +92,15 @@ const router = useRouter();
                             slug: 'active',
                         },
                         state: {
-                            title: 'Оздоровительные туры',
+                            title: t('tours.fifth.title'),
                         },
                     })
                 "
             />
 
             <SlideItem
-                title="Туры для активного отдыха"
-                text="Экотропы и спортивные развлечения"
+                :title="t('tours.sixth.title')"
+                :text="t('tours.sixth.text')"
                 url="tours/tour_6.png"
                 @click="
                     router.push({
@@ -107,7 +109,7 @@ const router = useRouter();
                             slug: 'sport',
                         },
                         state: {
-                            title: 'Туры для активного отдыха',
+                            title: t('tours.sixth.title'),
                         },
                     })
                 "

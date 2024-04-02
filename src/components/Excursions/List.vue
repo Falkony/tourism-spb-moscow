@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import SlideItem from '@/components/common/SlideItem.vue';
 import BaseReturn from '@/components/common/BaseReturn.vue';
 
 const router = useRouter();
+const { t } = useI18n();
 </script>
 
 <template>
     <div class="mt-[40px] px-10">
-        <BaseReturn text="Экскурсии" />
+        <BaseReturn :text="t('excursion.title')" />
 
         <div class="list">
             <SlideItem
-                title="Петербургский треугольник"
-                text="Пешеходная экскурсия"
+                :title="t('excursion.first.title')"
+                :text="t('excursion.first.text')"
                 url="excursions/excursion_1.png"
                 price="1000"
                 @click="
@@ -27,8 +29,8 @@ const router = useRouter();
             />
 
             <SlideItem
-                title="Крепость, хранимая ангелом"
-                text="Пешеходная экскурсия"
+                :title="t('excursion.second.title')"
+                :text="t('excursion.second.text')"
                 url="excursions/excursion_2.png"
                 price="1300"
                 @click="
@@ -42,8 +44,8 @@ const router = useRouter();
             />
 
             <SlideItem
-                title="О чем молчат дворы Васильевского острова"
-                text="Пешеходная экскурсия"
+                :title="t('excursion.third.title')"
+                :text="t('excursion.third.text')"
                 url="excursions/excursion_3.png"
                 price="750"
                 @click="
@@ -57,8 +59,8 @@ const router = useRouter();
             />
 
             <SlideItem
-                title="Путешествие в эпоху Просвещения"
-                text="Экскурсия в Российскую Национальную Библиотеку"
+                :title="t('excursion.fourth.title')"
+                :text="t('excursion.fourth.text')"
                 url="excursions/excursion_4.png"
                 price="900"
                 @click="
@@ -72,8 +74,8 @@ const router = useRouter();
             />
 
             <SlideItem
-                title="Любимая чашка"
-                text="Экскурсия в Императорский фарфоровый завод и мастер класс"
+                :title="t('excursion.fifth.title')"
+                :text="t('excursion.fifth.text')"
                 url="excursions/excursion_5.png"
                 price="2000"
                 @click="

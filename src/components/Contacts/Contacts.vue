@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useWindowSize } from '@vueuse/core';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import BaseReturn from '@/components/common/BaseReturn.vue';
 import Form from './Form.vue';
 import Map from './Map.vue';
-import { useWindowSize } from '@vueuse/core';
 
 const { width } = useWindowSize();
+const { t } = useI18n();
 
 const mobile = computed(() => width.value < 768);
 const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
@@ -18,7 +20,7 @@ const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
         class="flex flex-col l:flex-row px-10 l:px-0 l:gap-x-[240px] justify-center l:items-start mt-[40px] mb-[76px] l:max-w-[1362px] l:mx-auto"
     >
         <div class="flex flex-col">
-            <BaseReturn text="Адрес РВМ" />
+            <BaseReturn :text="t('contacts.title')" />
 
             <div class="flex items-center justify-center">
                 <div class="flex flex-col gap-y-3 mb-[60px]">
@@ -30,17 +32,17 @@ const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
 
                         <div class="p-[10px]">
                             <BaseTypography
-                                text="г. Санкт-Петербург, бизнес центр “СИТИ”,"
+                                :text="t('contacts.address.first')"
                                 :type="typoMobile"
                             />
 
                             <BaseTypography
-                                text="Садовая улица 12, офис 3"
+                                :text="t('contacts.address.second')"
                                 :type="typoMobile"
                             />
 
                             <BaseTypography
-                                text="3 минуты от ст. метро «Гостиный двор»"
+                                :text="t('contacts.address.third')"
                                 :type="typoMobile"
                             />
                         </div>
@@ -103,7 +105,7 @@ const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
 
         <div class="flex items-center justify-center flex-col">
             <BaseButton
-                text="График работы офиса"
+                :text="t('contacts.subtitle')"
                 :type="mobile ? 'subtitle-m' : 'subtitle'"
                 ui="primary"
                 padding-x="63.5"
@@ -114,12 +116,12 @@ const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
 
             <div class="flex flex-col gap-y-4">
                 <BaseTypography
-                    text="С понедельника по пятницу — с 10:00 до 18:00"
+                    :text="t('contacts.schedule.first')"
                     :type="typoMobile"
                 />
 
                 <BaseTypography
-                    text="В выходные — по предварительной записи"
+                    :text="t('contacts.schedule.second')"
                     :type="typoMobile"
                 />
             </div>

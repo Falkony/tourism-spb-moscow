@@ -2,7 +2,6 @@
 import { computed } from 'vue';
 import { useWindowSize } from '@vueuse/core';
 import BaseTypography from './common/BaseTypography.vue';
-import LocaleSwitcher from './common/LocaleSwitcher.vue';
 import { useI18n } from 'vue-i18n';
 import BaseButton from './common/BaseButton.vue';
 
@@ -104,11 +103,6 @@ const links = computed(() => [
                     </div>
                 </a>
             </div>
-
-            <LocaleSwitcher
-                v-if="width > 1024"
-                color="var(--black-color)"
-            />
         </div>
 
         <ul

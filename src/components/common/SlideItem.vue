@@ -2,6 +2,7 @@
 import { defineProps, toRefs } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import { useGlobalStore } from '@/stores/global';
+import { useI18n } from 'vue-i18n';
 
 defineProps<{
     title: string;
@@ -11,6 +12,7 @@ defineProps<{
 }>();
 
 const { isMobile } = toRefs(useGlobalStore());
+const { t } = useI18n();
 </script>
 
 <template>
@@ -47,7 +49,7 @@ const { isMobile } = toRefs(useGlobalStore());
                         class="mt-3"
                     >
                         <BaseTypography
-                            text="от "
+                            :text="t('common.from')"
                             :type="isMobile ? 'body2-m' : 'body2'"
                             tag="span"
                         />
@@ -60,7 +62,7 @@ const { isMobile } = toRefs(useGlobalStore());
                         />
 
                         <BaseTypography
-                            text=" ₽/чел"
+                            :text="t('common.people')"
                             :type="isMobile ? 'body2-m' : 'body2'"
                             tag="span"
                         />

@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core';
 import { toRefs, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { useGlobalStore } from '@/stores/global';
-import LocaleSwitcher from './common/LocaleSwitcher.vue';
-import NavMenu from './common/NavMenu.vue';
+import LocaleSwitcher from '@/components/common/LocaleSwitcher.vue';
+import NavMenu from '@/components/common/NavMenu.vue';
 
 const globalStore = useGlobalStore();
 const { width } = useWindowSize();
 
-const { t } = useI18n();
 const { isMainPage } = toRefs(globalStore);
 
 const toggle = ref<boolean>(false);
