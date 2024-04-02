@@ -2,7 +2,7 @@
 import { defineProps } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SliderItem from './SlideItem.vue';
-import { Scrollbar } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { useWindowSize } from '@vueuse/core';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -16,10 +16,10 @@ defineProps<{
 
 <template>
     <swiper
-        :slidesPerView="width >= 768 ? 2 : 'auto'"
+        :slidesPerView="width >= 768 ? 2.5 : 'auto'"
         :spaceBetween="24"
-        :modules="[Scrollbar]"
-        :scrollbar="{ draggable: true }"
+        pagination
+        :modules="[Pagination]"
         grab-cursor
     >
         <swiper-slide
@@ -50,5 +50,19 @@ defineProps<{
     background-size: cover;
     height: 450px;
     width: 100%;
+}
+
+@media screen and (min-width: 900px) {
+    .swiper {
+        padding: 50px 0;
+    }
+
+    .swiper-slide {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        width: max-content;
+        height: 550px;
+        padding: 30px 0;
+    }
 }
 </style>

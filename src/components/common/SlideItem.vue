@@ -29,7 +29,7 @@ const { t } = useI18n();
                     :text="title"
                     :type="isMobile ? 'body-m' : 'body'"
                     color="var(--primary-color)"
-                    class="mb-3"
+                    class="mb-3 min-h-[52px]"
                 />
 
                 <div class="h-[6px] rounded w-full bg-[var(--secondary-color)]" />
@@ -92,5 +92,12 @@ const { t } = useI18n();
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (min-width: 900px) {
+    .item {
+        width: 428px;
+        height: 455px;
+    }
 }
 </style>
