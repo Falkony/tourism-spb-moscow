@@ -55,7 +55,7 @@ onLoad();
 <template>
     <div
         v-if="!sended"
-        class="h-screen bg-[var(--bg-color)] l:rounded-l-[100px] l:h-[600px] l:w-[800px] relative"
+        class="h-screen overflow-scroll bg-[var(--bg-color)] l:rounded-l-[100px] l:h-[600px] l:w-[800px] relative"
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
