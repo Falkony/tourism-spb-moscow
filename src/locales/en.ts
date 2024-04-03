@@ -162,6 +162,20 @@ export default {
             title: 'Tours for active recreation',
             text: 'Eco-trails and sports activities',
         },
+        general: {
+            subtext:
+                'You can choose a ready-made program or send a request for a personal program, which we will create in accordance with your wishes.',
+            submit: 'Leave a request',
+            spb: {
+                'title-1': 'Immortal classic',
+                'text-1':
+                    'Getting to know St. Petersburg: a review of iconic museums and palaces that will not leave anyone indifferent.',
+                'title-2': 'Immortal classic',
+                'text-2':
+                    'Getting to know St. Petersburg: a review of iconic museums and palaces that will not leave anyone indifferent.',
+                days: '5 days',
+            },
+        },
     },
     contacts: {
         title: 'RVM address',

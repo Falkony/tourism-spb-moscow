@@ -24,19 +24,24 @@ const { isMobile } = toRefs(useGlobalStore());
 
 <template>
     <div class="mt-[223px] mb-[104px]">
+        <div
+            v-if="toggle"
+            class="fixed inset-0 z-30 bg-black/50"
+        />
+
         <BaseReturn :text="title" />
 
         <div class="flex flex-col items-center justify-center">
             <div class="flex flex-col justify-center items-center text-center mb-10 px-10 l:max-w-[1126px] l:mx-auto">
                 <BaseTypography
-                    text="Вы можете выбрать уже готовую программу или отправить заявку на персональную программу, которую мы составим в соответствии с вашими желаниями."
+                    :text="t('tours.general.subtext')"
                     :type="isMobile ? 'subtitle3-m' : 'subtitle3'"
                 />
             </div>
 
             <div class="flex justify-center items-center p-[10px] mb-[60px]">
                 <BaseButton
-                    text="Оставить заявку"
+                    :text="t('tours.general.submit')"
                     :type="isMobile ? 'subtitle4-m' : 'subtitle4'"
                     ui="primary-with-back"
                     padding-x="61"
@@ -47,7 +52,7 @@ const { isMobile } = toRefs(useGlobalStore());
             </div>
 
             <div
-                class="show fixed inset-0 z-30"
+                class="show fixed inset-0 z-30 l:top-[30%] l:left-[50%] l:translate-x-[-50%] l:translate-y-[-30%]"
                 v-if="toggle"
             >
                 <Form @close="toggleForm" />
@@ -77,7 +82,7 @@ const { isMobile } = toRefs(useGlobalStore());
 
                         <div class="flex flex-col">
                             <BaseTypography
-                                text="Бессмертная классика"
+                                :text="t('tours.general.spb.title-1')"
                                 :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                                 color="var(--primary-color)"
                                 class="mb-3"
@@ -92,7 +97,7 @@ const { isMobile } = toRefs(useGlobalStore());
                             class="flex items-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-[24.5px] py-[10px] w-fit"
                         >
                             <BaseTypography
-                                text="5 дней"
+                                :text="t('tours.general.spb.days')"
                                 :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                                 class="whitespace-nowrap"
                             />
@@ -101,7 +106,7 @@ const { isMobile } = toRefs(useGlobalStore());
 
                     <div class="pl-6 pr-8 relative">
                         <BaseTypography
-                            text="Знакомство с Санкт-Петербургом: обзор знаковых музеев и дворцов, которые никого не оставят равнодушным."
+                            :text="t('tours.general.spb.text-1')"
                             :type="isMobile ? 'body3-m' : 'body3'"
                         />
 
@@ -118,7 +123,7 @@ const { isMobile } = toRefs(useGlobalStore());
 
                         <div class="flex flex-col">
                             <BaseTypography
-                                text="Для опытных туристов"
+                                :text="t('tours.general.spb.title-2')"
                                 :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                                 color="var(--primary-color)"
                                 class="mb-3"
@@ -133,7 +138,7 @@ const { isMobile } = toRefs(useGlobalStore());
                             class="flex items-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-[24.5px] py-[10px] w-fit"
                         >
                             <BaseTypography
-                                text="5 дней"
+                                :text="t('tours.general.spb.days')"
                                 :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
                                 class="whitespace-nowrap"
                             />
@@ -142,7 +147,7 @@ const { isMobile } = toRefs(useGlobalStore());
 
                     <div class="pl-6 pr-8 relative">
                         <BaseTypography
-                            text="В Санкт-Петербурге  всегда есть на что посмотреть! Даже завсегдатай города найдет для себя, что посмотреть."
+                            :text="t('tours.general.spb.text-2')"
                             :type="isMobile ? 'body3-m' : 'body3'"
                         />
 
@@ -179,7 +184,7 @@ const { isMobile } = toRefs(useGlobalStore());
                         <div class="w-full max-w-[757px]">
                             <div class="border-b-[3px] border-b-[var(--secondary-color)] mb-10">
                                 <BaseTypography
-                                    text="Бессмертная классика"
+                                    :text="t('tours.general.spb.title-1')"
                                     type="subtitle2"
                                     color="var(--primary-color)"
                                     class="mb-3"
@@ -187,7 +192,7 @@ const { isMobile } = toRefs(useGlobalStore());
                             </div>
 
                             <BaseTypography
-                                text="Знакомство с Санкт-Петербургом: обзор знаковых музеев и дворцов, которые никого не оставят равнодушным."
+                                :text="t('tours.general.spb.text-1')"
                                 type="body3"
                             />
                         </div>
@@ -198,7 +203,7 @@ const { isMobile } = toRefs(useGlobalStore());
                             class="flex items-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-[35.5px] py-5 mb-10"
                         >
                             <BaseTypography
-                                text="5 дней"
+                                :text="t('tours.general.spb.days')"
                                 type="subtitle2"
                                 class="whitespace-nowrap"
                             />
@@ -218,7 +223,7 @@ const { isMobile } = toRefs(useGlobalStore());
                         <div class="w-full max-w-[757px]">
                             <div class="border-b-[3px] border-b-[var(--secondary-color)] mb-10">
                                 <BaseTypography
-                                    text="Для опытных туристов"
+                                    :text="t('tours.general.spb.title-2')"
                                     type="subtitle2"
                                     color="var(--primary-color)"
                                     class="mb-3"
@@ -226,7 +231,7 @@ const { isMobile } = toRefs(useGlobalStore());
                             </div>
 
                             <BaseTypography
-                                text="В Санкт-Петербурге  всегда есть на что посмотреть! Даже завсегдатай города найдет для себя, что посмотреть."
+                                :text="t('tours.general.spb.text-2')"
                                 type="body3"
                             />
                         </div>
@@ -237,7 +242,7 @@ const { isMobile } = toRefs(useGlobalStore());
                             class="flex items-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-[35.5px] py-5 mb-10"
                         >
                             <BaseTypography
-                                text="5 дней"
+                                :text="t('tours.general.spb.days')"
                                 type="subtitle2"
                                 class="whitespace-nowrap"
                             />
