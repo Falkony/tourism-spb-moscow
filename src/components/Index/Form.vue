@@ -5,7 +5,7 @@ import { ref, computed, defineEmits } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import type { MainPageForm } from '@/types/MainPageForm';
-import { useGlobalStore } from '@/stores/global';
+// import { useGlobalStore } from '@/stores/global';
 import { useI18n } from 'vue-i18n';
 
 const emit = defineEmits<{
@@ -15,7 +15,7 @@ const emit = defineEmits<{
 const { t } = useI18n();
 const { width } = useWindowSize();
 
-const { isMobile } = useGlobalStore();
+// const { isMobile } = useGlobalStore();
 
 const options = { mask: '+7 (###) ###-##-##' };
 
@@ -34,8 +34,6 @@ const isDisabled = computed(() => {
 });
 
 const onLoad = () => {
-    if (!isMobile) return;
-
     const body = document.querySelector('body');
     if (body) {
         body.style.overflow = 'hidden';
@@ -43,11 +41,9 @@ const onLoad = () => {
 };
 
 const onClose = () => {
-    if (isMobile) {
-        const body = document.querySelector('body');
-        if (body) {
-            body.style.overflow = 'auto';
-        }
+    const body = document.querySelector('body');
+    if (body) {
+        body.style.overflow = 'auto';
     }
 
     emit('close');
