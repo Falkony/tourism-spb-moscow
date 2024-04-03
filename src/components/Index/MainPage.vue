@@ -56,7 +56,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             <a href="tel:+79112660098">
                 <BaseTypography
                     text="+7 (911) 266-00-98"
-                    type="footnote"
+                    :type="width > 1600 ? 'footnote' : 'subtitle2-m'"
                     color="var(--base-white)"
                     class="shadow"
                 />
@@ -65,7 +65,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             <a href="tel:+78122070350">
                 <BaseTypography
                     text="+7 (812) 207-03-50"
-                    type="footnote"
+                    :type="width > 1600 ? 'footnote' : 'subtitle2-m'"
                     color="var(--base-white)"
                     class="shadow"
                 />
@@ -74,7 +74,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             <a href="mailto:info@rvm-spb.ru">
                 <BaseTypography
                     text="info@rvm-spb.ru"
-                    type="footnote"
+                    :type="width > 1600 ? 'footnote' : 'subtitle2-m'"
                     color="var(--base-white)"
                     class="shadow"
                 />
@@ -93,14 +93,14 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 <div class="xl:mb-2 xxl:mb-6">
                     <BaseTypography
                         :text="t('main-page.tagline.text-1.first')"
-                        :type="width > 1280 ? 'headline' : 'headline2'"
+                        :type="width > 1600 ? 'headline' : 'headline2'"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
                         :text="t('main-page.tagline.text-1.second')"
-                        :type="width > 1280 ? 'headline2' : 'title'"
+                        :type="width > 1600 ? 'headline2' : 'title'"
                         tag="span"
                         color="var(--base-white)"
                     />
@@ -109,14 +109,14 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 <div class="pl-[56px] xl:mb-2 xxl:mb-6">
                     <BaseTypography
                         :text="t('main-page.tagline.text-2.first')"
-                        :type="width > 1280 ? 'headline' : 'headline2'"
+                        :type="width > 1600 ? 'headline' : 'headline2'"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
                         :text="t('main-page.tagline.text-2.second')"
-                        :type="width > 1280 ? 'headline2' : 'title'"
+                        :type="width > 1600 ? 'headline2' : 'title'"
                         tag="span"
                         color="var(--base-white)"
                     />
@@ -125,14 +125,14 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 <div class="pl-[112px]">
                     <BaseTypography
                         :text="t('main-page.tagline.text-3.first')"
-                        :type="width > 1280 ? 'headline' : 'headline2'"
+                        :type="width > 1600 ? 'headline' : 'headline2'"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
                         :text="t('main-page.tagline.text-3.second')"
-                        :type="width > 1280 ? 'headline2' : 'title'"
+                        :type="width > 1600 ? 'headline2' : 'title'"
                         tag="span"
                         color="var(--base-white)"
                     />
@@ -141,7 +141,10 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
             <BaseButton
                 :text="t('main-page.submit')"
-                type="subtitle4"
+                :type="width > 1600 ? 'subtitle4' : 'subtitle2-m'"
+                :padding-x="width > 1600 ? 'auto' : '48'"
+                :padding-y="width > 1600 ? 'auto' : '0'"
+                class="!h-[48px] xxl:!h-auto"
                 color="var(--base-white)"
                 ui="secondary"
                 @click="openFormTop"
