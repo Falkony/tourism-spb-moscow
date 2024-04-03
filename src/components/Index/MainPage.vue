@@ -52,7 +52,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
 <template>
     <section class="header-section">
-        <div class="contacts flex justify-end gap-x-10 mr-[214px] xxl:mb-[140px] relative z-20">
+        <div class="contacts flex justify-end gap-x-10 mr-[214px] l:mt-[120px] xxl:mb-[140px] relative z-20">
             <a href="tel:+79112660098">
                 <BaseTypography
                     text="+7 (911) 266-00-98"

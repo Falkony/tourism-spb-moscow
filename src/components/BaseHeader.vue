@@ -120,7 +120,7 @@ const toggleMenu = () => {
 .header_container {
     background-color: var(--black-color);
 
-    @apply flex flex-row items-center px-4 py-[76px] l:py-5 xl:py-[33px] l:px-[140px] l:opacity-80;
+    @apply flex flex-row items-center px-4 py-[76px] l:py-5 xxl:py-[33px] l:px-[140px] l:opacity-80;
 }
 
 .burger_menu {
