@@ -52,7 +52,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
 <template>
     <section class="header-section">
-        <div class="contacts flex justify-end gap-x-10 mr-[214px] mb-[140px] relative z-20">
+        <div class="contacts flex justify-end gap-x-10 mr-[214px] xxl:mb-[140px] relative z-20">
             <a href="tel:+79112660098">
                 <BaseTypography
                     text="+7 (911) 266-00-98"
@@ -89,34 +89,34 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 class="mb-3"
             />
 
-            <div class="mb-[140px]">
-                <div class="mb-6">
+            <div class="xl:mb-10 xxl:mb-[140px]">
+                <div class="xl:mb-2 xxl:mb-6">
                     <BaseTypography
                         :text="t('main-page.tagline.text-1.first')"
-                        type="headline"
+                        :type="width > 1280 ? 'headline' : 'headline2'"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
                         :text="t('main-page.tagline.text-1.second')"
-                        type="headline2"
+                        :type="width > 1280 ? 'headline2' : 'title'"
                         tag="span"
                         color="var(--base-white)"
                     />
                 </div>
 
-                <div class="pl-[56px] mb-6">
+                <div class="pl-[56px] xl:mb-2 xxl:mb-6">
                     <BaseTypography
                         :text="t('main-page.tagline.text-2.first')"
-                        type="headline"
+                        :type="width > 1280 ? 'headline' : 'headline2'"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
                         :text="t('main-page.tagline.text-2.second')"
-                        type="headline2"
+                        :type="width > 1280 ? 'headline2' : 'title'"
                         tag="span"
                         color="var(--base-white)"
                     />
@@ -125,14 +125,14 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 <div class="pl-[112px]">
                     <BaseTypography
                         :text="t('main-page.tagline.text-3.first')"
-                        type="headline"
+                        :type="width > 1280 ? 'headline' : 'headline2'"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
                         :text="t('main-page.tagline.text-3.second')"
-                        type="headline2"
+                        :type="width > 1280 ? 'headline2' : 'title'"
                         tag="span"
                         color="var(--base-white)"
                     />

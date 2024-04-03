@@ -7,6 +7,6 @@ const { width } = useWindowSize();
 </script>
 
 <template>
-    <Index v-if="width < 960" />
+    <Index v-if="width < 1024" />
     <MainPage v-else />
 </template>

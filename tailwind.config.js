@@ -5,7 +5,7 @@ const tailwindConfig = {
             s: '375px',
             m: '768px',
             l: '1024px',
-            xl: '1280px',
+            xl: '1279px',
             xxl: '1450px',
         },
         extend: {},
