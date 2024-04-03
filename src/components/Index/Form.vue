@@ -6,11 +6,13 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import type { MainPageForm } from '@/types/MainPageForm';
 import { useGlobalStore } from '@/stores/global';
+import { useI18n } from 'vue-i18n';
 
 const emit = defineEmits<{
     close: [];
 }>();
 
+const { t } = useI18n();
 const { width } = useWindowSize();
 
 const { isMobile } = useGlobalStore();
@@ -68,13 +70,13 @@ onLoad();
 
         <div class="flex flex-col gap-y-5 px-[72px] py-16">
             <BaseTypography
-                text="Форма обратной связи"
+                :text="t('contacts.form.title')"
                 :type="width > 768 ? 'subtitle' : 'title-m'"
                 color="var(--black-color)"
             />
 
             <BaseTypography
-                text="Напишите нам по любым вопросам и предложениям"
+                :text="t('contacts.form.subtitle')"
                 :type="width > 768 ? 'special-body3' : 'body3-m'"
                 color="var(--black-color)"
             />
@@ -85,7 +87,7 @@ onLoad();
             <div class="flex flex-col px-[45px]">
                 <label for="name">
                     <BaseTypography
-                        text="Ваше Имя*"
+                        :text="t('contacts.form.name')"
                         :type="width > 768 ? 'special-body2' : 'body2-m'"
                         color="var(--black-color)"
                     />
@@ -106,7 +108,7 @@ onLoad();
             <div class="flex flex-col px-[45px]">
                 <label for="phone">
                     <BaseTypography
-                        text="Ваш номер телефона*"
+                        :text="t('contacts.form.phone')"
                         :type="width > 768 ? 'special-body2' : 'body2-m'"
                         color="var(--black-color)"
                     />
@@ -128,7 +130,7 @@ onLoad();
             <div class="flex flex-col px-[45px]">
                 <label for="email">
                     <BaseTypography
-                        text="Ваша электронная почта"
+                        :text="t('contacts.form.email')"
                         :type="width > 768 ? 'special-body2' : 'body2-m'"
                         color="var(--black-color)"
                     />
@@ -148,7 +150,7 @@ onLoad();
             <div class="flex flex-col px-[45px]">
                 <label for="text">
                     <BaseTypography
-                        text="Ваше сообщение"
+                        :text="t('contacts.form.message')"
                         :type="width > 768 ? 'special-body2' : 'body2-m'"
                         color="var(--black-color)"
                     />
@@ -173,14 +175,14 @@ onLoad();
 
                 <div>
                     <BaseTypography
-                        text="Я согласен(а) на обработку персональных данных на условиях, изложенных в "
+                        :text="t('contacts.form.policy.first')"
                         :type="width < 900 ? 'caption-m' : 'caption'"
                         tag="span"
                     />
 
                     <router-link to="/consent">
                         <BaseTypography
-                            text="Согласии на обработку персональных данных "
+                            :text="t('contacts.form.policy.second')"
                             :type="width < 900 ? 'caption-m' : 'caption'"
                             class="underline"
                             tag="span"
@@ -188,14 +190,14 @@ onLoad();
                     </router-link>
 
                     <BaseTypography
-                        text="и "
+                        :text="t('contacts.form.policy.third')"
                         :type="width < 900 ? 'caption-m' : 'caption'"
                         tag="span"
                     />
 
                     <router-link to="/policy">
                         <BaseTypography
-                            text="Политике."
+                            :text="t('contacts.form.policy.fourth')"
                             :type="width < 900 ? 'caption-m' : 'caption'"
                             class="underline"
                             tag="span"
@@ -209,7 +211,7 @@ onLoad();
                 class="flex justify-center"
             >
                 <BaseButton
-                    text="Отправить"
+                    :text="t('contacts.form.send')"
                     :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
                     color="var(--base-white)"
                     :ui="!isDisabled ? 'disabled' : 'primary-with-back'"
@@ -224,7 +226,7 @@ onLoad();
             class="flex justify-center"
         >
             <BaseButton
-                text="Отправить"
+                :text="t('contacts.form.send')"
                 :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
                 color="var(--base-white)"
                 :ui="!isDisabled ? 'disabled' : 'primary-with-back'"
@@ -247,12 +249,12 @@ onLoad();
 
         <div class="flex flex-col items-center justify-center gap-y-5 h-full">
             <BaseTypography
-                text="Благодарим за оставленную заявку!"
+                :text="t('contacts.form.thanks.first')"
                 :type="width < 900 ? 'subtitle2-m' : 'subtitle2'"
             />
 
             <BaseTypography
-                text="Наш специалист вскоре свяжется с Вами."
+                :text="t('contacts.form.thanks.second')"
                 :type="width < 900 ? 'subtitle2-m' : 'subtitle2'"
             />
         </div>
