@@ -3,45 +3,45 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import Slider from '@/components/common/Slider.vue';
 import Form from '@/components/Index/Form.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 
 const { width } = useWindowSize();
 const { t } = useI18n();
 
-const slides = [
+const slides = computed(() => [
     {
-        title: 'Петербургский треугольник',
-        text: 'Пешеходная экскурсия',
+        title: t('main-page.excursion.first.title'),
+        text: t('main-page.excursion.first.text'),
         url: 'excursions/excursion_1.png',
         price: '1000',
     },
     {
-        title: 'Крепость, хранимая ангелом',
-        text: 'Пешеходная экскурсия',
+        title: t('main-page.excursion.second.title'),
+        text: t('main-page.excursion.second.text'),
         url: 'excursions/excursion_2.png',
         price: '1300',
     },
     {
-        title: 'О чем молчат дворы Васильевского острова',
-        text: 'Пешеходная экскурсия',
+        title: t('main-page.excursion.third.title'),
+        text: t('main-page.excursion.third.text'),
         url: 'excursions/excursion_3.png',
         price: '750',
     },
     {
-        title: 'Путешествие в эпоху Просвещения',
-        text: 'Экскурсия в Российскую Национальную Библиотеку',
+        title: t('main-page.excursion.fourth.title'),
+        text: t('main-page.excursion.fourth.text'),
         url: 'excursions/excursion_4.png',
         price: '900',
     },
     {
-        title: 'Любимая чашка',
-        text: 'Экскурсия в Императорский фарфоровый завод и мастер класс',
+        title: t('main-page.excursion.fifth.title'),
+        text: t('main-page.excursion.fifth.text'),
         url: 'excursions/excursion_5.png',
         price: '2000',
     },
-];
+]);
 
 const formToggleTop = ref(false);
 const formToggleBottom = ref(false);
@@ -89,14 +89,14 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             <div class="mb-[140px]">
                 <div class="mb-6">
                     <BaseTypography
-                        text="Р"
+                        :text="t('main-page.tagline.text-1.first')"
                         type="headline"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
-                        text="еализуем"
+                        :text="t('main-page.tagline.text-1.second')"
                         type="headline2"
                         tag="span"
                         color="var(--base-white)"
@@ -105,14 +105,14 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
                 <div class="pl-[56px] mb-6">
                     <BaseTypography
-                        text="В"
+                        :text="t('main-page.tagline.text-2.first')"
                         type="headline"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
-                        text="аши"
+                        :text="t('main-page.tagline.text-2.second')"
                         type="headline2"
                         tag="span"
                         color="var(--base-white)"
@@ -121,14 +121,14 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
                 <div class="pl-[112px]">
                     <BaseTypography
-                        text="М"
+                        :text="t('main-page.tagline.text-3.first')"
                         type="headline"
                         tag="span"
                         color="var(--primary-color)"
                     />
 
                     <BaseTypography
-                        text="ечты"
+                        :text="t('main-page.tagline.text-3.second')"
                         type="headline2"
                         tag="span"
                         color="var(--base-white)"
@@ -137,7 +137,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             </div>
 
             <BaseButton
-                text="Оставить заявку"
+                :text="t('main-page.submit')"
                 type="subtitle4"
                 color="var(--base-white)"
                 ui="secondary"
@@ -159,7 +159,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             <div class="horseman"></div>
 
             <BaseButton
-                text="О компании"
+                :text="t('main-page.about.title')"
                 type="subtitle"
                 color="var(--black-color)"
                 ui="primary"
@@ -169,25 +169,25 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             <div>
                 <div>
                     <BaseTypography
-                        text="РВМ - "
+                        :text="t('main-page.about.subtext.text-1.first')"
                         type="subtitle"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="туроператор"
+                        :text="t('main-page.about.subtext.text-1.second')"
                         type="subtitle2"
                         tag="span"
                     />
                 </div>
 
                 <BaseTypography
-                    text="по международному въездному и"
+                    :text="t('main-page.about.subtext.text-2')"
                     type="subtitle2"
                 />
 
                 <BaseTypography
-                    text="внутреннему туризму"
+                    :text="t('main-page.about.subtext.text-3')"
                     type="subtitle2"
                 />
             </div>
@@ -205,7 +205,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         <div class="flex flex-row gap-x-4 items-center">
                             <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
-                                text="Наш номер в Едином Федеральном Реестре Туроператоров – РТО 018270"
+                                :text="t('main-page.about.register')"
                                 :type="width > 768 ? 'body' : 'body-m'"
                                 class="max-w-[229px] l:max-w-[530px]"
                             />
@@ -221,7 +221,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         <div class="flex flex-row gap-x-4 items-center">
                             <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
-                                text="Являемся членами Лиги туроператоров Санкт-Петербурга"
+                                :text="t('main-page.about.league')"
                                 :type="width > 768 ? 'body' : 'body-m'"
                                 class="max-w-[229px] l:max-w-[530px]"
                             />
@@ -237,7 +237,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         <div class="flex flex-row gap-x-4 items-center">
                             <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
-                                text="Имеем прямые договоры с музеями, транспортными компаниями и отелями самых разных категорий. Наши гиды профессиональны и надёжны"
+                                :text="t('main-page.about.safety')"
                                 :type="width > 768 ? 'body' : 'body-m'"
                                 class="max-w-[229px] l:max-w-[530px]"
                             />
@@ -253,7 +253,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         <div class="flex flex-row gap-x-4 items-center">
                             <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
                             <BaseTypography
-                                text="Соответствуем всем требованиям для участия в тендерах государственных и бюджетных организаций"
+                                :text="t('main-page.about.credibility')"
                                 :type="width > 768 ? 'body' : 'body-m'"
                                 class="max-w-[229px] l:max-w-[530px]"
                             />
@@ -303,7 +303,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         <div class="flex flex-col items-center justify-center w-full">
             <div class="p-[10px]">
                 <BaseTypography
-                    text="Организуем"
+                    :text="t('main-page.fourth-section.first')"
                     type="title"
                 />
             </div>
@@ -312,7 +312,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
             <div class="p-[10px]">
                 <BaseTypography
-                    text="туры и экскурсии"
+                    :text="t('main-page.fourth-section.second')"
                     type="title"
                 />
             </div>
@@ -321,7 +321,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
             <div class="p-[10px]">
                 <BaseTypography
-                    text="по Санкт-Петербургу и России"
+                    :text="t('main-page.fourth-section.third')"
                     type="title"
                 />
             </div>
@@ -333,7 +333,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
     <section class="flex flex-col items-center justify-center">
         <div class="h-[860px] w-[1126px] mx-auto second-section relative mb-[168px]">
             <BaseButton
-                text="Туры"
+                :text="t('main-page.tours.title')"
                 type="subtitle"
                 color="var(--black-color)"
                 ui="primary"
@@ -348,7 +348,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         </div>
 
                         <BaseTypography
-                            text="Москва"
+                            :text="t('main-page.tours.moscow')"
                             type="subtitle2"
                         />
                     </div>
@@ -359,7 +359,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         </div>
 
                         <BaseTypography
-                            text="Санкт-Петербург"
+                            :text="t('main-page.tours.spb')"
                             type="subtitle2"
                         />
                     </div>
@@ -370,7 +370,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         </div>
 
                         <BaseTypography
-                            text="Россия"
+                            :text="t('main-page.tours.russia')"
                             type="subtitle2"
                         />
                     </div>
@@ -388,7 +388,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         </div>
 
                         <BaseTypography
-                            text="Туры для школьников"
+                            :text="t('main-page.tours.school')"
                             type="subtitle2"
                             class="text-center"
                         />
@@ -400,7 +400,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         </div>
 
                         <BaseTypography
-                            text="Оздоровительный отдых"
+                            :text="t('main-page.tours.medicine')"
                             type="subtitle2"
                             class="text-center"
                         />
@@ -412,7 +412,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         </div>
 
                         <BaseTypography
-                            text="Активный отдых"
+                            :text="t('main-page.tours.active')"
                             type="subtitle2"
                             class="text-center"
                         />
@@ -460,7 +460,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
     <section class="mb-[168px]">
         <div class="w-[1126px] mx-auto relative">
             <BaseButton
-                text="Экскурсии"
+                :text="t('main-page.excursion.title')"
                 type="subtitle"
                 color="var(--black-color)"
                 ui="primary"
@@ -485,7 +485,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         <div class="h-[632px] w-[1362px] mx-auto relative">
             <div class="pl-[120px]">
                 <BaseButton
-                    text="Дополнительные услуги"
+                    :text="t('main-page.additional.title')"
                     type="subtitle"
                     color="var(--black-color)"
                     ui="primary"
@@ -499,7 +499,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         <div class="h-[72px] w-[72px] bg-[var(--secondary-color)] rounded-full"></div>
 
                         <BaseTypography
-                            text="Организация мероприятий"
+                            :text="t('main-page.additional.organization')"
                             type="subtitle2"
                         />
                     </div>
@@ -508,7 +508,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                         <div class="h-[72px] w-[72px] bg-[var(--secondary-color)] rounded-full"></div>
 
                         <BaseTypography
-                            text="Бронирование отелей"
+                            :text="t('main-page.additional.reserv')"
                             type="subtitle2"
                         />
                     </div>
@@ -573,7 +573,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             <div class="flex flex-col items-center justify-center w-full mb-[64px] p-3">
                 <div class="p-[10px] w-[480px] text-center">
                     <BaseTypography
-                        text="индивидуальный подход"
+                        :text="t('main-page.ninth-section.first')"
                         type="title"
                         class="mb-2"
                     />
@@ -583,7 +583,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
                 <div class="p-[10px] w-[377px] text-center">
                     <BaseTypography
-                        text="профессионализм"
+                        :text="t('main-page.ninth-section.second')"
                         type="title"
                         class="mb-2"
                     />
@@ -593,7 +593,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
                 <div class="p-[10px] w-[289px] text-center">
                     <BaseTypography
-                        text="надежность"
+                        :text="t('main-page.ninth-section.third')"
                         type="title"
                         class="mb-2"
                     />
@@ -606,7 +606,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 <img src="@/assets/images/logo_btm.png" />
 
                 <BaseButton
-                    text="Оставить заявку"
+                    :text="t('main-page.submit')"
                     type="subtitle4"
                     color="var(--base-white)"
                     ui="primary-with-back"
