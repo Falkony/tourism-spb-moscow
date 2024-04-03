@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import BaseButton from '@/components/common/BaseButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
+import { defineEmits } from 'vue';
+
+const emit = defineEmits<{
+    click: [];
+}>();
+
+const goToForm = () => emit('click');
 </script>
 
 <template>
@@ -52,6 +59,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
                 color="var(--base-white)"
                 ui="primary-with-back"
                 class="cursor-pointer mb-9"
+                @click="goToForm"
             />
 
             <div class="flex gap-x-4 px-3 mb-9">

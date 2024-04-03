@@ -63,6 +63,7 @@ const handleChange = (event) => {
                             <input
                                 name="excursion_name"
                                 type="text"
+                                placeholder="О чем молчат дворцы Васильевского острова"
                                 class="edit bk"
                                 required
                             />
@@ -80,6 +81,7 @@ const handleChange = (event) => {
                             <input
                                 name="excursion_data"
                                 type="date"
+                                placeholder="01.03.2024"
                                 class="edit bk"
                                 required
                             />
@@ -97,6 +99,7 @@ const handleChange = (event) => {
                             <input
                                 name="adult"
                                 type="number"
+                                placeholder="2"
                                 class="edit bk"
                                 required
                             />
@@ -114,6 +117,7 @@ const handleChange = (event) => {
                             <input
                                 name="childs"
                                 type="number"
+                                placeholder="2"
                                 class="edit bk"
                             />
                         </div>
@@ -140,6 +144,7 @@ const handleChange = (event) => {
                             <input
                                 name="fio"
                                 type="text"
+                                placeholder="Иванов Иван Иванович"
                                 class="edit bk"
                                 required
                             />
@@ -177,6 +182,7 @@ const handleChange = (event) => {
                             <input
                                 name="email"
                                 type="email"
+                                placeholder="ivan.ivanov@mail.ru"
                                 class="edit bk"
                                 required
                             />
