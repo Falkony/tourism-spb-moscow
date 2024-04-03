@@ -9,7 +9,7 @@ import router from './router';
 const pinia = createPinia();
 const app = createApp(App);
 const ymaps = createYmaps({
-    apikey: '9fa90fbc-ce5f-4dc9-ae6d-433e0ec7338b',
+    apikey: '79568a14-1219-4ca9-b408-38d9bd05c8bd',
 });
 
 app.use(router).use(i18n).use(pinia).use(ymaps).mount('#app');
