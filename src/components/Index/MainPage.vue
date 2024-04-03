@@ -58,6 +58,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                     text="+7 (911) 266-00-98"
                     type="footnote"
                     color="var(--base-white)"
+                    class="shadow"
                 />
             </a>
 
@@ -66,6 +67,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                     text="+7 (812) 207-03-50"
                     type="footnote"
                     color="var(--base-white)"
+                    class="shadow"
                 />
             </a>
 
@@ -74,6 +76,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                     text="info@rvm-spb.ru"
                     type="footnote"
                     color="var(--base-white)"
+                    class="shadow"
                 />
             </a>
         </div>
@@ -691,6 +694,10 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
 .box {
     animation: 1s show ease-in-out;
+}
+
+.shadow {
+    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 2em black;
 }
 
 @keyframes showform {
