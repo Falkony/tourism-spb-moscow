@@ -2,9 +2,12 @@
 import { ref } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import { useCookies } from '@vueuse/integrations/useCookies';
+import { useI18n } from 'vue-i18n';
 
 const cookies = useCookies(['agreement']);
 const show = ref<boolean>(true);
+
+const { t } = useI18n();
 
 const onLoad = () => {
     const agreement = cookies.get('agreement');
@@ -39,7 +42,7 @@ onLoad();
                         @click="acceptAgreement"
                     >
                         <BaseTypography
-                            text="Принять"
+                            :text="t('cookie.button')"
                             type="caption"
                             color="var(--secondary-color)"
                         />
@@ -55,7 +58,7 @@ onLoad();
 
                 <div>
                     <BaseTypography
-                        text="Мы применяем файлы "
+                        :text="t('cookie.text.first')"
                         type="caption"
                         tag="span"
                     />
@@ -68,7 +71,7 @@ onLoad();
                     />
 
                     <BaseTypography
-                        text="для персонализации и повышения удобства пользования нашим сайтом. Пользуясь нашим сайтом, вы соглашаетесь с применением нами файлов cookie."
+                        :text="t('cookie.text.second')"
                         type="caption"
                         tag="span"
                     />

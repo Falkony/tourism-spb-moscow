@@ -17,6 +17,13 @@ export default {
             agents: 'Agents',
         },
     },
+    cookie: {
+        button: 'Accept',
+        text: {
+            first: 'We are using files ',
+            second: 'to personalize and improve your experience on our website. By using our site you agree to our use of cookies.',
+        },
+    },
     'main-page': {
         subtitle: 'Tour Operator',
         tagline: {
