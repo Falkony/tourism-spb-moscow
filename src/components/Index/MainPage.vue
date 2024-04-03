@@ -619,10 +619,10 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
 <style scoped>
 .header-section {
-    background-image: url('@/assets/images/index/bg-header.png');
+    background-image: url('@/assets/images/index/bg-header-2.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: left 65%;
     background-color: black;
     width: 100%;
     height: 100vh;
