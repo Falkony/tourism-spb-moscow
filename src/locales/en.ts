@@ -28,16 +28,16 @@ export default {
         subtitle: 'Tour Operator',
         tagline: {
             'text-1': {
-                first: 'W',
-                second: 'e',
+                first: 'R',
+                second: 'ealization of your',
             },
             'text-2': {
-                first: 'R',
-                second: 'ealize',
+                first: 'V',
+                second: 'ision under our',
             },
             'text-3': {
-                first: 'D',
-                second: 'reams',
+                first: 'M',
+                second: 'anagement',
             },
         },
         submit: 'Submit your application',
@@ -217,16 +217,16 @@ export default {
         },
         tagline: {
             'text-1': {
-                first: 'W',
-                second: 'e',
+                first: 'R',
+                second: 'ealization of your',
             },
             'text-2': {
-                first: 'R',
-                second: 'ealize',
+                first: 'V',
+                second: 'ision under our',
             },
             'text-3': {
-                first: 'D',
-                second: 'reams',
+                first: 'M',
+                second: 'anagement',
             },
         },
         labels: {
