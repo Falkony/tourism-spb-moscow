@@ -4,6 +4,8 @@ import { vMaska } from 'maska';
 import { ref, computed, defineEmits } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
+import type { MainPageForm } from '@/types/MainPageForm';
+import { useGlobalStore } from '@/stores/global';
 
 const emit = defineEmits<{
     close: [];
@@ -11,16 +13,11 @@ const emit = defineEmits<{
 
 const { width } = useWindowSize();
 
-type FormDataType = {
-    name: string;
-    email?: string;
-    text?: string;
-    phone: string;
-};
+const { isMobile } = useGlobalStore();
 
 const options = { mask: '+7 (###) ###-##-##' };
 
-const form = ref<FormDataType>({} as FormDataType);
+const form = ref<MainPageForm>({} as MainPageForm);
 const agreement = ref<boolean>(false);
 const sended = ref<boolean>(false);
 
@@ -31,11 +28,12 @@ const sendForm = () => {
 };
 
 const isDisabled = computed(() => {
-    const phoneValid = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(form.value.phone);
-    return form.value.name !== '' && phoneValid && agreement.value;
+    return form.value.name && /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(form.value.phone) && agreement.value;
 });
 
 const onLoad = () => {
+    if (!isMobile) return;
+
     const body = document.querySelector('body');
     if (body) {
         body.style.overflow = 'hidden';
@@ -43,10 +41,13 @@ const onLoad = () => {
 };
 
 const onClose = () => {
-    const body = document.querySelector('body');
-    if (body) {
-        body.style.overflow = 'auto';
+    if (isMobile) {
+        const body = document.querySelector('body');
+        if (body) {
+            body.style.overflow = 'auto';
+        }
     }
+
     emit('close');
 };
 
@@ -56,7 +57,7 @@ onLoad();
 <template>
     <div
         v-if="!sended"
-        class="h-screen bg-[var(--bg-color)] z-30"
+        class="h-screen bg-[var(--bg-color)] l:rounded-l-[100px] l:h-[600px] l:w-[800px] relative"
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
@@ -79,7 +80,7 @@ onLoad();
             />
         </div>
 
-        <div class="flex flex-col gap-y-10 px-10">
+        <div class="flex flex-col gap-y-10 px-10 l:grid l:grid-cols-2">
             <!-- name -->
             <div class="flex flex-col px-[45px]">
                 <label for="name">
@@ -173,14 +174,14 @@ onLoad();
                 <div>
                     <BaseTypography
                         text="Я согласен(а) на обработку персональных данных на условиях, изложенных в "
-                        type="caption-m"
+                        :type="width < 900 ? 'caption-m' : 'caption'"
                         tag="span"
                     />
 
                     <router-link to="/consent">
                         <BaseTypography
                             text="Согласии на обработку персональных данных "
-                            type="caption-m"
+                            :type="width < 900 ? 'caption-m' : 'caption'"
                             class="underline"
                             tag="span"
                         />
@@ -188,23 +189,40 @@ onLoad();
 
                     <BaseTypography
                         text="и "
-                        type="caption-m"
+                        :type="width < 900 ? 'caption-m' : 'caption'"
                         tag="span"
                     />
 
                     <router-link to="/policy">
                         <BaseTypography
                             text="Политике."
-                            type="caption-m"
+                            :type="width < 900 ? 'caption-m' : 'caption'"
                             class="underline"
                             tag="span"
                         />
                     </router-link>
                 </div>
             </div>
+
+            <div
+                v-if="width > 900"
+                class="flex justify-center"
+            >
+                <BaseButton
+                    text="Отправить"
+                    :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
+                    color="var(--base-white)"
+                    :ui="!isDisabled ? 'disabled' : 'primary-with-back'"
+                    :disabled="!isDisabled"
+                    @click="sendForm"
+                />
+            </div>
         </div>
 
-        <div class="flex justify-center">
+        <div
+            v-if="width < 900"
+            class="flex justify-center"
+        >
             <BaseButton
                 text="Отправить"
                 :type="width > 768 ? 'subtitle4' : 'subtitle4-m'"
@@ -218,7 +236,7 @@ onLoad();
 
     <div
         v-else
-        class="h-screen bg-[var(--bg-color)]"
+        class="h-screen bg-[var(--bg-color)] l:h-[600px] l:w-[800px] rounded-l-[100px]"
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
@@ -230,12 +248,12 @@ onLoad();
         <div class="flex flex-col items-center justify-center gap-y-5 h-full">
             <BaseTypography
                 text="Благодарим за оставленную заявку!"
-                type="subtitle2-m"
+                :type="width < 900 ? 'subtitle2-m' : 'subtitle2'"
             />
 
             <BaseTypography
                 text="Наш специалист вскоре свяжется с Вами."
-                type="subtitle2-m"
+                :type="width < 900 ? 'subtitle2-m' : 'subtitle2'"
             />
         </div>
     </div>

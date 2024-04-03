@@ -682,7 +682,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 }
 
 .form {
-    @apply absolute right-0 top-[50%] translate-y-[-50%] rounded-l-[50%];
+    @apply absolute right-0 top-[50%] translate-y-[-50%] rounded-l-[50%] z-50;
 }
 
 .bottom_form {
