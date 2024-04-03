@@ -5,6 +5,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
 import Diagram from './Diagram.vue';
+import TourForm from './TourForm.vue';
 
 const toggle = ref<boolean>(false);
 
@@ -14,6 +15,11 @@ const toggleForm = () => (toggle.value = !toggle.value);
 <template>
     <div class="flex flex-col flex-1 mt-[189px]">
         <div class="flex max-w-[1126px] mx-auto w-full mb-[76px]">
+            <div
+                v-if="toggle"
+                class="fixed inset-0 z-30 bg-black/50"
+            />
+
             <ReturnButton text="Бессмертная классика" />
 
             <div
@@ -79,6 +85,13 @@ const toggleForm = () => (toggle.value = !toggle.value);
                 ui="primary-with-back"
                 @click="toggleForm"
             />
+        </div>
+
+        <div
+            class="show fixed inset-0 z-30 l:top-[30%] l:left-[50%] l:translate-x-[-50%] l:translate-y-[-30%]"
+            v-if="toggle"
+        >
+            <TourForm @close="toggleForm" />
         </div>
 
         <div class="flex max-w-[1126px] mx-auto p-3 w-full mb-[76px]">

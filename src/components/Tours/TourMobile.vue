@@ -35,7 +35,9 @@ const toggleForm = () => (toggle.value = !toggle.value);
         </div>
 
         <div class="px-6 mb-[60px]">
-            <div class="border-[3px] border-[var(--primary-color)] rounded-[50px] px-9 py-8">
+            <div
+                class="flex flex-col justify-center items-center border-[3px] border-[var(--primary-color)] rounded-[50px] px-9 py-8"
+            >
                 <div class="flex justify-center gap-x-6 mb-9">
                     <div>
                         <BaseTypography

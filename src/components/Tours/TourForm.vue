@@ -45,16 +45,34 @@ const isDisabled = computed(() => {
 
     return isNameEmpty || !phoneValid || isAdultsZero || isDateFromEmpty || isDateToEmpty || isAgreementFalse;
 });
+
+const onLoad = () => {
+    const body = document.querySelector('body');
+    if (body) {
+        body.style.overflow = 'hidden';
+    }
+};
+
+const onClose = () => {
+    const body = document.querySelector('body');
+    if (body) {
+        body.style.overflow = 'auto';
+    }
+
+    emit('close');
+};
+
+onLoad();
 </script>
 
 <template>
     <div
         v-if="!sended"
-        class="h-screen bg-[var(--bg-color)] overflow-scroll"
+        class="form h-screen bg-[var(--bg-color)] overflow-scroll l:h-[800px] l:rounded-[50px] l:border-[3px] l:border-[var(--primary-color)]"
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
-            @click="emit('close')"
+            @click="onClose"
         >
             <img src="@/assets/svg/close.svg" />
         </div>
@@ -275,14 +293,14 @@ const isDisabled = computed(() => {
                     <div>
                         <BaseTypography
                             text="Я согласен(а) на обработку персональных данных на условиях, изложенных в "
-                            type="caption-m"
+                            :type="width < 900 ? 'caption-m' : 'caption'"
                             tag="span"
                         />
 
                         <router-link to="/consent">
                             <BaseTypography
                                 text="Согласии на обработку персональных данных "
-                                type="caption-m"
+                                :type="width < 900 ? 'caption-m' : 'caption'"
                                 class="underline"
                                 tag="span"
                             />
@@ -290,14 +308,14 @@ const isDisabled = computed(() => {
 
                         <BaseTypography
                             text="и "
-                            type="caption-m"
+                            :type="width < 900 ? 'caption-m' : 'caption'"
                             tag="span"
                         />
 
                         <router-link to="/policy">
                             <BaseTypography
                                 text="Политике."
-                                type="caption-m"
+                                :type="width < 900 ? 'caption-m' : 'caption'"
                                 class="underline"
                                 tag="span"
                             />
