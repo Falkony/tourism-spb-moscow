@@ -86,7 +86,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
     </div>
 
     <div
-        class="show fixed inset-0 overflow-hidden z-30"
+        class="show fixed bg-[var(--bg-color)] inset-0 overflow-scroll z-50"
         v-if="toggle"
     >
         <Form @close="toggleForm" />

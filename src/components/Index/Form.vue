@@ -5,7 +5,7 @@ import { ref, computed, defineEmits } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import type { MainPageForm } from '@/types/MainPageForm';
-// import { useGlobalStore } from '@/stores/global';
+import { useGlobalStore } from '@/stores/global';
 import { useI18n } from 'vue-i18n';
 
 const emit = defineEmits<{
@@ -15,7 +15,7 @@ const emit = defineEmits<{
 const { t } = useI18n();
 const { width } = useWindowSize();
 
-// const { isMobile } = useGlobalStore();
+const { isMobile } = useGlobalStore();
 
 const options = { mask: '+7 (###) ###-##-##' };
 
@@ -34,6 +34,8 @@ const isDisabled = computed(() => {
 });
 
 const onLoad = () => {
+    if (!isMobile) return;
+
     const body = document.querySelector('body');
     if (body) {
         body.style.overflow = 'hidden';
@@ -41,9 +43,11 @@ const onLoad = () => {
 };
 
 const onClose = () => {
-    const body = document.querySelector('body');
-    if (body) {
-        body.style.overflow = 'auto';
+    if (isMobile) {
+        const body = document.querySelector('body');
+        if (body) {
+            body.style.overflow = 'auto';
+        }
     }
 
     emit('close');
@@ -55,7 +59,7 @@ onLoad();
 <template>
     <div
         v-if="!sended"
-        class="h-screen overflow-scroll bg-[var(--bg-color)] l:rounded-l-[100px] l:h-[600px] l:w-[800px] relative"
+        class="h-screen bg-[var(--bg-color)] l:rounded-l-[100px] l:h-[600px] l:w-[800px] relative"
     >
         <div
             class="absolute top-16 right-10 cursor-pointer"
@@ -227,6 +231,7 @@ onLoad();
                 color="var(--base-white)"
                 :ui="!isDisabled ? 'disabled' : 'primary-with-back'"
                 :disabled="!isDisabled"
+                class="mb-12"
                 @click="sendForm"
             />
         </div>
