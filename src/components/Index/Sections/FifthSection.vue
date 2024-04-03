@@ -3,6 +3,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, EffectCoverflow } from 'swiper/modules';
 // ToDo: оптимизировать...
@@ -11,13 +12,14 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 
 const router = useRouter();
+const { t } = useI18n();
 </script>
 
 <template>
     <div class="flex flex-col px-10">
         <div class="flex items-center justify-center relative mb-12">
             <BaseButton
-                text="Туры"
+                :text="t('main-page.tours.title')"
                 type="subtitle-m"
                 padding-x="64"
                 padding-y="12"
@@ -57,7 +59,7 @@ const router = useRouter();
 
                     <BaseTypography
                         v-if="isActive"
-                        text="Москва"
+                        :text="t('main-page.tours.moscow')"
                         type="subtitle2-m"
                     />
                 </div>
@@ -71,7 +73,7 @@ const router = useRouter();
 
                     <BaseTypography
                         v-if="isActive"
-                        text="Санкт-Петербург"
+                        :text="t('main-page.tours.spb')"
                         type="subtitle2-m"
                     />
                 </div>
@@ -85,7 +87,7 @@ const router = useRouter();
 
                     <BaseTypography
                         v-if="isActive"
-                        text="Россия"
+                        :text="t('main-page.tours.russia')"
                         type="subtitle2-m"
                     />
                 </div>
@@ -119,7 +121,7 @@ const router = useRouter();
 
                     <BaseTypography
                         v-if="isActive"
-                        text="Туры для школьников"
+                        :text="t('main-page.tours.school')"
                         type="subtitle2-m"
                         class="whitespace-nowrap"
                     />
@@ -134,7 +136,7 @@ const router = useRouter();
 
                     <BaseTypography
                         v-if="isActive"
-                        text="Оздоровительный отдых"
+                        :text="t('main-page.tours.medicine')"
                         type="subtitle2-m"
                         class="text-center"
                     />
@@ -149,7 +151,7 @@ const router = useRouter();
 
                     <BaseTypography
                         v-if="isActive"
-                        text="Активный отдых"
+                        :text="t('main-page.tours.active')"
                         type="subtitle2-m"
                     />
                 </div>

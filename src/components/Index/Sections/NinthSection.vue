@@ -4,6 +4,9 @@ import BaseButton from '@/components/common/BaseButton.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import Form from '@/components/Index/Form.vue';
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const toggle = ref<boolean>(false);
 
@@ -15,7 +18,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
         <div class="flex flex-col items-center justify-center w-full mb-[64px] p-3">
             <div class="p-[10px] text-center">
                 <BaseTypography
-                    text="индивидуальный подход"
+                    :text="t('main-page.ninth-section.first')"
                     type="title-m"
                     class="mb-2"
                 />
@@ -25,7 +28,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
             <div class="p-[10px] text-center">
                 <BaseTypography
-                    text="профессионализм"
+                    :text="t('main-page.ninth-section.second')"
                     type="title-m"
                     class="mb-2"
                 />
@@ -35,7 +38,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
             <div class="p-[10px] text-center">
                 <BaseTypography
-                    text="надежность"
+                    :text="t('main-page.ninth-section.third')"
                     type="title-m"
                     class="mb-2"
                 />
@@ -51,7 +54,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
             />
 
             <BaseButton
-                text="Оставить заявку"
+                :text="t('main-page.submit')"
                 type="subtitle4-m"
                 color="var(--base-white)"
                 ui="primary-with-back"

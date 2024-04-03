@@ -56,6 +56,48 @@ export default {
             second: 'tours and excursions',
             third: 'across St. Petersburg and Russia',
         },
+        tours: {
+            title: 'Tours',
+            moscow: 'Moscow',
+            spb: 'St. Petersburg',
+            russia: 'Russia',
+            school: 'Tours for schoolchildren',
+            medicine: 'Health holiday',
+            active: 'Active leisure',
+        },
+        excursion: {
+            title: 'Excursions',
+            first: {
+                title: 'Petersburg Triangle',
+                text: 'Hiking',
+            },
+            second: {
+                title: 'A fortress guarded by an angel',
+                text: 'Hiking',
+            },
+            third: {
+                title: 'What the courtyards of Vasilyevsky Island are silent about',
+                text: 'Hiking',
+            },
+            fourth: {
+                title: 'Journey to the Age of Enlightenment',
+                text: 'Excursion to the Russian National Library',
+            },
+            fifth: {
+                title: 'Favorite cup',
+                text: 'Excursion to the Imperial Porcelain Factory and master class',
+            },
+        },
+        additional: {
+            title: 'Additional services',
+            organization: 'Event organization',
+            reserv: 'Hotel Reservations',
+        },
+        'ninth-section': {
+            first: 'individual approach',
+            second: 'professionalism',
+            third: 'reliability',
+        },
     },
     'empty-page': 'Page under construction',
     agents: 'Agents',

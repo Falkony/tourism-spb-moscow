@@ -39,7 +39,7 @@ import NinthSection from './Sections/NinthSection.vue';
         <SeventhSection />
     </section>
 
-    <section class="mb-[92px]">
+    <section class="mb-6">
         <EighthSection />
     </section>
 
