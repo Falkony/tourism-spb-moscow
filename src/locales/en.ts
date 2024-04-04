@@ -170,9 +170,9 @@ export default {
                 'title-1': 'Immortal classic',
                 'text-1':
                     'Getting to know St. Petersburg: a review of iconic museums and palaces that will not leave anyone indifferent.',
-                'title-2': 'Immortal classic',
+                'title-2': 'For experienced tourists',
                 'text-2':
-                    'Getting to know St. Petersburg: a review of iconic museums and palaces that will not leave anyone indifferent.',
+                    'There is always something to see in St. Petersburg! Even a city regular will find something to see.',
                 days: '5 days',
             },
         },

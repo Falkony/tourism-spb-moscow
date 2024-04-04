@@ -19,10 +19,6 @@ const optionsSelect = [
 ];
 
 const selectedOption = ref(optionsSelect[0].value);
-
-const handleChange = (event) => {
-    selectedOption.value = event.target.value;
-};
 </script>
 
 <template>

@@ -46,7 +46,7 @@ const router = useRouter();
 
 <style scoped>
 .return {
-    @apply relative flex items-center l:items-start justify-center l:justify-start gap-x-[10px] mb-10 cursor-pointer w-full max-w-[1126px] mx-auto px-4 l:px-6;
+    @apply relative flex items-start justify-start gap-x-[10px] mb-10 cursor-pointer l:w-full max-w-[1126px] px-4 l:px-6 ml-8 l:mx-auto;
 }
 
 .arrow {

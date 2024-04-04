@@ -17,20 +17,35 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
 <template>
     <div class="mt-[223px]">
-        <div class="grid grid-cols-[22px_auto] items-center gap-x-3 mb-[60px] px-6">
-            <div @click="router.back()">
+        <div class="grid grid-cols-[22px_auto] gap-x-3 mb-[60px] px-6">
+            <div
+                @click="router.back()"
+                class="mt-[7px]"
+            >
                 <img src="@/assets/svg/mobile/shevron-left.svg" />
             </div>
 
             <div class="flex flex-col">
                 <BaseTypography
                     text="Бессмертная классика"
-                    type="subtitle2-m"
+                    type="subtitle-m"
                     color="var(--primary-color)"
                     class="mb-3"
                 />
 
-                <BaseLine width="299" />
+                <BaseLine
+                    width="299"
+                    class="mb-6"
+                />
+
+                <div
+                    class="flex items-center justify-center px-[48.5px] py-[10px] border-[3px] border-[var(--primary-color)] rounded-[100px] w-fit"
+                >
+                    <BaseTypography
+                        text="5 дней"
+                        type="subtitle2-m"
+                    />
+                </div>
             </div>
         </div>
 

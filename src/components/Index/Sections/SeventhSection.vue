@@ -10,6 +10,12 @@ const { t } = useI18n();
 
 const slides = computed(() => [
     {
+        title: t('main-page.excursion.third.title'),
+        text: t('main-page.excursion.third.text'),
+        url: 'excursions/excursion_3.png',
+        price: '750',
+    },
+    {
         title: t('main-page.excursion.first.title'),
         text: t('main-page.excursion.first.text'),
         url: 'excursions/excursion_1.png',
@@ -20,12 +26,6 @@ const slides = computed(() => [
         text: t('main-page.excursion.second.text'),
         url: 'excursions/excursion_2.png',
         price: '1300',
-    },
-    {
-        title: t('main-page.excursion.third.title'),
-        text: t('main-page.excursion.third.text'),
-        url: 'excursions/excursion_3.png',
-        price: '750',
     },
     {
         title: t('main-page.excursion.fourth.title'),

@@ -15,7 +15,7 @@ defineProps<{
         <div class="border-x-[3px] border-t-[3px] border-[var(--primary-color)] rounded-t-[50px] px-[56px] py-10">
             <BaseTypography
                 :text="text"
-                type="body-m"
+                type="body2-m"
                 color="var(--primary-color)"
                 class="mb-5"
             />

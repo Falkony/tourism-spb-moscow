@@ -72,7 +72,7 @@ const isDisabled = computed(() => {
                 <div class="flex flex-col px-[45px]">
                     <BaseTypography
                         text="Общая информация"
-                        type="body-m"
+                        type="body2-m"
                         color="var(--primary-color)"
                         class="mb-10"
                     />
@@ -165,7 +165,7 @@ const isDisabled = computed(() => {
                 <div class="flex flex-col px-[45px]">
                     <BaseTypography
                         text="Обратная связь"
-                        type="body-m"
+                        type="body2-m"
                         color="var(--primary-color)"
                         class="mb-10"
                     />

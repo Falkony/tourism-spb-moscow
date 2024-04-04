@@ -29,7 +29,10 @@ const { isMobile } = toRefs(useGlobalStore());
             class="fixed inset-0 z-30 bg-black/50"
         />
 
-        <BaseReturn :text="title" />
+        <BaseReturn
+            :text="title"
+            class="!px-10"
+        />
 
         <div class="flex flex-col items-center justify-center">
             <div class="flex flex-col justify-center items-center text-center mb-10 px-10 l:max-w-[1126px] l:mx-auto">

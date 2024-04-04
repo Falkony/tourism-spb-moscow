@@ -14,6 +14,21 @@ const { t } = useI18n();
 
         <div class="list">
             <SlideItem
+                :title="t('excursion.third.title')"
+                :text="t('excursion.third.text')"
+                url="excursions/excursion_3.png"
+                price="750"
+                @click="
+                    router.push({
+                        name: 'excursion',
+                        params: {
+                            id: '3',
+                        },
+                    })
+                "
+            />
+
+            <SlideItem
                 :title="t('excursion.first.title')"
                 :text="t('excursion.first.text')"
                 url="excursions/excursion_1.png"
@@ -38,21 +53,6 @@ const { t } = useI18n();
                         name: 'excursion',
                         params: {
                             id: '2',
-                        },
-                    })
-                "
-            />
-
-            <SlideItem
-                :title="t('excursion.third.title')"
-                :text="t('excursion.third.text')"
-                url="excursions/excursion_3.png"
-                price="750"
-                @click="
-                    router.push({
-                        name: 'excursion',
-                        params: {
-                            id: '3',
                         },
                     })
                 "

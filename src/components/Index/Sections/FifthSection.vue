@@ -65,7 +65,20 @@ const { t } = useI18n();
                 </div>
             </SwiperSlide>
 
-            <SwiperSlide v-slot="{ isActive }">
+            <SwiperSlide
+                v-slot="{ isActive }"
+                @click="
+                    router.push({
+                        name: 'general_tour',
+                        params: {
+                            slug: 'spb',
+                        },
+                        state: {
+                            title: 'Туры в Санкт-Петербург',
+                        },
+                    })
+                "
+            >
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
                         <img src="@/assets/images/spb.png" />

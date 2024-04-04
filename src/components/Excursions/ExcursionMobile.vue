@@ -25,7 +25,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
             <div class="flex flex-col">
                 <BaseTypography
                     text="О чем молчат дворы Васильевского острова"
-                    type="subtitle2-m"
+                    type="subtitle-m"
                     color="var(--primary-color)"
                     class="mb-3"
                 />
