@@ -23,7 +23,7 @@
     --bar-width: 24px;
     --bar-height: 3px;
     --hamburger-gap: 6px;
-    --foreground: var(--base-white);
+    --foreground: var(--black-color);
     --background: white;
     --hamburger-margin: 8px;
     --animation-timing: 200ms ease-in-out;
@@ -62,6 +62,9 @@
 
     --base-typography-body3-font-size: 22px;
     --base-typography-body3-line-height: 116%;
+
+    --base-typography-body4-font-size: 22px;
+    --base-typography-body4-line-height: 116%;
 
     --base-typography-footnote-font-size: 22px;
     --base-typography-footnote-line-height: 116%;
@@ -165,6 +168,14 @@ body {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Ysabeau Office';
+    src: url('../assets/fonts/YsabeauOffice-Medium.woff2') format('woff2'),
+        url('../assets/fonts/YsabeauOffice-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
 .swiper-pagination-bullet {
     height: 12px !important;
     width: 12px !important;
@@ -190,7 +201,7 @@ body {
 }
 
 .hamburger-menu:has(input:checked) {
-    --foreground: white;
+    --foreground: var(--black-color);
     --background: #333;
 }
 
@@ -212,10 +223,6 @@ body {
     transform-origin: left center;
     transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing),
         translate var(--animation-timing), background-color var(--animation-timing);
-}
-
-.hamburger-menu-not-main {
-    background-color: var(--black-color) !important;
 }
 
 .hamburger-menu input {

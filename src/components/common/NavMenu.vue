@@ -12,7 +12,7 @@ const emit = defineEmits<{
 const { t } = useI18n();
 
 const globalStore = useGlobalStore();
-const { isMainPage, isMobile } = toRefs(globalStore);
+const { isMobile } = toRefs(globalStore);
 </script>
 
 <template>
@@ -22,7 +22,7 @@ const { isMainPage, isMobile } = toRefs(globalStore);
                 <BaseTypography
                     :text="t('header.about')"
                     type="footnote"
-                    :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                    color="var(--black-color)"
                     @click="emit('close')"
                 />
             </router-link>
@@ -33,7 +33,7 @@ const { isMainPage, isMobile } = toRefs(globalStore);
                 <BaseTypography
                     :text="t('header.tours')"
                     type="footnote"
-                    :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                    color="var(--black-color)"
                     @click="emit('close')"
                 />
             </router-link>
@@ -44,7 +44,7 @@ const { isMainPage, isMobile } = toRefs(globalStore);
                 <BaseTypography
                     :text="t('header.excursions')"
                     type="footnote"
-                    :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                    color="var(--black-color)"
                     @click="emit('close')"
                 />
             </router-link>
@@ -55,7 +55,7 @@ const { isMainPage, isMobile } = toRefs(globalStore);
                 <BaseTypography
                     :text="t('header.contacts')"
                     type="footnote"
-                    :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                    color="var(--black-color)"
                     @click="emit('close')"
                 />
             </router-link>
@@ -65,6 +65,6 @@ const { isMainPage, isMobile } = toRefs(globalStore);
     <LocaleSwitcher
         v-if="isMobile"
         class="mt-[60px]"
-        :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+        color="var(--black-color)"
     />
 </template>

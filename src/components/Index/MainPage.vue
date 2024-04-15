@@ -172,7 +172,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 class="mb-[108px]"
             />
 
-            <div>
+            <div class="mb-[82px]">
                 <div>
                     <BaseTypography
                         :text="t('main-page.about.subtext.text-1.first')"
@@ -197,86 +197,80 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                     type="subtitle2"
                 />
             </div>
-        </div>
 
-        <div class="flex flex-col gap-y-16 l:mb-[168px]">
-            <div class="flex flex-col gap-y-10 l:flex-row l:gap-x-16">
-                <div class="flex flex-col gap-y-10">
-                    <div class="flex flex-row items-center gap-x-3 l:gap-x-12">
-                        <img
-                            src="@/assets/svg/account_balance.svg"
-                            class="w-9 h-9 l:h-[80px] l:w-[80px]"
+            <div class="flex flex-col gap-y-10">
+                <div class="flex flex-row items-center gap-x-8">
+                    <img
+                        src="@/assets/svg/account_balance.svg"
+                        class="w-9 h-9 l:h-[80px] l:w-[80px]"
+                    />
+
+                    <div class="flex flex-row gap-x-4 items-center">
+                        <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                        <BaseTypography
+                            :text="t('main-page.about.register')"
+                            type="body4"
+                            class="max-w-[400px]"
                         />
-
-                        <div class="flex flex-row gap-x-4 items-center">
-                            <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
-                            <BaseTypography
-                                :text="t('main-page.about.register')"
-                                :type="width > 768 ? 'body' : 'body-m'"
-                                class="max-w-[229px] l:max-w-[530px]"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="flex flex-row items-center gap-x-3 l:gap-x-12">
-                        <img
-                            src="@/assets/svg/union.svg"
-                            class="w-9 h-9 l:h-[80px] l:w-[80px]"
-                        />
-
-                        <div class="flex flex-row gap-x-4 items-center">
-                            <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
-                            <BaseTypography
-                                :text="t('main-page.about.league')"
-                                :type="width > 768 ? 'body' : 'body-m'"
-                                class="max-w-[229px] l:max-w-[530px]"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="flex flex-row items-center gap-x-3 l:gap-x-12">
-                        <img
-                            src="@/assets/svg/safety.svg"
-                            class="w-9 h-9 l:h-[80px] l:w-[80px]"
-                        />
-
-                        <div class="flex flex-row gap-x-4 items-center">
-                            <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
-                            <BaseTypography
-                                :text="t('main-page.about.safety')"
-                                :type="width > 768 ? 'body' : 'body-m'"
-                                class="max-w-[229px] l:max-w-[530px]"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="flex flex-row items-center gap-x-3 l:gap-x-12">
-                        <img
-                            src="@/assets/svg/credibility.svg"
-                            class="w-9 h-9 l:h-[80px] l:w-[80px]"
-                        />
-
-                        <div class="flex flex-row gap-x-4 items-center">
-                            <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
-                            <BaseTypography
-                                :text="t('main-page.about.credibility')"
-                                :type="width > 768 ? 'body' : 'body-m'"
-                                class="max-w-[229px] l:max-w-[530px]"
-                            />
-                        </div>
                     </div>
                 </div>
 
-                <div class="flex flex-row justify-center gap-x-2 l:flex-col gap-y-10">
+                <div class="flex flex-row items-center gap-x-8">
                     <img
-                        src="@/assets/images/tourism.png"
-                        class="w-[150px] l:w-auto"
+                        src="@/assets/svg/union.svg"
+                        class="w-9 h-9 l:h-[80px] l:w-[80px]"
                     />
 
+                    <div class="flex flex-row gap-x-4 items-center">
+                        <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                        <BaseTypography
+                            :text="t('main-page.about.league')"
+                            type="body4"
+                            class="max-w-[400px]"
+                        />
+                    </div>
+                </div>
+
+                <div class="flex flex-row items-center gap-x-8">
                     <img
-                        src="@/assets/images/league_second.png"
-                        class="w-[150px] l:w-auto"
+                        src="@/assets/svg/safety.svg"
+                        class="w-9 h-9 l:h-[80px] l:w-[80px]"
                     />
+
+                    <div class="flex flex-row gap-x-4 items-center">
+                        <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                        <BaseTypography
+                            :text="t('main-page.about.safety')"
+                            type="body4"
+                            class="max-w-[400px]"
+                        />
+                    </div>
+                </div>
+
+                <div class="flex flex-row items-center gap-x-8">
+                    <img
+                        src="@/assets/svg/credibility.svg"
+                        class="w-9 h-9 l:h-[80px] l:w-[80px]"
+                    />
+
+                    <div class="flex flex-row gap-x-4 items-center">
+                        <div class="h-3 w-3 l:h-[25px] l:w-[25px] bg-[var(--secondary-color)] rounded-full"></div>
+                        <BaseTypography
+                            :text="t('main-page.about.credibility')"
+                            type="body4"
+                            class="max-w-[400px]"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-y-16 mb-[168px] w-[1126px] mx-auto">
+            <div class="flex flex-col gap-y-10 w-full">
+                <div class="flex flex-row justify-end gap-x-8">
+                    <img src="@/assets/images/tourism.png" />
+
+                    <img src="@/assets/images/league_second.png" />
                 </div>
             </div>
 
@@ -625,7 +619,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
 <style scoped>
 .header-section {
-    background-image: url('@/assets/images/index/bg-header-2.png');
+    background-image: url('@/assets/images/index/header.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left 65%;
@@ -658,7 +652,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, transparent 50%, var(--primary-color) 50%);
+    background: linear-gradient(to right, transparent 70%, var(--primary-color) 30%);
     z-index: 20;
 }
 

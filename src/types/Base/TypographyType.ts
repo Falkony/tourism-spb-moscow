@@ -10,6 +10,7 @@ export type TypographyType =
     | 'body'
     | 'body2'
     | 'body3'
+    | 'body4'
     | 'footnote'
     | 'special-body'
     | 'special-body2'

@@ -35,7 +35,7 @@ const toggleMenu = () => {
             }"
         >
             <router-link to="/">
-                <div v-if="isMainPage">
+                <!-- <div v-if="isMainPage">
                     <div
                         v-if="width < 1024"
                         class="logo_mobile"
@@ -49,38 +49,32 @@ const toggleMenu = () => {
                     >
                         <img src="@/assets/images/logo.png" />
                     </div>
+                </div> -->
+
+                <!-- <div> -->
+                <div
+                    v-if="width < 1024"
+                    class="logo_mobile"
+                >
+                    <img src="@/assets/images/mobile/logo_primary_mobile.png" />
                 </div>
 
-                <div v-else>
-                    <div
-                        v-if="width < 1024"
-                        class="logo_mobile"
-                    >
-                        <img src="@/assets/images/mobile/logo_primary_mobile.png" />
-                    </div>
-
-                    <div
-                        v-else
-                        class="logo_desktop"
-                    >
-                        <img src="@/assets/images/logo_btm.png" />
-                    </div>
+                <div
+                    v-else
+                    class="logo_desktop"
+                >
+                    <img src="@/assets/images/logo_btm.png" />
                 </div>
+                <!-- </div> -->
             </router-link>
 
             <div
                 v-if="width < 1024"
                 class="burger_menu"
             >
-                <label
-                    class="hamburger-menu"
-                    :class="{ 'after:bg-[var(--black-color)] before:bg-[var(--black-color)]': !isMainPage }"
-                >
+                <label class="hamburger-menu">
                     <input
                         v-model="toggle"
-                        :class="{
-                            'hamburger-menu-not-main': !isMainPage,
-                        }"
                         type="checkbox"
                         @click="toggleMenu"
                     />
@@ -95,7 +89,7 @@ const toggleMenu = () => {
 
                 <LocaleSwitcher
                     class="ml-auto"
-                    :color="isMainPage ? 'var(--base-white)' : 'var(--black-color)'"
+                    color="var(--black-color)"
                 />
             </div>
         </nav>
@@ -118,9 +112,7 @@ const toggleMenu = () => {
 }
 
 .header_container {
-    background-color: var(--black-color);
-
-    @apply flex flex-row items-center px-4 py-[76px] l:py-5 xxl:py-[33px] l:px-[140px] l:opacity-80;
+    @apply bg-[var(--bg-color)] flex flex-row items-center px-4 py-[76px] l:py-5 xxl:py-[33px] l:px-[140px];
 }
 
 .burger_menu {

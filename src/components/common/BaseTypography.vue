@@ -122,6 +122,13 @@ const sizeClass = computed(() => `base-typography-${props.type}`);
     font-weight: 300;
 }
 
+.base-typography-body4 {
+    --base-typography-default-color: var(--color-text-heading);
+    font-size: var(--base-typography-body4-font-size);
+    line-height: var(--base-typography-body4-line-height);
+    font-weight: 500;
+}
+
 .base-typography-footnote {
     --base-typography-default-color: var(--color-text-heading);
     font-size: var(--base-typography-footnote-font-size);
