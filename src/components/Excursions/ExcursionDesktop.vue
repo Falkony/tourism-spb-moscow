@@ -1,10 +1,21 @@
 <script setup lang="ts">
+import { ref, defineProps } from 'vue';
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
 import ReturnButton from '@/components/common/ReturnButton.vue';
 import Photo from './Photo.vue';
 import Reservation from './Reservation.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import Form from './Form.vue';
+import { useGlobalStore } from '@/stores/global';
+
+const props = defineProps<{
+    id: number;
+}>();
+
+const globalStore = useGlobalStore();
+const { getExcursion } = globalStore;
+
+const excursion = ref<any>();
 
 const goToForm = () => {
     const element = document.getElementById('form');
@@ -12,6 +23,13 @@ const goToForm = () => {
         element.scrollIntoView({ behavior: 'smooth' });
     }
 };
+
+const onLoad = async () => {
+    excursion.value = await getExcursion(props.id);
+    console.log(excursion.value);
+};
+
+onLoad();
 </script>
 
 <template>
@@ -19,11 +37,14 @@ const goToForm = () => {
         <div class="mx-auto max-w-[1326px] mt-10 mb-[76px]">
             <div class="flex gap-x-[112px]">
                 <div class="flex flex-col gap-y-[76px]">
-                    <ReturnButton text="О чем молчат дворы Васильевского острова" />
-                    <Photo />
+                    <ReturnButton :text="excursion?.data.attributes?.title" />
+                    <Photo :excursion="excursion" />
                 </div>
 
-                <Reservation @click="goToForm" />
+                <Reservation
+                    :excursion="excursion"
+                    @click="goToForm"
+                />
             </div>
         </div>
 

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useWindowSize } from '@vueuse/core';
 import axios from 'axios';
@@ -7,6 +7,9 @@ import axios from 'axios';
 export const useGlobalStore = defineStore('global', () => {
     const router = useRouter();
     const { width } = useWindowSize();
+
+    const tours = ref<any>();
+    const excursions = ref<any>();
 
     const isMainPage = computed(() => router.currentRoute.value.fullPath === '/');
     const isMobile = computed(() => width.value < 768);
@@ -24,6 +27,7 @@ export const useGlobalStore = defineStore('global', () => {
             headers,
         });
 
+        excursions.value = data;
         return data;
     };
 
@@ -31,12 +35,12 @@ export const useGlobalStore = defineStore('global', () => {
         const { data } = await axios.get(`${BASE_URL}/tours?populate=*`, {
             headers,
         });
-
+        tours.value = data;
         return data;
     };
 
     const getTour = async (id: number) => {
-        const { data } = await axios.get(`${BASE_URL}/tours/${id}?=populate=*`, {
+        const { data } = await axios.get(`${BASE_URL}/tours/${id}?populate=*`, {
             headers,
         });
 
@@ -44,7 +48,7 @@ export const useGlobalStore = defineStore('global', () => {
     };
 
     const getExcursion = async (id: number) => {
-        const { data } = await axios.get(`${BASE_URL}/ekskursiis/${id}?=populate=*`, {
+        const { data } = await axios.get(`${BASE_URL}/ekskursiis/${id}?populate=*`, {
             headers,
         });
 
@@ -54,6 +58,8 @@ export const useGlobalStore = defineStore('global', () => {
     return {
         isMainPage,
         isMobile,
+        tours,
+        excursions,
         getExcursions,
         getTours,
         getTour,

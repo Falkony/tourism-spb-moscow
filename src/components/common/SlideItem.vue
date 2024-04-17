@@ -8,17 +8,22 @@ defineProps<{
     title: string;
     text: string;
     url: string;
-    price?: string;
+    price?: number;
 }>();
 
 const { isMobile } = toRefs(useGlobalStore());
 const { t } = useI18n();
+
+const strapiUrl = process.env.VUE_APP_STRAPI_URL;
 </script>
 
 <template>
     <div class="item">
         <div class="w-full rounded-t-[50px] bg-slate-400 bg-cover">
-            <img :src="require(`@/assets/images/${url}`)" />
+            <img
+                :src="`${strapiUrl}${url}`"
+                class="w-[428px] h-[234px] object-cover rounded-t-[50px]"
+            />
         </div>
 
         <div
@@ -55,7 +60,7 @@ const { t } = useI18n();
                         />
 
                         <BaseTypography
-                            :text="price"
+                            :text="price.toString()"
                             :type="isMobile ? 'body2-m' : 'body2'"
                             tag="span"
                             color="var(--secondary-color)"

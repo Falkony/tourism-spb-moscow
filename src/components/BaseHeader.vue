@@ -6,9 +6,10 @@ import LocaleSwitcher from '@/components/common/LocaleSwitcher.vue';
 import NavMenu from '@/components/common/NavMenu.vue';
 
 const globalStore = useGlobalStore();
-const { width } = useWindowSize();
-
+const { getExcursions, getTours } = globalStore;
 const { isMainPage } = toRefs(globalStore);
+
+const { width } = useWindowSize();
 
 const toggle = ref<boolean>(false);
 
@@ -23,6 +24,13 @@ const toggleMenu = () => {
         }
     }
 };
+
+const onLoad = async () => {
+    await getExcursions();
+    await getTours();
+};
+
+onLoad();
 </script>
 
 <template>
@@ -35,23 +43,6 @@ const toggleMenu = () => {
             }"
         >
             <router-link to="/">
-                <!-- <div v-if="isMainPage">
-                    <div
-                        v-if="width < 1024"
-                        class="logo_mobile"
-                    >
-                        <img src="@/assets/images/mobile/logo_white_mobile.png" />
-                    </div>
-
-                    <div
-                        v-else
-                        class="logo_desktop"
-                    >
-                        <img src="@/assets/images/logo.png" />
-                    </div>
-                </div> -->
-
-                <!-- <div> -->
                 <div
                     v-if="width < 1024"
                     class="logo_mobile"

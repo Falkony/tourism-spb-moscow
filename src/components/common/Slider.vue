@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { toRefs } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import SliderItem from './SlideItem.vue';
+import SlideItem from './SlideItem.vue';
 import { Pagination } from 'swiper/modules';
 import { useWindowSize } from '@vueuse/core';
+import { useGlobalStore } from '@/stores/global';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 
-const { width } = useWindowSize();
+const globalStore = useGlobalStore();
+const { excursions } = toRefs(globalStore);
 
-defineProps<{
-    slides: any[];
-}>();
+const { width } = useWindowSize();
 </script>
 
 <template>
     <swiper
+        v-if="excursions"
         :slidesPerView="width >= 768 ? 2.5 : 'auto'"
         :spaceBetween="24"
         pagination
@@ -23,14 +24,14 @@ defineProps<{
         grab-cursor
     >
         <swiper-slide
-            v-for="(slide, i) in slides"
+            v-for="(slide, i) in excursions?.data"
             :key="i"
         >
-            <SliderItem
-                :text="slide.text"
-                :title="slide.title"
-                :price="slide.price"
-                :url="slide.url"
+            <SlideItem
+                :text="slide.attributes.subtitle"
+                :title="slide.attributes.title"
+                :price="slide.attributes.summForGroup"
+                :url="slide.attributes.img.data?.attributes.url"
             />
         </swiper-slide>
     </swiper>

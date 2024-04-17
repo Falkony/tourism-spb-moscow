@@ -3,69 +3,18 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import Slider from '@/components/common/Slider.vue';
 import Form from '@/components/Index/Form.vue';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
-import { useGlobalStore } from '@/stores/global';
-
-const store = useGlobalStore();
-const { getExcursions, getTours, getExcursion, getTour } = store;
-
-const list = ref();
-const tours = ref();
-const tour = ref();
-const excursion = ref();
 
 const { width } = useWindowSize();
 const { t } = useI18n();
-
-const slides = computed(() => [
-    {
-        title: t('main-page.excursion.first.title'),
-        text: t('main-page.excursion.first.text'),
-        url: 'excursions/excursion_1.png',
-        price: '1000',
-    },
-    {
-        title: t('main-page.excursion.second.title'),
-        text: t('main-page.excursion.second.text'),
-        url: 'excursions/excursion_2.png',
-        price: '1300',
-    },
-    {
-        title: t('main-page.excursion.third.title'),
-        text: t('main-page.excursion.third.text'),
-        url: 'excursions/excursion_3.png',
-        price: '750',
-    },
-    {
-        title: t('main-page.excursion.fourth.title'),
-        text: t('main-page.excursion.fourth.text'),
-        url: 'excursions/excursion_4.png',
-        price: '900',
-    },
-    {
-        title: t('main-page.excursion.fifth.title'),
-        text: t('main-page.excursion.fifth.text'),
-        url: 'excursions/excursion_5.png',
-        price: '2000',
-    },
-]);
 
 const formToggleTop = ref(false);
 const formToggleBottom = ref(false);
 
 const openFormTop = () => (formToggleTop.value = !formToggleTop.value);
 const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
-
-const onLoad = async () => {
-    list.value = await getExcursions();
-    tours.value = await getTours();
-    tour.value = await getTour(1);
-    excursion.value = await getExcursion(1);
-};
-
-onLoad();
 </script>
 
 <template>
@@ -485,10 +434,7 @@ onLoad();
                 class="mb-[104px]"
             />
 
-            <Slider
-                :slides="slides"
-                class="mb-16"
-            />
+            <Slider class="mb-16" />
 
             <router-link to="/excursions">
                 <img

@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import BaseButton from '@/components/common/BaseButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
-import { defineEmits } from 'vue';
+import { defineEmits, defineProps } from 'vue';
 
 const emit = defineEmits<{
     click: [];
+}>();
+
+defineProps<{
+    excursion: any;
 }>();
 
 const goToForm = () => emit('click');
@@ -15,14 +19,14 @@ const goToForm = () => emit('click');
         <div class="flex flex-col">
             <div class="mx-auto mb-9">
                 <BaseTypography
-                    text="750 "
+                    :text="excursion?.data?.attributes.summForGroup.toString()"
                     type="subtitle"
                     color="var(--secondary-color)"
                     tag="span"
                 />
 
                 <BaseTypography
-                    text="₽/чел"
+                    text=" ₽/чел"
                     type="body2"
                     tag="span"
                 />
@@ -35,14 +39,14 @@ const goToForm = () => emit('click');
 
             <div class="mx-auto mb-9">
                 <BaseTypography
-                    text="5000 "
+                    :text="excursion?.data?.attributes.summForInd.toString()"
                     type="subtitle"
                     color="var(--secondary-color)"
                     tag="span"
                 />
 
                 <BaseTypography
-                    text="₽/чел"
+                    text=" ₽/чел"
                     type="body2"
                     tag="span"
                 />
@@ -75,7 +79,7 @@ const goToForm = () => emit('click');
                     />
 
                     <BaseTypography
-                        text="4 часа"
+                        :text="excursion?.data?.attributes.duration"
                         type="body"
                     />
                 </div>
@@ -94,7 +98,7 @@ const goToForm = () => emit('click');
                     />
 
                     <BaseTypography
-                        text="ст. метро Спортивная, выход на Кадетскую линию 31"
+                        :text="excursion?.data?.attributes.meetLocation"
                         type="body"
                     />
                 </div>
@@ -113,7 +117,7 @@ const goToForm = () => emit('click');
                     />
 
                     <BaseTypography
-                        text="ст. метро Василеостровская"
+                        :text="excursion?.data?.attributes.endLocation"
                         type="body"
                     />
                 </div>
@@ -121,5 +125,3 @@ const goToForm = () => emit('click');
         </div>
     </div>
 </template>
-
-<style scoped></style>

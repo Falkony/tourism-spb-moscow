@@ -74,26 +74,6 @@ export default {
         },
         excursion: {
             title: 'Excursions',
-            first: {
-                title: 'Petersburg Triangle',
-                text: 'Hiking',
-            },
-            second: {
-                title: 'A fortress guarded by an angel',
-                text: 'Hiking',
-            },
-            third: {
-                title: 'What the courtyards of Vasilyevsky Island are silent about',
-                text: 'Hiking',
-            },
-            fourth: {
-                title: 'Journey to the Age of Enlightenment',
-                text: 'Excursion to the Russian National Library',
-            },
-            fifth: {
-                title: 'Favorite cup',
-                text: 'Excursion to the Imperial Porcelain Factory and master class',
-            },
         },
         additional: {
             title: 'Additional services',

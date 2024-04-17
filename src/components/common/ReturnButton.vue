@@ -5,7 +5,7 @@ import BaseTypography from './BaseTypography.vue';
 
 withDefaults(
     defineProps<{
-        text: string;
+        text?: string;
         maxWidth?: string;
     }>(),
     {

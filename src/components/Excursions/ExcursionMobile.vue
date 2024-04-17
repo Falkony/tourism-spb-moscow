@@ -1,18 +1,33 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import ExcursionForm from './ExcursionForm.vue';
+import { useGlobalStore } from '@/stores/global';
+
+const props = defineProps<{
+    id: number;
+}>();
+
+const strapiUrl = process.env.VUE_APP_STRAPI_URL;
 
 const router = useRouter();
+const globalStore = useGlobalStore();
+const { getExcursion } = globalStore;
 
 const toggle = ref<boolean>(false);
+const excursion = ref<any>();
 
 const toggleForm = () => (toggle.value = !toggle.value);
-// ToDo: title props
+
+const onLoad = async () => {
+    excursion.value = await getExcursion(props.id);
+};
+
+onLoad();
 </script>
 
 <template>
@@ -24,7 +39,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
             <div class="flex flex-col">
                 <BaseTypography
-                    text="О чем молчат дворы Васильевского острова"
+                    :text="excursion?.data?.attributes.title"
                     type="subtitle-m"
                     color="var(--primary-color)"
                     class="mb-3"
@@ -33,11 +48,10 @@ const toggleForm = () => (toggle.value = !toggle.value);
                 <BaseLine width="299" />
             </div>
         </div>
-
         <div class="px-6 mb-[60px]">
             <div class="h-[272px] w-full bg-[var(--primary-color)] relative">
                 <img
-                    src="@/assets/images/excursions/mobile/excursion_1.png"
+                    :src="`${strapiUrl}${excursion?.data.attributes.img.data.attributes.url}`"
                     class="absolute top-0 w-full"
                 />
             </div>
@@ -48,14 +62,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
                 <div class="flex flex-col gap-y-3">
                     <div>
                         <BaseTypography
-                            text="750 "
+                            :text="excursion?.data?.attributes.summForGroup.toString()"
                             type="subtitle-m"
                             color="var(--secondary-color)"
                             tag="span"
                         />
 
                         <BaseTypography
-                            text="₽/чел"
+                            text=" ₽/чел"
                             type="body2-m"
                             tag="span"
                         />
@@ -68,14 +82,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
                     <div>
                         <BaseTypography
-                            text="5000 "
+                            :text="excursion?.data?.attributes.summForInd.toString()"
                             type="subtitle-m"
                             color="var(--secondary-color)"
                             tag="span"
                         />
 
                         <BaseTypography
-                            text="₽/чел"
+                            text=" ₽/чел"
                             type="body2-m"
                             tag="span"
                         />
@@ -117,7 +131,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
                         />
 
                         <BaseTypography
-                            text="4 часа"
+                            :text="excursion?.data?.attributes.duration"
                             type="body-m"
                         />
                     </div>
@@ -136,7 +150,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
                         />
 
                         <BaseTypography
-                            text="ст. метро Спортивная, выход на Кадетскую линию 31"
+                            :text="excursion?.data?.attributes.meetLocation"
                             type="body-m"
                         />
                     </div>
@@ -155,7 +169,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
                         />
 
                         <BaseTypography
-                            text="ст. метро Василеостровская"
+                            :text="excursion?.data?.attributes.endLocation"
                             type="body-m"
                         />
                     </div>
