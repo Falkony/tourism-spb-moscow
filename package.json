@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vueuse/integrations": "^10.9.0",
+    "axios": "^1.6.8",
     "pinia": "^2.1.7",
     "swiper": "^11.0.7",
     "universal-cookie": "^6",

@@ -6,6 +6,15 @@ import Form from '@/components/Index/Form.vue';
 import { ref, computed } from 'vue';
 import { useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
+import { useGlobalStore } from '@/stores/global';
+
+const store = useGlobalStore();
+const { getExcursions, getTours, getExcursion, getTour } = store;
+
+const list = ref();
+const tours = ref();
+const tour = ref();
+const excursion = ref();
 
 const { width } = useWindowSize();
 const { t } = useI18n();
@@ -48,6 +57,15 @@ const formToggleBottom = ref(false);
 
 const openFormTop = () => (formToggleTop.value = !formToggleTop.value);
 const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
+
+const onLoad = async () => {
+    list.value = await getExcursions();
+    tours.value = await getTours();
+    tour.value = await getTour(1);
+    excursion.value = await getExcursion(1);
+};
+
+onLoad();
 </script>
 
 <template>
