@@ -69,7 +69,7 @@ export default {
             spb: 'Санкт Петербург',
             russia: 'Росссия',
             school: 'Туры для школьников',
-            medicine: 'Оздоровительных отдых',
+            medicine: 'Оздоровительный отдых',
             active: 'Активный отдых',
         },
         excursion: {
