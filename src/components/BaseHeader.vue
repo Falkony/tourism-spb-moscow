@@ -88,7 +88,7 @@ onLoad();
         <menu
             class="menu sidebar"
             :class="{
-                '!bg-[var(--base-white)]': toggle && !isMainPage,
+                '!bg-[var(--base-white)]': toggle,
                 active: toggle,
             }"
         >
@@ -119,8 +119,6 @@ onLoad();
 }
 
 .menu_active {
-    background-color: var(--grey-color);
-
     @apply border-b;
 }
 
