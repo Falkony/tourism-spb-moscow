@@ -1,6 +1,17 @@
 <script lang="ts" setup>
+import MarkdownIt from 'markdown-it';
 import BaseTypography from '@/components/common/BaseTypography.vue';
+import { defineProps } from 'vue';
+
+const props = defineProps<{
+    tour: any;
+}>();
+
+const md = new MarkdownIt();
+
+const strapiUrl = process.env.VUE_APP_STRAPI_URL;
 </script>
+
 <template>
     <div
         class="relative flex flex-wrap gap-x-[45px] gap-y-[30px] items-center px-[20px] max-w-[1126px] mx-auto w-full mb-[104px]"
@@ -9,97 +20,76 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
         <div class="block px-10 py-6">
             <div class="flex flex-col gap-y-3 w-full">
                 <BaseTypography
-                    text="День 1"
+                    :text="tour?.data.attributes.tourDescription[0].title"
                     type="special-body"
                     color="var(--primary-color)"
                 />
 
-                <ul class="list-disc pl-5">
-                    <li>
-                        <BaseTypography
-                            text="Обзорная экскурсия в Петропавловскую крепость (собор + Трубецкой бастион)."
-                            type="special-body4"
-                        />
-                    </li>
-
-                    <li>
-                        <BaseTypography
-                            text="Экскурсия в музей-макет “Петровская акватория”."
-                            type="special-body4"
-                        />
-                    </li>
-                </ul>
+                <div
+                    class="pl-5"
+                    v-html="tour ? md.render(props.tour?.data.attributes.tourDescription[0].dayDescription) : ''"
+                />
             </div>
         </div>
 
         <div class="circle">
-            <img src="@/assets/images/tours/mini/1.png" />
+            <img
+                :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[0].attributes.url}`"
+                class="size-[148px] object-cover rounded-full"
+            />
         </div>
 
         <div class="circle">
-            <img src="@/assets/images/tours/mini/2.png" />
+            <img
+                :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[1].attributes.url}`"
+                class="size-[148px] object-cover rounded-full"
+            />
         </div>
 
         <!-- Day 2 -->
         <div class="block px-10 py-6">
             <div class="flex flex-col gap-y-3 w-full">
                 <BaseTypography
-                    text="День 2"
+                    :text="tour?.data.attributes.tourDescription[1].title"
                     type="special-body"
                     color="var(--primary-color)"
                 />
 
-                <ul class="list-disc pl-5">
-                    <li>
-                        <BaseTypography
-                            text="Экскурсия в Исаакиевский собор."
-                            type="special-body4"
-                        />
-                    </li>
-
-                    <li>
-                        <BaseTypography
-                            text="Выезд в Царское село. Экскурсия в Екатерининский дворец."
-                            type="special-body4"
-                        />
-                    </li>
-                </ul>
+                <div
+                    class="pl-5"
+                    v-html="tour ? md.render(props.tour?.data.attributes.tourDescription[1].dayDescription) : ''"
+                />
             </div>
         </div>
 
         <div class="flex gap-x-[45px] mr-[150px] ml-auto items-center flex-row-reverse justify-end">
             <div class="circle">
-                <img src="@/assets/images/tours/mini/3.png" />
+                <img
+                    :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[2].attributes.url}`"
+                    class="size-[148px] object-cover rounded-full"
+                />
             </div>
 
             <div class="circle">
-                <img src="@/assets/images/tours/mini/4.png" />
+                <img
+                    :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[3].attributes.url}`"
+                    class="size-[148px] object-cover rounded-full"
+                />
             </div>
 
             <!-- Day 3 -->
             <div class="block px-10 py-6">
                 <div class="flex flex-col gap-y-3 w-full">
                     <BaseTypography
-                        text="День 3"
+                        :text="tour?.data.attributes.tourDescription[2].title"
                         type="special-body"
                         color="var(--primary-color)"
                     />
 
-                    <ul class="list-disc pl-5">
-                        <li>
-                            <BaseTypography
-                                text="Отправление в Петергоф. Экскурсия по Нижнему парку с посещением Большого дворца и малого музея."
-                                type="special-body4"
-                            />
-                        </li>
-
-                        <li>
-                            <BaseTypography
-                                text="Экскурсия в музей Фаберже."
-                                type="special-body4"
-                            />
-                        </li>
-                    </ul>
+                    <div
+                        class="pl-5"
+                        v-html="tour ? md.render(props.tour?.data.attributes.tourDescription[2].dayDescription) : ''"
+                    />
                 </div>
             </div>
         </div>
@@ -107,70 +97,70 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
         <div class="w-[250px]"></div>
 
         <div class="circle mt-[20px]">
-            <img src="@/assets/images/tours/mini/5.png" />
+            <img
+                :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[4].attributes.url}`"
+                class="size-[148px] object-cover rounded-full"
+            />
         </div>
 
         <div class="circle mt-[20px]">
-            <img src="@/assets/images/tours/mini/6.png" />
+            <img
+                :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[5].attributes.url}`"
+                class="size-[148px] object-cover rounded-full"
+            />
         </div>
 
         <!-- Day 4 -->
         <div class="block px-10 py-6 mt-[20px] !h-[222px]">
             <div class="flex flex-col gap-y-3 w-full">
                 <BaseTypography
-                    text="День 4"
+                    :text="tour?.data.attributes.tourDescription[3].title"
                     type="special-body"
                     color="var(--primary-color)"
                 />
 
-                <ul class="list-disc pl-5">
-                    <li>
-                        <BaseTypography
-                            text="Выезд в Кронштадт."
-                            type="special-body4"
-                        />
-                    </li>
-
-                    <li>
-                        <BaseTypography
-                            text="Посещение с экскурсией музея Эрмитаж."
-                            type="special-body4"
-                        />
-                    </li>
-                </ul>
+                <div
+                    class="pl-5"
+                    v-html="tour ? md.render(props.tour?.data.attributes.tourDescription[3].dayDescription) : ''"
+                />
             </div>
         </div>
 
         <div class="flex gap-x-[45px] mr-[150px] ml-auto items-center flex-row-reverse justify-end">
             <div class="circle mt-[86px]">
-                <img src="@/assets/images/tours/mini/7.png" />
+                <img
+                    :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[6].attributes.url}`"
+                    class="size-[148px] object-cover rounded-full"
+                />
             </div>
 
             <div class="circle mt-[86px]">
-                <img src="@/assets/images/tours/mini/8.png" />
+                <img
+                    :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[7].attributes.url}`"
+                    class="size-[148px] object-cover rounded-full"
+                />
             </div>
 
             <div class="circle mt-[86px]">
-                <img src="@/assets/images/tours/mini/9.png" />
+                <img
+                    :src="`${strapiUrl}${tour?.data.attributes.tourImgs.data[8].attributes.url}`"
+                    class="size-[148px] object-cover rounded-full"
+                />
             </div>
 
             <!-- Day 5 -->
             <div class="block px-10 py-6 mt-[86px] !h-[170px]">
                 <div class="flex flex-col gap-y-3 w-full">
                     <BaseTypography
-                        text="День 5"
+                        :text="tour?.data.attributes.tourDescription[4].title"
                         type="special-body"
                         color="var(--primary-color)"
                     />
 
-                    <ul class="list-disc pl-5">
-                        <li>
-                            <BaseTypography
-                                text="Экскурсия в музей-усадьбу Державина"
-                                type="special-body4"
-                            />
-                        </li>
-                    </ul>
+                    <div
+                        class="pl-5"
+                        v-html="tour ? md.render(props.tour?.data.attributes.tourDescription[4].dayDescription) : ''"
+                    />
                 </div>
             </div>
         </div>
@@ -205,5 +195,9 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
     object-fit: cover;
     display: block;
     width: 100%;
+}
+
+ol {
+    list-style-type: disc;
 }
 </style>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useGlobalStore } from '@/stores/global';
+import { useRouter } from 'vue-router';
 import ReturnButton from '@/components/common/ReturnButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
@@ -7,9 +9,22 @@ import BaseAccordion from '@/components/common/BaseAccordion.vue';
 import Diagram from './Diagram.vue';
 import TourForm from './TourForm.vue';
 
+const router = useRouter();
+const id = +router.currentRoute.value.params.id;
+
 const toggle = ref<boolean>(false);
+const tour = ref<any>();
 
 const toggleForm = () => (toggle.value = !toggle.value);
+
+const globalStore = useGlobalStore();
+const { getTour } = globalStore;
+
+const onLoad = async () => {
+    tour.value = await getTour(id);
+};
+
+onLoad();
 </script>
 
 <template>
@@ -20,7 +35,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
                 class="fixed inset-0 z-30 bg-black/50"
             />
 
-            <ReturnButton text="Бессмертная классика" />
+            <ReturnButton :text="tour?.data.attributes?.title" />
 
             <div
                 class="flex items-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-[24.5px] py-[10px] w-fit ml-auto"
@@ -37,14 +52,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
             <div class="flex items-center gap-x-[88px]">
                 <div>
                     <BaseTypography
-                        text="XXX "
+                        :text="tour?.data?.attributes.summForGroup.toString()"
                         type="subtitle"
                         color="var(--secondary-color)"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="₽/чел"
+                        text=" ₽/чел"
                         type="body2"
                         tag="span"
                     />
@@ -57,14 +72,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
                 <div>
                     <BaseTypography
-                        text="XXX "
+                        :text="tour?.data?.attributes.summForInd.toString()"
                         type="subtitle"
                         color="var(--secondary-color)"
                         tag="span"
                     />
 
                     <BaseTypography
-                        text="₽/чел"
+                        text=" ₽/чел"
                         type="body2"
                         tag="span"
                     />
@@ -101,7 +116,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
             />
         </div>
 
-        <Diagram />
+        <Diagram :tour="tour" />
 
         <div class="flex flex-col max-w-[1126px] mx-auto w-full">
             <section class="mb-[104px]">

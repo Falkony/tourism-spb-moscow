@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import MarkdownIt from 'markdown-it';
 import { defineProps } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
@@ -7,7 +8,12 @@ defineProps<{
     text: string;
     list: string[];
     last?: boolean;
+    img: string;
 }>();
+
+const md = new MarkdownIt();
+
+const strapiUrl = process.env.VUE_APP_STRAPI_URL;
 </script>
 
 <template>
@@ -20,20 +26,15 @@ defineProps<{
                 class="mb-5"
             />
 
-            <ul class="list-disc pl-5">
-                <li
-                    v-for="item in list"
-                    :key="item"
-                >
-                    <BaseTypography
-                        :text="item"
-                        type="body3-m"
-                    />
-                </li>
-            </ul>
+            <div v-html="list ? md.render(list) : ''" />
         </div>
 
-        <img src="@/assets/images/mobile/vaski.png" />
+        <!-- <img src="@/assets/images/mobile/vaski.png" /> -->
+
+        <img
+            :src="`${strapiUrl}${img}`"
+            class="rounded-b-[50px] h-[125px] object-cover"
+        />
 
         <div
             v-if="!last"

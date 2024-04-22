@@ -1,18 +1,30 @@
 <script setup lang="ts">
-import BaseButton from '../common/BaseButton.vue';
-import BaseTypography from '../common/BaseTypography.vue';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useGlobalStore } from '@/stores/global';
+import BaseButton from '@/components/common/BaseButton.vue';
+import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
-import { useRouter } from 'vue-router';
 import Block from './Block.vue';
 import TourForm from './TourForm.vue';
 
 const router = useRouter();
+const id = +router.currentRoute.value.params.id;
 
 const toggle = ref<boolean>(false);
+const tour = ref<any>();
 
 const toggleForm = () => (toggle.value = !toggle.value);
+
+const globalStore = useGlobalStore();
+const { getTour } = globalStore;
+
+const onLoad = async () => {
+    tour.value = await getTour(id);
+};
+
+onLoad();
 </script>
 
 <template>
@@ -27,7 +39,7 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
             <div class="flex flex-col">
                 <BaseTypography
-                    text="Бессмертная классика"
+                    :text="tour?.data.attributes?.title"
                     type="subtitle-m"
                     color="var(--primary-color)"
                     class="mb-3"
@@ -56,14 +68,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
                 <div class="flex justify-center gap-x-6 mb-9">
                     <div>
                         <BaseTypography
-                            text="XXX "
+                            :text="tour?.data?.attributes.summForGroup.toString()"
                             type="subtitle-m"
                             color="var(--secondary-color)"
                             tag="span"
                         />
 
                         <BaseTypography
-                            text="₽/чел"
+                            text=" ₽/чел"
                             type="body2-m"
                             tag="span"
                         />
@@ -76,14 +88,14 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
                     <div>
                         <BaseTypography
-                            text="XXX "
+                            :text="tour?.data?.attributes.summForInd.toString()"
                             type="subtitle-m"
                             color="var(--secondary-color)"
                             tag="span"
                         />
 
                         <BaseTypography
-                            text="₽/чел"
+                            text=" ₽/чел"
                             type="body2-m"
                             tag="span"
                         />
@@ -123,29 +135,38 @@ const toggleForm = () => (toggle.value = !toggle.value);
             </div>
 
             <Block
-                text="День 1"
-                :list="['Заселение в отель', 'Обзорная экскурсия', 'Обед', 'Музей-макет “Петровская акватория”']"
+                :text="tour?.data.attributes.tourDescription[0].title"
+                :list="tour?.data.attributes.tourDescription[0].dayDescription"
+                :img="tour?.data.attributes.tourImgs.data[0].attributes.url"
                 class="mb-[27px]"
             />
+
             <Block
-                text="День 2"
-                :list="['Петропавловская крепость: собор и Трубецкая тюрьма', 'Обед']"
+                :text="tour?.data.attributes.tourDescription[1].title"
+                :list="tour?.data.attributes.tourDescription[1].dayDescription"
+                :img="tour?.data.attributes.tourImgs.data[1].attributes.url"
                 class="mb-[27px]"
             />
+
             <Block
-                text="День 3"
-                :list="['Царское село', 'Обед']"
+                :text="tour?.data.attributes.tourDescription[2].title"
+                :list="tour?.data.attributes.tourDescription[2].dayDescription"
+                :img="tour?.data.attributes.tourImgs.data[2].attributes.url"
                 class="mb-[27px]"
             />
+
             <Block
-                text="День 4"
-                :list="['Кронштадт', 'Обед']"
+                :text="tour?.data.attributes.tourDescription[3].title"
+                :list="tour?.data.attributes.tourDescription[3].dayDescription"
+                :img="tour?.data.attributes.tourImgs.data[3].attributes.url"
                 class="mb-[27px]"
             />
+
             <Block
-                text="День 5"
+                :text="tour?.data.attributes.tourDescription[4].title"
+                :list="tour?.data.attributes.tourDescription[4].dayDescription"
+                :img="tour?.data.attributes.tourImgs.data[4].attributes.url"
                 last
-                :list="['Музей Фаберже', 'Обед', 'Свободное время']"
                 class="mb-[27px]"
             />
         </div>

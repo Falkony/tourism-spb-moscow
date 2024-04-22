@@ -26,7 +26,6 @@ const goToForm = () => {
 
 const onLoad = async () => {
     excursion.value = await getExcursion(props.id);
-    console.log(excursion.value);
 };
 
 onLoad();
