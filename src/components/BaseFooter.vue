@@ -35,6 +35,10 @@ const links = computed(() => [
         url: '/agents',
         text: t('footer.links.agents'),
     },
+    {
+        url: '/requisites',
+        text: t('footer.links.requisites'),
+    },
 ]);
 </script>
 

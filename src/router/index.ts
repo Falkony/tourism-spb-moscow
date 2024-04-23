@@ -9,6 +9,7 @@ import Contacts from '@/views/Contacts.vue';
 import How from '@/views/How.vue';
 import Policy from '@/views/Policy.vue';
 import Agents from '@/views/Agents.vue';
+import Requisites from '@/views/Requisites.vue';
 import Consent from '@/views/Consent.vue';
 import General from '@/components/Tours/General.vue';
 
@@ -72,6 +73,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/agents',
         name: 'agents',
         component: Agents,
+    },
+    {
+        path: '/requisites',
+        name: 'requisites',
+        component: Requisites,
     },
 ];
 

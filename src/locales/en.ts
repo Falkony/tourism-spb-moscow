@@ -15,6 +15,7 @@ export default {
             how: 'How to order and pay',
             policy: 'Personal data processing policy',
             agents: 'Agents',
+            requisites: 'Requisites',
         },
     },
     cookie: {
