@@ -5,6 +5,7 @@ import ReturnButton from '@/components/common/ReturnButton.vue';
 import Photo from './Photo.vue';
 import Reservation from './Reservation.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
+import MarkdownRenderer from '@/components/common/MarkdownRenderer.vue';
 import Form from './Form.vue';
 import { useGlobalStore } from '@/stores/global';
 
@@ -16,6 +17,7 @@ const globalStore = useGlobalStore();
 const { getExcursion } = globalStore;
 
 const excursion = ref<any>();
+const isLoading = ref<boolean>(true);
 
 const goToForm = () => {
     const element = document.getElementById('form');
@@ -25,7 +27,9 @@ const goToForm = () => {
 };
 
 const onLoad = async () => {
+    isLoading.value = true;
     excursion.value = await getExcursion(props.id);
+    isLoading.value = false;
 };
 
 onLoad();
@@ -55,49 +59,18 @@ onLoad();
                 />
             </div>
 
-            <ul class="list-disc p-[10px]">
-                <li class="mb-6">
-                    <BaseTypography
-                        text="Мы пройдем по "
-                        type="body"
-                        tag="span"
-                    />
-
-                    <BaseTypography
-                        text="проходным дворам Васильевского острова."
-                        type="body"
-                        tag="span"
-                    />
-                </li>
-
-                <li class="mb-6">
-                    <BaseTypography
-                        text="Будем учиться смотреть на город и видеть его жизнь в порой малозаметных деталях."
-                        type="body"
-                    />
-                </li>
-
-                <li class="mb-6">
-                    <BaseTypography
-                        text="Будем обсуждать, как появился этот неофициальный символ Петербурга — проходные дворы, что они сейчас скрывают и какие истории они могут рассказать."
-                        type="body"
-                    />
-                </li>
-
-                <li class="mb-6">
-                    <BaseTypography
-                        text="Закончим экскурсию одним из самых таинственных мест Санкт-Петербурга "
-                        type="body"
-                        tag="span"
-                    />
-
-                    <BaseTypography
-                        text="— музей-аптека Пеля."
-                        type="body"
-                        tag="span"
-                    />
-                </li>
-            </ul>
+            <div class="p-[10px] text-[22px]">
+                <div
+                    v-if="isLoading"
+                    class="absolute inset-0 flex items-center justify-center"
+                >
+                    <span>Загрузка...</span>
+                </div>
+                <MarkdownRenderer
+                    v-else
+                    :markdown="excursion?.data.attributes?.description"
+                />
+            </div>
 
             <section class="mb-[104px]">
                 <div class="p-3 mb-[76px]">

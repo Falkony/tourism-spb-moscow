@@ -6,6 +6,7 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import ExcursionForm from './ExcursionForm.vue';
+import MarkdownRenderer from '@/components/common/MarkdownRenderer.vue';
 import { useGlobalStore } from '@/stores/global';
 
 const props = defineProps<{
@@ -20,11 +21,14 @@ const { getExcursion } = globalStore;
 
 const toggle = ref<boolean>(false);
 const excursion = ref<any>();
+const isLoading = ref<boolean>(true);
 
 const toggleForm = () => (toggle.value = !toggle.value);
 
 const onLoad = async () => {
+    isLoading.value = true;
     excursion.value = await getExcursion(props.id);
+    isLoading.value = false;
 };
 
 onLoad();
@@ -186,50 +190,17 @@ onLoad();
                     />
                 </div>
 
-                <div class="p-[10px]">
-                    <ul class="list-disc pl-5">
-                        <li class="mb-4">
-                            <BaseTypography
-                                text="Мы пройдем по "
-                                type="body-m"
-                                tag="span"
-                            />
-
-                            <BaseTypography
-                                text="проходным дворам Васильевского острова."
-                                type="body2-m"
-                                tag="span"
-                            />
-                        </li>
-
-                        <li class="mb-4">
-                            <BaseTypography
-                                text="Будем учиться смотреть на город и видеть его жизнь в порой малозаметных деталях."
-                                type="body-m"
-                            />
-                        </li>
-
-                        <li class="mb-4">
-                            <BaseTypography
-                                text="Будем обсуждать, как появился этот неофициальный символ Петербурга — проходные дворы, что они сейчас скрывают и какие истории они могут рассказать."
-                                type="body-m"
-                            />
-                        </li>
-
-                        <li class="mb-4">
-                            <BaseTypography
-                                text="Закончим экскурсию одним из самых таинственных мест Санкт-Петербурга "
-                                type="body-m"
-                                tag="span"
-                            />
-
-                            <BaseTypography
-                                text="— музей-аптека Пеля."
-                                type="body2-m"
-                                tag="span"
-                            />
-                        </li>
-                    </ul>
+                <div class="p-[10px] text-[14px]">
+                    <div
+                        v-if="isLoading"
+                        class="absolute inset-0 flex items-center justify-center"
+                    >
+                        <span>Загрузка...</span>
+                    </div>
+                    <MarkdownRenderer
+                        v-else
+                        :markdown="excursion?.data.attributes?.description"
+                    />
                 </div>
             </div>
         </div>
