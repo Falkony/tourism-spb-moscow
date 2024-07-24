@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { defineProps, toRefs } from 'vue';
+import { defineProps, toRefs, ref } from 'vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
+import arrowRight from '@/assets/svg/arrow-right.svg';
+import arrowRightGreen from '@/assets/svg/arrow-right-green.svg';
 import { useGlobalStore } from '@/stores/global';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 
 defineProps<{
+    id: string | number;
     title: string;
     text: string;
     url: string;
@@ -13,8 +17,10 @@ defineProps<{
 
 const { isMobile } = toRefs(useGlobalStore());
 const { t } = useI18n();
+const router = useRouter();
 
 const strapiUrl = process.env.VUE_APP_STRAPI_URL;
+const isHoveredArrow = ref(false);
 </script>
 
 <template>
@@ -32,7 +38,7 @@ const strapiUrl = process.env.VUE_APP_STRAPI_URL;
             <div>
                 <BaseTypography
                     :text="title"
-                    :type="isMobile ? 'body-m' : 'body'"
+                    :type="isMobile ? 'body-m' : 'special-body'"
                     color="var(--primary-color)"
                     class="mb-3 min-h-[52px]"
                 />
@@ -48,33 +54,50 @@ const strapiUrl = process.env.VUE_APP_STRAPI_URL;
                         color="var(--black-color)"
                         class="l:min-h-20"
                     />
+                    <div class="flex">
+                        <div
+                            v-if="price"
+                            class="mt-3"
+                        >
+                            <BaseTypography
+                                :text="t('common.from')"
+                                :type="isMobile ? 'body2-m' : 'special-body2'"
+                                tag="span"
+                            />
 
-                    <div
-                        v-if="price"
-                        class="mt-3"
-                    >
-                        <BaseTypography
-                            :text="t('common.from')"
-                            :type="isMobile ? 'body2-m' : 'body2'"
-                            tag="span"
-                        />
+                            <BaseTypography
+                                :text="price.toString()"
+                                :type="isMobile ? 'body2-m' : 'special-body2'"
+                                tag="span"
+                                color="var(--secondary-color)"
+                            />
 
-                        <BaseTypography
-                            :text="price.toString()"
-                            :type="isMobile ? 'body2-m' : 'body2'"
-                            tag="span"
-                            color="var(--secondary-color)"
-                        />
+                            <BaseTypography
+                                :text="t('common.people')"
+                                :type="isMobile ? 'body2-m' : 'special-body2'"
+                                tag="span"
+                            />
+                        </div>
+                        <div class="ml-auto w-[46px] h-[46px] cursor-pointer">
+                            <img
+                                v-if="isMobile"
+                                src="@/assets/svg/mobile/shevron_right.svg"
+                                class="ml-auto"
+                            />
 
-                        <BaseTypography
-                            :text="t('common.people')"
-                            :type="isMobile ? 'body2-m' : 'body2'"
-                            tag="span"
-                        />
+                            <img
+                                v-else
+                                :src="isHoveredArrow ? arrowRightGreen : arrowRight"
+                                class="ml-auto"
+                                @click="router.push(`/excursion/${id}`)"
+                                @mouseover="isHoveredArrow = true"
+                                @mouseleave="isHoveredArrow = false"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="absolute bottom-2 right-4 l:relative w-[46px] h-[46px] cursor-pointer">
+                <!-- <div class="absolute bottom-2 right-4 l:relative w-[46px] h-[46px] cursor-pointer">
                     <img
                         v-if="isMobile"
                         src="@/assets/svg/mobile/shevron_right.svg"
@@ -86,7 +109,7 @@ const strapiUrl = process.env.VUE_APP_STRAPI_URL;
                         src="@/assets/svg/arrow-right.svg"
                         class="ml-auto"
                     />
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

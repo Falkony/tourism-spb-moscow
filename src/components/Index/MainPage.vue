@@ -3,18 +3,27 @@ import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import Slider from '@/components/common/Slider.vue';
 import Form from '@/components/Index/Form.vue';
+import arrow from '@/assets/svg/arrow.svg';
+import arrowGreen from '@/assets/svg/arrow-green.svg';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 
 const { width } = useWindowSize();
 const { t } = useI18n();
+const router = useRouter();
 
 const formToggleTop = ref(false);
 const formToggleBottom = ref(false);
+const isHoveredArrow = ref(false);
 
 const openFormTop = () => (formToggleTop.value = !formToggleTop.value);
 const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
+
+const openLinkInNewTab = (url: string) => {
+    window.open(url, '_blank');
+};
 </script>
 
 <template>
@@ -106,16 +115,18 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 </div>
             </div>
 
-            <BaseButton
-                :text="t('main-page.submit')"
-                :type="width > 1600 ? 'subtitle4' : 'subtitle2-m'"
-                :padding-x="width > 1600 ? 'auto' : '48'"
-                :padding-y="width > 1600 ? 'auto' : '0'"
-                class="!h-[48px] xxl:!h-auto"
-                color="var(--base-white)"
-                ui="secondary"
-                @click="openFormTop"
-            />
+            <div class="flex flex-col items-center justify-center">
+                <BaseButton
+                    :text="t('main-page.submit')"
+                    :type="width > 1600 ? 'subtitle4' : 'subtitle2-m'"
+                    :padding-x="width > 1600 ? 'auto' : '48'"
+                    :padding-y="width > 1600 ? 'auto' : '0'"
+                    class="!h-[48px] xxl:!h-auto"
+                    color="var(--base-white)"
+                    ui="primary-with-back"
+                    @click="openFormTop"
+                />
+            </div>
         </div>
 
         <div
@@ -127,7 +138,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
     </section>
 
     <section class="flex flex-col items-center justify-center">
-        <div class="l:h-[860px] l:w-[1126px] mx-auto second-section relative my-[168px]">
+        <div class="l:h-[860px] l:w-[1126px] mx-auto second-section relative mt-[84px] mb-[30px]">
             <div class="overlay"></div>
             <div class="horseman"></div>
 
@@ -232,26 +243,34 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
             </div>
         </div>
 
-        <div class="flex flex-col gap-y-16 mb-[168px] w-[1126px] mx-auto">
+        <div class="flex flex-col gap-y-16 mb-[84px] w-[1126px] mx-auto">
             <div class="flex flex-col gap-y-10 w-full">
                 <div class="flex flex-row justify-end gap-x-8">
-                    <img src="@/assets/images/tourism.png" />
+                    <img
+                        src="@/assets/images/tourism.png"
+                        @click="openLinkInNewTab('https://tourism.gov.ru/reestry/reestr-turoperatorov/show.php')"
+                    />
 
-                    <img src="@/assets/images/league_second.png" />
+                    <img
+                        src="@/assets/images/league_second.png"
+                        @click="openLinkInNewTab('https://tourligaspb.ru/team')"
+                    />
                 </div>
             </div>
 
             <router-link to="/about">
                 <img
                     v-if="width > 768"
-                    src="@/assets/svg/arrow.svg"
+                    :src="isHoveredArrow ? arrowGreen : arrow"
                     class="w-[400px] ml-auto mt-[-22px] cursor-pointer"
+                    @mouseover="isHoveredArrow = true"
+                    @mouseleave="isHoveredArrow = false"
                 />
             </router-link>
         </div>
     </section>
 
-    <section class="flex flex-col gap-y-4 items-center mb-[168px]">
+    <section class="flex flex-col gap-y-4 items-center mb-[84px]">
         <div class="bridge-wrapper mb-[60px]">
             <div class="bridge-layout"></div>
             <img
@@ -266,7 +285,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         />
     </section>
 
-    <section class="mb-[168px]">
+    <section class="mb-[84px]">
         <div class="flex flex-col items-center justify-center w-full">
             <div class="p-[10px]">
                 <BaseTypography
@@ -305,6 +324,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
                 color="var(--black-color)"
                 ui="primary"
                 class="mb-[104px]"
+                @click="router.push('/tours')"
             />
 
             <div class="px-[100px]">
@@ -388,15 +408,17 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
                 <router-link to="/tours">
                     <img
-                        src="@/assets/svg/arrow.svg"
+                        :src="isHoveredArrow ? arrowGreen : arrow"
                         class="w-[400px] ml-auto mt-[-22px] cursor-pointer"
+                        @mouseover="isHoveredArrow = true"
+                        @mouseleave="isHoveredArrow = false"
                     />
                 </router-link>
             </div>
         </div>
     </section>
 
-    <section class="grid grid-cols-3 gap-8 mb-[168px]">
+    <section class="grid grid-cols-3 gap-8 mb-[84px]">
         <img
             src="@/assets/images/admiral.png"
             class="w-full object-cover"
@@ -424,28 +446,31 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         />
     </section>
 
-    <section class="mb-[168px]">
+    <section class="mb-[84px]">
         <div class="w-[1126px] mx-auto relative">
             <BaseButton
                 :text="t('main-page.excursion.title')"
                 type="subtitle"
                 color="var(--black-color)"
                 ui="primary"
-                class="mb-[104px]"
+                class="mb-[54px]"
+                @click="router.push('/excursions')"
             />
 
             <Slider class="mb-16" />
 
             <router-link to="/excursions">
                 <img
-                    src="@/assets/svg/arrow.svg"
+                    :src="isHoveredArrow ? arrowGreen : arrow"
                     class="w-[400px] ml-auto mt-[-22px]"
+                    @mouseover="isHoveredArrow = true"
+                    @mouseleave="isHoveredArrow = false"
                 />
             </router-link>
         </div>
     </section>
 
-    <section class="mb-[168px]">
+    <section class="mb-[84px]">
         <div class="h-[632px] w-[1362px] mx-auto relative">
             <div class="pl-[120px]">
                 <BaseButton
@@ -519,7 +544,7 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
         </div>
     </section>
 
-    <section class="mb-[168px]">
+    <section class="mb-[84px]">
         <div
             class="flex flex-col items-center justify-center w-[1126px] mx-auto bottom_form"
             v-if="formToggleBottom"

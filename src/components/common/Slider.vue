@@ -10,6 +10,7 @@ import 'swiper/css/scrollbar';
 
 const globalStore = useGlobalStore();
 const { excursions } = toRefs(globalStore);
+console.log(excursions);
 
 const { width } = useWindowSize();
 </script>
@@ -32,6 +33,7 @@ const { width } = useWindowSize();
                 :title="slide.attributes.title"
                 :price="slide.attributes.summForGroup"
                 :url="slide.attributes.img.data?.attributes.url"
+                :id="slide.id"
             />
         </swiper-slide>
     </swiper>
