@@ -54,6 +54,7 @@ const isHoveredArrow = ref(false);
                         color="var(--black-color)"
                         class="l:min-h-20"
                     />
+
                     <div class="flex">
                         <div
                             v-if="price"
@@ -96,20 +97,6 @@ const isHoveredArrow = ref(false);
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="absolute bottom-2 right-4 l:relative w-[46px] h-[46px] cursor-pointer">
-                    <img
-                        v-if="isMobile"
-                        src="@/assets/svg/mobile/shevron_right.svg"
-                        class="ml-auto"
-                    />
-
-                    <img
-                        v-else
-                        src="@/assets/svg/arrow-right.svg"
-                        class="ml-auto"
-                    />
-                </div> -->
             </div>
         </div>
     </div>

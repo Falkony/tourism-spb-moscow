@@ -21,6 +21,7 @@ const { excursions } = toRefs(globalStore);
             <SlideItem
                 v-for="excursion in excursions?.data"
                 :key="excursion.id"
+                :id="excursion.id"
                 :title="excursion.attributes.title"
                 :text="excursion.attributes.subtitle"
                 :url="excursion.attributes.img.data?.attributes.url"

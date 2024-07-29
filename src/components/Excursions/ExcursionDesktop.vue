@@ -32,7 +32,8 @@ const onLoad = async () => {
     isLoading.value = false;
 };
 
-onLoad();
+// ToDo: ЧЗХ?! вызывается как хочет и когда хочет
+// onLoad();
 </script>
 
 <template>

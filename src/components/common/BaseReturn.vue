@@ -15,12 +15,29 @@ withDefaults(
 
 const { width } = useWindowSize();
 const router = useRouter();
+
+const onNavigate = async (path: string) => router.push({ path });
+
+const goBack = () => {
+    const currentRoute = router.currentRoute.value.path;
+    const rootPath = '/';
+
+    if (currentRoute === rootPath) {
+        return;
+    }
+
+    const newPath = currentRoute.substring(0, currentRoute.lastIndexOf('/'));
+
+    const finalPath = newPath !== '' ? newPath : rootPath;
+
+    return onNavigate(finalPath);
+};
 </script>
 
 <template>
     <div
         class="return"
-        @click="router.back()"
+        @click="goBack()"
     >
         <div class="text">
             <BaseTypography

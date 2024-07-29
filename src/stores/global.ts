@@ -8,6 +8,8 @@ export const useGlobalStore = defineStore('global', () => {
     const router = useRouter();
     const { width } = useWindowSize();
 
+    const categories = ref<any>();
+    const category = ref<any>();
     const tours = ref<any>();
     const excursions = ref<any>();
 
@@ -31,6 +33,32 @@ export const useGlobalStore = defineStore('global', () => {
         return data;
     };
 
+    const getExcursion = async (id: number) => {
+        const { data } = await axios.get(`${BASE_URL}/ekskursiis/${id}?populate=*`, {
+            headers,
+        });
+
+        return data;
+    };
+
+    const getCategories = async () => {
+        const { data } = await axios.get(`${BASE_URL}/kategoriis?populate=*`, {
+            headers,
+        });
+
+        categories.value = data;
+        return data;
+    };
+
+    const getCategory = async (id: number) => {
+        const { data } = await axios.get(`${BASE_URL}/tours?filters[category][id][$eq]=${id}&populate=*`, {
+            headers,
+        });
+
+        category.value = data;
+        return data;
+    };
+
     const getTours = async () => {
         const { data } = await axios.get(`${BASE_URL}/tours?populate=*`, {
             headers,
@@ -40,15 +68,7 @@ export const useGlobalStore = defineStore('global', () => {
     };
 
     const getTour = async (id: number) => {
-        const { data } = await axios.get(`${BASE_URL}/tours/${id}?populate=*`, {
-            headers,
-        });
-
-        return data;
-    };
-
-    const getExcursion = async (id: number) => {
-        const { data } = await axios.get(`${BASE_URL}/ekskursiis/${id}?populate=*`, {
+        const { data } = await axios.get(`${BASE_URL}/tours/${id}?populate=tourDescription.dayImgs`, {
             headers,
         });
 
@@ -60,7 +80,11 @@ export const useGlobalStore = defineStore('global', () => {
         isMobile,
         tours,
         excursions,
+        categories,
+        category,
         getExcursions,
+        getCategories,
+        getCategory,
         getTours,
         getTour,
         getExcursion,

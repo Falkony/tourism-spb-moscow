@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import List from '@/components/Tours/List.vue';
+import Categories from '@/components/Tours/Categories.vue';
 </script>
 
 <template>
     <div class="mt-[183px] l:mt-[149px]">
-        <List />
+        <Categories />
     </div>
 </template>

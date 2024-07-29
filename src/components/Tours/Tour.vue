@@ -4,7 +4,8 @@ import TourDesktop from './TourDesktop.vue';
 import TourMobile from './TourMobile.vue';
 import { useGlobalStore } from '@/stores/global';
 
-const { isMobile } = toRefs(useGlobalStore());
+const store = useGlobalStore();
+const { isMobile } = toRefs(store);
 </script>
 
 <template>

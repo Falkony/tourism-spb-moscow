@@ -6,9 +6,12 @@ import ReturnButton from '@/components/common/ReturnButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
-import Diagram from './Diagram.vue';
 import TourForm from './TourForm.vue';
+import MarkdownIt from 'markdown-it';
 
+const strapiUrl = process.env.VUE_APP_STRAPI_URL;
+
+const md = new MarkdownIt();
 const router = useRouter();
 const id = +router.currentRoute.value.params.id;
 
@@ -41,7 +44,7 @@ onLoad();
                 class="flex items-center border-[3px] border-[var(--primary-color)] rounded-[100px] px-[24.5px] py-[10px] w-fit ml-auto"
             >
                 <BaseTypography
-                    text="5 дней"
+                    :text="tour?.data.attributes?.days"
                     type="subtitle2"
                     class="whitespace-nowrap"
                 />
@@ -109,18 +112,49 @@ onLoad();
             <TourForm @close="toggleForm" />
         </div>
 
-        <div class="flex max-w-[1126px] mx-auto p-3 w-full mb-[76px]">
+        <div class="flex max-w-[1126px] mx-auto p-3 w-full mb-[60px]">
             <BaseTypography
                 text="Программа"
                 type="subtitle"
             />
         </div>
 
-        <Diagram :tour="tour" />
+        <div
+            v-for="desc in tour?.data.attributes.tourDescription"
+            :key="desc.id"
+            class="flex gap-x-10 max-w-[1126px] mx-auto w-full mb-12"
+        >
+            <div class="flex flex-col border-[3px] border-[var(--primary-color)] rounded-[50px] py-6 min-w-[600px]">
+                <div class="flex items-center gap-x-3 mb-3 px-10">
+                    <div class="h-3 w-3 bg-[var(--secondary-color)] rounded-full" />
+
+                    <BaseTypography
+                        :text="desc.title"
+                        type="special-body"
+                        color="var(--primary-color)"
+                    />
+                </div>
+
+                <div class="flex flex-col px-10">
+                    <div v-html="md.render(desc.dayDescription)" />
+                </div>
+            </div>
+
+            <div
+                v-for="img in desc.dayImgs?.data"
+                :key="img.id"
+                class="flex items-center gap-x-10"
+            >
+                <img
+                    :src="strapiUrl + img.attributes.url"
+                    class="h-[216px] w-[216px] rounded-full object-cover"
+                />
+            </div>
+        </div>
 
         <div class="flex flex-col max-w-[1126px] mx-auto w-full">
-            <section class="mb-[104px]">
-                <div class="p-3 mb-[76px]">
+            <section class="mb-[56px]">
+                <div class="p-3 mb-10">
                     <BaseTypography
                         text="Что включено"
                         type="subtitle"
@@ -139,8 +173,8 @@ onLoad();
                 />
             </section>
 
-            <section class="mb-[104px]">
-                <div class="p-3 mb-[76px]">
+            <section class="mb-[56px]">
+                <div class="p-3 mb-10">
                     <BaseTypography
                         text="Дополнительно"
                         type="subtitle"
@@ -159,8 +193,8 @@ onLoad();
                 />
             </section>
 
-            <section class="mb-[104px]">
-                <div class="p-3 mb-[76px]">
+            <section class="mb-[56px]">
+                <div class="p-3 mb-10">
                     <BaseTypography
                         text="Часто задаваемые вопросы"
                         type="subtitle"
@@ -319,6 +353,6 @@ onLoad();
 
 <style scoped>
 .reservation {
-    @apply flex gap-x-[132px] items-center border-[3px] border-[var(--primary-color)] px-[104px] py-9 max-w-[1126px] mx-auto rounded-[100px] mb-[104px];
+    @apply flex gap-x-[132px] items-center border-[3px] border-[var(--primary-color)] px-[104px] py-9 max-w-[1126px] mx-auto rounded-[100px] mb-[84px];
 }
 </style>

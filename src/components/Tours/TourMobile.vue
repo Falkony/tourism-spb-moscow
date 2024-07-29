@@ -6,8 +6,12 @@ import BaseButton from '@/components/common/BaseButton.vue';
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import BaseAccordion from '@/components/common/BaseAccordion.vue';
-import Block from './Block.vue';
 import TourForm from './TourForm.vue';
+import MarkdownIt from 'markdown-it';
+
+const strapiUrl = process.env.VUE_APP_STRAPI_URL;
+
+const md = new MarkdownIt();
 
 const router = useRouter();
 const id = +router.currentRoute.value.params.id;
@@ -42,11 +46,11 @@ onLoad();
                     :text="tour?.data.attributes?.title"
                     type="subtitle-m"
                     color="var(--primary-color)"
-                    class="mb-3"
+                    class="mb-3 w-fit"
                 />
 
                 <BaseLine
-                    width="299"
+                    width="250"
                     class="mb-6"
                 />
 
@@ -54,7 +58,7 @@ onLoad();
                     class="flex items-center justify-center px-[48.5px] py-[10px] border-[3px] border-[var(--primary-color)] rounded-[100px] w-fit"
                 >
                     <BaseTypography
-                        text="5 дней"
+                        :text="tour?.data.attributes?.days"
                         type="subtitle2-m"
                     />
                 </div>
@@ -134,44 +138,41 @@ onLoad();
                 />
             </div>
 
-            <Block
-                :text="tour?.data.attributes.tourDescription[0].title"
-                :list="tour?.data.attributes.tourDescription[0].dayDescription"
-                :img="tour?.data.attributes.tourImgs.data[0].attributes.url"
-                class="mb-[27px]"
-            />
+            <div
+                v-for="desc in tour?.data.attributes.tourDescription"
+                :key="desc.id"
+                class="flex flex-col w-full mb-12 px-6 items-center gap-y-4"
+            >
+                <div class="flex flex-col border-[3px] border-[var(--primary-color)] rounded-[50px] py-6 w-full">
+                    <div class="flex items-center gap-x-3 mb-3 px-6">
+                        <div class="h-3 w-3 bg-[var(--secondary-color)] rounded-full" />
 
-            <Block
-                :text="tour?.data.attributes.tourDescription[1].title"
-                :list="tour?.data.attributes.tourDescription[1].dayDescription"
-                :img="tour?.data.attributes.tourImgs.data[1].attributes.url"
-                class="mb-[27px]"
-            />
+                        <BaseTypography
+                            :text="desc.title"
+                            type="special-body"
+                            color="var(--primary-color)"
+                        />
+                    </div>
 
-            <Block
-                :text="tour?.data.attributes.tourDescription[2].title"
-                :list="tour?.data.attributes.tourDescription[2].dayDescription"
-                :img="tour?.data.attributes.tourImgs.data[2].attributes.url"
-                class="mb-[27px]"
-            />
+                    <div class="flex flex-col px-6">
+                        <div v-html="md.render(desc.dayDescription)" />
+                    </div>
+                </div>
 
-            <Block
-                :text="tour?.data.attributes.tourDescription[3].title"
-                :list="tour?.data.attributes.tourDescription[3].dayDescription"
-                :img="tour?.data.attributes.tourImgs.data[3].attributes.url"
-                class="mb-[27px]"
-            />
-
-            <Block
-                :text="tour?.data.attributes.tourDescription[4].title"
-                :list="tour?.data.attributes.tourDescription[4].dayDescription"
-                :img="tour?.data.attributes.tourImgs.data[4].attributes.url"
-                last
-                class="mb-[27px]"
-            />
+                <div
+                    v-for="img in desc.dayImgs?.data"
+                    :key="img.id"
+                    class="flex items-center gap-x-10"
+                >
+                    <img
+                        :src="strapiUrl + img.attributes.url"
+                        class="h-[216px] w-[216px] rounded-full object-cover"
+                    />
+                </div>
+            </div>
         </div>
 
-        <section class="mb-[60px] px-10">
+        <section class="mb-[60px] px-6">
             <div class="p-3 mb-6">
                 <BaseTypography
                     text="Что включено"
@@ -191,7 +192,7 @@ onLoad();
             />
         </section>
 
-        <section class="mb-[60px] px-10">
+        <section class="mb-[60px] px-6">
             <div class="p-3 mb-6">
                 <BaseTypography
                     text="Дополнительно"
@@ -211,7 +212,7 @@ onLoad();
             />
         </section>
 
-        <section class="mb-[60px] px-10">
+        <section class="mb-[60px] px-6">
             <div class="p-3 mb-6">
                 <BaseTypography
                     text="Часто задаваемые вопросы"

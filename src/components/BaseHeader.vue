@@ -6,7 +6,6 @@ import LocaleSwitcher from '@/components/common/LocaleSwitcher.vue';
 import NavMenu from '@/components/common/NavMenu.vue';
 
 const globalStore = useGlobalStore();
-const { getExcursions, getTours } = globalStore;
 const { isMainPage } = toRefs(globalStore);
 
 const { width } = useWindowSize();
@@ -24,13 +23,6 @@ const toggleMenu = () => {
         }
     }
 };
-
-const onLoad = async () => {
-    await getExcursions();
-    await getTours();
-};
-
-onLoad();
 </script>
 
 <template>

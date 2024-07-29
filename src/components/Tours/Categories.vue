@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toRefs } from 'vue';
-import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 import { useGlobalStore } from '@/stores/global';
 import SlideItem from '@/components/common/SlideItem.vue';
 import BaseReturn from '@/components/common/BaseReturn.vue';
@@ -10,26 +10,29 @@ const router = useRouter();
 const { t } = useI18n();
 
 const globalStore = useGlobalStore();
-const { tours } = toRefs(globalStore);
+const { categories } = toRefs(globalStore);
+const { getCategories } = globalStore;
+
+getCategories();
 </script>
 
 <template>
-    <div class="mt-[40px] px-10">
+    <div class="mt-[223px] mb-[104px] px-10">
         <BaseReturn :text="t('tours.title')" />
 
         <div class="list">
             <SlideItem
-                v-for="tour in tours?.data"
-                :key="tour.id"
-                :title="tour.attributes.title"
-                :text="tour.attributes.subtitle"
-                :url="tour.attributes.img.data?.attributes.url"
+                v-for="category in categories?.data"
+                :key="category.id"
+                :id="category.id"
+                :title="category.attributes.title"
+                :text="category.attributes.subtitle"
+                :url="category.attributes.Cover.data?.attributes.url"
                 @click="
                     router.push({
-                        name: 'tour',
+                        name: 'category',
                         params: {
-                            slug: tour.id === 1 ? 'spb' : 'unknown',
-                            id: tour.id,
+                            id: category.id,
                         },
                     })
                 "

@@ -369,6 +369,7 @@ onLoad();
     font-size: 16px;
     background: var(--bg-color);
 }
+
 .bk {
     background: transparent;
     outline: none;
@@ -376,5 +377,11 @@ onLoad();
 
 input[type='date']::-webkit-calendar-picker-indicator {
     opacity: 0;
+}
+
+.form::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none; /* IE и Edge */
+    scrollbar-width: none; /* Firefox */
 }
 </style>

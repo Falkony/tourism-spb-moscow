@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import MainPage from '@/views/MainPage.vue';
 import About from '@/views/About.vue';
-import Tours from '@/views/Tours.vue';
-import Tour from '@/components/Tours/Tour.vue';
 import Excursions from '@/views/Excursions.vue';
 import Excursion from '@/components/Excursions/Excursion.vue';
 import Contacts from '@/views/Contacts.vue';
@@ -11,7 +9,9 @@ import Policy from '@/views/Policy.vue';
 import Agents from '@/views/Agents.vue';
 import Requisites from '@/views/Requisites.vue';
 import Consent from '@/views/Consent.vue';
-import General from '@/components/Tours/General.vue';
+import Categories from '@/components/Tours/Categories.vue';
+import Category from '@/components/Tours/Category.vue';
+import Tour from '@/components/Tours/Tour.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -25,17 +25,17 @@ const routes: Array<RouteRecordRaw> = [
         component: About,
     },
     {
-        path: '/tours',
-        name: 'tours',
-        component: Tours,
+        path: '/categories',
+        name: 'categories',
+        component: Categories,
     },
     {
-        path: '/tours/:slug',
-        name: 'general_tour',
-        component: General,
+        path: '/categories/:id',
+        name: 'category',
+        component: Category,
     },
     {
-        path: '/tours/:slug/:id',
+        path: '/tour/:id',
         name: 'tour',
         component: Tour,
     },

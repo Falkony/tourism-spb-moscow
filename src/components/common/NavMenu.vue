@@ -29,7 +29,7 @@ const { isMobile } = toRefs(globalStore);
         </li>
 
         <li>
-            <router-link to="/tours">
+            <router-link to="/categories">
                 <BaseTypography
                     :text="t('header.tours')"
                     type="footnote"
