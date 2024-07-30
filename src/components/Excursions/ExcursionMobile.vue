@@ -79,7 +79,7 @@ onLoad();
                         />
 
                         <BaseTypography
-                            text="группа (10-15 чел)"
+                            :text="excursion?.data?.attributes.group"
                             type="body-m"
                         />
                     </div>
@@ -99,7 +99,7 @@ onLoad();
                         />
 
                         <BaseTypography
-                            text="индивидуальная"
+                            :text="excursion?.data?.attributes.excursionType"
                             type="body-m"
                         />
                     </div>

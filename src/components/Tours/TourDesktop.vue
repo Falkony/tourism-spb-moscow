@@ -68,7 +68,7 @@ onLoad();
                     />
 
                     <BaseTypography
-                        text="группа (2-6 чел)"
+                        :text="tour?.data?.attributes.group"
                         type="body"
                     />
                 </div>
@@ -88,7 +88,7 @@ onLoad();
                     />
 
                     <BaseTypography
-                        text="индивидуальная"
+                        :text="tour?.data?.attributes.tourType"
                         type="body"
                     />
                 </div>
