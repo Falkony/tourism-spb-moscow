@@ -10,7 +10,6 @@ import 'swiper/css/scrollbar';
 
 const globalStore = useGlobalStore();
 const { excursions } = toRefs(globalStore);
-console.log(excursions);
 
 const { width } = useWindowSize();
 </script>
