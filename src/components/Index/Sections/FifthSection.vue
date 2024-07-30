@@ -30,7 +30,7 @@ const { t } = useI18n();
             <!-- Router to tours -->
             <div
                 class="absolute right-0 cursor-pointer"
-                @click="router.push('/tours')"
+                @click="router.push('/categories')"
             >
                 <img src="@/assets/svg/mobile/shevron_right.svg" />
             </div>
