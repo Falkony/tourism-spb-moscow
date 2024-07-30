@@ -7,7 +7,7 @@ const { width } = useWindowSize();
 </script>
 
 <template>
-    <div class="mt-[183px] l:mt-[149px]">
+    <div class="mt-[130px] l:mt-[155px]">
         <Index2 v-if="width < 768" />
         <Index v-else />
     </div>

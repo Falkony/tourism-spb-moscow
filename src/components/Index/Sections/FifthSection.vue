@@ -17,7 +17,7 @@ const { t } = useI18n();
 
 <template>
     <div class="flex flex-col px-10">
-        <div class="flex items-center justify-center relative mb-12">
+        <div class="flex items-center justify-center relative mb-4">
             <BaseButton
                 :text="t('main-page.tours.title')"
                 type="subtitle-m"
@@ -54,12 +54,12 @@ const { t } = useI18n();
             <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
-                        <img src="@/assets/images/msk.png" />
+                        <img src="@/assets/images/spb.png" />
                     </div>
 
                     <BaseTypography
                         v-if="isActive"
-                        :text="t('main-page.tours.moscow')"
+                        :text="t('main-page.tours.spb')"
                         type="subtitle2-m"
                     />
                 </div>
@@ -81,12 +81,12 @@ const { t } = useI18n();
             >
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
-                        <img src="@/assets/images/spb.png" />
+                        <img src="@/assets/images/russia.png" />
                     </div>
 
                     <BaseTypography
                         v-if="isActive"
-                        :text="t('main-page.tours.spb')"
+                        :text="t('main-page.tours.russia')"
                         type="subtitle2-m"
                     />
                 </div>
@@ -95,12 +95,12 @@ const { t } = useI18n();
             <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
-                        <img src="@/assets/images/russia.png" />
+                        <img src="@/assets/images/globe.png" />
                     </div>
 
                     <BaseTypography
                         v-if="isActive"
-                        :text="t('main-page.tours.russia')"
+                        :text="t('main-page.tours.foreign')"
                         type="subtitle2-m"
                     />
                 </div>
@@ -159,12 +159,12 @@ const { t } = useI18n();
             <SwiperSlide v-slot="{ isActive }">
                 <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
                     <div class="circle">
-                        <img src="@/assets/images/active.png" />
+                        <img src="@/assets/images/ships.png" />
                     </div>
 
                     <BaseTypography
                         v-if="isActive"
-                        :text="t('main-page.tours.active')"
+                        :text="t('main-page.tours.water')"
                         type="subtitle2-m"
                     />
                 </div>

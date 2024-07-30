@@ -91,7 +91,7 @@ onLoad();
                 <div class="flex flex-col px-[45px]">
                     <BaseTypography
                         text="Общая информация"
-                        type="body-m"
+                        type="special-body"
                         color="var(--primary-color)"
                         class="mb-10"
                     />
@@ -197,7 +197,7 @@ onLoad();
                 <div class="flex flex-col px-[45px]">
                     <BaseTypography
                         text="Обратная связь"
-                        type="body-m"
+                        type="special-body"
                         color="var(--primary-color)"
                         class="mb-10"
                     />

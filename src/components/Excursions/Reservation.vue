@@ -17,7 +17,7 @@ const goToForm = () => emit('click');
 <template>
     <div class="w-[390px] border-[3px] border-[var(--primary-color)] px-[36px] py-[76px] rounded-[100px]">
         <div class="flex flex-col">
-            <div class="mx-auto mb-9">
+            <div class="pl-12 mb-9">
                 <BaseTypography
                     :text="excursion?.data?.attributes.summForGroup.toString()"
                     type="subtitle"
@@ -32,12 +32,12 @@ const goToForm = () => emit('click');
                 />
 
                 <BaseTypography
-                    text="группа (10-15 чел)"
+                    :text="excursion?.data?.attributes.group"
                     type="body"
                 />
             </div>
 
-            <div class="mx-auto mb-9">
+            <div class="pl-12 mb-9">
                 <BaseTypography
                     :text="excursion?.data?.attributes.summForInd.toString()"
                     type="subtitle"
@@ -52,7 +52,7 @@ const goToForm = () => emit('click');
                 />
 
                 <BaseTypography
-                    text="индивидуальная"
+                    :text="excursion?.data?.attributes.excursionType"
                     type="body"
                 />
             </div>

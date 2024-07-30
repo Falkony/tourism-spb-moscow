@@ -17,7 +17,7 @@ getCategories();
 </script>
 
 <template>
-    <div class="mt-[223px] mb-[104px] px-10">
+    <div class="mt-[150px] mb-[104px] px-10">
         <BaseReturn :text="t('tours.title')" />
 
         <div class="list">

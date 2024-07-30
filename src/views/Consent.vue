@@ -3,7 +3,7 @@ import Consent from '@/components/PersonalData/Consent.vue';
 </script>
 
 <template>
-    <div class="mt-[183px] l:mt-[149px]">
+    <div class="mt-[130px] l:mt-[155px]">
         <Consent />
     </div>
 </template>

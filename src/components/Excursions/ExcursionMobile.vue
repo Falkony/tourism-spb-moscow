@@ -35,7 +35,7 @@ onLoad();
 </script>
 
 <template>
-    <div class="mt-[223px]">
+    <div class="mt-[130px]">
         <div class="grid grid-cols-[22px_auto] items-center gap-x-3 mb-[60px] px-6">
             <div @click="router.back()">
                 <img src="@/assets/svg/mobile/shevron-left.svg" />

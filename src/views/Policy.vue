@@ -3,7 +3,7 @@ import PolicyConfidential from '@/components/Policy/PolicyConfidential.vue';
 </script>
 
 <template>
-    <div class="mt-[183px] l:mt-[149px]">
+    <div class="mt-[130px] l:mt-[155px]">
         <PolicyConfidential />
     </div>
 </template>

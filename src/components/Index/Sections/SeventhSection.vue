@@ -10,7 +10,7 @@ const { t } = useI18n();
 
 <template>
     <div class="flex flex-col px-10">
-        <div class="flex items-center justify-center relative mb-12">
+        <div class="flex items-center justify-center relative mb-4">
             <BaseButton
                 :text="t('main-page.excursion.title')"
                 type="subtitle-m"

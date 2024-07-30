@@ -20,7 +20,7 @@ getCategory(id);
 </script>
 
 <template>
-    <div class="mt-[223px] mb-[104px] px-10">
+    <div class="mt-[130px] l:mt-[155px] mb-[104px] px-10">
         <BaseReturn text="Назад" />
 
         <div

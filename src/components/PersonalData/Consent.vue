@@ -29,11 +29,11 @@ const { t } = useI18n();
                     />
 
                     <a
-                        href="http://www.rvm-spb.ru/contacts/"
+                        href="https://rvm-spb.ru/contacts"
                         target="_blank"
                     >
                         <BaseTypography
-                            text="http://www.rvm-spb.ru/contacts/"
+                            text="https://rvm-spb.ru/contacts"
                             :type="width > 768 ? 'body' : 'body-m'"
                             tag="span"
                             class="underline"
@@ -49,11 +49,11 @@ const { t } = useI18n();
                     />
 
                     <a
-                        href="http://www.rvm-spb.ru/p14/index.html"
+                        href="https://rvm-spb.ru/"
                         target="_blank"
                     >
                         <BaseTypography
-                            text="http://www.rvm-spb.ru/p14/index.html"
+                            text="https://rvm-spb.ru/"
                             :type="width > 768 ? 'body' : 'body-m'"
                             tag="span"
                             class="underline"
@@ -69,11 +69,11 @@ const { t } = useI18n();
                     />
 
                     <a
-                        href="http://www.rvm-spb.ru/p15/index.html"
+                        href="https://rvm-spb.ru/tours/"
                         target="_blank"
                     >
                         <BaseTypography
-                            text="http://www.rvm-spb.ru/p15/index.html"
+                            text="https://rvm-spb.ru/tours/"
                             :type="width > 768 ? 'body' : 'body-m'"
                             tag="span"
                             class="underline"
@@ -89,11 +89,11 @@ const { t } = useI18n();
                     />
 
                     <a
-                        href="http://www.rvm-spb.ru/contacts/"
+                        href="https://rvm-spb.ru/excursion/"
                         target="_blank"
                     >
                         <BaseTypography
-                            text="http://www.rvm-spb.ru/p16/index.html"
+                            text="https://rvm-spb.ru/excursion/"
                             :type="width > 768 ? 'body' : 'body-m'"
                             tag="span"
                             class="underline"

@@ -460,6 +460,10 @@ const { t } = useI18n();
                 src="@/assets/images/about/aword_3.png"
                 class="w-[207px]"
             />
+            <img
+                src="@/assets/images/about/award_4.png"
+                class="w-[207px]"
+            />
         </div>
 
         <!-- ToDo: Возможно в будущем сделают переход -->

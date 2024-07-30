@@ -16,7 +16,7 @@ const links = computed(() => [
         text: t('footer.links.about'),
     },
     {
-        url: '/tours',
+        url: '/categories',
         text: t('footer.links.tours'),
     },
     {
@@ -89,7 +89,7 @@ const openLinkInNewTab = (url: string) => {
                     <div class="px-[15px] py-[10px]">
                         <BaseTypography
                             text="+7 (812) 207-03-50"
-                            :type="width < 768 ? 'body-m' : 'body2'"
+                            :type="width < 768 ? 'body2-m' : 'body2'"
                         />
                     </div>
                 </a>
@@ -106,7 +106,7 @@ const openLinkInNewTab = (url: string) => {
                     <div class="px-[15px] py-[10px]">
                         <BaseTypography
                             text="+7 (911) 266-00-98"
-                            :type="width < 768 ? 'body-m' : 'body2'"
+                            :type="width < 768 ? 'body2-m' : 'body2'"
                         />
                     </div>
                 </a>

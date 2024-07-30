@@ -331,17 +331,6 @@ const openLinkInNewTab = (url: string) => {
                 <div class="grid grid-cols-3 gap-x-16 mb-7">
                     <div class="flex flex-col gap-y-[25px] items-center">
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
-                            <img src="@/assets/images/msk.png" />
-                        </div>
-
-                        <BaseTypography
-                            :text="t('main-page.tours.moscow')"
-                            type="subtitle2"
-                        />
-                    </div>
-
-                    <div class="flex flex-col gap-y-[25px] items-center">
-                        <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/spb.png" />
                         </div>
 
@@ -358,6 +347,17 @@ const openLinkInNewTab = (url: string) => {
 
                         <BaseTypography
                             :text="t('main-page.tours.russia')"
+                            type="subtitle2"
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-y-[25px] items-center">
+                        <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
+                            <img src="@/assets/images/globe.png" />
+                        </div>
+
+                        <BaseTypography
+                            :text="t('main-page.tours.foreign')"
                             type="subtitle2"
                         />
                     </div>
@@ -395,11 +395,11 @@ const openLinkInNewTab = (url: string) => {
 
                     <div class="flex flex-col gap-y-[25px] items-center">
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
-                            <img src="@/assets/images/active.png" />
+                            <img src="@/assets/images/ships.png" />
                         </div>
 
                         <BaseTypography
-                            :text="t('main-page.tours.active')"
+                            :text="t('main-page.tours.water')"
                             type="subtitle2"
                             class="text-center"
                         />

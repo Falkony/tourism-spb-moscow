@@ -52,15 +52,15 @@ const onLoad = async () => {
             </div>
         </div>
 
-        <div class="max-w-[1326px] mx-auto w-full px-[120px] mb-[104px] mt-[-150px]">
-            <div class="p-3 mb-[76px]">
+        <div class="max-w-[1326px] mx-auto w-full px-[120px] mb-[104px] mt-[-120px]">
+            <div class="px-3 mb-[40px]">
                 <BaseTypography
                     text="Описание"
                     type="subtitle"
                 />
             </div>
 
-            <div class="p-[10px] text-[22px]">
+            <div class="p-[10px] text-[22px] mb-[54px]">
                 <div
                     v-if="isLoading"
                     class="absolute inset-0 flex items-center justify-center"
@@ -73,8 +73,8 @@ const onLoad = async () => {
                 />
             </div>
 
-            <section class="mb-[104px]">
-                <div class="p-3 mb-[76px]">
+            <section class="mb-[54px]">
+                <div class="px-3 mb-[40px]">
                     <BaseTypography
                         text="Что включено"
                         type="subtitle"
@@ -95,8 +95,8 @@ const onLoad = async () => {
 
             <Form id="form" />
 
-            <section class="mb-[104px]">
-                <div class="p-3 mb-[76px]">
+            <section class="mb-[54px]">
+                <div class="px-3 mb-[40px]">
                     <BaseTypography
                         text="Часто задаваемые вопросы"
                         type="subtitle"

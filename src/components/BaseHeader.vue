@@ -91,11 +91,11 @@ const toggleMenu = () => {
 
 <style scoped>
 .root {
-    @apply absolute top-0 left-0 z-20 w-full h-[183px];
+    @apply absolute top-0 left-0 z-20 w-full h-[100px] l:h-[183px];
 }
 
 .header_container {
-    @apply bg-[var(--bg-color)] flex flex-row items-center px-4 py-[76px] l:py-5 xxl:py-[33px] l:px-[140px];
+    @apply bg-[var(--bg-color)] flex flex-row items-center px-4 py-[33px] l:py-5 xxl:py-[33px] l:px-[140px];
 }
 
 .burger_menu {

@@ -38,7 +38,7 @@ const isHoveredArrow = ref(false);
             <div>
                 <BaseTypography
                     :text="title"
-                    :type="isMobile ? 'body-m' : 'special-body'"
+                    :type="isMobile ? 'body2-m' : 'special-body'"
                     color="var(--primary-color)"
                     class="mb-3 min-h-[52px]"
                 />
@@ -62,20 +62,20 @@ const isHoveredArrow = ref(false);
                         >
                             <BaseTypography
                                 :text="t('common.from')"
-                                :type="isMobile ? 'body2-m' : 'special-body2'"
+                                :type="isMobile ? 'body-m' : 'special-body2'"
                                 tag="span"
                             />
 
                             <BaseTypography
                                 :text="price.toString()"
-                                :type="isMobile ? 'body2-m' : 'special-body2'"
+                                :type="isMobile ? 'body-m' : 'special-body2'"
                                 tag="span"
                                 color="var(--secondary-color)"
                             />
 
                             <BaseTypography
                                 :text="t('common.people')"
-                                :type="isMobile ? 'body2-m' : 'special-body2'"
+                                :type="isMobile ? 'body-m' : 'special-body2'"
                                 tag="span"
                             />
                         </div>
@@ -84,6 +84,7 @@ const isHoveredArrow = ref(false);
                                 v-if="isMobile"
                                 src="@/assets/svg/mobile/shevron_right.svg"
                                 class="ml-auto"
+                                @click="router.push(`/excursion/${id}`)"
                             />
 
                             <img

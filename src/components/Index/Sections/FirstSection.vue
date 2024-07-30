@@ -14,15 +14,15 @@ const toggleForm = () => (toggle.value = !toggle.value);
 
 <template>
     <div class="py-[74px]">
-        <div class="pl-[39px] pr-[124px]">
-            <div class="flex flex-col gap-y-6">
+        <div class="pl-[45px]">
+            <div class="flex flex-col gap-y-4">
                 <BaseTypography
                     :text="t('main-page.subtitle')"
                     type="title2-m"
                     color="var(--base-white)"
                 />
 
-                <div class="flex flex-col gap-y-5">
+                <div class="flex flex-col gap-y-4">
                     <div>
                         <BaseTypography
                             :text="t('main-page.tagline.text-1.first')"
@@ -75,11 +75,11 @@ const toggleForm = () => (toggle.value = !toggle.value);
         </div>
     </div>
 
-    <div class="flex items-center justify-center mb-[84px]">
+    <div class="flex items-center justify-center mb-[40px]">
         <BaseButton
             :text="t('main-page.submit')"
             type="subtitle4-m"
-            ui="secondary"
+            ui="primary-with-back"
             color="var(--base-white)"
             @click="toggleForm"
         />

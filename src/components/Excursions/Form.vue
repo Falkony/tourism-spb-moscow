@@ -22,8 +22,8 @@ const selectedOption = ref(optionsSelect[0].value);
 </script>
 
 <template>
-    <section class="mb-[104px]">
-        <div class="p-3 mb-[76px]">
+    <section class="mb-[54px]">
+        <div class="px-3 mb-[40px]">
             <BaseTypography
                 text="Бронирование экскурсии"
                 type="subtitle"
