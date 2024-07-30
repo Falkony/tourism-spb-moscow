@@ -207,7 +207,7 @@ const { t } = useI18n();
                 <div />
 
                 <div class="max-w-[250px]">
-                    <router-link to="/tours">
+                    <router-link to="/categories">
                         <BaseTypography
                             text="туры по Санкт-Петербургу и России,"
                             type="body-m"

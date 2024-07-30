@@ -69,11 +69,11 @@ const { t } = useI18n();
                     />
 
                     <a
-                        href="https://rvm-spb.ru/tours/"
+                        href="https://rvm-spb.ru/categories/"
                         target="_blank"
                     >
                         <BaseTypography
-                            text="https://rvm-spb.ru/tours/"
+                            text="https://rvm-spb.ru/categories/"
                             :type="width > 768 ? 'body' : 'body-m'"
                             tag="span"
                             class="underline"

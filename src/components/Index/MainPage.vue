@@ -324,7 +324,7 @@ const openLinkInNewTab = (url: string) => {
                 color="var(--black-color)"
                 ui="primary"
                 class="mb-[104px]"
-                @click="router.push('/tours')"
+                @click="router.push('/categories')"
             />
 
             <div class="px-[100px]">
@@ -406,7 +406,7 @@ const openLinkInNewTab = (url: string) => {
                     </div>
                 </div>
 
-                <router-link to="/tours">
+                <router-link to="/categories">
                     <img
                         :src="isHoveredArrow ? arrowGreen : arrow"
                         class="w-[400px] ml-auto mt-[-22px] cursor-pointer"
