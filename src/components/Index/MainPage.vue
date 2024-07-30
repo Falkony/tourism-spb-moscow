@@ -65,7 +65,7 @@ const openLinkInNewTab = (url: string) => {
                 class="mb-3"
             />
 
-            <div class="xl:mb-10 xxl:mb-[140px]">
+            <div class="xl:mb-10 xxl:mb-[120px]">
                 <div class="xl:mb-2 xxl:mb-6">
                     <BaseTypography
                         :text="t('main-page.tagline.text-1.first')"
