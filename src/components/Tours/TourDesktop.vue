@@ -135,7 +135,7 @@ onLoad();
                     />
                 </div>
 
-                <div class="flex flex-col px-10">
+                <div class="flex flex-col px-10 max-w-[450px] l:max-w-[500px] xl:max-w-[550px]">
                     <div v-html="md.render(desc.dayDescription)" />
                 </div>
             </div>

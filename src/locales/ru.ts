@@ -67,7 +67,7 @@ export default {
         tours: {
             title: 'Туры',
             spb: 'Санкт Петербург',
-            russia: 'Росссия',
+            russia: 'Россия',
             foreign: 'Зарубежные',
             school: 'Туры для школьников',
             medicine: 'Оздоровительный отдых',
