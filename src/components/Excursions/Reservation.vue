@@ -19,7 +19,7 @@ const goToForm = () => emit('click');
         <div class="flex flex-col">
             <div class="pl-12 mb-9">
                 <BaseTypography
-                    :text="excursion?.data?.attributes.summForGroup.toString()"
+                    :text="excursion?.data?.attributes.summForGroup"
                     type="subtitle"
                     color="var(--secondary-color)"
                     tag="span"
@@ -39,7 +39,7 @@ const goToForm = () => emit('click');
 
             <div class="pl-12 mb-9">
                 <BaseTypography
-                    :text="excursion?.data?.attributes.summForInd.toString()"
+                    :text="excursion?.data?.attributes.summForInd"
                     type="subtitle"
                     color="var(--secondary-color)"
                     tag="span"
