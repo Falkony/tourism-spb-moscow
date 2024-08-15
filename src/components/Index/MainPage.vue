@@ -5,14 +5,23 @@ import Slider from '@/components/common/Slider.vue';
 import Form from '@/components/Index/Form.vue';
 import arrow from '@/assets/svg/arrow.svg';
 import arrowGreen from '@/assets/svg/arrow-green.svg';
-import { ref } from 'vue';
+import { ref, toRefs, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
+import { useGlobalStore } from '@/stores/global';
 
 const { width } = useWindowSize();
 const { t } = useI18n();
 const router = useRouter();
+
+const globalStore = useGlobalStore();
+const { categories } = toRefs(globalStore);
+
+console.log(categories.value);
+
+const fbCategories = computed(() => categories.value.data?.slice(0, 3));
+const sbCaterories = computed(() => categories.value.data?.slice(3));
 
 const formToggleTop = ref(false);
 const formToggleBottom = ref(false);
@@ -23,6 +32,14 @@ const openFormBottom = () => (formToggleBottom.value = !formToggleBottom.value);
 
 const openLinkInNewTab = (url: string) => {
     window.open(url, '_blank');
+};
+
+const onCategory = (id: number) => {
+    console.log(id);
+    router.push({
+        name: 'category',
+        params: { id },
+    });
 };
 </script>
 
@@ -329,7 +346,10 @@ const openLinkInNewTab = (url: string) => {
 
             <div class="px-[100px]">
                 <div class="grid grid-cols-3 gap-x-16 mb-7">
-                    <div class="flex flex-col gap-y-[25px] items-center">
+                    <div
+                        class="flex flex-col gap-y-[25px] items-center select-none cursor-pointer"
+                        @click="onCategory(fbCategories[0].id)"
+                    >
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/spb.png" />
                         </div>
@@ -340,7 +360,10 @@ const openLinkInNewTab = (url: string) => {
                         />
                     </div>
 
-                    <div class="flex flex-col gap-y-[25px] items-center">
+                    <div
+                        class="flex flex-col gap-y-[25px] items-center select-none cursor-pointer"
+                        @click="onCategory(fbCategories[1].id)"
+                    >
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/russia.png" />
                         </div>
@@ -351,7 +374,10 @@ const openLinkInNewTab = (url: string) => {
                         />
                     </div>
 
-                    <div class="flex flex-col gap-y-[25px] items-center">
+                    <div
+                        class="flex flex-col gap-y-[25px] items-center select-none cursor-pointer"
+                        @click="onCategory(fbCategories[2].id)"
+                    >
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/globe.png" />
                         </div>
@@ -369,7 +395,10 @@ const openLinkInNewTab = (url: string) => {
                 />
 
                 <div class="grid grid-cols-3 gap-x-16 mb-16">
-                    <div class="flex flex-col gap-y-[25px] items-center">
+                    <div
+                        class="flex flex-col gap-y-[25px] items-center select-none cursor-pointer"
+                        @click="onCategory(sbCaterories[0].id)"
+                    >
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/school.png" />
                         </div>
@@ -381,7 +410,10 @@ const openLinkInNewTab = (url: string) => {
                         />
                     </div>
 
-                    <div class="flex flex-col gap-y-[25px] items-center">
+                    <div
+                        class="flex flex-col gap-y-[25px] items-center select-none cursor-pointer"
+                        @click="onCategory(sbCaterories[2].id)"
+                    >
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/medicine.png" />
                         </div>
@@ -393,7 +425,10 @@ const openLinkInNewTab = (url: string) => {
                         />
                     </div>
 
-                    <div class="flex flex-col gap-y-[25px] items-center">
+                    <div
+                        class="flex flex-col gap-y-[25px] items-center select-none cursor-pointer"
+                        @click="onCategory(sbCaterories[1].id)"
+                    >
                         <div class="p-[52px] border-[3px] rounded-[80px] border-[var(--primary-color)]">
                             <img src="@/assets/images/ships.png" />
                         </div>

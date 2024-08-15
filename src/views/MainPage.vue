@@ -7,11 +7,11 @@ import { useWindowSize } from '@vueuse/core';
 const { width } = useWindowSize();
 
 const globalStore = useGlobalStore();
-const { getExcursions, getTours } = globalStore;
+const { getExcursions, getCategories } = globalStore;
 
 const onLoad = async () => {
     await getExcursions();
-    await getTours();
+    await getCategories();
 };
 
 onLoad();
