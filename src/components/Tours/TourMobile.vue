@@ -72,7 +72,7 @@ onLoad();
                 <div class="flex justify-center gap-x-6 mb-9">
                     <div>
                         <BaseTypography
-                            :text="tour?.data?.attributes.summForGroup.toString()"
+                            :text="tour?.data?.attributes.summForGroup"
                             type="subtitle-m"
                             color="var(--secondary-color)"
                             tag="span"
@@ -92,7 +92,7 @@ onLoad();
 
                     <div>
                         <BaseTypography
-                            :text="tour?.data?.attributes.summForInd.toString()"
+                            :text="tour?.data?.attributes.summForInd"
                             type="subtitle-m"
                             color="var(--secondary-color)"
                             tag="span"
@@ -171,46 +171,6 @@ onLoad();
                 </div>
             </div>
         </div>
-
-        <section class="mb-[60px] px-6">
-            <div class="p-3 mb-6">
-                <BaseTypography
-                    text="Что включено"
-                    type="subtitle-m"
-                />
-            </div>
-
-            <BaseAccordion
-                title="Экскурсионное обслуживание"
-                class="mb-[30px]"
-                disabled
-            />
-
-            <BaseAccordion
-                title="Входные билеты"
-                disabled
-            />
-        </section>
-
-        <section class="mb-[60px] px-6">
-            <div class="p-3 mb-6">
-                <BaseTypography
-                    text="Дополнительно"
-                    type="subtitle-m"
-                />
-            </div>
-
-            <BaseAccordion
-                title="Проживание"
-                class="mb-[30px]"
-                disabled
-            />
-
-            <BaseAccordion
-                title="Питание"
-                disabled
-            />
-        </section>
 
         <section class="mb-[60px] px-6">
             <div class="p-3 mb-6">

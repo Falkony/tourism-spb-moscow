@@ -55,7 +55,7 @@ onLoad();
             <div class="flex items-center gap-x-[88px]">
                 <div>
                     <BaseTypography
-                        :text="tour?.data?.attributes.summForGroup.toString()"
+                        :text="tour?.data?.attributes.summForGroup"
                         type="subtitle"
                         color="var(--secondary-color)"
                         tag="span"
@@ -75,7 +75,7 @@ onLoad();
 
                 <div>
                     <BaseTypography
-                        :text="tour?.data?.attributes.summForInd.toString()"
+                        :text="tour?.data?.attributes.summForInd"
                         type="subtitle"
                         color="var(--secondary-color)"
                         tag="span"
@@ -153,46 +153,6 @@ onLoad();
         </div>
 
         <div class="flex flex-col max-w-[1126px] mx-auto w-full">
-            <section class="mb-[56px]">
-                <div class="p-3 mb-10">
-                    <BaseTypography
-                        text="Что включено"
-                        type="subtitle"
-                    />
-                </div>
-
-                <BaseAccordion
-                    title="Экскурсионное обслуживание"
-                    class="mb-[30px]"
-                    disabled
-                />
-
-                <BaseAccordion
-                    title="Входные билеты"
-                    disabled
-                />
-            </section>
-
-            <section class="mb-[56px]">
-                <div class="p-3 mb-10">
-                    <BaseTypography
-                        text="Дополнительно"
-                        type="subtitle"
-                    />
-                </div>
-
-                <BaseAccordion
-                    title="Проживание"
-                    class="mb-[30px]"
-                    disabled
-                />
-
-                <BaseAccordion
-                    title="Питание"
-                    disabled
-                />
-            </section>
-
             <section class="mb-[56px]">
                 <div class="p-3 mb-10">
                     <BaseTypography
