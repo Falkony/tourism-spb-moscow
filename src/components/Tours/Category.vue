@@ -54,23 +54,24 @@ onMounted(async () => {
     <div class="mt-[130px] l:mt-[155px] mb-[104px] px-10">
         <BaseReturn text="Назад" />
 
-        <div v-if="category?.data.length && id !== 7">
-            <div class="list">
-                <SlideItem
-                    v-for="tour in category.data"
-                    :id="tour.id"
-                    :key="tour.id"
-                    :title="tour.attributes.title"
-                    :text="tour.attributes.subtitle"
-                    :url="tour.attributes.cover.data?.attributes.url"
-                    @click="
-                        router.push({
-                            name: 'tour',
-                            params: { id: tour.id },
-                        })
-                    "
-                />
-            </div>
+        <div
+            v-if="category?.data.length && id !== 7"
+            class="list"
+        >
+            <SlideItem
+                v-for="tour in category.data"
+                :id="tour.id"
+                :key="tour.id"
+                :title="tour.attributes.title"
+                :text="tour.attributes.subtitle"
+                :url="tour.attributes.cover.data?.attributes.url"
+                @click="
+                    router.push({
+                        name: 'tour',
+                        params: { id: tour.id },
+                    })
+                "
+            />
         </div>
 
         <div v-if="id === 7">
