@@ -18,8 +18,6 @@ const router = useRouter();
 const globalStore = useGlobalStore();
 const { categories } = toRefs(globalStore);
 
-console.log(categories.value);
-
 const fbCategories = computed(() => categories.value.data?.slice(0, 3));
 const sbCaterories = computed(() => categories.value.data?.slice(3));
 
@@ -35,7 +33,6 @@ const openLinkInNewTab = (url: string) => {
 };
 
 const onCategory = (id: number) => {
-    console.log(id);
     router.push({
         name: 'category',
         params: { id },

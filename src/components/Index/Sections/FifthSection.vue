@@ -2,17 +2,31 @@
 import BaseTypography from '@/components/common/BaseTypography.vue';
 import BaseLine from '@/components/common/BaseLine.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
+import { toRefs, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, EffectCoverflow } from 'swiper/modules';
-// ToDo: оптимизировать...
+import { useGlobalStore } from '@/stores/global';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 
 const router = useRouter();
 const { t } = useI18n();
+
+const globalStore = useGlobalStore();
+const { categories } = toRefs(globalStore);
+
+const fbCategories = computed(() => categories.value.data?.slice(0, 3));
+const sbCaterories = computed(() => categories.value.data?.slice(3));
+
+const onCategory = (id: number) => {
+    router.push({
+        name: 'category',
+        params: { id },
+    });
+};
 </script>
 
 <template>
@@ -52,7 +66,10 @@ const { t } = useI18n();
             pagination
         >
             <SwiperSlide v-slot="{ isActive }">
-                <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
+                <div
+                    class="flex flex-col w-[150px] gap-y-6 items-center justify-center"
+                    @click="onCategory(fbCategories[0].id)"
+                >
                     <div class="circle">
                         <img src="@/assets/images/spb.png" />
                     </div>
@@ -65,21 +82,11 @@ const { t } = useI18n();
                 </div>
             </SwiperSlide>
 
-            <SwiperSlide
-                v-slot="{ isActive }"
-                @click="
-                    router.push({
-                        name: 'general_tour',
-                        params: {
-                            slug: 'spb',
-                        },
-                        state: {
-                            title: 'Туры в Санкт-Петербург',
-                        },
-                    })
-                "
-            >
-                <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
+            <SwiperSlide v-slot="{ isActive }">
+                <div
+                    class="flex flex-col w-[150px] gap-y-6 items-center justify-center"
+                    @click="onCategory(fbCategories[1].id)"
+                >
                     <div class="circle">
                         <img src="@/assets/images/russia.png" />
                     </div>
@@ -93,7 +100,10 @@ const { t } = useI18n();
             </SwiperSlide>
 
             <SwiperSlide v-slot="{ isActive }">
-                <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
+                <div
+                    class="flex flex-col w-[150px] gap-y-6 items-center justify-center"
+                    @click="onCategory(fbCategories[2].id)"
+                >
                     <div class="circle">
                         <img src="@/assets/images/globe.png" />
                     </div>
@@ -127,7 +137,10 @@ const { t } = useI18n();
             pagination
         >
             <SwiperSlide v-slot="{ isActive }">
-                <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
+                <div
+                    class="flex flex-col w-[150px] gap-y-6 items-center justify-center"
+                    @click="onCategory(sbCaterories[0].id)"
+                >
                     <div class="circle">
                         <img src="@/assets/images/school.png" />
                     </div>
@@ -142,7 +155,10 @@ const { t } = useI18n();
             </SwiperSlide>
 
             <SwiperSlide v-slot="{ isActive }">
-                <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
+                <div
+                    class="flex flex-col w-[150px] gap-y-6 items-center justify-center"
+                    @click="onCategory(sbCaterories[2].id)"
+                >
                     <div class="circle">
                         <img src="@/assets/images/medicine.png" />
                     </div>
@@ -157,7 +173,10 @@ const { t } = useI18n();
             </SwiperSlide>
 
             <SwiperSlide v-slot="{ isActive }">
-                <div class="flex flex-col w-[150px] gap-y-6 items-center justify-center">
+                <div
+                    class="flex flex-col w-[150px] gap-y-6 items-center justify-center"
+                    @click="onCategory(sbCaterories[1].id)"
+                >
                     <div class="circle">
                         <img src="@/assets/images/ships.png" />
                     </div>
