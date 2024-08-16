@@ -91,7 +91,6 @@ export default {
     agents: 'Agents',
     how: 'How to pay and order',
     common: {
-        from: 'from ',
         people: ' ₽/person',
     },
     excursion: {

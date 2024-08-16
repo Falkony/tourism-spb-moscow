@@ -96,7 +96,7 @@ onMounted(async () => {
             </div>
 
             <div v-show="selectedTab === 1">
-                <div class="max-w-[1200px] mx-auto">
+                <div class="max-w-[1200px] mx-auto in-develop">
                     <BaseTypography
                         text="Страница в разработке"
                         :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
@@ -105,7 +105,10 @@ onMounted(async () => {
             </div>
         </div>
 
-        <div v-if="!category?.data.length && id !== 7">
+        <div
+            class="in-develop"
+            v-if="!category?.data.length && id !== 7"
+        >
             <BaseTypography
                 text="Страница в разработке"
                 :type="isMobile ? 'subtitle2-m' : 'subtitle2'"
@@ -128,5 +131,12 @@ onMounted(async () => {
 .active {
     color: var(--primary-color);
     border-bottom: 3px solid var(--active-color);
+}
+
+.in-develop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
 }
 </style>

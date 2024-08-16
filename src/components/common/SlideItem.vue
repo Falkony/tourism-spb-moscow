@@ -61,12 +61,6 @@ const isHoveredArrow = ref(false);
                             class="mt-3"
                         >
                             <BaseTypography
-                                :text="t('common.from')"
-                                :type="isMobile ? 'body-m' : 'special-body2'"
-                                tag="span"
-                            />
-
-                            <BaseTypography
                                 :text="price.toString()"
                                 :type="isMobile ? 'body-m' : 'special-body2'"
                                 tag="span"
