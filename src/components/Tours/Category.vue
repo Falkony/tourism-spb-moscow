@@ -51,6 +51,7 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
     category.value = undefined;
+    categoryTitle.value = undefined;
 });
 </script>
 
