@@ -41,6 +41,6 @@ const { excursions } = toRefs(globalStore);
 
 <style scoped>
 .list {
-    @apply flex flex-wrap justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto l:grid l:grid-cols-[428px_428px] l:mb-[104px];
+    @apply flex flex-wrap justify-center gap-y-[96px] gap-x-[104px] max-w-[1126px] mx-auto l:grid l:grid-cols-[428px_428px] l:mb-[104px];
 }
 </style>

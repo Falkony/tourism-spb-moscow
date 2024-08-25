@@ -10,10 +10,25 @@ const router = useRouter();
 const { t } = useI18n();
 
 const globalStore = useGlobalStore();
-const { categories } = toRefs(globalStore);
+const { categories, categoryTitle } = toRefs(globalStore);
 const { getCategories } = globalStore;
 
-getCategories();
+const onNavigate = (id: number, title: string) => {
+    categoryTitle.value = title;
+
+    router.push({
+        name: 'category',
+        params: { id },
+    });
+};
+
+const onLoad = async () => {
+    if (!categories.value?.data.length) {
+        await getCategories();
+    }
+};
+
+onLoad();
 </script>
 
 <template>
@@ -28,14 +43,7 @@ getCategories();
                 :title="category.attributes.title"
                 :text="category.attributes.subtitle"
                 :url="category.attributes.Cover.data?.attributes.url"
-                @click="
-                    router.push({
-                        name: 'category',
-                        params: {
-                            id: category.id,
-                        },
-                    })
-                "
+                @click="onNavigate(category.id, category.attributes.title)"
             />
         </div>
     </div>
@@ -43,6 +51,6 @@ getCategories();
 
 <style scoped>
 .list {
-    @apply flex flex-wrap justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto l:grid l:grid-cols-[428px_428px] l:mb-[104px];
+    @apply flex flex-wrap justify-center gap-y-[96px] gap-x-[104px] max-w-[1126px] mx-auto l:grid l:grid-cols-[428px_428px] l:mb-[104px];
 }
 </style>

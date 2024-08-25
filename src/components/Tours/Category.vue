@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue';
+import { ref, onMounted, nextTick, toRefs, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 import { useGlobalStore } from '@/stores/global';
 import SlideItem from '@/components/common/SlideItem.vue';
@@ -11,7 +11,7 @@ const router = useRouter();
 const id = +router.currentRoute.value.params.id;
 
 const globalStore = useGlobalStore();
-const { category, isMobile } = globalStore;
+const { category, isMobile, categoryTitle } = toRefs(globalStore);
 const { getCategory } = globalStore;
 
 const selectedTab = ref<number>(0);
@@ -48,11 +48,15 @@ onMounted(async () => {
 
     await getCategory(id as number);
 });
+
+onBeforeUnmount(() => {
+    category.value = undefined;
+});
 </script>
 
 <template>
     <div class="mt-[130px] l:mt-[155px] mb-[104px] px-10">
-        <BaseReturn text="Назад" />
+        <BaseReturn :text="categoryTitle ?? 'Назад'" />
 
         <div
             v-if="category?.data.length && id !== 7"
@@ -119,7 +123,7 @@ onMounted(async () => {
 
 <style scoped>
 .list {
-    @apply flex flex-wrap justify-center gap-y-[56px] gap-x-[104px] max-w-[1126px] mx-auto l:grid l:grid-cols-[428px_428px] l:mb-[104px];
+    @apply flex flex-wrap justify-center gap-y-[96px] gap-x-[104px] max-w-[1126px] mx-auto l:grid l:grid-cols-[428px_428px] l:mb-[104px];
 }
 
 .tabs {

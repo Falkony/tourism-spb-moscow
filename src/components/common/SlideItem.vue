@@ -73,19 +73,18 @@ const isHoveredArrow = ref(false);
                                 tag="span"
                             />
                         </div>
+
                         <div class="ml-auto w-[46px] h-[46px] cursor-pointer">
                             <img
                                 v-if="isMobile"
                                 src="@/assets/svg/mobile/shevron_right.svg"
                                 class="ml-auto"
-                                @click="router.push(`/excursion/${id}`)"
                             />
 
                             <img
                                 v-else
                                 :src="isHoveredArrow ? arrowRightGreen : arrowRight"
                                 class="ml-auto"
-                                @click="router.push(`/excursion/${id}`)"
                                 @mouseover="isHoveredArrow = true"
                                 @mouseleave="isHoveredArrow = false"
                             />

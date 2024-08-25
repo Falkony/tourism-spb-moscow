@@ -8,10 +8,11 @@ export const useGlobalStore = defineStore('global', () => {
     const router = useRouter();
     const { width } = useWindowSize();
 
-    const categories = ref<any>();
-    const category = ref<any>();
-    const tours = ref<any>();
-    const excursions = ref<any>();
+    const categories = ref();
+    const category = ref();
+    const categoryTitle = ref();
+    const tours = ref();
+    const excursions = ref();
 
     const isMainPage = computed(() => router.currentRoute.value.fullPath === '/');
     const isMobile = computed(() => width.value < 768);
@@ -82,6 +83,7 @@ export const useGlobalStore = defineStore('global', () => {
         excursions,
         categories,
         category,
+        categoryTitle,
         getExcursions,
         getCategories,
         getCategory,
