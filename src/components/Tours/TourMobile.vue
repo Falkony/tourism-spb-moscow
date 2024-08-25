@@ -17,7 +17,7 @@ const router = useRouter();
 const id = +router.currentRoute.value.params.id;
 
 const toggle = ref<boolean>(false);
-const tour = ref<any>();
+const tour = ref();
 
 const toggleForm = () => (toggle.value = !toggle.value);
 

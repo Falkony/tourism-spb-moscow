@@ -5,8 +5,11 @@ import SlideItem from './SlideItem.vue';
 import { Pagination } from 'swiper/modules';
 import { useWindowSize } from '@vueuse/core';
 import { useGlobalStore } from '@/stores/global';
+import { useRouter } from 'vue-router';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+
+const router = useRouter();
 
 const globalStore = useGlobalStore();
 const { excursions } = toRefs(globalStore);
@@ -33,6 +36,12 @@ const { width } = useWindowSize();
                 :price="slide.attributes.summForGroup"
                 :url="slide.attributes.img.data?.attributes.url"
                 :id="slide.id"
+                @click="
+                    router.push({
+                        name: 'excursion',
+                        params: { id: slide.id },
+                    })
+                "
             />
         </swiper-slide>
     </swiper>

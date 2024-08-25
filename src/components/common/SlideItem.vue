@@ -5,7 +5,6 @@ import arrowRight from '@/assets/svg/arrow-right.svg';
 import arrowRightGreen from '@/assets/svg/arrow-right-green.svg';
 import { useGlobalStore } from '@/stores/global';
 import { useI18n } from 'vue-i18n';
-import { useRouter } from 'vue-router';
 
 defineProps<{
     id: string | number;
@@ -17,7 +16,6 @@ defineProps<{
 
 const { isMobile } = toRefs(useGlobalStore());
 const { t } = useI18n();
-const router = useRouter();
 
 const strapiUrl = process.env.VUE_APP_STRAPI_URL;
 const isHoveredArrow = ref(false);
