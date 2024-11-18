@@ -216,8 +216,8 @@ export default {
         },
         list: {
             'text-1': {
-                first: 'In 2023, the company celebrated ',
-                second: '8 years ',
+                first: 'In 2024, the company celebrated ',
+                second: '9 years ',
                 third: 'since the beginning',
             },
             'text-2': {

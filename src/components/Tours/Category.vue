@@ -101,7 +101,10 @@ onBeforeUnmount(() => {
             </div>
 
             <div v-show="selectedTab === 1">
-                <div v-if="category?.data.length">
+                <div
+                    v-if="category?.data.length"
+                    class="list"
+                >
                     <SlideItem
                         v-for="tour in category.data"
                         :id="tour.id"
@@ -118,7 +121,10 @@ onBeforeUnmount(() => {
                     />
                 </div>
 
-                <div class="in-develop">
+                <div
+                    v-else
+                    class="in-develop"
+                >
                     <BaseTypography
                         text="Туры отсутствуют"
                         :type="isMobile ? 'subtitle2-m' : 'subtitle2'"

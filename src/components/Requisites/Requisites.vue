@@ -51,6 +51,24 @@ const requisites = [
         />
 
         <div class="list">
+            <div class="item">
+                <BaseTypography
+                    text="Оплата по СБП"
+                    type="body2"
+                />
+
+                <img
+                    src="@/assets/images/QR.png"
+                    alt="QR"
+                    class="w-fit mb-4 pt-4"
+                />
+
+                <BaseTypography
+                    text="Для оплаты отсканируйте QR-код в мобильном приложении банка или штатной камерой телефона"
+                    type="body"
+                />
+            </div>
+
             <div
                 v-for="requisite in requisites"
                 :key="requisite.title"
@@ -75,7 +93,7 @@ const requisites = [
 <style scoped>
 .list {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     row-gap: 16px;
     max-width: 1126px;
