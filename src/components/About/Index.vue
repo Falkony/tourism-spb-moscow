@@ -106,7 +106,7 @@ const { t } = useI18n();
             class="flex flex-row items-center justify-center gap-x-[26px] px-[124px] border-[3px] border-[var(--primary-color)] h-[114px] w-full rounded-[100px] mb-[92px]"
         >
             <div class="flex items-center gap-x-[26px]">
-                <img src="@/assets/svg/about/8.svg" />
+                <img src="@/assets/svg/about/9.svg" />
 
                 <BaseTypography
                     :text="t('about.labels.years')"
