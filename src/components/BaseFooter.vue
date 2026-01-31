@@ -78,17 +78,17 @@ const openLinkInNewTab = (url: string) => {
 
             <div class="flex flex-col xxl:flex-row items-center gap-x-3">
                 <a
-                    href="tel:+78122070350"
+                    href="mailto:reserv@rvm-spb.ru"
                     class="flex flex-row items-center"
                 >
                     <img
-                        src="@/assets/svg/icon_call.svg"
+                        src="@/assets/svg/icon_mail.svg"
                         :class="{ 'order-2 w-7': width < 768, svg: width > 768 }"
                     />
 
                     <div class="px-[15px] py-[10px]">
                         <BaseTypography
-                            text="+7 (812) 207-03-50"
+                            text="reserv@rvm-spb.ru"
                             :type="width < 768 ? 'body2-m' : 'body2'"
                         />
                     </div>

@@ -30,7 +30,7 @@
                 />
 
                 <BaseTypography
-                    text="позвонить по телефону +7 (812) 207-03-50;"
+                    text="написать на почтовый адрес reserv@rvm-spb.ru;"
                     type="body"
                 />
 
@@ -59,7 +59,7 @@
 
                 <BaseTypography
                     tag="p"
-                    text="Подъехать заранее к нам в офис и оплатить наличными или по картам VISA, Mastercard, МИР. Наш офис в Бизнес центре 'СИТИ', ул. Садовая д.12, офис № 3 на 3 этаже."
+                    text="Подъехать заранее к нам в офис и оплатить наличными или по картам VISA, Mastercard, МИР. Наш офис в Бизнес центре 'Петровский форт', Финляндский проспект 4А, офис 201"
                     type="body"
                 />
             </li>
@@ -176,7 +176,11 @@
                     type="body"
                 />
                 <BaseTypography
-                    text="ОГРН: 1157847393373 ИНН:7840042552 КПП: 784101001"
+                    text="ОГРН: 1157847393373"
+                    type="body"
+                />
+                <BaseTypography
+                    text="ИНН: 7840042552 КПП: 780201001"
                     type="body"
                 />
                 <BaseTypography
@@ -184,17 +188,21 @@
                     type="body"
                 />
                 <BaseTypography
-                    text="Р/с 40702810655000057947 К/с 30101810500000000653"
+                    text="Р/с: 40702810655000057947"
                     type="body"
                 />
                 <BaseTypography
-                    text="БИК 044030653 ИНН банка 7707083893"
+                    text="К/с: 30101810500000000653"
+                    type="body"
+                />
+                <BaseTypography
+                    text="БИК: 044030653"
                     type="body"
                 />
             </div>
             <div class="item">
                 <BaseTypography
-                    text="БАНК САНКТ-ПЕТЕРБУРГ"
+                    text="Т-БАНК (Возможна оплата по QR кредитками)"
                     type="body2"
                 />
                 <BaseTypography
@@ -202,19 +210,61 @@
                     type="body"
                 />
                 <BaseTypography
-                    text="ОГРН: 1157847393373  ИНН:7840042552  КПП: 784101001"
+                    text="ОГРН: 1157847393373"
                     type="body"
                 />
                 <BaseTypography
-                    text="Банковские реквизиты: ПАО БАНК «САНКТ-ПЕТЕРБУРГ»"
+                    text="ИНН: 7840042552 КПП: 780201001"
                     type="body"
                 />
                 <BaseTypography
-                    text="Р/с: 40702810790480003568 К/с: 30101810900000000790"
+                    text="Банковские реквизиты: АО «ТБанк»"
                     type="body"
                 />
                 <BaseTypography
-                    text="БИК: 044030790 ИНН банка: 7831000027"
+                    text="Р/с: 40702810610001844787"
+                    type="body"
+                />
+                <BaseTypography
+                    text="К/с: 30101810145250000974"
+                    type="body"
+                />
+                <BaseTypography
+                    text="БИК: 044525974"
+                    type="body"
+                />
+            </div>
+            <div class="item">
+                <BaseTypography
+                    text="АЛЬФА-БАНК"
+                    type="body2"
+                />
+                <BaseTypography
+                    text="Получатель: ООО «РВМ»"
+                    type="body"
+                />
+                <BaseTypography
+                    text="ОГРН: 1157847393373"
+                    type="body"
+                />
+                <BaseTypography
+                    text="ИНН: 7840042552 КПП: 780201001"
+                    type="body"
+                />
+                <BaseTypography
+                    text="Банковские реквизиты: Филиал «Санкт-Петербургский» АО «Альфа-Банк»"
+                    type="body"
+                />
+                <BaseTypography
+                    text="Р/с: 40702810532130016875"
+                    type="body"
+                />
+                <BaseTypography
+                    text="К/с: 30101810600000000786"
+                    type="body"
+                />
+                <BaseTypography
+                    text="БИК: 044030786"
                     type="body"
                 />
             </div>

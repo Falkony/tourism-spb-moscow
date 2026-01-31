@@ -160,9 +160,9 @@ export default {
     contacts: {
         title: 'RVM address',
         address: {
-            first: 'St. Petersburg, business center “CITY”,',
-            second: 'Sadovaya street 12, office 3',
-            third: '3 minutes from the station. Metro Gostiny Dvor"',
+            first: 'St. Petersburg, business center “Petrovsky Fort”,',
+            second: 'Finlandskii Prospect 4A, office 201',
+            third: '10 minutes from the station. Metro Ploschad Lenina"',
         },
         subtitle: 'Office hours',
         schedule: {
@@ -216,8 +216,8 @@ export default {
         },
         list: {
             'text-1': {
-                first: 'In 2024, the company celebrated ',
-                second: '9 years ',
+                first: 'In 2025, the company celebrated ',
+                second: '10 years ',
                 third: 'since the beginning',
             },
             'text-2': {
@@ -255,16 +255,16 @@ export default {
                 name: 'Lyudmila Adamovich',
             },
             second: {
-                post: 'Executive Director',
-                name: 'Una Wygowska',
+                post: 'Head of Sales Department',
+                name: 'Natalia Moskaleva',
             },
             third: {
-                post: 'Head of Sales Department',
+                post: 'Head of Agency Department',
                 name: 'Elizaveta Shved',
             },
             fourth: {
-                post: 'Head of Inbound Tourism Department',
-                name: 'Maria Kritskaya',
+                post: 'Head of Client Department',
+                name: 'Anatoly Nefedov',
             },
         },
         awards: {
@@ -279,7 +279,7 @@ export default {
             '3': '“Feedback Form” ',
             '4': '“Booking” ',
             '5': '“Booking” ',
-            '6': "(hereinafter referred to as the 'Applicant'), hereby give my consent to the processing by LLC 'RVM' (TIN 7840042552, 191023 St. Petersburg, Sadovaya 12, Lit. A, room 30-N, office 3) (hereinafter referred to as the 'Company') of the following my personal data: last name, first name, patronymic, residence address, email address, mobile phone number, landline phone number (hereinafter referred to as 'Personal Data'), and I confirm that by giving such consent, I act by my own will and in my own interest.",
+            '6': "(hereinafter referred to as the 'Applicant'), hereby give my consent to the processing by LLC 'RVM' (TIN 7840042552, 191023 St. Petersburg, Finlandskii Prospect 4A, office 201) (hereinafter referred to as the 'Company') of the following my personal data: last name, first name, patronymic, residence address, email address, mobile phone number, landline phone number (hereinafter referred to as 'Personal Data'), and I confirm that by giving such consent, I act by my own will and in my own interest.",
             '7': "The consent is given by me for the purpose of contacting me and providing me with the information I am interested in according to the completed 'Feedback Form'.",
             '8': "The processing of the Applicant's Personal Data is carried out by the Company to the extent necessary to achieve the above purpose, in compliance with the requirements of the legislation of the Russian Federation regarding confidentiality and ensuring the security of Personal Data during their processing, as well as the protection of processed Personal Data. The processing of the Applicant's Personal Data is carried out by the company in strict accordance ",
             '9': "with the Policy on Processing and Protecting Personal Data at LLC 'RVM'.",

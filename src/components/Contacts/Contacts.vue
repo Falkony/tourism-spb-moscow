@@ -50,17 +50,17 @@ const typoMobile = computed(() => (mobile.value ? 'body-m' : 'body'));
 
                     <div class="flex flex-col gap-y-5 l:flex-row l:items-center gap-x-3">
                         <a
-                            href="tel:+78122070350"
+                            href="mailto:reserv@rvm-spb.ru"
                             class="flex items-center"
                         >
                             <img
-                                src="@/assets/svg/icon_call.svg"
+                                src="@/assets/svg/icon_mail.svg"
                                 class="w-[27px] l:w-[46px]"
                             />
 
                             <div class="px-[15px] py-[10px]">
                                 <BaseTypography
-                                    text="+7 (812) 207-03-50"
+                                    text="reserv@rvm-spb.ru"
                                     :type="typoMobile"
                                 />
                             </div>

@@ -52,9 +52,9 @@ const onCategory = (id: number) => {
                 />
             </a>
 
-            <a href="tel:+78122070350">
+            <a href="mailto:reserv@rvm-spb.ru">
                 <BaseTypography
-                    text="+7 (812) 207-03-50"
+                    text="reserv@rvm-spb.ru"
                     :type="width > 1600 ? 'footnote' : 'subtitle2-m'"
                     color="var(--base-white)"
                     class="shadow"

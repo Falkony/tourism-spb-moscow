@@ -91,7 +91,7 @@ const { t } = useI18n();
                 class="h-[112px] w-[116px] flex flex-col items-center justify-center border border-[var(--primary-color)] rounded-full px-[10px]"
             >
                 <img
-                    src="@/assets/svg/about/8.svg"
+                    src="@/assets/svg/about/10.svg"
                     class="w-10"
                 />
 
@@ -369,7 +369,7 @@ const { t } = useI18n();
                 <!-- 2 -->
                 <div class="flex flex-col gap-y-5">
                     <img
-                        src="@/assets/images/about/vigovska.png"
+                        src="@/assets/images/about/mosk.png"
                         class="w-[236px]"
                     />
 
@@ -417,7 +417,7 @@ const { t } = useI18n();
                 <!-- 4 -->
                 <div class="flex flex-col gap-y-5">
                     <img
-                        src="@/assets/images/about/kritskaia.png"
+                        src="@/assets/images/about/nefed.png"
                         class="w-[236px]"
                     />
 

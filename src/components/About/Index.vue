@@ -106,7 +106,10 @@ const { t } = useI18n();
             class="flex flex-row items-center justify-center gap-x-[26px] px-[124px] border-[3px] border-[var(--primary-color)] h-[114px] w-full rounded-[100px] mb-[92px]"
         >
             <div class="flex items-center gap-x-[26px]">
-                <img src="@/assets/svg/about/9.svg" />
+                <img
+                    src="@/assets/svg/about/10.svg"
+                    class="w-[4.5rem]"
+                />
 
                 <BaseTypography
                     :text="t('about.labels.years')"
@@ -357,7 +360,7 @@ const { t } = useI18n();
 
             <div class="flex flex-col gap-y-[32px]">
                 <img
-                    src="@/assets/images/about/vigovska.png"
+                    src="@/assets/images/about/mosk.png"
                     class="w-[236px]"
                 />
 
@@ -407,7 +410,7 @@ const { t } = useI18n();
 
             <div class="flex flex-col gap-y-[32px]">
                 <img
-                    src="@/assets/images/about/kritskaia.png"
+                    src="@/assets/images/about/nefed.png"
                     class="w-[236px]"
                 />
 
