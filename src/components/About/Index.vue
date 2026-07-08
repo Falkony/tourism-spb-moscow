@@ -450,21 +450,37 @@ const { t } = useI18n();
             />
         </div>
 
-        <div class="flex flex-row flex-wrap justify-center items-center gap-x-[320px] gap-y-9 mb-[64px]">
+        <div class="grid grid-cols-4 justify-items-center items-center gap-x-12 gap-y-9 mb-[64px]">
             <img
-                src="@/assets/images/about/aword_1.png"
-                class="w-[239px]"
+                src="@/assets/images/about/award_1.png"
+                class="w-[207px]"
             />
             <img
-                src="@/assets/images/about/aword_2.png"
-                class="w-[287px]"
+                src="@/assets/images/about/award_2.png"
+                class="w-[207px]"
             />
             <img
-                src="@/assets/images/about/aword_3.png"
+                src="@/assets/images/about/award_3.png"
                 class="w-[207px]"
             />
             <img
                 src="@/assets/images/about/award_4.png"
+                class="w-[207px]"
+            />
+            <img
+                src="@/assets/images/about/award_5.png"
+                class="w-[207px]"
+            />
+            <img
+                src="@/assets/images/about/award_6.png"
+                class="w-[207px]"
+            />
+            <img
+                src="@/assets/images/about/award_7.png"
+                class="w-[207px]"
+            />
+            <img
+                src="@/assets/images/about/award_8.png"
                 class="w-[207px]"
             />
         </div>
